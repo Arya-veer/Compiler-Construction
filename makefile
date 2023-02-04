@@ -5,8 +5,12 @@ all: main.c
 	# argparse part
 	gcc -c argparse/index.c -o build/argparse.o
 
+	# utils part
+	gcc -c utils/tokens/tokens.c -o build/utils_tokens_token.o
+
 	# Final compilation step
-	gcc build/argparse.o main.c -o erplag
+	# Note: Please specify all the object files generated before 'main.c'
+	gcc build/utils_tokens_token.o build/argparse.o main.c -o erplag
 
 clean:
 	rm -rf build/

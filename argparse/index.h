@@ -1,9 +1,15 @@
 #include <stdlib.h>
-typedef char* Arguments;
 
-enum ArgumentsEnum
-{
-    FILENAME
-};
+#ifndef ARGPARSE_INDEX_H
+#define ARGPARSE_INDEX_H
 
-Arguments* argparse(int argc, char* argv[]);
+    typedef char* Arguments;
+
+    enum ArgumentsEnum
+    {
+        FILENAME
+    };
+
+    Arguments* argparse(int argc, char* argv[]);
+
+#endif 
