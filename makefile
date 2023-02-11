@@ -11,9 +11,12 @@ all: main.c
 	## conversions folder
 	gcc -c utils/conversions/findIntVal.c -o build/utils_conversions_findIntVal.o
 
+	#lexer part
+	gcc -c lexer/lexer.c -o build/lexer_lexer.o
+
 	# Final compilation step
 	# Note: Please specify all the object files generated before 'main.c'
-	gcc build/utils_conversions_findIntVal.o build/utils_tokens_token.o build/argparse_index.o main.c -o erplag
+	gcc build/lexer_lexer.o build/utils_conversions_findIntVal.o build/utils_tokens_token.o build/argparse_index.o main.c -o erplag
 
 clean:
 	rm -rf build/
