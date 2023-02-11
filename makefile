@@ -1,5 +1,6 @@
 all: main.c
 	# Initialization
+	make clean
 	mkdir -p build
 
 	# argparse part
