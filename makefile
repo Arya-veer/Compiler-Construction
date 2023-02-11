@@ -16,7 +16,7 @@ all: main.c
 
 	# Final compilation step
 	# Note: Please specify all the object files generated before 'main.c'
-	gcc build/lexer_lexer.o build/utils_conversions_findIntVal.o build/utils_tokens_token.o build/argparse_index.o main.c -o erplag
+	gcc build/*.o main.c -o erplag
 
 clean:
 	rm -rf build/
