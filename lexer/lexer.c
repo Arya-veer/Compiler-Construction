@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 // #include<stdbool.h>
-#include"lexer.h"
+#include "lexer.h"
 
 // int tokenizer(TwinBuffer TB,LEXEME lex){
 //     char* currBuff = TB.curr?TB.buffFirst:TB.buffSecond;

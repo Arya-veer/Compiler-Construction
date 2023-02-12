@@ -2,7 +2,7 @@
 #define LEXER_LEXER_H
 
 #include"../utils/tokens/tokens.h"
-#include"../utils/Buffer/readFile.h"
+#include"../utils/Buffer/buffer.h"
 
 typedef struct lexeme LEXEME;
 struct lexeme{

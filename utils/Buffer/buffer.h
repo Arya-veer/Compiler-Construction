@@ -32,5 +32,6 @@ void incrementForward(TwinBuffer &TB);
 void incrementLexemeBegin(TwinBuffer &TB);
 char getCharacterAtForward(TwinBuffer &TB);
 void populateTwinBuffer(TwinBuffer& TB);
+void decrementForward(TwinBuffer &TB);
 
 #endif 
