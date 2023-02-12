@@ -4,6 +4,7 @@
 #include"../utils/tokens/tokens.h"
 #include"../utils/readFile/readFile.h"
 
+typedef struct lexeme LEXEME;
 struct lexeme{
     TOKENS token;
     int lineNo;
@@ -14,5 +15,4 @@ struct lexeme{
     };
 };
 
-typedef struct lexeme LEX;
 #endif
