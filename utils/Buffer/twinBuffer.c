@@ -19,7 +19,7 @@ char* incrementLexemeBegin(TwinBuffer &TB){
     if(TB.lexemeBegin == SIZE - 1)  {
         char lexemeBeginCharacter = TB.buffer[TB.currentBuffer][SIZE - 1];
         TB.lexemeBegin = 0;
-        TB.currentBuffer = 1 - TB.currentBuffer
+        TB.currentBuffer = 1 - TB.currentBuffer;
         populateTwinBuffer(TB);
         return lexemeBeginCharacter;
     }
@@ -35,6 +35,12 @@ char getCharacterAtForward(TwinBuffer &TB){
 }
 
 void decrementForward(TwinBuffer &TB){
-    
+    // if forward reached end of buffer, fill up the other buffer and put forward to zero
+    if(TB.forward == 0)  {
+        TB.forward = SIZE - 1;
+        return;
+    }
+    else TB.forward--;
+    // else simply increment forward
 }
 
