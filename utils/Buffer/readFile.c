@@ -9,7 +9,7 @@ TwinBuffer initializeTwinBuffer(char* fname){
     TB.fp = fopen(fname,"w");
     TB.lexemeBegin = 0;
     TB.forward = 0;
-    TB.curr = 0;
+    TB.currentBuffer = 0;
 }
 
 void populateTwinBuffer(TwinBuffer& TB){
