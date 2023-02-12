@@ -15,4 +15,6 @@ struct lexeme{
     };
 };
 
+void simulateDFA(TwinBuffer TB);
+
 #endif
