@@ -1,11 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
-// #include<stdbool.h>
+#include<string.h>
 #include "lexer.h"
 
+char* keywords = {"integer","real","boolean","of","array"};
 
-void tokenizer(TwinBuffer TB,LEXEME lex,int type){
-    // char* input = incrementLexemeBegin(TB);
+
+void tokenizer(TwinBuffer TB,LEXEME lex,int type,int enumNum){
+    char* input = incrementLexemeBegin(TB);
+    
 }
 
 
@@ -206,7 +209,47 @@ void simulateDFA(TwinBuffer TB){
                 c = getCharacterAtForward(TB);
                 if(c >= '0' && c <= '9') state = 24;
                 else if(c == '.'){
-                    //decreament forward
+                    decreamentForward(TB);
+                    printf("TOKENIZE TK_NUM\n");
+                    state = 0;
+                    break;
+                }
+                else state = -1;
+            case 24:
+                printf("STATE 24\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c >= '0' && c <= '9') state = 24;
+                else if (c == 'e' || c == 'E') state = 25;
+                else{
+                    printf("TOKENIZE TK_RNUM\n");
+                    state = 0;
+                    break;
+                }
+            case 25:
+                printf("STATE 25\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c == '+' || c == '-') state = 26;
+                else if(c >= '0' && c <= '9') state = 27;
+                else state = -1;
+                break;
+            case 26:
+                printf("STATE 26\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c >= '0' && c <= '9') state = 27;
+                else state = -1;
+                break;
+            case 27:
+                printf("STATE 27\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c >= '0' && c <= '9') state = 27;
+                else{
+                    printf("TOKENIZE TK_RNUM\n");
+                    state = 0;
+                    break;
                 }
         }
     }
