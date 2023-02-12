@@ -9,7 +9,7 @@ void simulateDFA(){
     TwinBuffer TB;
     char* currBuff;
     while(1){
-        currBuff = TB.curr?TB.buffFirst:TB.buffSecond;
+        currBuff = TB.currentBuffer?TB.buffFirst:TB.buffSecond;
         switch(state){
             case -1:
                 error = "Lexical Error Occured";

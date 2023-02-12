@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string.h>
 #define SIZE 4096
-#define Buffer char[SIZE]
+#define SingleBuffer char[SIZE]
 #ifndef UTILS_READFILE_READFILE_H
 #define UTILS_READFILE_READFILE_H
 
@@ -11,7 +11,7 @@ struct twinBuffer{
     
     /* Buffers
     */
-    Buffer buffer[2];
+    SingleBuffer buffer[2];
     /* Begin Pointer
     */
     int lexemeBegin;
@@ -31,5 +31,6 @@ TwinBuffer initializeTwinBuffer(char* fname);
 void incrementForward(TwinBuffer &TB);
 void incrementLexemeBegin(TwinBuffer &TB);
 char getCharacterAtForward(TwinBuffer &TB);
+void populateTwinBuffer(TwinBuffer& TB);
 
 #endif 
