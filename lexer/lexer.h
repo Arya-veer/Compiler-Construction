@@ -1,5 +1,8 @@
+#ifndef LEXER_LEXER_H
+#define LEXER_LEXER_H
 
-#include<utils/tokens/tokens.h>
+#include"../utils/tokens/tokens.h"
+#include"../utils/readFile/readFile.h"
 
 struct lexeme{
     TOKENS token;
@@ -12,3 +15,4 @@ struct lexeme{
 };
 
 typedef struct lexeme LEX;
+#endif
