@@ -15,7 +15,15 @@ void incrementForward(TwinBuffer &TB){
 
 }
 
-char* incrementLexemeBegin(TwinBuffer &TB){
+int findLexemeLength(TwinBuffer &TB){
+    // Major case 1: when the forward is equal to or ahead of lexemeBegin
+    if(TB.forward < TB.lexemeBegin) return SIZE + TB.forward - TB.lexemeBegin;
+
+    // Major case 2: when the forward is behind lexemeBegin
+    else return  TB.forward - TB.lexemeBegin;
+}
+
+char moveLexemeBegin(TwinBuffer &TB){
     if(TB.lexemeBegin == SIZE - 1)  {
         char lexemeBeginCharacter = TB.buffer[TB.currentBuffer][SIZE - 1];
         TB.lexemeBegin = 0;
@@ -25,6 +33,21 @@ char* incrementLexemeBegin(TwinBuffer &TB){
     }
     else TB.buffer[TB.currentBuffer][ TB.lexemeBegin++];
 }
+
+char* incrementLexemeBegin(TwinBuffer &TB){
+
+    // TODO: need to test this function
+    int length = findLexemeLength(TB);
+    char* lexeme = (char*) malloc((length + 1) * sizeof(char));
+
+    for (int i = 0; i < length; i++)
+    {
+        lexeme[i] = moveLexemeBegin(TB);
+    }
+    
+}
+
+
 
 char getCharacterAtForward(TwinBuffer &TB){
     // Major case 1: when the forward is equal to or ahead of lexemeBegin
