@@ -1,7 +1,7 @@
 #ifndef UTILS_TOKENS_TOKENS_H
 #define UTILS_TOKENS_TOKENS_H
 
-    enum TOKENS {
+    typedef enum  {
         INTEGER_TYPE,
         REAL_TYPE,
         BOOLEAN_TYPE,
@@ -55,6 +55,6 @@
         BO_TOKEN,
         BC_TOKEN,
         COMMENTMARK_TOKEN,
-    };
+    } TOKENS;
 
 #endif 
