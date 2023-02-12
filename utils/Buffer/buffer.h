@@ -2,11 +2,11 @@
 #include <math.h>
 #include <string.h>
 #define SIZE 4096
-#define SingleBuffer char[SIZE]
 #ifndef UTILS_READFILE_READFILE_H
 #define UTILS_READFILE_READFILE_H
 
 typedef struct twinBuffer TwinBuffer;
+typedef char SingleBuffer[4096];
 struct twinBuffer{
     
     /* Buffers
