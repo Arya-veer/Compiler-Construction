@@ -14,7 +14,6 @@ TwinBuffer initializeTwinBuffer(char* fname){
 
 void populateTwinBuffer(TwinBuffer& TB){
     // call this function whenever TB needs to be filled
-    if(! )
-    if(TB.currentBuffer == 0) fread(TB.buffer[1], sizeof(char), SIZE, TB.fp)
-    else fread(TB.buffer[0], sizeof(char), SIZE, TB.fp)
+    if(TB.lexemeBegin > LEXEME_SIZE) return;
+    fread(TB.buffer[1 - TB.currentBuffer], sizeof(char), SIZE, TB.fp);
 }
