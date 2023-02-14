@@ -251,6 +251,106 @@ void simulateDFA(TwinBuffer TB){
                     state = 0;
                     break;
                 }
+            case 28:
+                printf("STATE 28\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
+                else {
+                    printf("TOKENIZE TK_ID");
+                    state = 0;
+                    break;
+                }
+            case 29:
+                printf("STATE 29\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c == '=') state = 30;
+                else if(c == '>') state = 31;
+                else{
+                    printf("TOKENIZE TK_GT\n");
+                    state = 0;
+                    break;
+                }
+            case 30:
+                printf("STATE 30\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_GE\n");
+                state = 0;
+                break;
+            case 31:
+                printf("STATE 31\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c == '>') state = 32;
+                else{
+                    printf("TOKENIZE TK_ENDDEF\n");
+                    state = 0;
+                    break;
+                }
+            case 32:
+                printf("STATE 32\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_DRIVERENDDEF\n");
+                state = 0;
+                break;
+            case 33:
+                printf("STATE 33\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c == '=') state = 34;
+                else if(c == '<') state = 35;
+                else{
+                    printf("TOKENIZE TK_LT\n");
+                    state = 0;
+                    break;
+                }
+            case 34:
+                printf("STATE 34\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_LE\n");
+                state = 0;
+                break;
+            case 35:
+                printf("STATE 35\n");
+                incrementForward(TB);
+                c = getCharacterAtForward(TB);
+                if(c == '<') state = 36;
+                else{
+                    printf("TOKENIZE TK_DEF\n");
+                    state = 0;
+                    break;
+                }
+            case 36:
+                printf("STATE 36\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_DRIVERDEF\n");
+                state = 0;
+                break;
+            case 37:
+                printf("STATE 37\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_SPACE\n");
+                state = 0;
+                break;
+            case 38:
+                printf("STATE 38\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_TAB\n");
+                state = 0;
+                break;
+            case 39:
+                printf("STATE 39\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_NEWLINE\n");
+                state = 0;
+                break;
+            case 40:
+                printf("STATE 40\n");
+                incrementForward(TB);
+                printf("TOKENIZE TK_EOF\n");
+                state = 0;
+                break;
         }
     }
 }
