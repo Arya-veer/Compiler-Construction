@@ -3,11 +3,11 @@
 #include<string.h>
 #include "lexer.h"
 
-char* keywords = {"integer","real","boolean","of","array"};
+char* keywords[] = {"integer","real","boolean","of","array"};
 
 
 void tokenizer(TwinBuffer TB,LEXEME lex,int type,int enumNum){
-    char* input = extractLexeme(TB);
+    char* input = extractLexeme(&TB);
     
 }
 
@@ -19,7 +19,7 @@ void simulateDFA(TwinBuffer TB){
     int lineCount = 0;
     char* currBuff;
     while(1){
-        // currBuff = TB.currentBuffer?TB.buffFirst:TB.buffSecond;
+        // currBuff = TB.currentLexemeBegin?TB.buffFirst:TB.buffSecond;
         switch(state){
             case -1:
                 error = "Lexical Error Occured";
@@ -27,7 +27,7 @@ void simulateDFA(TwinBuffer TB){
             case 0:
                 printf("START STATE\n");
                 // TB.lexemeBegin = TB.forward;
-                c = getCharacterAtForward(TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '+')       state = 1;
                 else if (c == '-') state = 2;
                 else if (c == '/') state = 3;
@@ -55,101 +55,101 @@ void simulateDFA(TwinBuffer TB){
             
             case 1:
                 printf("STATE 1\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_PLUS\n");
                 state = 0;
                 break;
             case 2:
                 printf("STATE 2\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_MINUS\n");
                 state = 0;
                 break;
             case 3:
                 printf("STATE 3\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_DIV\n");
                 state = 0;
                 break;
             case 4:
                 printf("STATE 4\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_SEMICOL\n");
                 state = 0;
                 break;
             case 5:
                 printf("STATE 5\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_COMMA\n");
                 state = 0;
                 break;
             case 6:
                 printf("STATE 6\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_SQBO\n");
                 state = 0;
                 break;
             case 7:
                 printf("STATE 7\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_SQBC\n");
                 state = 0;
                 break;
             case 8:
                 printf("STATE 8\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_BO\n");
                 state = 0;
                 break;
             case 9:
                 printf("STATE 9\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_BC\n");
                 state = 0;
                 break;
             case 10:
                 printf("STATE 10\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '=') state = 11;
                 else state = -1;
                 break;
             case 11:
                 printf("STATE 11\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_NE\n");
                 state = 0;
                 break;
             case 12:
                 printf("STATE 12\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '=') state = 13;
                 else state = -1;
                 break;
             case 13:
                 printf("STATE 13\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_EQ\n");
                 state = 0;
                 break;
             case 14:
                 printf("STATE 14\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '.') state = 15;
                 else state = -1;
                 break;
             case 15:
                 printf("STATE 15\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_RANGEOP\n");
                 state = 0;
                 break;
             case 16:
                 printf("STATE 16\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '*') state = 17;
                 else{
                     printf("TOKENIZE TK_MUL\n");
@@ -158,28 +158,28 @@ void simulateDFA(TwinBuffer TB){
                 break;
             case 17:
                 printf("STATE 17\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '*') state = 18;
                 else state = 17;
                 break;
             case 18:
                 printf("STATE 18\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '*') state = 19;
                 else state = 17;
                 break;
             case 19:
                 printf("STATE 19\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_COMMENTMARK\n");
                 state = 0;
                 break;
             case 20:
                 printf("STATE 20\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '=') state = 21;
                 else{
                     printf("TOKENIZE TK_COLON\n");
@@ -188,14 +188,14 @@ void simulateDFA(TwinBuffer TB){
                 break;
             case 21:
                 printf("STATE 21\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_ASSIGNOP\n");
                 state = 0;
                 break;
             case 22:
                 printf("STATE 22\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '.') state = 23;
                 else if(c >= '0' && c <= '9') state = 22;
                 else{
@@ -205,11 +205,11 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 23:
                 printf("STATE 23\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c >= '0' && c <= '9') state = 24;
                 else if(c == '.'){
-                    decreamentForward(TB);
+                    decrementForward(&TB);
                     printf("TOKENIZE TK_NUM\n");
                     state = 0;
                     break;
@@ -217,8 +217,8 @@ void simulateDFA(TwinBuffer TB){
                 else state = -1;
             case 24:
                 printf("STATE 24\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c >= '0' && c <= '9') state = 24;
                 else if (c == 'e' || c == 'E') state = 25;
                 else{
@@ -228,23 +228,23 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 25:
                 printf("STATE 25\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '+' || c == '-') state = 26;
                 else if(c >= '0' && c <= '9') state = 27;
                 else state = -1;
                 break;
             case 26:
                 printf("STATE 26\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c >= '0' && c <= '9') state = 27;
                 else state = -1;
                 break;
             case 27:
                 printf("STATE 27\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c >= '0' && c <= '9') state = 27;
                 else{
                     printf("TOKENIZE TK_RNUM\n");
@@ -253,8 +253,8 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 28:
                 printf("STATE 28\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
                 else {
                     printf("TOKENIZE TK_ID");
@@ -263,8 +263,8 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 29:
                 printf("STATE 29\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '=') state = 30;
                 else if(c == '>') state = 31;
                 else{
@@ -274,14 +274,14 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 30:
                 printf("STATE 30\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_GE\n");
                 state = 0;
                 break;
             case 31:
                 printf("STATE 31\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '>') state = 32;
                 else{
                     printf("TOKENIZE TK_ENDDEF\n");
@@ -290,14 +290,14 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 32:
                 printf("STATE 32\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_DRIVERENDDEF\n");
                 state = 0;
                 break;
             case 33:
                 printf("STATE 33\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '=') state = 34;
                 else if(c == '<') state = 35;
                 else{
@@ -307,14 +307,14 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 34:
                 printf("STATE 34\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_LE\n");
                 state = 0;
                 break;
             case 35:
                 printf("STATE 35\n");
-                incrementForward(TB);
-                c = getCharacterAtForward(TB);
+                incrementForward(&TB);
+                c = getCharacterAtForward(&TB);
                 if(c == '<') state = 36;
                 else{
                     printf("TOKENIZE TK_DEF\n");
@@ -323,31 +323,31 @@ void simulateDFA(TwinBuffer TB){
                 }
             case 36:
                 printf("STATE 36\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_DRIVERDEF\n");
                 state = 0;
                 break;
             case 37:
                 printf("STATE 37\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_SPACE\n");
                 state = 0;
                 break;
             case 38:
                 printf("STATE 38\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_TAB\n");
                 state = 0;
                 break;
             case 39:
                 printf("STATE 39\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_NEWLINE\n");
                 state = 0;
                 break;
             case 40:
                 printf("STATE 40\n");
-                incrementForward(TB);
+                incrementForward(&TB);
                 printf("TOKENIZE TK_EOF\n");
                 state = 0;
                 break;

@@ -3,7 +3,7 @@
 #include <string.h>
 #ifndef UTILS_READFILE_READFILE_H
 #define UTILS_READFILE_READFILE_H
-#define SIZE 4096
+#define SIZE 2
 #define LEXEME_SIZE 32
 
 typedef struct twinBuffer TwinBuffer;
@@ -22,18 +22,20 @@ struct twinBuffer{
     int forward;
     /* Current Buffer
     */
-    int currentBuffer;
+    int currentLexemeBegin;
+
+    int currentForward;
     /* Filename
     */
     FILE* fp;
 };
 
-void populateTwinBuffer(TwinBuffer& TB);
+void populateTwinBuffer(TwinBuffer *TB);
 TwinBuffer initializeTwinBuffer(char* fname);
-void incrementForward(TwinBuffer &TB);
-char* extractLexeme(TwinBuffer &TB);
-char getCharacterAtForward(TwinBuffer &TB);
-void populateTwinBuffer(TwinBuffer& TB);
-void decrementForward(TwinBuffer &TB);
+void incrementForward(TwinBuffer *TB);
+char* extractLexeme(TwinBuffer *TB);
+char getCharacterAtForward(TwinBuffer *TB);
+void populateTwinBuffer(TwinBuffer *TB);
+void decrementForward(TwinBuffer *TB);
 
 #endif 

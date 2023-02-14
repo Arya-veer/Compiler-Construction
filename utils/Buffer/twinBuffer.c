@@ -1,48 +1,51 @@
-#include <buffer.h>
+#include "buffer.h"
 
 /*
     Handler functions for the TwinBuffer struct object
 */
 
-void incrementForward(TwinBuffer &TB){
+void incrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero
-    if(TB.forward == SIZE - 1)  {
-        TB.forward = 0;
+    if(TB->forward == SIZE - 1)  {
+        TB->forward = 0;
+        TB->currentForward = 1 - TB->currentForward;
+        populateTwinBuffer(TB);
         return;
     }
-    else TB.forward++
+    else TB->forward++;
     // else simply increment forward
 }
 
-void decrementForward(TwinBuffer &TB){
+void decrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero
-    if(TB.forward == 0)  {
-        TB.forward = SIZE - 1;
+    if(TB->forward == 0)  {
+        TB->forward = SIZE - 1;
+        TB->currentForward =   1 - TB->currentForward;
+
         return;
     }
-    else TB.forward--;
+    else TB->forward--;
     // else simply increment forward
 }
 
-int findLexemeLength(TwinBuffer &TB){
+int findLexemeLength(TwinBuffer *TB){
     // Major case 1: when the forward is equal to or ahead of lexemeBegin
-    if(TB.forward < TB.lexemeBegin) return SIZE + TB.forward - TB.lexemeBegin;
+    if(TB->currentForward != TB->currentLexemeBegin) return SIZE + TB->forward - TB->lexemeBegin;
 
     // Major case 2: when the forward is behind lexemeBegin
-    else return  TB.forward - TB.lexemeBegin;
+    else return  TB->forward - TB->lexemeBegin;
 }
 
 
 // not exported
-char moveLexemeBegin(TwinBuffer &TB){
-    if(TB.lexemeBegin == SIZE - 1)  {
-        char lexemeBeginCharacter = TB.buffer[TB.currentBuffer][SIZE - 1];
-        TB.lexemeBegin = 0;
-        TB.currentBuffer = 1 - TB.currentBuffer;
-        populateTwinBuffer(TB);
+char moveLexemeBegin(TwinBuffer *TB){
+    if(TB->lexemeBegin == SIZE - 1)  {
+        char lexemeBeginCharacter = TB->buffer[TB->currentLexemeBegin][SIZE - 1];
+        TB->lexemeBegin = 0;
+        TB->currentLexemeBegin = 1 - TB->currentLexemeBegin;
         return lexemeBeginCharacter;
     }
-    else return TB.buffer[TB.currentBuffer][ TB.lexemeBegin++];
+    else return TB->buffer[TB->currentLexemeBegin][ TB->lexemeBegin++];
 }
 
 // not exported
@@ -54,28 +57,28 @@ int isWhiteSpace(char c){
                 c == '\r' ||
                 c == '\b' ||
                 c == EOF
-     )
+     );
 }
 
-char* extractLexeme(TwinBuffer &TB){
+/* MAKE SURE THAT LEXEME_BEGIN IS AT A NON-WHITESPACE CHARACTER */
+char* extractLexeme(TwinBuffer *TB){
 
     // TODO: need to test this function
     int length = findLexemeLength(TB);
-    char* lexeme = ReturnLexeme;
-
-    for (int i = 0; i < length; i++)
+    int i = 0;
+    for (i = 0; i < length; i++)
     {
-        lexeme[i] = moveLexemeBegin(TB);
+        ReturnLexeme[i] = moveLexemeBegin(TB);
+        printf("in the loop %d %c\n", i, ReturnLexeme[i]);
+
+        // if(isWhiteSpace(ReturnLexeme[i])) --i;
     }
-    lexeme[i] = '\0';
-    return lexeme;
+    ReturnLexeme[i] = '\0';
+    printf("lolamao %s\n", ReturnLexeme);
+    return ReturnLexeme;
     
 }
 
-char getCharacterAtForward(TwinBuffer &TB){
-    // Major case 1: when the forward is equal to or ahead of lexemeBegin
-    if(TB.forward >= TB.lexemeBegin) return TB.buffer[1 - TB.currentBuffer][TB.forward];
-
-    // Major case 2: when the forward is behind lexemeBegin
-    else return TB.buffer[TB.currentBuffer][TB.forward];
+char getCharacterAtForward(TwinBuffer *TB){
+    return TB->buffer[TB->currentForward][TB->forward];
 }
