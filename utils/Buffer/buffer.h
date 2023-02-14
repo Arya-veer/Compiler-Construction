@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#define SIZE 4096
 #ifndef UTILS_READFILE_READFILE_H
 #define UTILS_READFILE_READFILE_H
+#define SIZE 4096
+#define LEXEME_SIZE 32
 
 typedef struct twinBuffer TwinBuffer;
-typedef char SingleBuffer[4096];
+typedef char SingleBuffer[SIZE];
+char ReturnLexeme[LEXEME_SIZE];
 struct twinBuffer{
     
     /* Buffers
