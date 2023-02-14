@@ -7,7 +7,7 @@ char* keywords = {"integer","real","boolean","of","array"};
 
 
 void tokenizer(TwinBuffer TB,LEXEME lex,int type,int enumNum){
-    char* input = incrementLexemeBegin(TB);
+    char* input = extractLexeme(TB);
     
 }
 

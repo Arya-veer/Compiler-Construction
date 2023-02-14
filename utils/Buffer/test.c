@@ -6,7 +6,15 @@ int main(){
 
     // populate twinBuffer
 
-    // getCharacterAtForward
+    // getCharacterAtForward x3
+
+    // findLexemeLength == 3
+
+    // incrementForward, decrementForward
+    
+    // findLexemeLength == 3
+
+    // extractLexeme and compare string
 
     // 
 }

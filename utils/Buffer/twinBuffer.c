@@ -45,7 +45,19 @@ char moveLexemeBegin(TwinBuffer &TB){
     else return TB.buffer[TB.currentBuffer][ TB.lexemeBegin++];
 }
 
-char* incrementLexemeBegin(TwinBuffer &TB){
+// not exported
+int isWhiteSpace(char c){
+     return (
+                c == ' ' ||
+                c == '\t' ||
+                c == '\n' ||
+                c == '\r' ||
+                c == '\b' ||
+                c == EOF
+     )
+}
+
+char* extractLexeme(TwinBuffer &TB){
 
     // TODO: need to test this function
     int length = findLexemeLength(TB);
