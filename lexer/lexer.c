@@ -3,13 +3,6 @@
 #include<string.h>
 #include "lexer.h"
 
-char* keywords[] = {"integer","real","boolean","of","array"};
-
-
-void tokenizer(TwinBuffer TB,LEXEME lex,int type,int enumNum){
-    char* input = extractLexeme(&TB);
-    
-}
 
 
 void simulateDFA(TwinBuffer TB){
@@ -19,7 +12,6 @@ void simulateDFA(TwinBuffer TB){
     int lineCount = 0;
     char* currBuff;
     while(1){
-        // currBuff = TB.currentLexemeBegin?TB.buffFirst:TB.buffSecond;
         switch(state){
             case -1:
                 error = "Lexical Error Occured";

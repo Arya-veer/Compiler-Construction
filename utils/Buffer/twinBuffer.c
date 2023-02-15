@@ -69,16 +69,16 @@ char* extractLexeme(TwinBuffer *TB){
     for (i = 0; i < length; i++)
     {
         ReturnLexeme[i] = moveLexemeBegin(TB);
-        printf("in the loop %d %c\n", i, ReturnLexeme[i]);
 
         // if(isWhiteSpace(ReturnLexeme[i])) --i;
     }
     ReturnLexeme[i] = '\0';
-    printf("lolamao %s\n", ReturnLexeme);
     return ReturnLexeme;
     
 }
 
 char getCharacterAtForward(TwinBuffer *TB){
-    return TB->buffer[TB->currentForward][TB->forward];
+
+    char c =  TB->buffer[TB->currentForward][TB->forward];
+    return c;
 }

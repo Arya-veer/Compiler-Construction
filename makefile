@@ -12,13 +12,12 @@ all: main.c
 	gcc -c utils/Buffer/twinBuffer.c -o build/utils_Buffer_twinBuffer.o
 	## tokens folder
 	gcc -c utils/tokens/tokens.c -o build/utils_tokens_token.o
-	## conversions folder
-	gcc -c utils/conversions/findIntVal.c -o build/utils_conversions_findIntVal.o
 	## colorText folder
 	gcc -c utils/colorText/index.c -o build/utils_colorText_index.o
 
 	#lexer part
 	gcc -c lexer/lexer.c -o build/lexer_lexer.o
+	gcc -c lexer/tokenize.c build/lexer_tokenize.o
 
 	# Final compilation step
 	# Note: Please specify all the object files generated before 'main.c'

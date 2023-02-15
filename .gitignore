@@ -2,3 +2,6 @@
 
 # *.out
 # *.exe
+*.json
+.json
+settings.json

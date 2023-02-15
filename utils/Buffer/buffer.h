@@ -3,7 +3,7 @@
 #include <string.h>
 #ifndef UTILS_READFILE_READFILE_H
 #define UTILS_READFILE_READFILE_H
-#define SIZE 2
+#define SIZE 4096
 #define LEXEME_SIZE 32
 
 typedef struct twinBuffer TwinBuffer;
