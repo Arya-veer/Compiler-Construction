@@ -17,7 +17,7 @@ all: main.c
 
 	#lexer part
 	gcc -c lexer/lexer.c -o build/lexer_lexer.o
-	gcc -c lexer/tokenize.c build/lexer_tokenize.o
+	gcc -c lexer/tokenize.c -o build/lexer_tokenize.o
 
 	# Final compilation step
 	# Note: Please specify all the object files generated before 'main.c'

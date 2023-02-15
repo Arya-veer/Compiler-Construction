@@ -4,7 +4,6 @@
 #include "lexer.h"
 
 
-
 void simulateDFA(TwinBuffer *TB){
     char* error;
     int state = 0;

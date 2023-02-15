@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "tokenize.h"
+#include "./tokenize.h"
 
 int isFloat(char* number){
     int n = strlen(number);

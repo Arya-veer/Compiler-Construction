@@ -1,6 +1,9 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "buffer.h": "c",
+        "tokenize.h": "c",
+        "tokens.h": "c"
     },
 }
