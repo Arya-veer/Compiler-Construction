@@ -1,1 +1,4 @@
-<<
+while(2..15)
+    start 
+        100
+    end

@@ -3,8 +3,8 @@
 #include <string.h>
 #include "buffer.h"
 
-
 TwinBuffer initializeTwinBuffer(char* fname){
+    // preprocessFile(fname,-1);
     TwinBuffer TB;
     TB.fp = fopen(fname,"r");
     TB.lexemeBegin = 0;
@@ -17,7 +17,10 @@ TwinBuffer initializeTwinBuffer(char* fname){
 
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
-    fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
+    int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
+    TB->buffer[TB->currentForward][length] = 0;
+    TB->buffer[TB->currentForward][length + 1] = -1;
+    printf("size = %d \n%s\n", length, TB->buffer[TB->currentForward]);
 }
 
 /* 

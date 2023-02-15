@@ -66,13 +66,16 @@ char* extractLexeme(TwinBuffer *TB){
     // TODO: need to test this function
     int length = findLexemeLength(TB);
     int i = 0;
+    // printf("length = %d\n",length);
     for (i = 0; i < length; i++)
     {
         ReturnLexeme[i] = moveLexemeBegin(TB);
+        // printf("Inside extractLexeme ==============> %c\n",ReturnLexeme[i]);
 
         // if(isWhiteSpace(ReturnLexeme[i])) --i;
     }
     ReturnLexeme[i] = '\0';
+    // printf(" Extracted Lexeme is %s\n",ReturnLexeme);
     return ReturnLexeme;
     
 }
