@@ -49,54 +49,63 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 1\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_PLUS\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 2:
                 printf("STATE 2\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_MINUS\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 3:
                 printf("STATE 3\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_DIV\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 4:
                 printf("STATE 4\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_SEMICOL\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 5:
                 printf("STATE 5\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_COMMA\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 6:
                 printf("STATE 6\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_SQBO\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 7:
                 printf("STATE 7\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_SQBC\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 8:
                 printf("STATE 8\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_BO\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 9:
                 printf("STATE 9\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_BC\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 10:
@@ -110,6 +119,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 11\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_NE\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 12:
@@ -123,6 +133,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 13\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_EQ\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 14:
@@ -136,6 +147,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 15\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_RANGEOP\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 16:
@@ -145,6 +157,7 @@ void simulateDFA(TwinBuffer TB){
                 if(c == '*') state = 17;
                 else{
                     printf("TOKENIZE TK_MUL\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                 }
                 break;
@@ -166,6 +179,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 19\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_COMMENTMARK\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 20:
@@ -175,6 +189,7 @@ void simulateDFA(TwinBuffer TB){
                 if(c == '=') state = 21;
                 else{
                     printf("TOKENIZE TK_COLON\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                 }
                 break;
@@ -182,6 +197,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 21\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_ASSIGNOP\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 22:
@@ -192,6 +208,7 @@ void simulateDFA(TwinBuffer TB){
                 else if(c >= '0' && c <= '9') state = 22;
                 else{
                     printf("TOKENIZE TK_NUM\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -203,6 +220,7 @@ void simulateDFA(TwinBuffer TB){
                 else if(c == '.'){
                     decrementForward(&TB);
                     printf("TOKENIZE TK_NUM\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -215,6 +233,7 @@ void simulateDFA(TwinBuffer TB){
                 else if (c == 'e' || c == 'E') state = 25;
                 else{
                     printf("TOKENIZE TK_RNUM\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -240,6 +259,7 @@ void simulateDFA(TwinBuffer TB){
                 if(c >= '0' && c <= '9') state = 27;
                 else{
                     printf("TOKENIZE TK_RNUM\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -250,6 +270,7 @@ void simulateDFA(TwinBuffer TB){
                 if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
                 else {
                     printf("TOKENIZE TK_ID");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -261,6 +282,7 @@ void simulateDFA(TwinBuffer TB){
                 else if(c == '>') state = 31;
                 else{
                     printf("TOKENIZE TK_GT\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -268,6 +290,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 30\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_GE\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 31:
@@ -277,6 +300,7 @@ void simulateDFA(TwinBuffer TB){
                 if(c == '>') state = 32;
                 else{
                     printf("TOKENIZE TK_ENDDEF\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -284,6 +308,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 32\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_DRIVERENDDEF\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 33:
@@ -294,6 +319,7 @@ void simulateDFA(TwinBuffer TB){
                 else if(c == '<') state = 35;
                 else{
                     printf("TOKENIZE TK_LT\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -301,6 +327,7 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 34\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_LE\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 35:
@@ -310,6 +337,7 @@ void simulateDFA(TwinBuffer TB){
                 if(c == '<') state = 36;
                 else{
                     printf("TOKENIZE TK_DEF\n");
+                    tokenize(&TB,lineCount);
                     state = 0;
                     break;
                 }
@@ -317,30 +345,35 @@ void simulateDFA(TwinBuffer TB){
                 printf("STATE 36\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_DRIVERDEF\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 37:
                 printf("STATE 37\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_SPACE\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 38:
                 printf("STATE 38\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_TAB\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 39:
                 printf("STATE 39\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_NEWLINE\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
             case 40:
                 printf("STATE 40\n");
                 incrementForward(&TB);
                 printf("TOKENIZE TK_EOF\n");
+                tokenize(&TB,lineCount);
                 state = 0;
                 break;
         }
