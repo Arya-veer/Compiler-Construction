@@ -40,7 +40,7 @@ void simulateDFA(TwinBuffer TB){
                 else if (c == '<') state = 33;
                 else if (c == ' ') state = 37;
                 else if (c == '\t') state = 38;
-                else if (c == '\n') state = 39;
+                else if (c == '\n') state = 39, lineCount++;
                 else if (c == EOF) state = 40;
                 else state = -1;
                 break;
