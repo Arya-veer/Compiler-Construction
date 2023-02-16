@@ -10,7 +10,7 @@ all: main.c
 	## Buffer folder
 	gcc -c utils/Buffer/readFile.c -o build/utils_Buffer_readfile.o
 	gcc -c utils/Buffer/twinBuffer.c -o build/utils_Buffer_twinBuffer.o
-	## tokens folder
+	## tokens folder (has tokens dependency)
 	gcc -c utils/tokens/tokens.c -o build/utils_tokens_token.o
 	## colorText folder
 	gcc -c utils/colorText/index.c -o build/utils_colorText_index.o

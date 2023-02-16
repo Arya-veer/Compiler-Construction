@@ -1,9 +1,6 @@
 #ifndef UTILS_TOKENS_TOKENS_H
 #define UTILS_TOKENS_TOKENS_H
-
-    
-    
-    
+  
     typedef enum  {
         INTEGER_TYPE,
         REAL_TYPE,
@@ -62,62 +59,6 @@
         IDENTIFIER_TOKEN
     } TOKENS;
 
-     char* tokens[] = {
-        "integer",
-        "real",
-        "boolean",
-        "of",
-        "array",
-        "start",
-        "end",
-        "declare",
-        "module",
-        "driver",
-        "program",
-        "get_value",
-        "print",
-        "use",
-        "with",
-        "parameters",
-        "takes",
-        "input",
-        "returns",
-        "for",
-        "in",
-        "switch",
-        "case",
-        "break",
-        "default",
-        "while",
-        "AND",
-        "OR",
-        "true",
-        "false",
-        "+",
-        "-",
-        "*",
-        "/",
-        "<",
-        "<=",
-        ">=",
-        ">",
-        "==",
-        "!=",
-        "<<",
-        ">>",
-        "<<<",
-        ">>>",
-        ":",
-        "..",
-        ";",
-        ",",
-        ":=",
-        "[",
-        "]",
-        "(",
-        ")",
-        "**"
-    };
-
+     char* TOKENS_STRING[54];
 
 #endif 

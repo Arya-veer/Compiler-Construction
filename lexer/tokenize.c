@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "./tokenize.h"
+#include "lexer.h"
 
 int isFloat(char* number){
     int n = strlen(number);
@@ -41,8 +41,8 @@ void tokenize(TwinBuffer *TB,int line){
     int found = 0;
     /* Checking For Keywords */
     for(int i=0;i <= 53;i++){
-        // printf("Are they equal %d\n",strcmp(input,tokens[i]));
-        if(strcmp(input,tokens[i]) == 0){
+        // printf("Are they equal %d\n",strcmp(input,TOKENS_STRING[i]));
+        if(strcmp(input,TOKENS_STRING[i]) == 0){
             lex->token = (TOKENS) i;
             found = 1;
             break;
