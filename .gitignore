@@ -1,7 +1,12 @@
-# build
+build
+build/
+build/*
 
 # *.out
 # *.exe
+.vscode
+.vscode/
+
 *.json
 .json
 settings.json
