@@ -36,7 +36,7 @@ void simulateDFA(TwinBuffer *TB){
                 else if (c == '*') state = 16;
                 else if (c == ':') state = 20;
                 else if (c >= '0' && c <= '9') state = 22;
-                else if ((c >= 'a' && c >= 'z') || (c >='A' && c >= 'Z') || (c == '_')) state = 28;
+                else if ((c >= 'a' && c <= 'z') || (c >='A' && c <= 'Z') || (c == '_')) state = 28;
                 else if (c == '>') state = 29;
                 else if (c == '<') state = 33;
                 else if (c == ' ') state = 37;

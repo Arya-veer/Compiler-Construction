@@ -1,4 +1,12 @@
-while(2..15)
-    start 
-        100
-    end
+<<<driver program>>>
+start
+declare num, k:integer;
+declare A:array [4..10] of integer;
+for(k in 6..10)
+start
+A[k]:=(num - k)*(num-k);
+print(A[k]);
+end
+[num]:=use module arraysum with parameters A;
+print(num);
+end
