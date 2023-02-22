@@ -2,20 +2,29 @@
 #include<stdlib.h>
 #include<string.h>
 #include "lexer.h"
+#include "../utils/errors/errors.c"
 
 
 void simulateDFA(TwinBuffer *TB){
     char* error;
     int state = 0;
     char c;
+    char errorChar;
+    char* errorString;
     int lineCount = 0;
-    char* currBuff;
     while(1){
         switch(state){
             case -1:
-                printf("Lexical Error Occured\n");
+                errorChar = getCharacterAtForward(TB);
+                printf("Error due to %c\n",c);
+                incrementForward(TB);
+                errorString = extractLexeme(TB);
+                lexicalError(c,lineCount,errorString);
 
-                return;
+                // printf("Lexical Error Occured\n");
+
+                state = 0;
+                break;
             case 0:
                 printf("START STATE\n");
                 // TB.lexemeBegin = TB.forward;
@@ -205,7 +214,6 @@ void simulateDFA(TwinBuffer *TB){
                 printf("STATE 22\n");
                 incrementForward(TB);
                 c = getCharacterAtForward(TB);
-                printf("Inside case 22, c = %d\n",c);
                 if(c == '.') state = 23;
                 else if(c >= '0' && c <= '9') state = 22;
                 else{
@@ -269,6 +277,7 @@ void simulateDFA(TwinBuffer *TB){
                 printf("STATE 28\n");
                 incrementForward(TB);
                 c = getCharacterAtForward(TB);
+                // printf("%d\n",c);
                 if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
                 else {
                     printf("TOKENIZE TK_ID OR TK_KW\n");
@@ -378,6 +387,7 @@ void simulateDFA(TwinBuffer *TB){
                 tokenize(TB,lineCount);
                 state = 0;
                 printf("ENDING DFA PARSING\n");
+                printErrors();
                 return;
         }
     }

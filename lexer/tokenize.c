@@ -19,12 +19,11 @@ int isFloat(char* number){
  */
 void tokenize(TwinBuffer *TB,int line){
     char* input = extractLexeme(TB);
-
+    // printf("tokenize got the input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
     lex->lineNo = line;
-    printf("tokenize got the input as %s\n",input);
     /* Checking For Int or Float */
     if(input[0] >= '0' && input[0] <= '9'){
         if(isFloat(input)){
