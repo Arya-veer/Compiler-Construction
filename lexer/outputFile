@@ -1,5 +1,5 @@
-size = 212 
-<<<driver program>>>
+size = 215 
+<<<<<<driver program>>>
 start
 declare num, k:integer;
 declare A:array [4..10] of integer;
@@ -11,6 +11,14 @@ end
 [num]:=use module arraysum with parameters A;
 print(num);
 end
+START STATE
+current char = 60
+STATE 33
+STATE 35
+STATE 36
+TOKENIZE TK_DRIVERDEF
+tokenize got the input as <<<
+Tokenized 42 , sending it for parsing
 START STATE
 current char = 60
 STATE 33
