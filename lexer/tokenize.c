@@ -17,10 +17,10 @@ int isFloat(char* number){
     int line;
     TODO: Handle comments
  */
-void tokenize(TwinBuffer *TB,int line){
+LEXEME* tokenize(TwinBuffer *TB,int line){
     char* input = extractLexeme(TB);
     // printf("tokenize got the input as %s\n",input);
-    if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return; // If a white space is there do not tokenize it
+    if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
     lex->lineNo = line;
@@ -28,13 +28,14 @@ void tokenize(TwinBuffer *TB,int line){
     if(input[0] >= '0' && input[0] <= '9'){
         if(isFloat(input)){
             lex->lexemedata->floatData = atof(input);
-            // printf("Printing as float => %f\n",lex->lexemedata->floatData);
+
+            printf("Printing as float => %f\n",lex->lexemedata->floatData);
         }
         else{
             lex->lexemedata->intData = atoi(input);
             // printf("Printing as integer => %d\n",lex->lexemedata->intData);
         }
-        return;
+        return lex;
     }
     lex->lexemedata->data = input;
     int found = 0;
@@ -50,6 +51,6 @@ void tokenize(TwinBuffer *TB,int line){
 
     if(found == 0) lex->token = IDENTIFIER_TOKEN;
     printf("Tokenized %d , sending it for parsing\n",(int) lex->token);
-    return;
+    return lex;
 }
 

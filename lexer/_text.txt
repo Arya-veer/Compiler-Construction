@@ -1,12 +1,2 @@
-<<<<<<driver program>>>
-start
-declare num, k:integer;
-declare A:array [4..10] of integer;
-for(k in 6..10)
-start
-A[k]:=(num - k)*(num-k);
-print(A[k]);
-end
-[num]:=use module arraysum with parameters A;
-print(num);
-end
+declare x:integer = 876.67e4 + 89.98;
+x=x+5; 

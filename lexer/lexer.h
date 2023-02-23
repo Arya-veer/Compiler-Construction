@@ -16,7 +16,7 @@ union lexemeData{
         union lexemeData *lexemedata;
     };
 
-void tokenize(TwinBuffer *TB,int line);
-void simulateDFA(TwinBuffer *TB);
+LEXEME* tokenize(TwinBuffer *TB,int line);
+LEXEME* simulateDFA(TwinBuffer *TB);
 
 #endif

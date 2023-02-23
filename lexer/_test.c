@@ -7,8 +7,13 @@
 
 int main(){
     TwinBuffer TB = initializeTwinBuffer("_text.txt");
+    int line = 0;
+    LEXEME* lexm = simulateDFA(&TB);
+    while(lexm != NULL){
+        lexm = simulateDFA(&TB);
+    }
 
-    simulateDFA(&TB);
+    printErrors();
 
     fclose(TB.fp);
 }

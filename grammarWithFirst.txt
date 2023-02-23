@@ -1,0 +1,117 @@
+<finalProgram> → <program> EOF |  {DECLARE , DEF, DRIVERDEF}
+<program> →  <moduleDeclarations> <otherModules> <driverModule> <otherModules> |  {DECLARE , DEF, DRIVERDEF}
+<moduleDeclarations> → <moduleDeclaration>< moduleDeclarations> | {DECLARE}
+<moduleDeclarations> → ε | {DEF, DRIVERDEF}
+<moduleDeclaration> → DECLARE MODULE ID SEMICOL | {DECLARE}
+<otherModules> → <module> <otherModules> | {DEF}
+<otherModules> → ε | {DRIVERDEF, EOF}
+<driverModule> → DRIVERDEF DRIVER PROGRAM DRIVERENDDEF <moduleDef> | {DRIVERDEF}
+<module> → DEF MODULE ID ENDDEF TAKES INPUT SQBO <input_plist> SQBC SEMICOL <ret><moduleDef> | {DEF}
+<ret> →  RETURNS SQBO <output_plist> SQBC SEMICOL | {RETURNS}
+<ret> → ε |  {START}
+<input_plist>  →ID COLON <dataType> <leftFactored_input_plist> | {ID}
+<leftFactored_input_plist> →  COMMA ID COLON <dataType><leftFactored_input_plist> | {COMMA} 
+<leftFactored_input_plist> → ε | {SQBC}
+<output_plist> → ID COLON <type><leftFactored_output_plist> | {ID}
+<leftFactored_output_plist> → COMMA ID COLON <type><leftFactored_output_plist> | {COMMA}
+<leftFactored_output_plist> → ε | {SQBC}
+<dataType> →  INTEGER | {INTEGER}
+<dataType> → REAL | {REAL}
+<dataType> → BOOLEAN | {BOOLEAN}
+<dataType> → ARRAY SQBO <arrRange> SQBC OF <type> | {ARRAY}
+<arrRange> →  <sign> <leftFactored_arrRange> | {PLUS, MINUS, ID, NUM}
+<leftFactored_arrRange> → ID RANGEOP <sign>  ID  | {ID}
+<leftFactored_arrRange> →  NUM RANGEOP <sign> NUM | {NUM}
+<sign> → <pm> | {PLUS,MINUS}
+<sign> →  ε | {ID, NUM, BO, RNUM}
+<type> →  INTEGER | {INTEGER}
+<type> →  REAL | {REAL}
+<type> →  BOOLEAN | {BOOLEAN}
+<moduleDef> → START <statements> END | {START}
+<statements> →  <statement> <statements> | {GET_VALUE , PRINT , ID , SQBO , USE ,  DECLARE , SWITCH , FOR , WHILE }
+<statements> → ε | {BREAK, END}
+<statement> → <ioStmt> | {GET_VALUE,PRINT}
+<statement> → <simpleStmt> | {ID,SQBO,USE}
+<statement> → <declareStmt> | {DECLARE}
+<statement> → <conditionalStmt> | {SWITCH}
+<statement> → <iterativeStmt> | {FOR,WHILE}
+<ioStmt> → GET_VALUE BO ID BC SEMICOL | {GET_VALUE}
+<ioStmt> → PRINT BO <leftFactored_ioStmt> | {PRINT}
+<leftFactored_ioStmt> →  <var> BC SEMICOL | {ID,NUM,RNUM}
+<leftFactored_ioStmt> →  <boolValues> BC SEMICOL | {true,false}
+<boolValues> → true | {true}
+<boolValues> → false | {false}
+<var> →   ID <whichId> | {ID}
+<var> →  NUM | {NUM}
+<var> →   RNUM | {RNUM}
+<whichId> →  SQBO <sign> <leftFactored_whichId>  | {SQBO} 
+<whichId> → ε | {BC, SEMICOL, PLUS, MINUS, MUL, DIV, LT, LE, GT, GE, EQ, NE, AND, OR} 
+<leftFactored_whichId> → ID SQBC | {ID}
+<leftFactored_whichId> →  NUM SQBC | {NUM}
+<simpleStmt> →  <assignmentStmt> | {ID}
+<simpleStmt> →<moduleReuseStmt> | {SQBO,USE}
+<assignmentStmt> →   ID <whichStmt> | {ID}
+<whichStmt> →  <lvalueIDStmt> | {ASSIGNOP}
+<whichStmt> → <lvalueARRStmt> | {SQBO}
+<lvalueIDStmt> →  ASSIGNOP <expression> SEMICOL | {ASSIGNOP}
+<lvalueARRStmt> →  SQBO <arithmeticExprWArr> SQBC ASSIGNOP <expression> SEMICOL | {SQBO}
+<moduleReuseStmt>→  <optional> USE MODULE ID WITH PARAMETERS <idList>SEMICOL | {SQBO , USE}
+<optional> →  SQBO <idList> SQBC ASSIGNOP | {SQBO}
+<optional> → ε | {SEMICOL, SQBC, COLON}
+<idList>  → ID<leftFactored_idList> | {ID}
+<leftFactored_idList> → COMMA ID <leftFactored_idList> | {COMMA} 
+<leftFactored_idList> → ε | {SEMICOL, SQBC, COLON}
+<expression> →  <arithmeticBooleanExpr><logicalTerm> | { ID, BO, NUM, RNUM, true, false}
+<expression> → <unaryTerm> | {PLUS , MINUS }
+<unaryTerm> → <pm> <arithmeticFactor> | {PLUS , MINUS}
+<arithmeticFactor> → BO <arithmeticExpr> BC | {BO}
+<arithmeticFactor> → <var> |  {ID, NUM, RNUM}
+<arithmeticBooleanExpr> → <arithmeticExpr> <relationalTerm> | {ID, BO, NUM, RNUM}
+<arithmeticBooleanExpr> → <boolValues> | {true,false}
+<logicalTerm> → <logicalOp> <arithmeticBooleanExpr> | {AND, OR, ε}
+<logicalTerm> →   ε | {SEMICOL, BC}
+<relationalTerm> → <relationalOp> <arithmeticExpr> | {LT , LE , GT , GE , EQ , NE, ε}
+<relationalTerm> →  ε |  {AND, OR, SEMICOL, BC}
+<arithmeticExpr> → <term> <leftFactored_arithmeticExpr> |  {ID , BO ,  NUM , RNUM} 
+<leftFactored_arithmeticExpr> → <pm> <term> <leftFactored_arithmeticExpr> | {PLUS,MINUS}
+<leftFactored_arithmeticExpr> → ε | {BC, LT, LE, GT, GE, EQ, NE, AND ,OR, SEMICOL}
+<pm> → PLUS | {PLUS}
+<pm> →  MINUS | {MINUS}
+<md> → MUL | {DIV}
+<md> →  DIV | {DIV}
+<term> →  <factor> <leftFactored_term> | {ID , BO ,  NUM , RNUM}
+<leftFactored_term> → <md> <factor> <leftFactored_term> | {MUL,DIV} 
+<leftFactored_term> →ε | {PLUS, MINUS, SEMICOL, BC, LT, LE, GT, GE, EQ, NE, AND, OR}
+<factor> →  BO <expression> BC | {BO}
+<factor> →  <var> |  {ID , NUM , RNUM} 
+<arithmeticExprWArr> → <termWArr> <leftFactored_arithmeticExprWArr> | {PLUS, MINUS, BO, ID, NUM, RNUM}
+<leftFactored_arithmeticExprWArr> → <pm> <termWArr>  <leftFactored_arithmeticExprWArr> | {PLUS,MINUS} 
+<leftFactored_arithmeticExprWArr> →  ε | {SQBC, BC}
+<termWArr> →  <signedFactorWArr> <leftFactored_termWArrr> |  {PLUS, MINUS, BO, ID, NUM, RNUM}
+<leftFactored_termWArr> → <md> <signedFactorWArr> <leftFactored_termWArr> | {MUL,DIV}
+<leftFactored_termWArr> →ε | {SQBC, PLUS, MINUS, BC}
+<signedFactorWArr> → <sign> <factorWArr> | {PLUS, MINUS, BO, ID, NUM, RNUM}
+<factorWArr> →  BO <arithmeticExprWArr> BC | {BO} 
+<factorWArr> →   ID | {ID}
+<factorWArr> → NUM | {NUM}
+<factorWArr> → RNUM | {RNUM}
+<logicalOp> →  AND | {AND}
+<logicalOp> →   OR | {OR}
+<relationalOp> →   LT | {Lt}
+<relationalOp> →   LE | {LE}
+<relationalOp> →   GT | {GT}
+<relationalOp> →   GE | {GE}
+<relationalOp> →   EQ | {EQ}
+<relationalOp> →   NE | {NE}
+<declareStmt> →  DECLARE <idList> COLON <dataType> SEMICOL | {DECLARE}
+<conditionalStmt> → SWITCH BO ID BC START <caseStmt><default> END | SWITCH
+<caseStmt> →  CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt> | {CASE}
+<leftFactored_caseStmt> → CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt> | {CASE}
+<leftFactored_caseStmt> →ε | {DEFAULT,END}
+<value> →  NUM | {NUM}
+<value> → true | {true}
+<value> → false | {false}
+<dfault> →  DEFAULT COLON <statements> BREAK SEMICOL | {DEFAULT}
+<dfault> →  ε | {END}
+<iterativeStmt> → FOR BO ID IN <sign> NUM RANGEOP <sign> NUM  BC START <statements> END | {FOR}
+<iterativeStmt> → WHILE BO <arithmeticBooleanExpr><logicalTerm>  BC START <statements> END | {WHILE}
