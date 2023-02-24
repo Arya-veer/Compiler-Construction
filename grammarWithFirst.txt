@@ -65,7 +65,9 @@
 <expression> → <unaryTerm> | {PLUS , MINUS }
 <unaryTerm> → <pm> <arithmeticFactor> | {PLUS , MINUS}
 <arithmeticFactor> → BO <arithmeticExpr> BC | {BO}
-<arithmeticFactor> → <var> |  {ID, NUM, RNUM}
+<arithmeticFactor> → ID | {ID}
+<arithmeticFactor> → NUM | {NUM}
+<arithmeticFactor> → RNUM | {RNUM}
 <arithmeticBooleanExpr> → <arithmeticExpr> <relationalTerm> | {ID, BO, NUM, RNUM}
 <arithmeticBooleanExpr> → <boolValues> | {true,false}
 <logicalTerm> → <logicalOp> <arithmeticBooleanExpr> | {AND, OR, ε}

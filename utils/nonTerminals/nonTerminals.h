@@ -67,6 +67,6 @@
 
     } NONTERMINALS;
 
-     char* NONTERMINALS_STRING[54];
+    //  char* NONTERMINALS_STRING[54];
 
 #endif 

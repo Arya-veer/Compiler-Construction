@@ -1,21 +1,21 @@
 <finalProgram> → <program> EOF
-<program> →  <moduleDeclarations> <otherModules><driverModule><otherModules>
-<moduleDeclarations> → <moduleDeclaration><moduleDeclarations> 
+<program> →  <moduleDeclarations> <otherModules> <driverModule> <otherModules>
+<moduleDeclarations> → <moduleDeclaration> <moduleDeclarations> 
 <moduleDeclarations> → ε
 <moduleDeclaration> → DECLARE MODULE ID SEMICOL
-<otherModules> → <module><otherModules> 
+<otherModules> → <module> <otherModules> 
 <otherModules> → ε
 <driverModule> → DRIVERDEF DRIVER PROGRAM DRIVERENDDEF <moduleDef>
-<module> → DEF MODULE ID ENDDEF TAKES INPUT SQBO <input_plist> SQBC SEMICOL <ret><moduleDef>
+<module> → DEF MODULE ID ENDDEF TAKES INPUT SQBO <input_plist> SQBC SEMICOL <ret> <moduleDef>
 <ret> →  RETURNS SQBO <output_plist> SQBC SEMICOL 
 <ret> → ε
-<input_plist>  →ID COLON <dataType> <leftFactored_input_plist>
-<leftFactored_input_plist> →  COMMA ID COLON <dataType><leftFactored_input_plist> 
+<input_plist>  → ID COLON <dataType> <leftFactored_input_plist>
+<leftFactored_input_plist> →  COMMA ID COLON <dataType> <leftFactored_input_plist> 
 <leftFactored_input_plist> → ε
-<output_plist> → ID COLON <type><leftFactored_output_plist>
-<leftFactored_output_plist> → COMMA ID COLON <type><leftFactored_output_plist> 
+<output_plist> → ID COLON <type> <leftFactored_output_plist>
+<leftFactored_output_plist> → COMMA ID COLON <type> <leftFactored_output_plist> 
 <leftFactored_output_plist> → ε
-<dataType> →  INTEGER 
+<dataType> → INTEGER 
 <dataType> → REAL 
 <dataType> → BOOLEAN 
 <dataType> → ARRAY SQBO <arrRange> SQBC OF <type>
@@ -23,12 +23,12 @@
 <leftFactored_arrRange> → ID RANGEOP <sign>  ID  
 <leftFactored_arrRange> →  NUM RANGEOP <sign> NUM
 <sign> → <pm> 
-<sign> →  ε
-<type> →  INTEGER 
-<type> →  REAL 
-<type> →  BOOLEAN
+<sign> → ε
+<type> → INTEGER 
+<type> → REAL 
+<type> → BOOLEAN
 <moduleDef> → START <statements> END
-<statements> →  <statement> <statements> 
+<statements> → <statement> <statements> 
 <statements> → ε
 <statement> → <ioStmt>
 <statement> → <simpleStmt>
@@ -37,14 +37,14 @@
 <statement> → <iterativeStmt>
 <ioStmt> → GET_VALUE BO ID BC SEMICOL 
 <ioStmt> → PRINT BO <leftFactored_ioStmt>
-<leftFactored_ioStmt> →  <var> BC SEMICOL
-<leftFactored_ioStmt> →  <boolValues> BC SEMICOL
+<leftFactored_ioStmt> → <var> BC SEMICOL
+<leftFactored_ioStmt> → <boolValues> BC SEMICOL
 <boolValues> → true 
 <boolValues> → false
-<var> →   ID <whichId> 
+<var> →  ID <whichId> 
 <var> →  NUM 
-<var> →   RNUM 
-<whichId> →  SQBO <sign> <leftFactored_whichId>  // ? 
+<var> →  RNUM 
+<whichId> → SQBO <sign> <leftFactored_whichId>  // ? 
 <whichId> → ε
 <leftFactored_whichId> → ID SQBC 
 <leftFactored_whichId> →  NUM SQBC
@@ -55,17 +55,19 @@
 <whichStmt> → <lvalueARRStmt>
 <lvalueIDStmt> →  ASSIGNOP <expression> SEMICOL
 <lvalueARRStmt> →  SQBO <arithmeticExprWArr> SQBC ASSIGNOP <expression> SEMICOL
-<moduleReuseStmt>→  <optional> USE MODULE ID WITH PARAMETERS <idList>SEMICOL
+<moduleReuseStmt>→  <optional> USE MODULE ID WITH PARAMETERS <idList> SEMICOL
 <optional> →  SQBO <idList> SQBC ASSIGNOP 
 <optional> → ε
-<idList>  → ID<leftFactored_idList>
-<leftFactored_idList> → COMMA ID<leftFactored_idList> 
+<idList>  → ID <leftFactored_idList>
+<leftFactored_idList> → COMMA ID <leftFactored_idList> 
 <leftFactored_idList> → ε
-<expression> →  <arithmeticBooleanExpr><logicalTerm> 
+<expression> →  <arithmeticBooleanExpr> <logicalTerm> 
 <expression> → <unaryTerm>
 <unaryTerm> → <pm> <arithmeticFactor>
 <arithmeticFactor> → BO <arithmeticExpr> BC 
-<arithmeticFactor> → <var>
+<arithmeticFactor> → ID
+<arithmeticFactor> → NUM
+<arithmeticFactor> → RNUM
 <arithmeticBooleanExpr> → <arithmeticExpr> <relationalTerm> 
 <arithmeticBooleanExpr> → <boolValues> 
 <logicalTerm> → <logicalOp> <arithmeticBooleanExpr> 
@@ -81,7 +83,7 @@
 <md> →  DIV
 <term> →  <factor> <leftFactored_term>
 <leftFactored_term> → <md> <factor> <leftFactored_term> 
-<leftFactored_term> →ε
+<leftFactored_term> → ε
 <factor> →  BO <expression> BC 
 <factor> →  <var>
 <arithmeticExprWArr> → <termWArr> <leftFactored_arithmeticExprWArr> 
@@ -92,13 +94,13 @@
 <leftFactored_termWArr> →ε
 <signedFactorWArr> → <sign> <factorWArr>
 <factorWArr> →  BO <arithmeticExprWArr> BC 
-<factorWArr> →   ID 
+<factorWArr> →  ID 
 <factorWArr> → NUM 
 <factorWArr> → RNUM
 <logicalOp> →  AND 
-<logicalOp> →   OR
-<relationalOp> →   LT 
-<relationalOp> →   LE 
+<logicalOp> →  OR
+<relationalOp> →  LT 
+<relationalOp> →  LE 
 <relationalOp> →  GT 
 <relationalOp> →  GE 
 <relationalOp> →  EQ 
@@ -108,7 +110,7 @@
 <caseStmt> →  CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt>
 <leftFactored_caseStmt> → CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt>
 <leftFactored_caseStmt> → ε
-<value> →  NUM 
+<value> → NUM 
 <value> → true 
 <value> → false 
 <default> →  DEFAULT COLON <statements> BREAK SEMICOL 
