@@ -116,4 +116,4 @@
 <default> →  DEFAULT COLON <statements> BREAK SEMICOL 
 <default> →  ε 
 <iterativeStmt> → FOR BO ID IN <sign> NUM RANGEOP <sign> NUM  BC START <statements> END 
-<iterativeStmt> → WHILE BO <arithmeticBooleanExpr><logicalTerm>  BC START <statements> END 
+<iterativeStmt> → WHILE BO <arithmeticBooleanExpr> <logicalTerm>  BC START <statements> END 

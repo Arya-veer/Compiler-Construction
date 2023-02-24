@@ -1,7 +1,7 @@
+#include "nonTerminals.h"
 
 
-
-char* NONTERMINALS[] = {
+char* NONTERMINALS_STRINGS[] = {
     "finalProgram",
     "program",
     "moduleDeclarations",

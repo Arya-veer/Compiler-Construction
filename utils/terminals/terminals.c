@@ -1,7 +1,7 @@
+#include "terminals.h"
 
 
-
-char* TERMINALS[] = {
+char* TERMINALS_STRINGS[] = {
     "INTEGER",
     "REAL",
     "BOOLEAN",
@@ -55,5 +55,7 @@ char* TERMINALS[] = {
     "SQBC",
     "BO",
     "BC",
-    "ID"
+    "ID",
+    "NUM",
+    "RNUM"
 };

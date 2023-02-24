@@ -55,9 +55,10 @@
         SQBC_TOKEN,
         BO_TOKEN,
         BC_TOKEN,
-        COMMENTMARK_TOKEN,
+        EOF_TOKEN,
         IDENTIFIER_TOKEN,
-        EOF
+        NUM_TOKEN,
+        RNUM_TOKEN
     } TOKENS;
 
      char* TOKENS_STRING[54];

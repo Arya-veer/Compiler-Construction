@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "tokens.h"
 char* TOKENS_STRING[] = {
 
@@ -54,5 +56,5 @@ char* TOKENS_STRING[] = {
         "]",
         "(",
         ")",
-        "**"
+        EOF
     };
