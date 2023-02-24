@@ -1,0 +1,34 @@
+PARSER:
+    RULE TABLE:
+        ☐ Create First and Follow @today
+
+        ☐ Change Grammar to CSV @today 
+
+        ☐ Read CSV Grammar @today 
+
+        ☐ Test Rule creation module @today 
+
+    PARSE TABLE:
+        ☐ Create ParseTable @today 
+
+        ☐ Test ParseTable @today 
+
+    ☐ Test Stack ADT @today 
+
+    ☐ Implement parser without error recovery and Tree @today 
+
+    ☐ Test parser @today 
+
+    ERROR HANDLING:
+        ☐ Implement Error reporting
+        ☐ Implement Error recovery
+    TREE MODULE:
+        ☐ Implement Tree ADT
+        ☐ Implement Tree in parser
+        ☐ Test parser
+    FIRST AND FOLLOW AUTOMATION:
+        ☐ Automate First and Follow sets
+        ☐ Test all given test cases
+    DEBUGGING:
+        ☐ Debug and Resolve issues
+        ☐ Repeat 15 and 16 as much as possible
