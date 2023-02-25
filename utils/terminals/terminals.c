@@ -55,7 +55,8 @@ char* TERMINALS_STRINGS[] = {
     "SQBC",
     "BO",
     "BC",
+    "EOF",
     "ID",
     "NUM",
-    "RNUM"
+    "RNUM",
 };

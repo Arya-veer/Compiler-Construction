@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedList.h"
+#include "../../utils/tokens/tokens.h"
+#include "../../utils/nonTerminals/nonTerminals.h"
 
 LINKEDLIST createLinkedList(){
     LINKEDLIST ll = (LINKEDLIST) malloc(sizeof(struct LinkedList));
@@ -11,8 +13,10 @@ LINKEDLIST createLinkedList(){
 
 
 void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum ){
+    printf("Inserting in Linked List\n");
     if(isTerminal == -1) return;
     LISTNODE lstNode = (LISTNODE) malloc(sizeof(struct ListNode));
+    lstNode -> NODETYPE = (union NodeType*) malloc(sizeof(union NodeType)); 
     ll->size++;
     lstNode -> next = NULL;
     LISTNODE curr = ll->head;
@@ -27,6 +31,7 @@ void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNu
     }
     lstNode->ruleNum = ruleNum;
     lstNode->isTerminal = isTerminal;
+    printf("Now assigning value to NODETYPE\n");
     if(isTerminal == 1){
         lstNode -> NODETYPE -> terminal = (TOKENS)ndtype;
     }

@@ -4,9 +4,9 @@ PARSER:
 
         ✔ Change Grammar to CSV @today @done (25/02/2023, 10:08:27)
 
-        ☐ Read CSV Grammar @today 
+        ✔ Read CSV Grammar @today @done (25/02/2023, 12:56:35)
 
-        ☐ Test Rule creation module @today 
+        ✔ Test Rule creation module @today @done (25/02/2023, 12:56:38)
 
     PARSE TABLE:
         ☐ Create ParseTable @today 

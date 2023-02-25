@@ -5,6 +5,7 @@ char* NONTERMINALS_STRINGS[] = {
     "finalProgram",
     "program",
     "moduleDeclarations",
+    "moduleDeclaration",
     "otherModules",
     "driverModule",
     "module",

@@ -49,6 +49,7 @@ char **csvReader(FILE *fp) {
         while (token != NULL) {
             csv_data[col] = malloc(strlen(token) + 1);
             strcpy(csv_data[col], token);
+            csv_data[col][strcspn(csv_data[col], "\n")] = '\0';
             col++;
             token = strtok(NULL, ",");
         }
