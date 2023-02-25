@@ -4,7 +4,7 @@
 #include "../../utils/nonTerminals/nonTerminals.h"
 #include "../../utils/terminals/terminals.h"
 #include "../dataStructures/linkedList.h"
-
+#include "../../utils/csvReader/index.h"
 
 
 #endif

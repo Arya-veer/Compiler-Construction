@@ -52,6 +52,7 @@ num:int => Number of strings in the rule
 void addRule(int ruleNum,char* strings[],int num){
     LINKEDLIST ll = createLinkedList();
     for(int i = 0;i < num;i++){
+        if(strings[i] == NULL) break;
         int isTerminal = checkTerminal(strings[i]);
         int ndtype = getType(strings[i],isTerminal);
         inserionInLinkedList(ll,isTerminal,ndtype,ruleNum);
@@ -73,6 +74,7 @@ void printRules(int numRules){
             else{
                 printf("Rule no. %d , NonTerminal %d\n",rule,nodeType);
             }
+            curr=curr->next;
         }
     }
 }
@@ -80,7 +82,17 @@ void printRules(int numRules){
 
 void addRules(){
     int ruleNum = 0;
+    FILE* fp = fopen("../../grammar.csv","r");
     while(1){
-        
+        char** row = csvReader(fp);
+        if(row[0] == NULL) break;
+        addRule(ruleNum,row,100);
     }
+    printRules(100);
+    fclose(fp);
+
+}
+
+int main(){
+    addRules();
 }
