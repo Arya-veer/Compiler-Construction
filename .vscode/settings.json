@@ -4,6 +4,8 @@
         "stdio.h": "c",
         "buffer.h": "c",
         "tokenize.h": "c",
-        "tokens.h": "c"
+        "tokens.h": "c",
+        "linkedlist.h": "c",
+        "stack.h": "c"
     },
 }

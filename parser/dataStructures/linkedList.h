@@ -10,4 +10,7 @@ struct LinkedList{
     LISTNODE head;
 };
 
+LINKEDLIST createLinkedList();
+void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum);
+
 #endif

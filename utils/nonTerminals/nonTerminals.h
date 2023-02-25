@@ -5,6 +5,7 @@
         finalProgram,
         program,
         moduleDeclarations,
+        moduleDeclaration,
         otherModules,
         driverModule,
         module,
@@ -63,10 +64,10 @@
         leftFactored_caseStmt,
         value,
         dfault,
-        iterativeStmt
+        iterativeStmt,
 
     } NONTERMINALS;
 
-     char* NONTERMINALS_STRINGS[62];
+     char* NONTERMINALS_STRINGS[63];
 
 #endif 
