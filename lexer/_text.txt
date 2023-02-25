@@ -1,2 +1,0 @@
-declare x:integer = 876.67e4 + 89.98;
-x=x+5; 
