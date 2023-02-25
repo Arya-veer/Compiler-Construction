@@ -28,11 +28,13 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
     if(input[0] >= '0' && input[0] <= '9'){
         if(isFloat(input)){
             lex->lexemedata->floatData = atof(input);
+            lex->token = RNUM_TOKEN;
 
             printf("Printing as float => %f\n",lex->lexemedata->floatData);
         }
         else{
             lex->lexemedata->intData = atoi(input);
+            lex->token = NUM_TOKEN;
             // printf("Printing as integer => %d\n",lex->lexemedata->intData);
         }
         return lex;
