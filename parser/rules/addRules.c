@@ -18,10 +18,10 @@
 int checkTerminal(char* string){
     for(int i = 0;i<56;i++){
         if(strcmp(string,TERMINALS_STRINGS[i]) == 0){
-            return i;
+            return 1;
         }
     }
-    return -1;
+    return 0;
 }
 
 int getType(char* string,int type){
@@ -60,4 +60,11 @@ void addRule(int ruleNum,char* strings[],int num){
     return;
 }
 
-
+void printRules(int numRules){
+    for(int i = 0;i < numRules;i++){
+        LISTNODE curr = RULES[i] -> head;
+        while(curr != NULL){
+            
+        }
+    }
+}

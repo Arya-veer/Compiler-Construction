@@ -1,3 +1,5 @@
+
+
 <finalProgram> → <program> EOF |  {DECLARE , DEF, DRIVERDEF}
 <program> →  <moduleDeclarations> <otherModules> <driverModule> <otherModules> |  {DECLARE , DEF, DRIVERDEF}
 <moduleDeclarations> → <moduleDeclaration>< moduleDeclarations> | {DECLARE}
@@ -79,7 +81,7 @@
 <leftFactored_arithmeticExpr> → ε | {BC, LT, LE, GT, GE, EQ, NE, AND ,OR, SEMICOL}
 <pm> → PLUS | {PLUS}
 <pm> →  MINUS | {MINUS}
-<md> → MUL | {DIV}
+<md> → MUL | {MUL}
 <md> →  DIV | {DIV}
 <term> →  <factor> <leftFactored_term> | {ID , BO ,  NUM , RNUM}
 <leftFactored_term> → <md> <factor> <leftFactored_term> | {MUL,DIV} 
@@ -99,14 +101,14 @@
 <factorWArr> → RNUM | {RNUM}
 <logicalOp> →  AND | {AND}
 <logicalOp> →   OR | {OR}
-<relationalOp> →   LT | {Lt}
+<relationalOp> →   LT | {LT}
 <relationalOp> →   LE | {LE}
 <relationalOp> →   GT | {GT}
 <relationalOp> →   GE | {GE}
 <relationalOp> →   EQ | {EQ}
 <relationalOp> →   NE | {NE}
 <declareStmt> →  DECLARE <idList> COLON <dataType> SEMICOL | {DECLARE}
-<conditionalStmt> → SWITCH BO ID BC START <caseStmt><default> END | SWITCH
+<conditionalStmt> → SWITCH BO ID BC START <caseStmt><default> END | {SWITCH}
 <caseStmt> →  CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt> | {CASE}
 <leftFactored_caseStmt> → CASE <value> COLON <statements> BREAK SEMICOL <leftFactored_caseStmt> | {CASE}
 <leftFactored_caseStmt> →ε | {DEFAULT,END}

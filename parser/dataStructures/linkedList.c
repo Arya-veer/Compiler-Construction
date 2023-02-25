@@ -11,6 +11,7 @@ LINKEDLIST createLinkedList(){
 
 
 void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum ){
+    if(isTerminal == -1) return;
     LISTNODE lstNode = (LISTNODE) malloc(sizeof(struct ListNode));
     ll->size++;
     lstNode -> next = NULL;

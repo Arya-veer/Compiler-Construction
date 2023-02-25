@@ -1,8 +1,8 @@
 PARSER:
     RULE TABLE:
-        ☐ Create First and Follow @today
+        ✔ Create First and Follow @today @done (25/02/2023, 10:08:25)
 
-        ☐ Change Grammar to CSV @today 
+        ✔ Change Grammar to CSV @today @done (25/02/2023, 10:08:27)
 
         ☐ Read CSV Grammar @today 
 
@@ -21,14 +21,22 @@ PARSER:
 
     ERROR HANDLING:
         ☐ Implement Error reporting
+
         ☐ Implement Error recovery
+
     TREE MODULE:
         ☐ Implement Tree ADT
+
         ☐ Implement Tree in parser
+
         ☐ Test parser
+
     FIRST AND FOLLOW AUTOMATION:
         ☐ Automate First and Follow sets
+
         ☐ Test all given test cases
+
     DEBUGGING:
         ☐ Debug and Resolve issues
+
         ☐ Repeat 15 and 16 as much as possible
