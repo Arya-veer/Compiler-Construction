@@ -9,7 +9,12 @@ int main(){
     TwinBuffer TB = initializeTwinBuffer("_text.txt");
     int line = 0;
     LEXEME* lexm = simulateDFA(&TB);
-    while(lexm != NULL){
+    // lexm = simulateDFA(&TB);
+    // lexm = simulateDFA(&TB);
+    // lexm = simulateDFA(&TB);
+    // lexm = simulateDFA(&TB);
+    // lexm = simulateDFA(&TB);
+    while(lexm->token != EOF_TOKEN){
         lexm = simulateDFA(&TB);
     }
 

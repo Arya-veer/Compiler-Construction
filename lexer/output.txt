@@ -1,0 +1,131 @@
+size = 361 
+declare module mod1; 
+<<<driver Program>>> 
+start 
+ declare  v, w, r :integer; 
+ get_value(v); 
+ w:=5; 
+ declare m:real; 
+ [r,m] := use  module mod1 with parameters v, w; 
+ print(r); 
+ print(m); 
+end 
+ 
+<<module mod1>> 
+takes input [a: integer, b: integer]; 
+returns  [x: integer, abc: real]; 
+start 
+ declare c: real; 
+ c:=10.4; 
+ x:=a+b-10; 
+ abc:=b/5+c; 
+end
+Tokenized declare , sending it for parsing
+Tokenized module , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized <<< , sending it for parsing
+Tokenized driver , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized >>> , sending it for parsing
+Tokenized start , sending it for parsing
+Tokenized declare , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized integer , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized get_value , sending it for parsing
+Tokenized ( , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized := , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized declare , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized real , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized [ , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ] , sending it for parsing
+Tokenized := , sending it for parsing
+Tokenized use , sending it for parsing
+Tokenized module , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized with , sending it for parsing
+Tokenized parameters , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized print , sending it for parsing
+Tokenized ( , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized print , sending it for parsing
+Tokenized ( , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized end , sending it for parsing
+Tokenized << , sending it for parsing
+Tokenized module , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized >> , sending it for parsing
+Tokenized takes , sending it for parsing
+Tokenized input , sending it for parsing
+Tokenized [ , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized integer , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized integer , sending it for parsing
+Tokenized ] , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized returns , sending it for parsing
+Tokenized [ , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized integer , sending it for parsing
+Tokenized , , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized real , sending it for parsing
+Tokenized ] , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized start , sending it for parsing
+Tokenized declare , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized : , sending it for parsing
+Tokenized real , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized := , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized := , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized + , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized - , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized := , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized / , sending it for parsing
+Tokenized + , sending it for parsing
+Tokenized (null) , sending it for parsing
+Tokenized ; , sending it for parsing
+Tokenized end , sending it for parsing
+Tokenized EOF , sending it for parsing

@@ -17,6 +17,7 @@ struct lexeme{
 };
 
 LEXEME* tokenize(TwinBuffer *TB,int line);
+LEXEME* tokenizeEOF(TwinBuffer *TB);
 LEXEME* simulateDFA(TwinBuffer *TB);
 
 #endif

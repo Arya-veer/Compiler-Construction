@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int removeComments(char* src, char* dist){
-    if(argc < 3) return 0;
+    // if(argc < 3) return 0;
     FILE* src = fopen(src,"r");
     FILE* dist = fopen(dist,"w");
 

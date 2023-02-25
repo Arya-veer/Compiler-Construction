@@ -9,9 +9,9 @@ PARSER:
         ✔ Test Rule creation module @today @done (25/02/2023, 12:56:38)
 
     PARSE TABLE:
-        ☐ Create ParseTable @today 
+        ✔ Create ParseTable @today @done (25/02/2023, 16:16:46)
 
-        ☐ Test ParseTable @today 
+        ✔ Test ParseTable @today @done (25/02/2023, 16:16:49)
 
     ☐ Test Stack ADT @today 
 

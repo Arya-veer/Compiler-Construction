@@ -56,5 +56,4 @@ char* TOKENS_STRING[] = {
         "]",
         "(",
         ")",
-        EOF
     };

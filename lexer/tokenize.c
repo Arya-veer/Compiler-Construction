@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "lexer.h"
+// #include "lexer.h"
+#include "../utils/tokens/tokens.c"
 
 int isFloat(char* number){
     int n = strlen(number);
@@ -16,7 +17,17 @@ int isFloat(char* number){
     TWINBUFFER TB;
     int line;
     TODO: Handle comments
+
  */
+
+LEXEME* tokenizeEOF(TwinBuffer *TB){
+    char* input = extractLexeme(TB);
+    LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
+    lex -> token = EOF_TOKEN;
+    printf("Tokenized %s , sending it for parsing\n","EOF");
+    return lex;
+}
+
 LEXEME* tokenize(TwinBuffer *TB,int line){
     char* input = extractLexeme(TB);
     // printf("tokenize got the input as %s\n",input);
@@ -30,7 +41,7 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
             lex->lexemedata->floatData = atof(input);
             lex->token = RNUM_TOKEN;
 
-            printf("Printing as float => %f\n",lex->lexemedata->floatData);
+            // printf("Printing as float => %f\n",lex->lexemedata->floatData);
         }
         else{
             lex->lexemedata->intData = atoi(input);
@@ -41,8 +52,9 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
     }
     lex->lexemedata->data = input;
     int found = 0;
+    // printf("Checking for keywords\n");
     /* Checking For Keywords */
-    for(int i=0;i <= 53;i++){
+    for(int i=0;i <= 52;i++){
         // printf("Are they equal %d\n",strcmp(input,TOKENS_STRING[i]));
         if(strcmp(input,TOKENS_STRING[i]) == 0){
             lex->token = (TOKENS) i;
@@ -52,7 +64,7 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
     } 
 
     if(found == 0) lex->token = IDENTIFIER_TOKEN;
-    printf("Tokenized %d , sending it for parsing\n",(int) lex->token);
+    printf("Tokenized %s , sending it for parsing\n",TOKENS_STRING[(int) lex->token]);
     return lex;
 }
 

@@ -13,7 +13,7 @@ LINKEDLIST createLinkedList(){
 
 
 void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum ){
-    printf("Inserting in Linked List\n");
+    // printf("Inserting in Linked List\n");
     if(isTerminal == -1) return;
     LISTNODE lstNode = (LISTNODE) malloc(sizeof(struct ListNode));
     lstNode -> NODETYPE = (union NodeType*) malloc(sizeof(union NodeType)); 
@@ -24,14 +24,14 @@ void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNu
         ll -> head = lstNode;
     }
     else{
-        while(curr -> next!=NULL){
+        while(curr -> next != NULL){
             curr = curr->next;
         }
         curr->next = lstNode;
     }
     lstNode->ruleNum = ruleNum;
     lstNode->isTerminal = isTerminal;
-    printf("Now assigning value to NODETYPE\n");
+    // printf("Now assigning value to NODETYPE\n");
     if(isTerminal == 1){
         lstNode -> NODETYPE -> terminal = (TOKENS)ndtype;
     }

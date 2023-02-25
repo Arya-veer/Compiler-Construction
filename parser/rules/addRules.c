@@ -55,15 +55,15 @@ num:int => Number of strings in the rule
 */
 void addRule(int ruleNum,char** strings,int num){
     LINKEDLIST ll = createLinkedList();
-    printf("Linked List Created\n");
+    // printf("Linked List Created\n");
     for(int i = 0;i < num;i++){
-        printf("strings[i] = %s\n",strings[i]);
+        // printf("strings[i] = %s\n",strings[i]);
         if(strings[i] == (char*)NULL) break;
-        printf("STRING IS NOT NULL\n");
+        // printf("STRING IS NOT NULL\n");
         int isTerminal = checkTerminal(strings[i]);
-        printf("isTerminal %d\n",isTerminal);
+        // printf("isTerminal %d\n",isTerminal);
         int ndtype = getType(strings[i],isTerminal);
-        printf("RULE TYPE %d\n",ndtype);
+        // printf("RULE TYPE %d\n",ndtype);
         insertionInLinkedList(ll,isTerminal,ndtype,ruleNum);
     }
     RULES[ruleNum] = ll;
@@ -92,22 +92,22 @@ void printRules(int numRules){
 void addRules(){
     int ruleNum = 0;
     FILE* fp = fopen("../../grammar.csv","r");
-    printf("File opened\n");
+    // printf("File opened\n");
     while(1){
-        printf("RULE NUMBER = %d\n",ruleNum);
+        // printf("RULE NUMBER = %d\n",ruleNum);
         char** row = csvReader(fp);
-        printf("Got a row\n");
+        // printf("Got a row\n");
         if(row[0] == NULL) break;
         addRule(ruleNum,row,119);
-        printf("Rule added\n");
+        // printf("Rule added\n");
         ruleNum++;
-        printf("__________________________________________\n");
+        // printf("__________________________________________\n");
     }
-    printRules(119);
+    // printRules(119);
     fclose(fp);
 
 }
 
-int main(){
-    addRules();
-}
+// int main(){
+//     addRules();
+// }
