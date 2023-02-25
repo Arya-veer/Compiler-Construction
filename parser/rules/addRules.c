@@ -64,7 +64,15 @@ void printRules(int numRules){
     for(int i = 0;i < numRules;i++){
         LISTNODE curr = RULES[i] -> head;
         while(curr != NULL){
-            
+            int rule = curr->ruleNum;
+            int isTerminal = curr->isTerminal;
+            int nodeType = isTerminal ? curr->NODETYPE->terminal : curr->NODETYPE->nonterminal;
+            if(isTerminal == 1){
+                printf("Rule no. %d , Terminal %d",rule,nodeType);
+            }
+            else{
+                printf("Rule no. %d , NonTerminal %d",rule,nodeType);
+            }
         }
     }
 }
