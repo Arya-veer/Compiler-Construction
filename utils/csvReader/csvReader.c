@@ -56,14 +56,3 @@ char **csvReader(FILE *fp) {
 
     return csv_data;
 }
-
-int main(){
-    FILE *fp;
-    int col = 0;
-    fp = fopen("grammar.csv", "r");
-    char** csv_data = csvReader(fp);
-    while(csv_data[col] != NULL){
-        printf(" %s -", csv_data[col++]);
-    }
-    fclose(fp);
-}
