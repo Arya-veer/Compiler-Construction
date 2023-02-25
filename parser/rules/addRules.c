@@ -68,10 +68,10 @@ void printRules(int numRules){
             int isTerminal = curr->isTerminal;
             int nodeType = isTerminal ? curr->NODETYPE->terminal : curr->NODETYPE->nonterminal;
             if(isTerminal == 1){
-                printf("Rule no. %d , Terminal %d",rule,nodeType);
+                printf("Rule no. %d , Terminal %d\n",rule,nodeType);
             }
             else{
-                printf("Rule no. %d , NonTerminal %d",rule,nodeType);
+                printf("Rule no. %d , NonTerminal %d\n",rule,nodeType);
             }
         }
     }
