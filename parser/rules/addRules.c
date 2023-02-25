@@ -76,3 +76,11 @@ void printRules(int numRules){
         }
     }
 }
+
+
+void addRules(){
+    int ruleNum = 0;
+    while(1){
+        
+    }
+}
