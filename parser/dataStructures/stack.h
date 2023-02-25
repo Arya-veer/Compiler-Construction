@@ -2,6 +2,7 @@
 #define PARSER_DATASTRUCTURES_STACK_H
 #include "../../utils/tokens/tokens.h"
 #include "../../utils/nonTerminals/nonTerminals.h"
+#include "parseTree.h"
 
 
 union NodeType {
@@ -14,6 +15,7 @@ struct StackNode {
     STACKNODE next;
     union NodeType* NODETYPE;
     int isTerminal;
+    TREENODE treenode;
 };
 
 

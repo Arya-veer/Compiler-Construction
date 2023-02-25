@@ -4,17 +4,17 @@
 #include"../utils/Buffer/buffer.h"
 
 union lexemeData{
-        char *data;
-        int intData;
-        float floatData;
-    };
+    char *data;
+    int intData;
+    float floatData;
+};
 
-    typedef struct lexeme LEXEME;
-    struct lexeme{
-        TOKENS token;
-        int lineNo;
-        union lexemeData *lexemedata;
-    };
+typedef struct lexeme LEXEME;
+struct lexeme{
+    TOKENS token;
+    int lineNo;
+    union lexemeData *lexemedata;
+};
 
 LEXEME* tokenize(TwinBuffer *TB,int line);
 LEXEME* simulateDFA(TwinBuffer *TB);
