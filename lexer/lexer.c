@@ -180,7 +180,7 @@ LEXEME* tokenizeEOF(TwinBuffer *TB){
 
 LEXEME* tokenize(TwinBuffer *TB,short int line){
     char* input = extractLexeme(TB);
-    printf("tokenize got the input as %s\n",input);
+    // printf("tokenize got the input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
@@ -214,7 +214,7 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
     } 
 
     if(found == 0) lex->token = IDENTIFIER_TOKEN;
-    printf("Tokenized %d , sending it for parsing\n",lex->token);
+    // printf("Tokenized %d , sending it for parsing\n",lex->token);
     return lex;
 }
 

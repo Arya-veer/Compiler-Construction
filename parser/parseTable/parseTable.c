@@ -29,6 +29,7 @@ void populateParseTable(LISTNODE* RULES){
     for(short int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i];
         short int row = head -> NODETYPE -> nonterminal;
+        // if(row == -1) continue;
         short int size = firstFollowSet[i][0];
         for(short int j = 1;j <= size;j++){
             short int col = firstFollowSet[i][j];

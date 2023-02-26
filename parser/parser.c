@@ -61,6 +61,7 @@ void parser(char* grammarFile,char* inputFile){
         if(stNode->isTerminal == 1){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
+                free(lex);
                 lex = simulateDFA(TB);
                 printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
 
@@ -96,7 +97,9 @@ void parser(char* grammarFile,char* inputFile){
         }
         free(stNode);
 
-    }
+
+    }   
+    fclose(TB->fp);
 
 }
 

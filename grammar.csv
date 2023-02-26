@@ -70,7 +70,7 @@ arithmeticFactor,NUM
 arithmeticFactor,RNUM
 arithmeticBooleanExpr,arithmeticExpr,relationalTerm
 arithmeticBooleanExpr,boolValues
-logicalTermlogicalOp,arithmeticBooleanExpr
+logicalTerm,logicalOp,arithmeticBooleanExpr
 logicalTerm,epsilon
 relationalTerm,relationalOp,arithmeticExpr
 relationalTerm,epsilon
@@ -106,14 +106,14 @@ relationalOp,GE
 relationalOp,EQ
 relationalOp,NE
 declareStmt,DECLARE,idList,COLON,dataType,SEMICOL
-conditionalStmt,SWITCH,BO,ID,BC,START,caseStmtdefault,END
+conditionalStmt,SWITCH,BO,ID,BC,START,caseStmt,dfault,END
 caseStmt,CASE,value,COLON,statements,BREAK,SEMICOL,leftFactored_caseStmt
 leftFactored_caseStmt,CASE,value,COLON,statements,BREAK,SEMICOL,leftFactored_caseStmt
 leftFactored_caseStmt,epsilon
 value,NUM
 value,true
 value,false
-default,DEFAULT,COLON,statements,BREAK,SEMICOL
-default,epsilon
+dfault,DEFAULT,COLON,statements,BREAK,SEMICOL
+dfault,epsilon
 iterativeStmt,FOR,BO,ID,IN,sign,NUM,RANGEOP,sign,NUM,BC,START,statements,END
 iterativeStmt,WHILE,BO,arithmeticBooleanExpr,logicalTerm,BC,START,statements,END

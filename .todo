@@ -13,11 +13,11 @@ PARSER:
 
         ✔ Test ParseTable @today @done (25/02/2023, 16:16:49)
 
-    ☐ Test Stack ADT @today 
+    ✔ Test Stack ADT @today @done (26/02/2023, 18:37:59)
 
-    ☐ Implement parser without error recovery and Tree @today 
+    ✔ Implement parser without error recovery and Tree @today @done (26/02/2023, 18:38:01)
 
-    ☐ Test parser @today 
+    ✔ Test parser @today @done (26/02/2023, 18:38:02)
 
     ERROR HANDLING:
         ☐ Implement Error reporting
