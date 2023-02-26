@@ -25,7 +25,7 @@ void parser(){
     int line = 0;
     addRules("../grammar.csv");
     printf("RULES ADDED\n");
-    printRules(119);
+    // printRules(119);
     RULES[0]->head->NODETYPE->nonterminal;
     populateParseTable();
     printf("PARSE TABLE POPULATED\n");
@@ -34,11 +34,11 @@ void parser(){
     printf("TWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
     printf("STACK CREATED\n");
-    pushInStack(st,RULES[0]->head);
+    pushInStack(st,RULES[0]->head->next);
     LEXEME* lex = simulateDFA(&TB);
     printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
-    while(lex->token != EOF_TOKEN){
+    while(lex->token != EOF_TOKEN && isStackEmpty(st) == 0){
         stNode = popFromStack(st);
         /* Checking for the terminal */
         // if(isStackEmpty(st) && lex->token == EOF_TOKEN)
@@ -56,12 +56,24 @@ void parser(){
             }
         }
         else if(stNode->isTerminal == 0){
-            printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+            printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
-                pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->head);
+                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->head->next->isTerminal == -1){ 
+                // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+
+                    // stNode = popFromStack(st);
+                    // printf("Popped Terminal %s Due to EPSILON\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+                    continue;
+                    
+                }
+                else{
+                    pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->head->next);
+                }
             }
             else{
                 printf("ERROR TYPE 2\n");
+                break;
             }
         }
         else{

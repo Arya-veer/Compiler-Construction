@@ -15,6 +15,7 @@ LINKEDLIST createLinkedList(){
 void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum ){
     // printf("Inserting in Linked List\n");
     if(isTerminal == -1) return;
+    if(ndtype == -1) isTerminal = -1;
     LISTNODE lstNode = (LISTNODE) malloc(sizeof(struct ListNode));
     lstNode -> NODETYPE = (union NodeType*) malloc(sizeof(union NodeType)); 
     ll->size++;

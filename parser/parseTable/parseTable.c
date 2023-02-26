@@ -35,7 +35,7 @@ void populateParseTable(){
         int size = firstFollowSet[i][0];
         for(int j = 1;j <= size;j++){
             int col = firstFollowSet[i][j];
-            printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
+            // printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
             PARSETABLE[row][col] = i;
         }
     }
@@ -53,9 +53,9 @@ void printParseTable(){
     }
 }
 
-int main(){
-    addRules("../../grammar.csv");
-    printRules(119);
-    populateParseTable();
-    printParseTable();
-}
+// int main(){
+//     addRules("../../grammar.csv");
+//     printRules(119);
+//     populateParseTable();
+//     printParseTable();
+// }
