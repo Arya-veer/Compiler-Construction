@@ -18,12 +18,13 @@
 
 void parser(char* grammarFile,char* inputFile){
     short int line = 0;
-    addRules(grammarFile);
+    LISTNODE* RULES = addRules(grammarFile);
     printf("RULES ADDED\n");
     // printRules(119);
     RULES[0]->NODETYPE->nonterminal;
-    populateParseTable();
+    populateParseTable(RULES);
     printf("PARSE TABLE POPULATED\n");
+    // printParseTable();
 
     TwinBuffer TB = initializeTwinBuffer(inputFile);
     printf("TWIN BUFFER INITIALIZED\n");
@@ -51,8 +52,8 @@ void parser(char* grammarFile,char* inputFile){
             }
         }
         else if(stNode->isTerminal == 0){
-            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-            printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
+            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+            // printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1){ 
                 // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
@@ -74,6 +75,7 @@ void parser(char* grammarFile,char* inputFile){
         else{
             continue;
         }
+        free(stNode);
 
     }
 

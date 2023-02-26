@@ -6,7 +6,6 @@
 #include "dataStructures/stack.h"
 #include "rules/addRules.h"
 #include "../lexer/lexer.h"
-#include "../utils/tokens/tokens.h"
 #include "../utils/Buffer/buffer.h"
 
 void parser(char* grammarFile,char* inputFile);
