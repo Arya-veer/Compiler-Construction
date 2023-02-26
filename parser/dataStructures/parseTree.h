@@ -12,6 +12,8 @@ struct TreeNode{
     LEXEME terminal;
     short isTerminal;
 };
+TREENODE insertChild(TREENODE tn, LISTNODE ln);
+TREENODE insertNextLinkedList(TREENODE tn, LISTNODE ln);
 
 #endif
 

@@ -19,24 +19,54 @@ PARSER:
 
     ✔ Test parser @today @done (26/02/2023, 18:38:02)
 
-    ERROR HANDLING:
-        ☐ Implement Error reporting
+    HASH FUNCTION:
 
-        ☐ Implement Error recovery
+        ☐ Create Hash Function @critical 
 
-    TREE MODULE:
-        ☐ Implement Tree ADT
+        ☐ Testing Hash Function for given sets of keywords @critical 
 
-        ☐ Implement Tree in parser
+        ☐ Reordering arrays and enums @critical 
 
-        ☐ Test parser
+        ☐ Implement Lookup @critical 
+
+        ☐ Test Everything @critical 
 
     FIRST AND FOLLOW AUTOMATION:
-        ☐ Automate First and Follow sets
 
-        ☐ Test all given test cases
+        ☐ Automate First @low
 
-    DEBUGGING:
-        ☐ Debug and Resolve issues
+        ☐ Automate Follow @low 
 
-        ☐ Repeat 15 and 16 as much as possible
+        ☐ Test implementation @low 
+
+        ☐ Integrate with parser @low 
+
+    TREE ADT:
+    
+        ☐ Integrate in Stack @high 
+
+        ☐ Test with parser @high 
+
+    ERROR:
+
+        ☐ Parser Error reporting @high 
+
+        ☐ Lexer Error recovery @high
+
+        ☐ Parser Error recovery @high
+    
+    TESTING:
+
+        ☐ Lexer Testing @critical 
+
+        ☐ Parser Testing @high
+    
+    
+    DOUBTS:
+
+        ☐ Keyword Length @today  :- What to do if Keyword Length is more than 20
+
+        ☐ Remove Comments @today  :- Should we use DFA or can we do it directly
+
+        ☐ Error recovery is parser @today  
+
