@@ -50,12 +50,12 @@ leftFactored_whichId,ID,SQBC
 leftFactored_whichId,NUM,SQBC
 simpleStmt,assignmentStmt
 simpleStmt,moduleReuseStmt
-assignmentStmt,IDwhichStmt
+assignmentStmt,ID,whichStmt
 whichStmt,lvalueIDStmt
 whichStmt,lvalueARRStmt
 lvalueIDStmt,ASSIGNOP,expression,SEMICOL
 lvalueARRStmt,SQBO,arithmeticExprWArr,SQBC,ASSIGNOP,expression,SEMICOL
-moduleReuseStm,optional,USE,MODULE,ID,WITH,PARAMETERS,idList,SEMICOL
+moduleReuseStmt,optional,USE,MODULE,ID,WITH,PARAMETERS,idList,SEMICOL
 optional,SQBO,idList,SQBC,ASSIGNOP
 optional,epsilon
 idList,ID,leftFactored_idList

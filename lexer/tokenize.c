@@ -64,7 +64,7 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
     } 
 
     if(found == 0) lex->token = IDENTIFIER_TOKEN;
-    printf("Tokenized %s , sending it for parsing\n",TOKENS_STRING[(int) lex->token]);
+    // printf("Tokenized %s , sending it for parsing\n",TOKENS_STRING[(int) lex->token]);
     return lex;
 }
 
