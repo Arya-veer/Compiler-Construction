@@ -8,12 +8,28 @@
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
-    // if(length != SIZ)
-    // TB->buffer[TB->currentForward][length] = 0;
+    if(length != SIZE) TB->buffer[TB->currentForward][length] = EOF;
     // TB->buffer[TB->currentForward][length + 1] = -1;
     printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
+TwinBuffer* initializeTwinBuffer(char* fname){
+    // preprocessFile(fname,-1);
+    char dta[2];
+    dta[0] = -1;
+    dta[1] = -1;
+    TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
+    // TB->fp = fopen(fname,"a");
+    // fputs(dta,TB->fp);
+    // fclose(TB->fp);
+    TB->fp = fopen(fname,"r");
+    TB->lexemeBegin = 0;
+    TB->forward = 0;
+    TB->currentLexemeBegin = 0;
+    TB->currentForward = 0;
+    populateTwinBuffer(TB);
+    return TB;
+}
 
 void incrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero

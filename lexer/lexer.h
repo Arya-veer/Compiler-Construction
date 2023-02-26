@@ -108,10 +108,11 @@ struct lexeme{
     union lexemeData *lexemedata;
 };
 
-void populateTwinBuffer(TwinBuffer *TB);
+// void populateTwinBuffer(TwinBuffer *TB);
 
 // LEXEME* tokenize(TwinBuffer *TB,short int line);
 // LEXEME* tokenizeEOF(TwinBuffer *TB);
+TwinBuffer* initializeTwinBuffer(char* fname);
 LEXEME* simulateDFA(TwinBuffer *TB);
 
 #endif
