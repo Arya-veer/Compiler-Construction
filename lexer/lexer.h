@@ -1,10 +1,35 @@
-
+#include<stdio.h>
 #ifndef LEXER_LEXER_H
 #define LEXER_LEXER_H
+#define SIZE 128
+#define LEXEME_SIZE 32
 
+typedef struct twinBuffer TwinBuffer;
+typedef char SingleBuffer[SIZE];
+char ReturnLexeme[LEXEME_SIZE];
+struct twinBuffer{
+    
+    /* Buffers
+    */
+    SingleBuffer buffer[2];
+    /* Begin Pointer
+    */
+    short lexemeBegin;
+    /* Begin Pointer
+    */
+    short forward;
+    /* Current Buffer
+    */
+    short currentLexemeBegin;
+
+    short currentForward;
+    /* Filename
+    */
+    FILE* fp;
+};
 // #include"../utils/tokens/tokens.h"
-#include "../utils/Buffer/buffer.h"
-#include "../utils/errors/errors.h"
+// #include "../utils/Buffer/buffer.h"
+// #include "../utils/errors/errors.h"
 
 typedef enum  {
         INTEGER_TYPE,
@@ -81,6 +106,8 @@ struct lexeme{
     short int lineNo;
     union lexemeData *lexemedata;
 };
+
+void populateTwinBuffer(TwinBuffer *TB);
 
 // LEXEME* tokenize(TwinBuffer *TB,short int line);
 // LEXEME* tokenizeEOF(TwinBuffer *TB);

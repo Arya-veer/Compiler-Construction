@@ -8,16 +8,16 @@ all: main.c
 
 		# utils part
 			## Buffer folder
-	gcc -c utils/Buffer/readFile.c -o build/utils_Buffer_readfile.o
-	gcc -c utils/Buffer/twinBuffer.c -o build/utils_Buffer_twinBuffer.o
+	# gcc -c utils/Buffer/readFile.c -o build/utils_Buffer_readfile.o
+	# gcc -c utils/Buffer/twinBuffer.c -o build/utils_Buffer_twinBuffer.o
 			## tokens folder (has tokens dependency)
 	# gcc -c utils/tokens/tokens.c -o build/utils_tokens_token.o
 			## colorText folder
-	gcc -c utils/colorText/index.c -o build/utils_colorText_index.o
+	# gcc -c utils/colorText/index.c -o build/utils_colorText_index.o
 			## csvReader folder
-	gcc -c utils/csvReader/csvReader.c -o build/utils_csvReader_csvReader.o
+	# gcc -c utils/csvReader/csvReader.c -o build/utils_csvReader_csvReader.o
 			## errors
-	gcc -c utils/errors/errors.c -o build/utils_errors_errors.o
+	# gcc -c utils/errors/errors.c -o build/utils_errors_errors.o
 			## nonTerminals
 	# gcc -c utils/nonTerminals/nonTerminals.c -o build/utils_nonTerminals_nonTerminals.o
 			## terminals
@@ -41,7 +41,8 @@ all: main.c
 	gcc -c parser/rules/addRules.c -o build/parser_rules_addRules.o
 			##
 	gcc -c parser/parser.c -o build/parser_parser.o
-
+			##csvReader folder
+	gcc -c parser/csvReader/csvReader.c -o build/parser_csvReader_csvReader.o
 		# Final compilation step
 		# Note: Please specify all the object files generated before 'main.c'
 	gcc build/*.o main.c -o erplag

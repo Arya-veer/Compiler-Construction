@@ -15,6 +15,25 @@
 
 #include "parser.h"
 
+TwinBuffer* initializeTwinBuffer(char* fname){
+    // preprocessFile(fname,-1);
+    char dta[2];
+    dta[0] = -1;
+    dta[1] = -1;
+    TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
+    TB->fp = fopen(fname,"a");
+    fputs(dta,TB->fp);
+    fclose(TB->fp);
+    TB->fp = fopen(fname,"r");
+    TB->lexemeBegin = 0;
+    TB->forward = 0;
+    TB->currentLexemeBegin = 0;
+    TB->currentForward = 0;
+    populateTwinBuffer(TB);
+    return TB;
+}
+
+
 
 void parser(char* grammarFile,char* inputFile){
     short int line = 0;
@@ -26,12 +45,12 @@ void parser(char* grammarFile,char* inputFile){
     printf("PARSE TABLE POPULATED\n");
     // printParseTable();
 
-    TwinBuffer TB = initializeTwinBuffer(inputFile);
+    TwinBuffer* TB = initializeTwinBuffer(inputFile);
     printf("TWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
     printf("STACK CREATED\n");
     pushInStack(st,RULES[0]->next);
-    LEXEME* lex = simulateDFA(&TB);
+    LEXEME* lex = simulateDFA(TB);
     printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
     while(lex->token != EOF_TOKEN && isStackEmpty(st) == 0){
@@ -42,7 +61,7 @@ void parser(char* grammarFile,char* inputFile){
         if(stNode->isTerminal == 1){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
-                lex = simulateDFA(&TB);
+                lex = simulateDFA(TB);
                 printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
 
             }

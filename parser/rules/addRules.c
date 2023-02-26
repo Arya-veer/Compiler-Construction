@@ -14,10 +14,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include "addRules.h"
-// #include "../../utils/nonTerminals/nonTerminals.c"
-// #include "../../utils/terminals/terminals.c"
-// #include "../dataStructures/linkedList.c"
-// #include "../../utils/csvReader/csvReader.c"
+
 
 char* TERMINALS_STRINGS[] = {
     "INTEGER",

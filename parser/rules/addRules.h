@@ -2,7 +2,7 @@
 #define PARSER_RULES_ADDRULES_H
 
 #include "../dataStructures/linkedList.h"
-#include "../../utils/csvReader/index.h"
+#include "../csvReader/index.h"
 
 
 // LISTNODE RULES[119];
