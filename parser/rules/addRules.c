@@ -89,9 +89,9 @@ void printRules(int numRules){
 }
 
 
-void addRules(){
+void addRules(char* fname){
     int ruleNum = 0;
-    FILE* fp = fopen("../../grammar.csv","r");
+    FILE* fp = fopen(fname,"r");
     // printf("File opened\n");
     while(1){
         // printf("RULE NUMBER = %d\n",ruleNum);

@@ -1,5 +1,6 @@
 #ifndef PARSER_DATASTRUCTURES_STACK_H
 #define PARSER_DATASTRUCTURES_STACK_H
+
 #include "../../utils/tokens/tokens.h"
 #include "../../utils/nonTerminals/nonTerminals.h"
 #include "parseTree.h"

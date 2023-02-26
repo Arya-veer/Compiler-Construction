@@ -3,6 +3,7 @@
 #include<string.h>
 #include "lexer.h"
 #include "../utils/errors/errors.c"
+#include "tokenize.c"
 
 
 int lineCount = 0;

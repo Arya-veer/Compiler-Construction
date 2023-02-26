@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #include "../utils/Buffer/readFile.c"
 #include "../utils/Buffer/twinBuffer.c"
 #include "lexer.c"

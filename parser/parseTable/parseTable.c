@@ -14,7 +14,7 @@
 #include "../rules/addRules.c"
 #include "../FnFsets/sets.c"
 
-int PARSETABLE[63][57];
+int PARSETABLE[63][58];
 
 void fillParseTable(){
     for(int i=0; i<63; i++){
@@ -25,7 +25,9 @@ void fillParseTable(){
 }
 
 void populateParseTable(){
+    // printf("%d\n",RULES[0]->head->NODETYPE->nonterminal);
     fillParseTable();
+    printf("PARSE TABLE FILLED WITH -1\n");
     int numRules = 119;
     for(int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i]->head;
@@ -33,6 +35,7 @@ void populateParseTable(){
         int size = firstFollowSet[i][0];
         for(int j = 1;j <= size;j++){
             int col = firstFollowSet[i][j];
+            printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
             PARSETABLE[row][col] = i;
         }
     }
@@ -50,3 +53,9 @@ void printParseTable(){
     }
 }
 
+int main(){
+    addRules("../../grammar.csv");
+    printRules(119);
+    populateParseTable();
+    printParseTable();
+}
