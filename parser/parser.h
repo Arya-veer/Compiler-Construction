@@ -9,6 +9,6 @@
 #include "../utils/tokens/tokens.h"
 #include "../utils/Buffer/buffer.h"
 
-void parser();
+void parser(char* grammarFile,char* inputFile);
 
 #endif

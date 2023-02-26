@@ -4,9 +4,9 @@
 
 #define MAX 100
 
-int countCols(FILE *fp){
+short countCols(FILE *fp){
     char character = ' ';
-    int count = 0;
+    short count = 0;
     while(character != '\n' && character != EOF && character != '\0'){
         character = (char)fgetc(fp);
         if(character == ',') ++count;
@@ -14,9 +14,9 @@ int countCols(FILE *fp){
     fclose(fp);
     return count;
 }
-int countRows(FILE *fp){
+short countRows(FILE *fp){
     char character = ' ';
-    int count = 1;
+    short count = 1;
     while(character != EOF && character != '\0'){
         character = (char)fgetc(fp);
         if(character == '\n') ++count;
@@ -30,7 +30,7 @@ char **csvReader(FILE *fp) {
     char line[MAX];
     char *token;
     char **csv_data;
-    int col = 0;
+    short col = 0;
 
     csv_data = (char**)malloc(MAX * sizeof(char*));
 
@@ -39,7 +39,7 @@ char **csvReader(FILE *fp) {
         exit(1);
     }
 
-    for(int i = 0; i < MAX; i++){
+    for(short i = 0; i < MAX; i++){
         csv_data[i] = NULL;
     }
 

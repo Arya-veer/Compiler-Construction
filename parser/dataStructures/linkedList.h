@@ -13,20 +13,20 @@ union NodeType {
 
 typedef struct ListNode* LISTNODE;
 struct ListNode {
-    int ruleNum;
+    short ruleNum;
     LISTNODE next;
     union NodeType* NODETYPE;
-    int isTerminal;
+    short isTerminal;
 };
 
 typedef struct LinkedList* LINKEDLIST;
 
 struct LinkedList{
-    int size;
+    short size;
     LISTNODE head;
 };
 
 LINKEDLIST createLinkedList();
-void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum);
+void insertionInLinkedList(LINKEDLIST ll, short isTerminal, short ndtype, short ruleNum);
 
 #endif

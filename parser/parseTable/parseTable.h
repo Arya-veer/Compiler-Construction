@@ -7,6 +7,6 @@
 
 void populateParseTable();
 
-int PARSETABLE[63][58];
+short PARSETABLE[63][58];
 
 #endif

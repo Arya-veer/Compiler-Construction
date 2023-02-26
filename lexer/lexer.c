@@ -6,11 +6,11 @@
 // #include "tokenize.c"
 
 
-int lineCount = 0;
+short int lineCount = 0;
 
 LEXEME* simulateDFA(TwinBuffer *TB){
     char* error;
-    int state = 0;
+    short int state = 0;
     char c;
     char errorChar;
     char* errorString;

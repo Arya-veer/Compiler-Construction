@@ -16,20 +16,20 @@
 #include "parser.h"
 
 
-void parser(){
-    int line = 0;
-    addRules("../grammar.csv");
+void parser(char* grammarFile,char* inputFile){
+    short int line = 0;
+    addRules(grammarFile);
     printf("RULES ADDED\n");
     // printRules(119);
-    RULES[0]->head->NODETYPE->nonterminal;
+    RULES[0]->NODETYPE->nonterminal;
     populateParseTable();
     printf("PARSE TABLE POPULATED\n");
 
-    TwinBuffer TB = initializeTwinBuffer("_text.txt");
+    TwinBuffer TB = initializeTwinBuffer(inputFile);
     printf("TWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
     printf("STACK CREATED\n");
-    pushInStack(st,RULES[0]->head->next);
+    pushInStack(st,RULES[0]->next);
     LEXEME* lex = simulateDFA(&TB);
     printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
@@ -54,7 +54,7 @@ void parser(){
             printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
             printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
-                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->head->next->isTerminal == -1){ 
+                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1){ 
                 // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
 
                     // stNode = popFromStack(st);
@@ -63,7 +63,7 @@ void parser(){
                     
                 }
                 else{
-                    pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->head->next);
+                    pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next);
                 }
             }
             else{

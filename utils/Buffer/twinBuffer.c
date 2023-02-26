@@ -28,7 +28,7 @@ void decrementForward(TwinBuffer *TB){
     // else simply increment forward
 }
 
-int findLexemeLength(TwinBuffer *TB){
+short findLexemeLength(TwinBuffer *TB){
     // Major case 1: when the forward is equal to or ahead of lexemeBegin
     if(TB->currentForward != TB->currentLexemeBegin) return SIZE + TB->forward - TB->lexemeBegin;
 
@@ -49,7 +49,7 @@ char moveLexemeBegin(TwinBuffer *TB){
 }
 
 // not exported
-int isWhiteSpace(char c){
+short isWhiteSpace(char c){
      return (
                 c == ' ' ||
                 c == '\t' ||
@@ -64,8 +64,8 @@ int isWhiteSpace(char c){
 char* extractLexeme(TwinBuffer *TB){
 
     // TODO: need to test this function
-    int length = findLexemeLength(TB);
-    int i = 0;
+    short length = findLexemeLength(TB);
+    short i = 0;
     // printf("length = %d\n",length);
     for (i = 0; i < length; i++)
     {

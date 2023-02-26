@@ -10,7 +10,7 @@ struct TreeNode{
     TREENODE child;
     TREENODE next;
     LEXEME terminal;
-    int isTerminal;
+    short isTerminal;
 };
 
 #endif

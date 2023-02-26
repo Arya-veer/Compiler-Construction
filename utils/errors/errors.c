@@ -15,8 +15,8 @@
 
 // }
 
-void lexicalError(char errorChar,int lineNo,char* str){
-    printf("Lexical Error occured at line %d, \"%s\" ,  invalid character '%c'",lineNo,str,errorChar);
+void lexicalError(char errorChar,short int lineNo,char* str){
+    printf("Lexical Error occured at line %hi, \"%s\" ,  invalid character '%c'",lineNo,str,errorChar);
 }
 
 // void printErrors(){

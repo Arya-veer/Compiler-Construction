@@ -31,7 +31,7 @@ void pushInStack(STACK st,LISTNODE node){
 
 }
 
-int isStackEmpty(STACK st){
+short isStackEmpty(STACK st){
     return st->size == 0;
 }
 

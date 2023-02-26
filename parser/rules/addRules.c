@@ -19,8 +19,8 @@
 // #include "../dataStructures/linkedList.c"
 // #include "../../utils/csvReader/csvReader.c"
 
-int checkTerminal(char* string){
-    for(int i = 0;i<57;i++){
+short int checkTerminal(char* string){
+    for(short int i = 0;i<57;i++){
         if(strcmp(string,TERMINALS_STRINGS[i]) == 0){
             return 1;
         }
@@ -28,15 +28,15 @@ int checkTerminal(char* string){
     return 0;
 }
 
-int getType(char* string,int type){
+short int getType(char* string,short int type){
     if(type == 1){
-        for(int i = 0;i<57;i++){
+        for(short int i = 0;i<57;i++){
             if(strcmp(string,TERMINALS_STRINGS[i]) == 0){
                 return i;
             }
         }
     }
-    for(int i = 0;i<63;i++){
+    for(short int i = 0;i<63;i++){
         if(strcmp(string,NONTERMINALS_STRINGS[i]) == 0){
             return i;
         }
@@ -53,30 +53,30 @@ ruleNum:int => Number of rule as per the grammar
 strings[]:char* => The rule is form of array
 num:int => Number of strings in the rule
 */
-void addRule(int ruleNum,char** strings,int num){
+void addRule(short int ruleNum,char** strings,short int num){
     LINKEDLIST ll = createLinkedList();
     // printf("Linked List Created\n");
-    for(int i = 0;i < num;i++){
+    for(short int i = 0;i < num;i++){
         // printf("strings[i] = %s\n",strings[i]);
         if(strings[i] == (char*)NULL) break;
         // printf("STRING IS NOT NULL\n");
-        int isTerminal = checkTerminal(strings[i]);
+        short int isTerminal = checkTerminal(strings[i]);
         // printf("isTerminal %d\n",isTerminal);
-        int ndtype = getType(strings[i],isTerminal);
+        short int ndtype = getType(strings[i],isTerminal);
         // printf("RULE TYPE %d\n",ndtype);
         insertionInLinkedList(ll,isTerminal,ndtype,ruleNum);
     }
-    RULES[ruleNum] = ll;
+    RULES[ruleNum] = ll->head;
     return;
 }
 
-void printRules(int numRules){
-    for(int i = 0;i < numRules;i++){
-        LISTNODE curr = RULES[i] -> head;
+void printRules(short int numRules){
+    for(short int i = 0;i < numRules;i++){
+        LISTNODE curr = RULES[i];
         while(curr != NULL){
-            int rule = curr->ruleNum;
-            int isTerminal = curr->isTerminal;
-            int nodeType = isTerminal ? curr->NODETYPE->terminal : curr->NODETYPE->nonterminal;
+            short int rule = curr->ruleNum;
+            short int isTerminal = curr->isTerminal;
+            short int nodeType = isTerminal ? curr->NODETYPE->terminal : curr->NODETYPE->nonterminal;
             if(isTerminal == 1){
                 printf("Rule no. %d , Terminal %d\n",rule,nodeType);
             }
@@ -90,7 +90,7 @@ void printRules(int numRules){
 
 
 void addRules(char* fname){
-    int ruleNum = 0;
+    short int ruleNum = 0;
     FILE* fp = fopen(fname,"r");
     // printf("File opened\n");
     while(1){

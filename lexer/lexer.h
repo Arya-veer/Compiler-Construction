@@ -15,11 +15,11 @@ union lexemeData{
 typedef struct lexeme LEXEME;
 struct lexeme{
     TOKENS token;
-    int lineNo;
+    short int lineNo;
     union lexemeData *lexemedata;
 };
 
-LEXEME* tokenize(TwinBuffer *TB,int line);
+LEXEME* tokenize(TwinBuffer *TB,short int line);
 LEXEME* tokenizeEOF(TwinBuffer *TB);
 LEXEME* simulateDFA(TwinBuffer *TB);
 

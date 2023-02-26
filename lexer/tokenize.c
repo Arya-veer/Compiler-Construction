@@ -4,9 +4,9 @@
 #include "lexer.h"
 // #include "../utils/tokens/tokens.c"
 
-int isFloat(char* number){
-    int n = strlen(number);
-    for(int i=0;i<n;i++){
+short isFloat(char* number){
+    short n = strlen(number);
+    for(short i=0;i<n;i++){
         if(number[i] == '.'){
             return 1;
         }
@@ -28,7 +28,7 @@ LEXEME* tokenizeEOF(TwinBuffer *TB){
     return lex;
 }
 
-LEXEME* tokenize(TwinBuffer *TB,int line){
+LEXEME* tokenize(TwinBuffer *TB,short int line){
     char* input = extractLexeme(TB);
     // printf("tokenize got the input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
@@ -51,10 +51,10 @@ LEXEME* tokenize(TwinBuffer *TB,int line){
         return lex;
     }
     lex->lexemedata->data = input;
-    int found = 0;
+    short found = 0;
     // printf("Checking for keywords\n");
     /* Checking For Keywords */
-    for(int i=0;i <= 52;i++){
+    for(short int i=0;i <= 52;i++){
         // printf("Are they equal %d\n",strcmp(input,TOKENS_STRING[i]));
         if(strcmp(input,TOKENS_STRING[i]) == 0){
             lex->token = (TOKENS) i;

@@ -44,7 +44,7 @@ all: main.c
 
 		# Final compilation step
 		# Note: Please specify all the object files generated before 'main.c'
-	gcc build/*.o main.c -o erplag
+	gcc build/*.o main.c -o erplag.o
 
 clean:
 	rm -rf build/

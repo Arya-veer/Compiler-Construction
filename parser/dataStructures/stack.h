@@ -11,7 +11,7 @@ typedef struct StackNode* STACKNODE;
 struct StackNode {
     STACKNODE next;
     union NodeType* NODETYPE;
-    int isTerminal;
+    short isTerminal;
     TREENODE treenode;
 };
 
@@ -21,12 +21,12 @@ typedef struct Stack* STACK;
 
 struct Stack {
     STACKNODE top;
-    int size;
+    short size;
 };
 
 STACK createStack();
 void pushInStack(STACK st,LISTNODE node);
-int isStackEmpty(STACK st);
+short isStackEmpty(STACK st);
 STACKNODE popFromStack(STACK st);
 
 #endif

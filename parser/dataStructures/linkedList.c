@@ -12,7 +12,7 @@ LINKEDLIST createLinkedList(){
 }
 
 
-void insertionInLinkedList(LINKEDLIST ll, int isTerminal, int ndtype, int ruleNum ){
+void insertionInLinkedList(LINKEDLIST ll, short isTerminal, short ndtype, short ruleNum ){
     // printf("Inserting in Linked List\n");
     if(isTerminal == -1) return;
     if(ndtype == -1) isTerminal = -1;
