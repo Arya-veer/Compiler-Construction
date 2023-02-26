@@ -1,8 +1,9 @@
-#include "../../lexer/lexer.h"
-#include "stack.h"
 
 #ifndef PARSER_DATASTRUCTURES_PARSETREE_H
 #define PARSER_DATASTRUCTURES_PARSETREE_H
+
+#include "../../lexer/lexer.h"
+#include "linkedList.h"
 
 typedef struct TreeNode* TREENODE;
 struct TreeNode{

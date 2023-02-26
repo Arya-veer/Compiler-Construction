@@ -2,7 +2,7 @@
 
 #ifndef ARGPARSE_INDEX_H
 #define ARGPARSE_INDEX_H
-
+#include "../parser/parser.h"
     typedef char* Arguments;
 
     enum ArgumentsEnum

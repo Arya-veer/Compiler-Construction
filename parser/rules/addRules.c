@@ -13,11 +13,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-// #include "addRules.h"
-#include "../../utils/nonTerminals/nonTerminals.c"
-#include "../../utils/terminals/terminals.c"
-#include "../dataStructures/linkedList.c"
-#include "../../utils/csvReader/csvReader.c"
+#include "addRules.h"
+// #include "../../utils/nonTerminals/nonTerminals.c"
+// #include "../../utils/terminals/terminals.c"
+// #include "../dataStructures/linkedList.c"
+// #include "../../utils/csvReader/csvReader.c"
 
 int checkTerminal(char* string){
     for(int i = 0;i<57;i++){
@@ -44,7 +44,7 @@ int getType(char* string,int type){
     return -1;
 }
 
-LINKEDLIST RULES[120];
+
 
 
 /*

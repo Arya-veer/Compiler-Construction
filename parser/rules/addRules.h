@@ -7,4 +7,7 @@
 #include "../../utils/csvReader/index.h"
 
 
+LINKEDLIST RULES[120];
+void addRules(char* fname);
+
 #endif

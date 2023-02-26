@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include "lexer.h"
-#include "../utils/tokens/tokens.c"
+// #include "../utils/tokens/tokens.c"
 
 int isFloat(char* number){
     int n = strlen(number);

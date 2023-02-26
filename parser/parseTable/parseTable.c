@@ -11,10 +11,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#include "../rules/addRules.c"
-#include "../FnFsets/sets.c"
-
-int PARSETABLE[63][58];
+#include "parseTable.h"
 
 void fillParseTable(){
     for(int i=0; i<63; i++){

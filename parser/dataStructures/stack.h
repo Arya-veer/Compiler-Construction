@@ -1,16 +1,11 @@
-#include "../../utils/tokens/tokens.h"
-#include "../../utils/nonTerminals/nonTerminals.h"
-#include "parseTree.h"
 
 #ifndef PARSER_DATASTRUCTURES_STACK_H
 #define PARSER_DATASTRUCTURES_STACK_H
 
 
+#include "parseTree.h"
+#include "linkedList.h"
 
-union NodeType {
-    TOKENS terminal;
-    NONTERMINALS nonterminal;
-};
 
 typedef struct StackNode* STACKNODE;
 struct StackNode {
@@ -21,14 +16,6 @@ struct StackNode {
 };
 
 
-typedef struct ListNode* LISTNODE;
-struct ListNode {
-    int ruleNum;
-    LISTNODE next;
-    union NodeType* NODETYPE;
-    int isTerminal;
-};
-
 
 typedef struct Stack* STACK;
 
@@ -36,6 +23,11 @@ struct Stack {
     STACKNODE top;
     int size;
 };
+
+STACK createStack();
+void pushInStack(STACK st,LISTNODE node);
+int isStackEmpty(STACK st);
+STACKNODE popFromStack(STACK st);
 
 #endif
 

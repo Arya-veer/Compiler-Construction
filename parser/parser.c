@@ -13,12 +13,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#include "../lexer/lexer.c"
-// #include "rules/addRules.c"
-#include "parseTable/parseTable.c"
-#include "dataStructures/stack.c"
-#include "../utils/Buffer/readFile.c"
-#include "../utils/Buffer/twinBuffer.c"
+#include "parser.h"
 
 
 void parser(){
@@ -85,6 +80,6 @@ void parser(){
 }
 
 
-int main(){
-    parser();
-}
+// int main(){
+//     parser();
+// }
