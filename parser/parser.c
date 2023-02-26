@@ -90,6 +90,11 @@ void parser(char* grammarFile,char* inputFile){
 }
 
 
+void testAutomation(char* grammarFile){
+    LISTNODE* RULES = addRules(grammarFile);
+    automateFirstandFollow(RULES);
+}
+
 // int main(){
 //     parser();
 // }
