@@ -1,15 +1,10 @@
-<<<driver program>>> 
-start 
- declare a,b:integer; 
- declare c:boolean; 
- a:=21; 
- b:=23;
- c:=(b-a>3);
- switch(c) 
- start 
-  case true: b:=100; 
-    break; 
-  case false: b:= -100; 
-    break;
- end 
+<<<driver program>>>
+start
+declare num, a, k:integer;
+num:=9;
+for( k in 2..8)
+start
+a:=(num - k)*(num - k);
+print(a);
 end
+endï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½Ø¶ÿÿàØ|ÿÿàØ±

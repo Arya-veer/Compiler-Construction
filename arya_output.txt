@@ -1,0 +1,448 @@
+RULES ADDED
+PARSE TABLE FILLED WITH -1
+
+PARSE TABLE POPULATED
+
+
+size = 128
+_______________________
+declare module mod1;
+<<<driver program>>>
+start
+declare v, w, r :integer;
+get_value(v);
+w:=5;
+declare m:real;
+[r,m] := use modul
+______________________
+
+
+TWIN BUFFER INITIALIZED
+
+STACK CREATED
+
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal program
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal moduleDeclaration
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS DRIVERDEF
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal otherModules
+Popped Non Terminal driverModule
+Popped Terminal DRIVERDEF
+TOKEN GIVEN BY DFA IS DRIVER
+Popped Terminal DRIVER
+TOKEN GIVEN BY DFA IS PROGRAM
+Popped Terminal PROGRAM
+TOKEN GIVEN BY DFA IS DRIVERENDDEF
+Popped Terminal DRIVERENDDEF
+TOKEN GIVEN BY DFA IS START
+Popped Non Terminal moduleDef
+Popped Terminal START
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS GET_VALUE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal GET_VALUE
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Non Terminal dataType
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS SQBO
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal moduleReuseStmt
+Popped Non Terminal optional
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SQBC
+Popped Non Terminal leftFactored_idList
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS USE
+Popped Terminal USE
+
+
+size = 128
+_______________________
+e mod1 with parameters v, w;
+print(r);
+print(m);
+end
+<<module mod1>>
+takes input [a: integer, b: integer];
+returns [x: integer,a{
+______________________
+
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS WITH
+Popped Terminal WITH
+TOKEN GIVEN BY DFA IS PARAMETERS
+Popped Terminal PARAMETERS
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_idList
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS PRINT
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal PRINT
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal leftFactored_ioStmt
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal whichId
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS PRINT
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal PRINT
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal leftFactored_ioStmt
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal whichId
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS END
+Popped Non Terminal statements
+Popped Terminal END
+TOKEN GIVEN BY DFA IS DEF
+Popped Non Terminal otherModules
+Popped Non Terminal module
+Popped Terminal DEF
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ENDDEF
+Popped Terminal ENDDEF
+TOKEN GIVEN BY DFA IS TAKES
+Popped Terminal TAKES
+TOKEN GIVEN BY DFA IS INPUT
+Popped Terminal INPUT
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal input_plist
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_input_plist
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS SQBC
+Popped Non Terminal leftFactored_input_plist
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS RETURNS
+Popped Non Terminal ret
+Popped Terminal RETURNS
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal output_plist
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal type
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_output_plist
+Popped Terminal COMMA
+
+
+size = 69
+_______________________
+bc: real];
+start
+declare c: real;
+c:=10.4;
+x:=a+b-10;
+abc:=b/5+c;
+endger;
+get_value(v);
+w:=5;
+declare m:real;
+[r,m] := use module mod1 with parameters v, w;
+print(r);
+print(m);
+end
+<<module mod1>>
+takes input [a: integer, b: integer];
+returns [x: integer,a
+______________________
+
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Non Terminal type
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SQBC
+Popped Non Terminal leftFactored_output_plist
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS START
+Popped Non Terminal moduleDef
+Popped Terminal START
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Non Terminal dataType
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS RNUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal RNUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS PLUS
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal PLUS
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS MINUS
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal MINUS
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS DIV
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal md
+Popped Terminal DIV
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS PLUS
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal PLUS
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal whichStmt
+ERROR TYPE 2

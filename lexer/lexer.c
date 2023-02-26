@@ -8,6 +8,7 @@
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
+    // if(length != SIZ)
     // TB->buffer[TB->currentForward][length] = 0;
     // TB->buffer[TB->currentForward][length + 1] = -1;
     printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
@@ -169,6 +170,13 @@ short isFloat(char* number){
     TODO: Handle comments
 
  */
+void skipComment(TwinBuffer *TB){
+    char* input = extractLexeme(TB);
+    // LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
+    // lex -> token = EOF_TOKEN;
+    printf("Skipped Comment\n");
+    // return lex;
+}
 
 LEXEME* tokenizeEOF(TwinBuffer *TB){
     char* input = extractLexeme(TB);
@@ -180,7 +188,7 @@ LEXEME* tokenizeEOF(TwinBuffer *TB){
 
 LEXEME* tokenize(TwinBuffer *TB,short int line){
     char* input = extractLexeme(TB);
-    // printf("tokenize got the input as %s\n",input);
+    printf("tokenize got the input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
@@ -410,8 +418,8 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 // printf("STATE 19\n");
                 incrementForward(TB);
                 // printf("TOKENIZE TK_COMMENTMARK\n");
-                lex = tokenize(TB,lineCount);
-                return lex;
+                skipComment(TB);
+                state=0;
                 break;
             case 20:
                 // printf("STATE 20\n");

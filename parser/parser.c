@@ -21,9 +21,9 @@ TwinBuffer* initializeTwinBuffer(char* fname){
     dta[0] = -1;
     dta[1] = -1;
     TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
-    // TB->fp = fopen(fname,"a");
-    // fputs(dta,TB->fp);
-    // fclose(TB->fp);
+    TB->fp = fopen(fname,"a");
+    fputs(dta,TB->fp);
+    fclose(TB->fp);
     TB->fp = fopen(fname,"r");
     TB->lexemeBegin = 0;
     TB->forward = 0;
@@ -42,6 +42,7 @@ void parser(char* grammarFile,char* inputFile){
     // printRules(119);
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
+    printParseTable();
     printf("\nPARSE TABLE POPULATED\n");
     TwinBuffer* TB = initializeTwinBuffer(inputFile);
     printf("\nTWIN BUFFER INITIALIZED\n");
