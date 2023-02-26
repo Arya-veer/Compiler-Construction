@@ -8,16 +8,16 @@ TwinBuffer initializeTwinBuffer(char* fname){
     char dta[2];
     dta[0] = -1;
     dta[1] = -1;
-    TwinBuffer TB;
-    TB.fp = fopen(fname,"a");
-    fputs(dta,TB.fp);
-    fclose(TB.fp);
-    TB.fp = fopen(fname,"r");
-    TB.lexemeBegin = 0;
-    TB.forward = 0;
-    TB.currentLexemeBegin = 0;
-    TB.currentForward = 0;
-    populateTwinBuffer(&TB);
+    TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
+    TB->fp = fopen(fname,"a");
+    fputs(dta,TB->fp);
+    fclose(TB->fp);
+    TB->fp = fopen(fname,"r");
+    TB->lexemeBegin = 0;
+    TB->forward = 0;
+    TB->currentLexemeBegin = 0;
+    TB->currentForward = 0;
+    populateTwinBuffer(TB);
     return TB;
 }
 
