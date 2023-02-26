@@ -32,7 +32,7 @@ void populateParseTable(){
         short int size = firstFollowSet[i][0];
         for(short int j = 1;j <= size;j++){
             short int col = firstFollowSet[i][j];
-            printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
+            // printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
             PARSETABLE[row][col] = i;
         }
     }

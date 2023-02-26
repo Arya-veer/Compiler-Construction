@@ -1,177 +1,231 @@
 (null)RULES ADDED
 PARSE TABLE FILLED WITH -1
-DATA ENTRY DONE AT row = 0,col = 7,rule = 0
-DATA ENTRY DONE AT row = 0,col = 40,rule = 0
-DATA ENTRY DONE AT row = 0,col = 42,rule = 0
-DATA ENTRY DONE AT row = 1,col = 7,rule = 1
-DATA ENTRY DONE AT row = 1,col = 40,rule = 1
-DATA ENTRY DONE AT row = 1,col = 42,rule = 1
-DATA ENTRY DONE AT row = 2,col = 7,rule = 2
-DATA ENTRY DONE AT row = 2,col = 40,rule = 3
-DATA ENTRY DONE AT row = 2,col = 42,rule = 3
-DATA ENTRY DONE AT row = 3,col = 7,rule = 4
-DATA ENTRY DONE AT row = 4,col = 40,rule = 5
-DATA ENTRY DONE AT row = 4,col = 42,rule = 6
-DATA ENTRY DONE AT row = 4,col = 53,rule = 6
-DATA ENTRY DONE AT row = 5,col = 42,rule = 7
-DATA ENTRY DONE AT row = 6,col = 40,rule = 8
-DATA ENTRY DONE AT row = 7,col = 18,rule = 9
-DATA ENTRY DONE AT row = 7,col = 5,rule = 10
-DATA ENTRY DONE AT row = 8,col = 54,rule = 11
-DATA ENTRY DONE AT row = 9,col = 47,rule = 12
-DATA ENTRY DONE AT row = 9,col = 50,rule = 13
-DATA ENTRY DONE AT row = 10,col = 54,rule = 14
-DATA ENTRY DONE AT row = 11,col = 47,rule = 15
-DATA ENTRY DONE AT row = 11,col = 50,rule = 16
-DATA ENTRY DONE AT row = 12,col = 0,rule = 17
-DATA ENTRY DONE AT row = 12,col = 1,rule = 18
-DATA ENTRY DONE AT row = 12,col = 2,rule = 19
-DATA ENTRY DONE AT row = 12,col = 4,rule = 20
-DATA ENTRY DONE AT row = 13,col = 30,rule = 21
-DATA ENTRY DONE AT row = 13,col = 31,rule = 21
-DATA ENTRY DONE AT row = 13,col = 54,rule = 21
-DATA ENTRY DONE AT row = 13,col = 55,rule = 21
-DATA ENTRY DONE AT row = 14,col = 54,rule = 22
-DATA ENTRY DONE AT row = 14,col = 55,rule = 23
-DATA ENTRY DONE AT row = 15,col = 30,rule = 24
-DATA ENTRY DONE AT row = 15,col = 31,rule = 24
-DATA ENTRY DONE AT row = 15,col = 54,rule = 25
-DATA ENTRY DONE AT row = 15,col = 55,rule = 25
-DATA ENTRY DONE AT row = 15,col = 51,rule = 25
-DATA ENTRY DONE AT row = 15,col = 56,rule = 25
-DATA ENTRY DONE AT row = 16,col = 0,rule = 26
-DATA ENTRY DONE AT row = 16,col = 1,rule = 27
-DATA ENTRY DONE AT row = 16,col = 2,rule = 28
-DATA ENTRY DONE AT row = 17,col = 5,rule = 29
-DATA ENTRY DONE AT row = 18,col = 11,rule = 30
-DATA ENTRY DONE AT row = 18,col = 12,rule = 30
-DATA ENTRY DONE AT row = 18,col = 54,rule = 30
-DATA ENTRY DONE AT row = 18,col = 49,rule = 30
-DATA ENTRY DONE AT row = 18,col = 13,rule = 30
-DATA ENTRY DONE AT row = 18,col = 7,rule = 30
-DATA ENTRY DONE AT row = 18,col = 21,rule = 30
-DATA ENTRY DONE AT row = 18,col = 19,rule = 30
-DATA ENTRY DONE AT row = 18,col = 25,rule = 30
-DATA ENTRY DONE AT row = 18,col = 23,rule = 31
-DATA ENTRY DONE AT row = 18,col = 6,rule = 31
-DATA ENTRY DONE AT row = 19,col = 11,rule = 32
-DATA ENTRY DONE AT row = 19,col = 12,rule = 32
-DATA ENTRY DONE AT row = 19,col = 54,rule = 33
-DATA ENTRY DONE AT row = 19,col = 49,rule = 33
-DATA ENTRY DONE AT row = 19,col = 13,rule = 33
-DATA ENTRY DONE AT row = 19,col = 7,rule = 34
-DATA ENTRY DONE AT row = 19,col = 21,rule = 35
-DATA ENTRY DONE AT row = 19,col = 19,rule = 36
-DATA ENTRY DONE AT row = 19,col = 25,rule = 36
-DATA ENTRY DONE AT row = 20,col = 11,rule = 37
-DATA ENTRY DONE AT row = 20,col = 12,rule = 38
-DATA ENTRY DONE AT row = 21,col = 54,rule = 39
-DATA ENTRY DONE AT row = 21,col = 55,rule = 39
-DATA ENTRY DONE AT row = 21,col = 56,rule = 39
-DATA ENTRY DONE AT row = 21,col = 28,rule = 40
-DATA ENTRY DONE AT row = 21,col = 29,rule = 40
-DATA ENTRY DONE AT row = 22,col = 28,rule = 41
-DATA ENTRY DONE AT row = 22,col = 29,rule = 42
-DATA ENTRY DONE AT row = 23,col = 54,rule = 43
-DATA ENTRY DONE AT row = 23,col = 55,rule = 44
-DATA ENTRY DONE AT row = 23,col = 56,rule = 45
-DATA ENTRY DONE AT row = 24,col = 49,rule = 46
-DATA ENTRY DONE AT row = 24,col = 52,rule = 47
-DATA ENTRY DONE AT row = 24,col = 46,rule = 47
-DATA ENTRY DONE AT row = 24,col = 30,rule = 47
-DATA ENTRY DONE AT row = 24,col = 31,rule = 47
-DATA ENTRY DONE AT row = 24,col = 32,rule = 47
-DATA ENTRY DONE AT row = 24,col = 33,rule = 47
-DATA ENTRY DONE AT row = 24,col = 34,rule = 47
-DATA ENTRY DONE AT row = 24,col = 35,rule = 47
-DATA ENTRY DONE AT row = 24,col = 37,rule = 47
-DATA ENTRY DONE AT row = 24,col = 36,rule = 47
-DATA ENTRY DONE AT row = 24,col = 38,rule = 47
-DATA ENTRY DONE AT row = 24,col = 39,rule = 47
-DATA ENTRY DONE AT row = 24,col = 26,rule = 47
-DATA ENTRY DONE AT row = 24,col = 27,rule = 47
-DATA ENTRY DONE AT row = 25,col = 54,rule = 48
-DATA ENTRY DONE AT row = 25,col = 55,rule = 49
-DATA ENTRY DONE AT row = 26,col = 54,rule = 50
-DATA ENTRY DONE AT row = 26,col = 49,rule = 51
-DATA ENTRY DONE AT row = 26,col = 13,rule = 51
-DATA ENTRY DONE AT row = 27,col = 54,rule = 52
-DATA ENTRY DONE AT row = 28,col = 48,rule = 53
-DATA ENTRY DONE AT row = 28,col = 49,rule = 54
-DATA ENTRY DONE AT row = 29,col = 48,rule = 55
-DATA ENTRY DONE AT row = 30,col = 49,rule = 56
-DATA ENTRY DONE AT row = 31,col = 49,rule = 57
-DATA ENTRY DONE AT row = 31,col = 13,rule = 57
-DATA ENTRY DONE AT row = 32,col = 49,rule = 58
-DATA ENTRY DONE AT row = 32,col = 50,rule = 59
-DATA ENTRY DONE AT row = 32,col = 44,rule = 59
-DATA ENTRY DONE AT row = 32,col = 46,rule = 59
-DATA ENTRY DONE AT row = 33,col = 54,rule = 60
-DATA ENTRY DONE AT row = 34,col = 47,rule = 61
-DATA ENTRY DONE AT row = 34,col = 46,rule = 62
-DATA ENTRY DONE AT row = 34,col = 50,rule = 62
-DATA ENTRY DONE AT row = 34,col = 44,rule = 62
-DATA ENTRY DONE AT row = 35,col = 54,rule = 63
-DATA ENTRY DONE AT row = 35,col = 51,rule = 63
-DATA ENTRY DONE AT row = 35,col = 55,rule = 63
-DATA ENTRY DONE AT row = 35,col = 56,rule = 63
-DATA ENTRY DONE AT row = 35,col = 28,rule = 63
-DATA ENTRY DONE AT row = 35,col = 29,rule = 63
-DATA ENTRY DONE AT row = 35,col = 30,rule = 64
-DATA ENTRY DONE AT row = 35,col = 31,rule = 64
-DATA ENTRY DONE AT row = 36,col = 30,rule = 65
-DATA ENTRY DONE AT row = 36,col = 31,rule = 65
-DATA ENTRY DONE AT row = 37,col = 51,rule = 66
-DATA ENTRY DONE AT row = 37,col = 4,rule = 66
-DATA ENTRY DONE AT row = 37,col = 54,rule = 66
-DATA ENTRY DONE AT row = 37,col = 4,rule = 66
-DATA ENTRY DONE AT row = 37,col = 54,rule = 67
-DATA ENTRY DONE AT row = 37,col = 4,rule = 67
-DATA ENTRY DONE AT row = 37,col = 55,rule = 67
-DATA ENTRY DONE AT row = 37,col = 4,rule = 67
-DATA ENTRY DONE AT row = 37,col = 55,rule = 68
-DATA ENTRY DONE AT row = 37,col = 4,rule = 68
-DATA ENTRY DONE AT row = 37,col = 56,rule = 68
-DATA ENTRY DONE AT row = 37,col = 0,rule = 68
-DATA ENTRY DONE AT row = 37,col = 56,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 38,col = 54,rule = 70
-DATA ENTRY DONE AT row = 38,col = 51,rule = 70
-DATA ENTRY DONE AT row = 38,col = 55,rule = 70
-DATA ENTRY DONE AT row = 38,col = 56,rule = 70
-DATA ENTRY DONE AT row = 38,col = 28,rule = 71
-DATA ENTRY DONE AT row = 38,col = 29,rule = 71
-DATA ENTRY DONE AT row = -1,col = 26,rule = 72
-DATA ENTRY DONE AT row = -1,col = 27,rule = 72
-DATA ENTRY DONE AT row = 39,col = 46,rule = 73
-DATA ENTRY DONE AT row = 39,col = 52,rule = 73
-DATA ENTRY DONE AT row = 40,col = 34,rule = 74
-DATA ENTRY DONE AT row = 40,col = 35,rule = 74
-DATA ENTRY DONE AT row = 40,col = 37,rule = 74
-DATA ENTRY DONE AT row = 40,col = 36,rule = 74
-DATA ENTRY DONE AT row = 40,col = 38,rule = 74
-DATA ENTRY DONE AT row = 40,col = 39,rule = 74
-DATA ENTRY DONE AT row = 40,col = 26,rule = 75
-DATA ENTRY DONE AT row = 40,col = 27,rule = 75
-DATA ENTRY DONE AT row = 40,col = 46,rule = 75
-DATA ENTRY DONE AT row = 40,col = 52,rule = 75
-DATA ENTRY DONE AT row = 41,col = 54,rule = 76
-DATA ENTRY DONE AT row = 41,col = 51,rule = 76
-DATA ENTRY DONE AT row = 41,col = 55,rule = 76
-DATA ENTRY DONE AT row = 41,col = 56,rule = 76
-DATA ENTRY DONE AT row = 42,col = 30,rule = 77
-DATA ENTRY DONE AT row = 42,col = 31,rule = 77
-DATA ENTRY DONE AT row = 42,col = 52,rule = 78
-DATA ENTRY DONE AT row = 42,col = 34,rule = 78
-DATA ENTRY DONE AT row = 42,col = 35,rule = 78
-DATA ENTRY DONE AT row = 42,col = 36,rule = 78
-DATA ENTRY DONE AT row = 42,col = 37,rule = 78
-DATA ENTRY DONE AT row = 42,col = 38,rule = 78
-DATA ENTRY DONE AT row = 42,col = 39,rule = 78
-DATA ENTRY DONE AT row = 42,col = 26,rule = 78
-DATA ENTRY DONE AT row = 42,col = 27,rule = 78
-DATA ENTRY DONE AT row = 42,col = 46,rule = 78
-DATA ENTRY DONE AT row = 43,col = 30,rule = 79
-DATA ENTRY DONE AT row = 43,co
+PARSE TABLE POPULATED
+TWIN BUFFER INITIALIZED
+STACK CREATED
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS DRIVERDEF
+Popped Terminal DRIVERDEF
+TOKEN GIVEN BY DFA IS DRIVER
+Popped Terminal DRIVER
+TOKEN GIVEN BY DFA IS PROGRAM
+Popped Terminal PROGRAM
+TOKEN GIVEN BY DFA IS DRIVERENDDEF
+Popped Terminal DRIVERENDDEF
+TOKEN GIVEN BY DFA IS START
+Popped Terminal START
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS GET_VALUE
+Popped Terminal GET_VALUE
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS NUM
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SQBC
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS USE
+Popped Terminal USE
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS WITH
+Popped Terminal WITH
+TOKEN GIVEN BY DFA IS PARAMETERS
+Popped Terminal PARAMETERS
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS PRINT
+Popped Terminal PRINT
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS PRINT
+Popped Terminal PRINT
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS END
+Popped Terminal END
+TOKEN GIVEN BY DFA IS DEF
+Popped Terminal DEF
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ENDDEF
+Popped Terminal ENDDEF
+TOKEN GIVEN BY DFA IS TAKES
+Popped Terminal TAKES
+TOKEN GIVEN BY DFA IS INPUT
+Popped Terminal INPUT
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS SQBC
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS RETURNS
+Popped Terminal RETURNS
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Terminal INTEGER
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SQBC
+Popped Terminal SQBC
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS START
+Popped Terminal START
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+TOKEN GIVEN BY DFA IS REAL
+Popped Terminal REAL
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS RNUM
+Popped Terminal RNUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS PLUS
+Popped Terminal PLUS
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS MINUS
+Popped Terminal MINUS
+TOKEN GIVEN BY DFA IS NUM
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS DIV
+Popped Terminal DIV
+TOKEN GIVEN BY DFA IS NUM
+Popped Terminal NUM
+TOKEN GIVEN BY DFA IS PLUS
+Popped Terminal PLUS
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+TOKEN GIVEN BY DFA IS END
+Popped Terminal END
+Tokenized EOF , sending it for parsing
+TOKEN GIVEN BY DFA IS EOF

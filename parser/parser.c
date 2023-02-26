@@ -51,8 +51,8 @@ void parser(char* grammarFile,char* inputFile){
             }
         }
         else if(stNode->isTerminal == 0){
-            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-            printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
+            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+            // printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1){ 
                 // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
