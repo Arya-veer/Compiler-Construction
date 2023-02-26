@@ -10,3 +10,15 @@
 
 */
 
+#include<stdio.h>
+#include<stdlib.h>
+
+#include "../lexer/lexer.c"
+#include "rules/addRules.c"
+#include "parseTable/parseTable.c"
+#include "dataStructures/stack.c"
+
+
+void parser(){
+    
+}
