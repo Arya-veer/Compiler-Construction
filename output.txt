@@ -1,9 +1,33 @@
 RULES ADDED
 PARSE TABLE FILLED WITH -1
+
 PARSE TABLE POPULATED
+
+
+size = 128
+_______________________
+<<<driver program>>> 
+start 
+ declare a,b:integer; 
+ declare c:boolean; 
+ a:=21; 
+ b:=23;
+ c:=(b-a>3);
+ switch(c) 
+ start 
+  cas
+______________________
+
+
 TWIN BUFFER INITIALIZED
+
 STACK CREATED
+
 TOKEN GIVEN BY DFA IS DRIVERDEF
+Popped Non Terminal program
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal otherModules
+Popped Non Terminal driverModule
 Popped Terminal DRIVERDEF
 TOKEN GIVEN BY DFA IS DRIVER
 Popped Terminal DRIVER
@@ -12,68 +36,157 @@ Popped Terminal PROGRAM
 TOKEN GIVEN BY DFA IS DRIVERENDDEF
 Popped Terminal DRIVERENDDEF
 TOKEN GIVEN BY DFA IS START
+Popped Non Terminal moduleDef
 Popped Terminal START
 TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
 Popped Terminal DECLARE
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
 Popped Terminal COMMA
 TOKEN GIVEN BY DFA IS ID
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
 Popped Terminal COLON
 TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal dataType
 Popped Terminal INTEGER
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
 Popped Terminal DECLARE
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
 Popped Terminal COLON
 TOKEN GIVEN BY DFA IS BOOLEAN
+Popped Non Terminal dataType
 Popped Terminal BOOLEAN
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
 Popped Terminal ASSIGNOP
 TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal NUM
 TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
 Popped Terminal ASSIGNOP
 TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal NUM
 TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
 Popped Terminal ASSIGNOP
 TOKEN GIVEN BY DFA IS BO
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
 Popped Terminal BO
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS MINUS
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
 Popped Terminal MINUS
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS GT
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal relationalOp
 Popped Terminal GT
 TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal NUM
 TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal logicalTerm
 Popped Terminal BC
 TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS SWITCH
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal conditionalStmt
 Popped Terminal SWITCH
 TOKEN GIVEN BY DFA IS BO
 Popped Terminal BO
@@ -83,47 +196,94 @@ TOKEN GIVEN BY DFA IS BC
 Popped Terminal BC
 TOKEN GIVEN BY DFA IS START
 Popped Terminal START
+
+
+size = 74
+_______________________
+e true: b:=100; 
+    break; 
+  case false: b:= -100; 
+    break;
+ end 
+end
+______________________
+
 TOKEN GIVEN BY DFA IS CASE
+Popped Non Terminal caseStmt
 Popped Terminal CASE
 TOKEN GIVEN BY DFA IS true
+Popped Non Terminal value
 Popped Terminal true
 TOKEN GIVEN BY DFA IS COLON
 Popped Terminal COLON
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
 Popped Terminal ASSIGNOP
 TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
 Popped Terminal NUM
 TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS BREAK
+Popped Non Terminal statements
 Popped Terminal BREAK
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS CASE
+Popped Non Terminal leftFactored_caseStmt
 Popped Terminal CASE
 TOKEN GIVEN BY DFA IS false
+Popped Non Terminal value
 Popped Terminal false
 TOKEN GIVEN BY DFA IS COLON
 Popped Terminal COLON
 TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
 Popped Terminal ID
 TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
 Popped Terminal ASSIGNOP
 TOKEN GIVEN BY DFA IS MINUS
+Popped Non Terminal expression
+Popped Non Terminal unaryTerm
+Popped Non Terminal pm
 Popped Terminal MINUS
 TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal arithmeticFactor
 Popped Terminal NUM
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS BREAK
+Popped Non Terminal statements
 Popped Terminal BREAK
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
 TOKEN GIVEN BY DFA IS END
+Popped Non Terminal leftFactored_caseStmt
+Popped Non Terminal dfault
 Popped Terminal END
 TOKEN GIVEN BY DFA IS END
+Popped Non Terminal statements
 Popped Terminal END
-Lexical Error occured at line 14, "ï" ,  invalid character 'ï'TOKEN GIVEN BY DFA IS REAL
-ERROR TYPE 2
+Tokenized EOF , sending it for parsing
+TOKEN GIVEN BY DFA IS EOF

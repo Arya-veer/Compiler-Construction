@@ -10,7 +10,7 @@ void populateTwinBuffer(TwinBuffer *TB){
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
     // TB->buffer[TB->currentForward][length] = 0;
     // TB->buffer[TB->currentForward][length + 1] = -1;
-    // printf("size = %d \n%s\n\n\n", length, TB->buffer[TB->currentForward]);
+    printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
 
@@ -235,12 +235,12 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 // printf("Error due to %c\n",c);
                 incrementForward(TB);
                 errorString = extractLexeme(TB);
-                printf("Lexical Error occured at line %hi, \"%s\" ,  invalid character '%c'",lineCount,errorString,c);
+                printf("Lexical Error occured at line %hi, \"%s\" ,  invalid character '%c'\n",lineCount,errorString,c);
                 // lexicalError(c,lineCount,errorString);
 
                 // printf("Lexical Error Occured\n");
-
-                return lex;
+                state = 0;
+                // return lex;
                 break;
             case 0:
                 // printf("START STATE\n");

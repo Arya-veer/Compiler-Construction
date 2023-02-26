@@ -21,9 +21,9 @@ TwinBuffer* initializeTwinBuffer(char* fname){
     dta[0] = -1;
     dta[1] = -1;
     TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
-    TB->fp = fopen(fname,"a");
-    fputs(dta,TB->fp);
-    fclose(TB->fp);
+    // TB->fp = fopen(fname,"a");
+    // fputs(dta,TB->fp);
+    // fclose(TB->fp);
     TB->fp = fopen(fname,"r");
     TB->lexemeBegin = 0;
     TB->forward = 0;
@@ -42,21 +42,18 @@ void parser(char* grammarFile,char* inputFile){
     // printRules(119);
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
-    printf("PARSE TABLE POPULATED\n");
-    // printParseTable();
-
+    printf("\nPARSE TABLE POPULATED\n");
     TwinBuffer* TB = initializeTwinBuffer(inputFile);
-    printf("TWIN BUFFER INITIALIZED\n");
+    printf("\nTWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
-    printf("STACK CREATED\n");
+    printf("\nSTACK CREATED\n");
     pushInStack(st,RULES[0]->next);
     LEXEME* lex = simulateDFA(TB);
-    printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
+    printf("\nTOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
     while(lex->token != EOF_TOKEN && isStackEmpty(st) == 0){
         stNode = popFromStack(st);
         /* Checking for the terminal */
-        // if(isStackEmpty(st) && lex->token == EOF_TOKEN)
 
         if(stNode->isTerminal == 1){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
@@ -72,18 +69,9 @@ void parser(char* grammarFile,char* inputFile){
             }
         }
         else if(stNode->isTerminal == 0){
-            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-            // printf("Searching for %s,%s in parse table\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal],TERMINALS_STRINGS[lex->token]);
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
-                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1){ 
-                // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-
-                    // stNode = popFromStack(st);
-                    // printf("Popped Terminal %s Due to EPSILON\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
-                    continue;
-                    
-                }
-                else{
+                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal != -1){ 
                     pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next);
                 }
             }
@@ -91,9 +79,6 @@ void parser(char* grammarFile,char* inputFile){
                 printf("ERROR TYPE 2\n");
                 break;
             }
-        }
-        else{
-            continue;
         }
         free(stNode);
 
