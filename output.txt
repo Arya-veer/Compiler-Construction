@@ -1,4 +1,4 @@
-(null)RULES ADDED
+RULES ADDED
 PARSE TABLE FILLED WITH -1
 PARSE TABLE POPULATED
 TWIN BUFFER INITIALIZED
@@ -229,3 +229,299 @@ TOKEN GIVEN BY DFA IS END
 Popped Terminal END
 Tokenized EOF , sending it for parsing
 TOKEN GIVEN BY DFA IS EOF
+size = 128 ___________________
+declare module mod1; 
+<<<driver program>>> 
+start 
+ declare  v, w, r :integer; 
+ get_value(v); 
+ w:=5; 
+ declare m:real; 
+ [r,m]�;�
+TWIN BUFFER INITIALIZED
+STACK CREATED
+tokenize got the input as declare
+Tokenized 7 , sending it for parsing
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+tokenize got the input as  
+tokenize got the input as module
+Tokenized 8 , sending it for parsing
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+tokenize got the input as  
+tokenize got the input as mod1
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as <<<
+Tokenized 42 , sending it for parsing
+TOKEN GIVEN BY DFA IS DRIVERDEF
+Popped Terminal DRIVERDEF
+tokenize got the input as driver
+Tokenized 9 , sending it for parsing
+TOKEN GIVEN BY DFA IS DRIVER
+Popped Terminal DRIVER
+tokenize got the input as  
+tokenize got the input as program
+Tokenized 10 , sending it for parsing
+TOKEN GIVEN BY DFA IS PROGRAM
+Popped Terminal PROGRAM
+tokenize got the input as >>>
+Tokenized 43 , sending it for parsing
+TOKEN GIVEN BY DFA IS DRIVERENDDEF
+Popped Terminal DRIVERENDDEF
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as start
+Tokenized 5 , sending it for parsing
+TOKEN GIVEN BY DFA IS START
+Popped Terminal START
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as declare
+Tokenized 7 , sending it for parsing
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+tokenize got the input as  
+tokenize got the input as  
+tokenize got the input as v
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ,
+Tokenized 47 , sending it for parsing
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+tokenize got the input as  
+tokenize got the input as w
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ,
+Tokenized 47 , sending it for parsing
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+tokenize got the input as  
+tokenize got the input as r
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as  
+tokenize got the input as :
+Tokenized 44 , sending it for parsing
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+tokenize got the input as integer
+Tokenized 0 , sending it for parsing
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Terminal INTEGER
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as get_value
+Tokenized 11 , sending it for parsing
+TOKEN GIVEN BY DFA IS GET_VALUE
+Popped Terminal GET_VALUE
+tokenize got the input as (
+Tokenized 51 , sending it for parsing
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+tokenize got the input as v
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as )
+Tokenized 52 , sending it for parsing
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as w
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as :=
+Tokenized 48 , sending it for parsing
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+tokenize got the input as 5
+TOKEN GIVEN BY DFA IS NUM
+Popped Terminal NUM
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as declare
+Tokenized 7 , sending it for parsing
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Terminal DECLARE
+tokenize got the input as  
+tokenize got the input as m
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as :
+Tokenized 44 , sending it for parsing
+TOKEN GIVEN BY DFA IS COLON
+Popped Terminal COLON
+tokenize got the input as real
+Tokenized 1 , sending it for parsing
+TOKEN GIVEN BY DFA IS REAL
+Popped Terminal REAL
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as [
+Tokenized 49 , sending it for parsing
+TOKEN GIVEN BY DFA IS SQBO
+Popped Terminal SQBO
+tokenize got the input as r
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ,
+Tokenized 47 , sending it for parsing
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+tokenize got the input as m
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+size = 128 ___________________
+ := use  module mod1 with parameters v, w; 
+ print(r); 
+ print(m); 
+end 
+ 
+<<module mod1>> 
+takes input [a: integer, b: integer]
+tokenize got the input as ]
+Tokenized 50 , sending it for parsing
+TOKEN GIVEN BY DFA IS SQBC
+Popped Terminal SQBC
+tokenize got the input as  
+tokenize got the input as :=
+Tokenized 48 , sending it for parsing
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Terminal ASSIGNOP
+tokenize got the input as  
+tokenize got the input as use
+Tokenized 13 , sending it for parsing
+TOKEN GIVEN BY DFA IS USE
+Popped Terminal USE
+tokenize got the input as  
+tokenize got the input as  
+tokenize got the input as module
+Tokenized 8 , sending it for parsing
+TOKEN GIVEN BY DFA IS MODULE
+Popped Terminal MODULE
+tokenize got the input as  
+tokenize got the input as mod1
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as  
+tokenize got the input as with
+Tokenized 14 , sending it for parsing
+TOKEN GIVEN BY DFA IS WITH
+Popped Terminal WITH
+tokenize got the input as  
+tokenize got the input as parameters
+Tokenized 15 , sending it for parsing
+TOKEN GIVEN BY DFA IS PARAMETERS
+Popped Terminal PARAMETERS
+tokenize got the input as  
+tokenize got the input as v
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ,
+Tokenized 47 , sending it for parsing
+TOKEN GIVEN BY DFA IS COMMA
+Popped Terminal COMMA
+tokenize got the input as  
+tokenize got the input as w
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as print
+Tokenized 12 , sending it for parsing
+TOKEN GIVEN BY DFA IS PRINT
+Popped Terminal PRINT
+tokenize got the input as (
+Tokenized 51 , sending it for parsing
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+tokenize got the input as r
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as )
+Tokenized 52 , sending it for parsing
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+tokenize got the input as ;
+Tokenized 46 , sending it for parsing
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as print
+Tokenized 12 , sending it for parsing
+TOKEN GIVEN BY DFA IS PRINT
+Popped Terminal PRINT
+tokenize got the input as (
+Tokenized 51 , sending it for parsing
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+tokenize got the input as m
+Tokenized 54 , sending it for parsing
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as )
+Tokenized 52 , sending it for parsing
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+tokenize got the input as ;
+Tokenized 46 , sendin

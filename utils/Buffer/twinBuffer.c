@@ -75,7 +75,7 @@ char* extractLexeme(TwinBuffer *TB){
         // if(isWhiteSpace(ReturnLexeme[i])) --i;
     }
     ReturnLexeme[i] = '\0';
-    // printf(" Extracted Lexeme is %s\n",ReturnLexeme);
+    // printf(" Extracted Lexeme is _______\n%s\n_____________",ReturnLexeme);
     return ReturnLexeme;
     
 }

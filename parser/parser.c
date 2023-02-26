@@ -18,12 +18,13 @@
 
 void parser(char* grammarFile,char* inputFile){
     short int line = 0;
-    addRules(grammarFile);
+    LISTNODE* RULES = addRules(grammarFile);
     printf("RULES ADDED\n");
     // printRules(119);
     RULES[0]->NODETYPE->nonterminal;
-    populateParseTable();
+    populateParseTable(RULES);
     printf("PARSE TABLE POPULATED\n");
+    // printParseTable();
 
     TwinBuffer TB = initializeTwinBuffer(inputFile);
     printf("TWIN BUFFER INITIALIZED\n");
@@ -74,6 +75,7 @@ void parser(char* grammarFile,char* inputFile){
         else{
             continue;
         }
+        free(stNode);
 
     }
 

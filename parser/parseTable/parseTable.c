@@ -21,7 +21,7 @@ void fillParseTable(){
     }
 }
 
-void populateParseTable(){
+void populateParseTable(LISTNODE* RULES){
     // printf("%d\n",RULES[0]->head->NODETYPE->nonterminal);
     fillParseTable();
     printf("PARSE TABLE FILLED WITH -1\n");

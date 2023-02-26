@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedList.h"
-#include "../../utils/tokens/tokens.h"
-#include "../../utils/nonTerminals/nonTerminals.h"
 
 LINKEDLIST createLinkedList(){
     LINKEDLIST ll = (LINKEDLIST) malloc(sizeof(struct LinkedList));
