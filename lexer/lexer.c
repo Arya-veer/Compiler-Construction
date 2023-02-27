@@ -249,6 +249,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
     char* error;
     short int state = 0;
     char c;
+    short charCount;
     char errorChar;
     char* errorString;
     LEXEME* lex;
@@ -278,7 +279,10 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 else if (c == '*') state = 16;
                 else if (c == ':') state = 20;
                 else if (c >= '0' && c <= '9') state = 22;
-                else if ((c >= 'a' && c <= 'z') || (c >='A' && c <= 'Z') || (c == '_')) state = 28;
+                else if ((c >= 'a' && c <= 'z') || (c >='A' && c <= 'Z') || (c == '_')) {
+                    state = 28;
+                    charCount = 1;
+                }
                 else if (c == '>') state = 29;
                 else if (c == '<') state = 33;
                 else if (c == ' ') state = 37;
@@ -518,12 +522,19 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 28:
                 // printf("STATE 28\n");
+                charCount++;
                 incrementForward(TB);
                 c = getCharacterAtForward(TB);
                 // printf("%d\n",c);
                 if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
                 else {
                     // printf("TOKENIZE TK_ID OR TK_KW\n");
+                    if(charCount > 20){
+                        errorString = extractLexeme(TB);
+                        printf("Lexical Error occured at line %hi, \"%s\" , Variable Length can not be more than 20\n",lineCount,errorString);
+                        state = 0;
+                        break;
+                    }
                     lex = tokenize(TB,lineCount);
                     return lex;
                 }

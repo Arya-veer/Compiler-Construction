@@ -1,7 +1,7 @@
-**declare module mod1; 
-<<<driver Program>>> 
+declare module mod1; 
+<<<driver program>>> 
 start 
- declare  v, w, r :integer; 
+ declare  v, w, qwertyuiopasdfghjklzxcvbnm :integer; 
  get_value(v); 
  w:=5; 
  declare m:real;
@@ -9,7 +9,7 @@ start
  print(r); 
  print(m); 
 end 
-****
+
 <<module mod1>> 
 takes input [a: integer, b: integer]; 
 returns  [x: integer, abc: real]; 
