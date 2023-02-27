@@ -25,7 +25,7 @@ struct Stack {
 };
 
 STACK createStack();
-void pushInStack(STACK st,LISTNODE node);
+void pushInStack(STACK st,LISTNODE node,TREENODE tn,short pushChild);
 short isStackEmpty(STACK st);
 STACKNODE popFromStack(STACK st);
 

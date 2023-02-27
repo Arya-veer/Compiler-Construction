@@ -6,410 +6,41 @@ PARSE TABLE POPULATED
 
 size = 128
 _______________________
-<<module  arraysum>> 
-takes input[list:array[4..20] of real]; 
-returns [sum:real]; 
+<<<driver program>>> 
 start 
- declare s: real; 
- s := 0.0; 
- decla
+ declare num, k:integer; 
+ declare A:array [4..10] of integer; 
+for( k in 6..10) 
+start 
+ A[k]:=(nu
 ______________________
 
 
 TWIN BUFFER INITIALIZED
 
 STACK CREATED
-tokenize got the input as <<
+tokenize got the input as <<<
 
-TOKEN GIVEN BY DFA IS DEF
+TOKEN GIVEN BY DFA IS DRIVERDEF
 Popped Non Terminal program
 Popped Non Terminal moduleDeclarations
 Popped Non Terminal otherModules
-Popped Non Terminal module
-Popped Terminal DEF
-tokenize got the input as module
-TOKEN GIVEN BY DFA IS MODULE
-Popped Terminal MODULE
-tokenize got the input as  
-tokenize got the input as  
-tokenize got the input as arraysum
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-tokenize got the input as >>
-TOKEN GIVEN BY DFA IS ENDDEF
-Popped Terminal ENDDEF
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as takes
-TOKEN GIVEN BY DFA IS TAKES
-Popped Terminal TAKES
-tokenize got the input as  
-tokenize got the input as input
-TOKEN GIVEN BY DFA IS INPUT
-Popped Terminal INPUT
-tokenize got the input as [
-TOKEN GIVEN BY DFA IS SQBO
-Popped Terminal SQBO
-tokenize got the input as list
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal input_plist
-Popped Terminal ID
-tokenize got the input as :
-TOKEN GIVEN BY DFA IS COLON
-Popped Terminal COLON
-tokenize got the input as array
-TOKEN GIVEN BY DFA IS ARRAY
-Popped Non Terminal dataType
-Popped Terminal ARRAY
-tokenize got the input as [
-TOKEN GIVEN BY DFA IS SQBO
-Popped Terminal SQBO
-tokenize got the input as 4
-TOKEN GIVEN BY DFA IS NUM
-Popped Non Terminal arrRange
-Popped Non Terminal sign
-Popped Non Terminal leftFactored_arrRange
-Popped Terminal NUM
-tokenize got the input as ..
-TOKEN GIVEN BY DFA IS RANGEOP
-Popped Terminal RANGEOP
-tokenize got the input as 20
-TOKEN GIVEN BY DFA IS NUM
-Popped Non Terminal sign
-Popped Terminal NUM
-tokenize got the input as ]
-TOKEN GIVEN BY DFA IS SQBC
-Popped Terminal SQBC
-tokenize got the input as  
-tokenize got the input as of
-TOKEN GIVEN BY DFA IS OF
-Popped Terminal OF
-tokenize got the input as  
-tokenize got the input as real
-TOKEN GIVEN BY DFA IS REAL
-Popped Non Terminal type
-Popped Terminal REAL
-tokenize got the input as ]
-TOKEN GIVEN BY DFA IS SQBC
-Popped Non Terminal leftFactored_input_plist
-Popped Terminal SQBC
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as returns
-TOKEN GIVEN BY DFA IS RETURNS
-Popped Non Terminal ret
-Popped Terminal RETURNS
-tokenize got the input as  
-tokenize got the input as [
-TOKEN GIVEN BY DFA IS SQBO
-Popped Terminal SQBO
-tokenize got the input as sum
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal output_plist
-Popped Terminal ID
-tokenize got the input as :
-TOKEN GIVEN BY DFA IS COLON
-Popped Terminal COLON
-tokenize got the input as real
-TOKEN GIVEN BY DFA IS REAL
-Popped Non Terminal type
-Popped Terminal REAL
-tokenize got the input as ]
-TOKEN GIVEN BY DFA IS SQBC
-Popped Non Terminal leftFactored_output_plist
-Popped Terminal SQBC
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as start
-TOKEN GIVEN BY DFA IS START
-Popped Non Terminal moduleDef
-Popped Terminal START
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as declare
-TOKEN GIVEN BY DFA IS DECLARE
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal declareStmt
-Popped Terminal DECLARE
-tokenize got the input as  
-tokenize got the input as s
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal idList
-Popped Terminal ID
-tokenize got the input as :
-TOKEN GIVEN BY DFA IS COLON
-Popped Non Terminal leftFactored_idList
-Popped Terminal COLON
-tokenize got the input as  
-tokenize got the input as real
-TOKEN GIVEN BY DFA IS REAL
-Popped Non Terminal dataType
-Popped Terminal REAL
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as s
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal simpleStmt
-Popped Non Terminal assignmentStmt
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as :=
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Non Terminal whichStmt
-Popped Non Terminal lvalueIDStmt
-Popped Terminal ASSIGNOP
-tokenize got the input as  
-tokenize got the input as 0.0
-TOKEN GIVEN BY DFA IS RNUM
-Popped Non Terminal expression
-Popped Non Terminal arithmeticBooleanExpr
-Popped Non Terminal arithmeticExpr
-Popped Non Terminal term
-Popped Non Terminal factor
-Popped Non Terminal var
-Popped Terminal RNUM
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Non Terminal leftFactored_term
-Popped Non Terminal leftFactored_arithmeticExpr
-Popped Non Terminal relationalTerm
-Popped Non Terminal logicalTerm
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-
-
-size = 128
-_______________________
-re index : integer; 
- for (index in 4..20) 
- start 
-  s := s + list[index]; 
- end 
- sum := s; 
-end 
-<<<driver program>>> 
-start {
-______________________
-
-tokenize got the input as declare
-TOKEN GIVEN BY DFA IS DECLARE
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal declareStmt
-Popped Terminal DECLARE
-tokenize got the input as  
-tokenize got the input as index
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal idList
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as :
-TOKEN GIVEN BY DFA IS COLON
-Popped Non Terminal leftFactored_idList
-Popped Terminal COLON
-tokenize got the input as  
-tokenize got the input as integer
-TOKEN GIVEN BY DFA IS INTEGER
-Popped Non Terminal dataType
-Popped Terminal INTEGER
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as for
-TOKEN GIVEN BY DFA IS FOR
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal iterativeStmt
-Popped Terminal FOR
-tokenize got the input as  
-tokenize got the input as (
-TOKEN GIVEN BY DFA IS BO
-Popped Terminal BO
-tokenize got the input as index
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as in
-TOKEN GIVEN BY DFA IS IN
-Popped Terminal IN
-tokenize got the input as  
-tokenize got the input as 4
-TOKEN GIVEN BY DFA IS NUM
-Popped Non Terminal sign
-Popped Terminal NUM
-tokenize got the input as ..
-TOKEN GIVEN BY DFA IS RANGEOP
-Popped Terminal RANGEOP
-tokenize got the input as 20
-TOKEN GIVEN BY DFA IS NUM
-Popped Non Terminal sign
-Popped Terminal NUM
-tokenize got the input as )
-TOKEN GIVEN BY DFA IS BC
-Popped Terminal BC
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as start
-TOKEN GIVEN BY DFA IS START
-Popped Terminal START
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as  
-tokenize got the input as s
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal simpleStmt
-Popped Non Terminal assignmentStmt
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as :=
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Non Terminal whichStmt
-Popped Non Terminal lvalueIDStmt
-Popped Terminal ASSIGNOP
-tokenize got the input as  
-tokenize got the input as s
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal expression
-Popped Non Terminal arithmeticBooleanExpr
-Popped Non Terminal arithmeticExpr
-Popped Non Terminal term
-Popped Non Terminal factor
-Popped Non Terminal var
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as +
-TOKEN GIVEN BY DFA IS PLUS
-Popped Non Terminal whichId
-Popped Non Terminal leftFactored_term
-Popped Non Terminal leftFactored_arithmeticExpr
-Popped Non Terminal pm
-Popped Terminal PLUS
-tokenize got the input as  
-tokenize got the input as list
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal term
-Popped Non Terminal factor
-Popped Non Terminal var
-Popped Terminal ID
-tokenize got the input as [
-TOKEN GIVEN BY DFA IS SQBO
-Popped Non Terminal whichId
-Popped Terminal SQBO
-tokenize got the input as index
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal sign
-Popped Non Terminal leftFactored_whichId
-Popped Terminal ID
-tokenize got the input as ]
-TOKEN GIVEN BY DFA IS SQBC
-Popped Terminal SQBC
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Non Terminal leftFactored_term
-Popped Non Terminal leftFactored_arithmeticExpr
-Popped Non Terminal relationalTerm
-Popped Non Terminal logicalTerm
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as end
-TOKEN GIVEN BY DFA IS END
-Popped Non Terminal statements
-Popped Terminal END
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as  
-tokenize got the input as sum
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal statements
-Popped Non Terminal statement
-Popped Non Terminal simpleStmt
-Popped Non Terminal assignmentStmt
-Popped Terminal ID
-tokenize got the input as  
-tokenize got the input as :=
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Non Terminal whichStmt
-Popped Non Terminal lvalueIDStmt
-Popped Terminal ASSIGNOP
-tokenize got the input as  
-tokenize got the input as s
-TOKEN GIVEN BY DFA IS ID
-Popped Non Terminal expression
-Popped Non Terminal arithmeticBooleanExpr
-Popped Non Terminal arithmeticExpr
-Popped Non Terminal term
-Popped Non Terminal factor
-Popped Non Terminal var
-Popped Terminal ID
-tokenize got the input as ;
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Non Terminal whichId
-Popped Non Terminal leftFactored_term
-Popped Non Terminal leftFactored_arithmeticExpr
-Popped Non Terminal relationalTerm
-Popped Non Terminal logicalTerm
-Popped Terminal SEMICOL
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as end
-TOKEN GIVEN BY DFA IS END
-Popped Non Terminal statements
-Popped Terminal END
-tokenize got the input as  
-tokenize got the input as 
-
-tokenize got the input as <<<
-TOKEN GIVEN BY DFA IS DRIVERDEF
-Popped Non Terminal otherModules
 Popped Non Terminal driverModule
 Popped Terminal DRIVERDEF
+TREENODE ADDED
 tokenize got the input as driver
 TOKEN GIVEN BY DFA IS DRIVER
 Popped Terminal DRIVER
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as program
 TOKEN GIVEN BY DFA IS PROGRAM
 Popped Terminal PROGRAM
+TREENODE ADDED
 tokenize got the input as >>>
 TOKEN GIVEN BY DFA IS DRIVERENDDEF
 Popped Terminal DRIVERENDDEF
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -417,27 +48,7 @@ tokenize got the input as start
 TOKEN GIVEN BY DFA IS START
 Popped Non Terminal moduleDef
 Popped Terminal START
-
-
-size = 128
-_______________________
-
- declare num, k:integer; 
- declare A:array [4..10] of integer; 
-for( k in 6..10) 
-start 
- A[k]:=(num - k)*(num - k); 
- print(A[re index : integer; 
- for (index in 4..20) 
- start 
-  s := s + list[index]; 
- end 
- sum := s; 
-end 
-<<<driver program>>> 
-start 
-______________________
-
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -448,30 +59,37 @@ Popped Non Terminal statements
 Popped Non Terminal statement
 Popped Non Terminal declareStmt
 Popped Terminal DECLARE
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal idList
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as ,
 TOKEN GIVEN BY DFA IS COMMA
 Popped Non Terminal leftFactored_idList
 Popped Terminal COMMA
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as :
 TOKEN GIVEN BY DFA IS COLON
 Popped Non Terminal leftFactored_idList
 Popped Terminal COLON
+TREENODE ADDED
 tokenize got the input as integer
 TOKEN GIVEN BY DFA IS INTEGER
 Popped Non Terminal dataType
 Popped Terminal INTEGER
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -482,51 +100,63 @@ Popped Non Terminal statements
 Popped Non Terminal statement
 Popped Non Terminal declareStmt
 Popped Terminal DECLARE
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as A
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal idList
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as :
 TOKEN GIVEN BY DFA IS COLON
 Popped Non Terminal leftFactored_idList
 Popped Terminal COLON
+TREENODE ADDED
 tokenize got the input as array
 TOKEN GIVEN BY DFA IS ARRAY
 Popped Non Terminal dataType
 Popped Terminal ARRAY
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as [
 TOKEN GIVEN BY DFA IS SQBO
 Popped Terminal SQBO
+TREENODE ADDED
 tokenize got the input as 4
 TOKEN GIVEN BY DFA IS NUM
 Popped Non Terminal arrRange
 Popped Non Terminal sign
 Popped Non Terminal leftFactored_arrRange
 Popped Terminal NUM
+TREENODE ADDED
 tokenize got the input as ..
 TOKEN GIVEN BY DFA IS RANGEOP
 Popped Terminal RANGEOP
+TREENODE ADDED
 tokenize got the input as 10
 TOKEN GIVEN BY DFA IS NUM
 Popped Non Terminal sign
 Popped Terminal NUM
+TREENODE ADDED
 tokenize got the input as ]
 TOKEN GIVEN BY DFA IS SQBC
 Popped Terminal SQBC
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as of
 TOKEN GIVEN BY DFA IS OF
 Popped Terminal OF
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as integer
 TOKEN GIVEN BY DFA IS INTEGER
 Popped Non Terminal type
 Popped Terminal INTEGER
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -536,38 +166,47 @@ Popped Non Terminal statements
 Popped Non Terminal statement
 Popped Non Terminal iterativeStmt
 Popped Terminal FOR
+TREENODE ADDED
 tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
 Popped Terminal BO
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as in
 TOKEN GIVEN BY DFA IS IN
 Popped Terminal IN
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 6
 TOKEN GIVEN BY DFA IS NUM
 Popped Non Terminal sign
 Popped Terminal NUM
+TREENODE ADDED
 tokenize got the input as ..
 TOKEN GIVEN BY DFA IS RANGEOP
 Popped Terminal RANGEOP
+TREENODE ADDED
 tokenize got the input as 10
 TOKEN GIVEN BY DFA IS NUM
 Popped Non Terminal sign
 Popped Terminal NUM
+TREENODE ADDED
 tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
 Popped Terminal BC
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
 tokenize got the input as start
 TOKEN GIVEN BY DFA IS START
 Popped Terminal START
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -579,11 +218,13 @@ Popped Non Terminal statement
 Popped Non Terminal simpleStmt
 Popped Non Terminal assignmentStmt
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as [
 TOKEN GIVEN BY DFA IS SQBO
 Popped Non Terminal whichStmt
 Popped Non Terminal lvalueARRStmt
 Popped Terminal SQBO
+TREENODE ADDED
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal arithmeticExprWArr
@@ -592,13 +233,16 @@ Popped Non Terminal signedFactorWArr
 Popped Non Terminal sign
 Popped Non Terminal factorWArr
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as ]
 TOKEN GIVEN BY DFA IS SQBC
 Popped Non Terminal leftFactored_arithmeticExprWArr
 Popped Terminal SQBC
+TREENODE ADDED
 tokenize got the input as :=
 TOKEN GIVEN BY DFA IS ASSIGNOP
 Popped Terminal ASSIGNOP
+TREENODE ADDED
 tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
 Popped Non Terminal expression
@@ -607,6 +251,20 @@ Popped Non Terminal arithmeticExpr
 Popped Non Terminal term
 Popped Non Terminal factor
 Popped Terminal BO
+TREENODE ADDED
+
+
+size = 106
+_______________________
+m - k)*(num - k); 
+ print(A[k]); 
+end  
+[num]:=use module arraysum with parameters A; 
+print(num); 
+ 
+end ÿ
+______________________
+
 tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal expression
@@ -616,6 +274,7 @@ Popped Non Terminal term
 Popped Non Terminal factor
 Popped Non Terminal var
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as -
 TOKEN GIVEN BY DFA IS MINUS
@@ -624,6 +283,7 @@ Popped Non Terminal leftFactored_term
 Popped Non Terminal leftFactored_arithmeticExpr
 Popped Non Terminal pm
 Popped Terminal MINUS
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
@@ -631,6 +291,7 @@ Popped Non Terminal term
 Popped Non Terminal factor
 Popped Non Terminal var
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
 Popped Non Terminal whichId
@@ -639,15 +300,18 @@ Popped Non Terminal leftFactored_arithmeticExpr
 Popped Non Terminal relationalTerm
 Popped Non Terminal logicalTerm
 Popped Terminal BC
+TREENODE ADDED
 tokenize got the input as *
 TOKEN GIVEN BY DFA IS MUL
 Popped Non Terminal leftFactored_term
 Popped Non Terminal md
 Popped Terminal MUL
+TREENODE ADDED
 tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
 Popped Non Terminal factor
 Popped Terminal BO
+TREENODE ADDED
 tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal expression
@@ -657,6 +321,7 @@ Popped Non Terminal term
 Popped Non Terminal factor
 Popped Non Terminal var
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as -
 TOKEN GIVEN BY DFA IS MINUS
@@ -665,6 +330,7 @@ Popped Non Terminal leftFactored_term
 Popped Non Terminal leftFactored_arithmeticExpr
 Popped Non Terminal pm
 Popped Terminal MINUS
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
@@ -672,6 +338,7 @@ Popped Non Terminal term
 Popped Non Terminal factor
 Popped Non Terminal var
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
 Popped Non Terminal whichId
@@ -680,6 +347,7 @@ Popped Non Terminal leftFactored_arithmeticExpr
 Popped Non Terminal relationalTerm
 Popped Non Terminal logicalTerm
 Popped Terminal BC
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Non Terminal leftFactored_term
@@ -687,6 +355,7 @@ Popped Non Terminal leftFactored_arithmeticExpr
 Popped Non Terminal relationalTerm
 Popped Non Terminal logicalTerm
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -697,48 +366,40 @@ Popped Non Terminal statements
 Popped Non Terminal statement
 Popped Non Terminal ioStmt
 Popped Terminal PRINT
+TREENODE ADDED
 tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
 Popped Terminal BO
+TREENODE ADDED
 tokenize got the input as A
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal leftFactored_ioStmt
 Popped Non Terminal var
 Popped Terminal ID
-
-
-size = 78
-_______________________
-k]); 
-end  
-[num]:=use module arraysum with parameters A; 
-print(num); 
- 
-end ÿnd 
- sum := s; 
-end 
-<<<driver program>>> 
-start 
-______________________
-
+TREENODE ADDED
 tokenize got the input as [
 TOKEN GIVEN BY DFA IS SQBO
 Popped Non Terminal whichId
 Popped Terminal SQBO
+TREENODE ADDED
 tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal sign
 Popped Non Terminal leftFactored_whichId
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as ]
 TOKEN GIVEN BY DFA IS SQBC
 Popped Terminal SQBC
+TREENODE ADDED
 tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
 Popped Terminal BC
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -746,6 +407,7 @@ tokenize got the input as end
 TOKEN GIVEN BY DFA IS END
 Popped Non Terminal statements
 Popped Terminal END
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as  
 tokenize got the input as 
@@ -758,45 +420,56 @@ Popped Non Terminal simpleStmt
 Popped Non Terminal moduleReuseStmt
 Popped Non Terminal optional
 Popped Terminal SQBO
+TREENODE ADDED
 tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal idList
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as ]
 TOKEN GIVEN BY DFA IS SQBC
 Popped Non Terminal leftFactored_idList
 Popped Terminal SQBC
+TREENODE ADDED
 tokenize got the input as :=
 TOKEN GIVEN BY DFA IS ASSIGNOP
 Popped Terminal ASSIGNOP
+TREENODE ADDED
 tokenize got the input as use
 TOKEN GIVEN BY DFA IS USE
 Popped Terminal USE
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as module
 TOKEN GIVEN BY DFA IS MODULE
 Popped Terminal MODULE
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as arraysum
 TOKEN GIVEN BY DFA IS ID
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as with
 TOKEN GIVEN BY DFA IS WITH
 Popped Terminal WITH
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as parameters
 TOKEN GIVEN BY DFA IS PARAMETERS
 Popped Terminal PARAMETERS
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as A
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal idList
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Non Terminal leftFactored_idList
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -806,21 +479,26 @@ Popped Non Terminal statements
 Popped Non Terminal statement
 Popped Non Terminal ioStmt
 Popped Terminal PRINT
+TREENODE ADDED
 tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
 Popped Terminal BO
+TREENODE ADDED
 tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
 Popped Non Terminal leftFactored_ioStmt
 Popped Non Terminal var
 Popped Terminal ID
+TREENODE ADDED
 tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
 Popped Non Terminal whichId
 Popped Terminal BC
+TREENODE ADDED
 tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
 Popped Terminal SEMICOL
+TREENODE ADDED
 tokenize got the input as  
 tokenize got the input as 
 
@@ -831,6 +509,300 @@ tokenize got the input as end
 TOKEN GIVEN BY DFA IS END
 Popped Non Terminal statements
 Popped Terminal END
+TREENODE ADDED
 tokenize got the input as  
 Tokenized EOF , sending it for parsing
 TOKEN GIVEN BY DFA IS EOF
+
+PRINTING PARSE TREE
+Non Terminal = 0
+GOING DOWN
+Non Terminal = 1
+GOING DOWN
+Non Terminal = 2
+GOING RIGHT
+Non Terminal = 4
+GOING RIGHT
+Non Terminal = 5
+GOING DOWN
+Terminal = 42
+GOING RIGHT
+Terminal = 9
+GOING RIGHT
+Terminal = 10
+GOING RIGHT
+Terminal = 43
+GOING RIGHT
+Non Terminal = 17
+GOING DOWN
+Terminal = 5
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 56
+GOING DOWN
+Terminal = 7
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING DOWN
+Terminal = 47
+GOING RIGHT
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 44
+GOING RIGHT
+Non Terminal = 12
+GOING DOWN
+Terminal = 0
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 56
+GOING DOWN
+Terminal = 7
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 44
+GOING RIGHT
+Non Terminal = 12
+GOING DOWN
+Terminal = 4
+GOING RIGHT
+Terminal = 49
+GOING RIGHT
+Non Terminal = 13
+GOING DOWN
+Non Terminal = 15
+GOING RIGHT
+Non Terminal = 14
+GOING DOWN
+Terminal = 55
+GOING RIGHT
+Terminal = 45
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 50
+GOING RIGHT
+Terminal = 3
+GOING RIGHT
+Non Terminal = 16
+GOING DOWN
+Terminal = 0
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 62
+GOING DOWN
+Terminal = 19
+GOING RIGHT
+Terminal = 51
+GOING RIGHT
+Terminal = 54
+GOING RIGHT
+Terminal = 20
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING RIGHT
+Terminal = 45
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING RIGHT
+Terminal = 52
+GOING RIGHT
+Terminal = 5
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 26
+GOING DOWN
+Non Terminal = 27
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 28
+GOING DOWN
+Non Terminal = 30
+GOING DOWN
+Terminal = 49
+GOING RIGHT
+Non Terminal = 48
+GOING DOWN
+Non Terminal = 50
+GOING DOWN
+Non Terminal = 52
+GOING DOWN
+Non Terminal = 15
+GOING RIGHT
+Non Terminal = 53
+GOING DOWN
+Terminal = 54
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+EPSILON
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 49
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 50
+GOING RIGHT
+Terminal = 48
+GOING RIGHT
+Non Terminal = 35
+GOING DOWN
+Non Terminal = 38
+GOING DOWN
+Non Terminal = 41
+GOING DOWN
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Terminal = 51
+GOING RIGHT
+Non Terminal = 35
+GOING DOWN
+Non Terminal = 38
+GOING DOWN
+Non Terminal = 41
+GOING DOWN
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING DOWN
+Non Terminal = 43
+GOING DOWN
+Terminal = 31
+GOING UP
+GOING RIGHT
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 40
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 39
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 52
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING DOWN
+Non Terminal = 44
+GOING DOWN
+Terminal = 32
+GOING UP
+GOING RIGHT
+Non Terminal = 47
+GOING DOWN
+Terminal = 51
+GOING RIGHT
+Non Terminal = 

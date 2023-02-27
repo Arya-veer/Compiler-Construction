@@ -6,14 +6,22 @@
 #include "linkedList.h"
 
 typedef struct TreeNode* TREENODE;
+
+union TreeNodeData{
+    LEXEME* terminal;
+    NONTERMINALS nonterminal;
+};
+
 struct TreeNode{
     TREENODE child;
     TREENODE next;
-    LEXEME terminal;
+    union TreeNodeData* TREENODEDATA;
     short isTerminal;
 };
-TREENODE insertChild(TREENODE tn, LISTNODE ln);
-TREENODE insertNextLinkedList(TREENODE tn, LISTNODE ln);
+TREENODE insertChildTree(TREENODE tn, LISTNODE ln);
+TREENODE insertNextTree(TREENODE tn, LISTNODE ln);
+TREENODE createRootNode(LISTNODE ln);
+void preorderTraversal(TREENODE tn);
 
 #endif
 

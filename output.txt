@@ -1,129 +1,1292 @@
-(null)RULES ADDED
+RULES ADDED
 PARSE TABLE FILLED WITH -1
+
 PARSE TABLE POPULATED
+
+
+size = 128
+_______________________
+<<<driver program>>> 
+start 
+ declare num, k:integer; 
+ declare A:array [4..10] of integer; 
+for( k in 6..10) 
+start 
+ A[k]:=(nu
+______________________
+
+
 TWIN BUFFER INITIALIZED
+
 STACK CREATED
+tokenize got the input as <<<
+
 TOKEN GIVEN BY DFA IS DRIVERDEF
+SIZE OF STACK IS 2
+Popped Non Terminal program
+SIZE OF STACK IS 5
+Popped Non Terminal moduleDeclarations
+SIZE OF STACK IS 4
+Popped Non Terminal otherModules
+SIZE OF STACK IS 3
+Popped Non Terminal driverModule
+SIZE OF STACK IS 7
 Popped Terminal DRIVERDEF
+LEAF NODE ADDED
+tokenize got the input as driver
 TOKEN GIVEN BY DFA IS DRIVER
+SIZE OF STACK IS 6
 Popped Terminal DRIVER
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as program
 TOKEN GIVEN BY DFA IS PROGRAM
+SIZE OF STACK IS 5
 Popped Terminal PROGRAM
+LEAF NODE ADDED
+tokenize got the input as >>>
 TOKEN GIVEN BY DFA IS DRIVERENDDEF
+SIZE OF STACK IS 4
 Popped Terminal DRIVERENDDEF
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as start
 TOKEN GIVEN BY DFA IS START
+SIZE OF STACK IS 3
+Popped Non Terminal moduleDef
+SIZE OF STACK IS 5
 Popped Terminal START
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as declare
 TOKEN GIVEN BY DFA IS DECLARE
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 5
+Popped Non Terminal statement
+SIZE OF STACK IS 5
+Popped Non Terminal declareStmt
+SIZE OF STACK IS 9
 Popped Terminal DECLARE
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as num
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 8
+Popped Non Terminal idList
+SIZE OF STACK IS 9
 Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as ,
 TOKEN GIVEN BY DFA IS COMMA
+SIZE OF STACK IS 8
+Popped Non Terminal leftFactored_idList
+SIZE OF STACK IS 10
 Popped Terminal COMMA
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 9
 Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as :
 TOKEN GIVEN BY DFA IS COLON
+SIZE OF STACK IS 8
+Popped Non Terminal leftFactored_idList
+SIZE OF STACK IS 7
 Popped Terminal COLON
+LEAF NODE ADDED
+tokenize got the input as integer
 TOKEN GIVEN BY DFA IS INTEGER
+SIZE OF STACK IS 6
+Popped Non Terminal dataType
+SIZE OF STACK IS 6
 Popped Terminal INTEGER
+LEAF NODE ADDED
+tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 5
 Popped Terminal SEMICOL
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as declare
 TOKEN GIVEN BY DFA IS DECLARE
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 5
+Popped Non Terminal statement
+SIZE OF STACK IS 5
+Popped Non Terminal declareStmt
+SIZE OF STACK IS 9
 Popped Terminal DECLARE
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as A
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 8
+Popped Non Terminal idList
+SIZE OF STACK IS 9
 Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as :
 TOKEN GIVEN BY DFA IS COLON
+SIZE OF STACK IS 8
+Popped Non Terminal leftFactored_idList
+SIZE OF STACK IS 7
 Popped Terminal COLON
-TOKEN GIVEN BY DFA IS BOOLEAN
-Popped Terminal BOOLEAN
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Terminal ASSIGNOP
+LEAF NODE ADDED
+tokenize got the input as array
+TOKEN GIVEN BY DFA IS ARRAY
+SIZE OF STACK IS 6
+Popped Non Terminal dataType
+SIZE OF STACK IS 11
+Popped Terminal ARRAY
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as [
+TOKEN GIVEN BY DFA IS SQBO
+SIZE OF STACK IS 10
+Popped Terminal SQBO
+LEAF NODE ADDED
+tokenize got the input as 4
 TOKEN GIVEN BY DFA IS NUM
+SIZE OF STACK IS 9
+Popped Non Terminal arrRange
+SIZE OF STACK IS 10
+Popped Non Terminal sign
+SIZE OF STACK IS 9
+Popped Non Terminal leftFactored_arrRange
+SIZE OF STACK IS 12
 Popped Terminal NUM
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Terminal ASSIGNOP
+LEAF NODE ADDED
+tokenize got the input as ..
+TOKEN GIVEN BY DFA IS RANGEOP
+SIZE OF STACK IS 11
+Popped Terminal RANGEOP
+LEAF NODE ADDED
+tokenize got the input as 10
 TOKEN GIVEN BY DFA IS NUM
+SIZE OF STACK IS 10
+Popped Non Terminal sign
+SIZE OF STACK IS 9
 Popped Terminal NUM
+LEAF NODE ADDED
+tokenize got the input as ]
+TOKEN GIVEN BY DFA IS SQBC
+SIZE OF STACK IS 8
+Popped Terminal SQBC
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as of
+TOKEN GIVEN BY DFA IS OF
+SIZE OF STACK IS 7
+Popped Terminal OF
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as integer
+TOKEN GIVEN BY DFA IS INTEGER
+SIZE OF STACK IS 6
+Popped Non Terminal type
+SIZE OF STACK IS 6
+Popped Terminal INTEGER
+LEAF NODE ADDED
+tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 5
 Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Terminal ASSIGNOP
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as for
+TOKEN GIVEN BY DFA IS FOR
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 5
+Popped Non Terminal statement
+SIZE OF STACK IS 5
+Popped Non Terminal iterativeStmt
+SIZE OF STACK IS 17
+Popped Terminal FOR
+LEAF NODE ADDED
+tokenize got the input as (
 TOKEN GIVEN BY DFA IS BO
+SIZE OF STACK IS 16
 Popped Terminal BO
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 15
 Popped Terminal ID
-TOKEN GIVEN BY DFA IS MINUS
-Popped Terminal MINUS
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-TOKEN GIVEN BY DFA IS GT
-Popped Terminal GT
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as in
+TOKEN GIVEN BY DFA IS IN
+SIZE OF STACK IS 14
+Popped Terminal IN
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 6
 TOKEN GIVEN BY DFA IS NUM
+SIZE OF STACK IS 13
+Popped Non Terminal sign
+SIZE OF STACK IS 12
 Popped Terminal NUM
+LEAF NODE ADDED
+tokenize got the input as ..
+TOKEN GIVEN BY DFA IS RANGEOP
+SIZE OF STACK IS 11
+Popped Terminal RANGEOP
+LEAF NODE ADDED
+tokenize got the input as 10
+TOKEN GIVEN BY DFA IS NUM
+SIZE OF STACK IS 10
+Popped Non Terminal sign
+SIZE OF STACK IS 9
+Popped Terminal NUM
+LEAF NODE ADDED
+tokenize got the input as )
 TOKEN GIVEN BY DFA IS BC
+SIZE OF STACK IS 8
 Popped Terminal BC
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS SWITCH
-Popped Terminal SWITCH
-TOKEN GIVEN BY DFA IS BO
-Popped Terminal BO
-TOKEN GIVEN BY DFA IS ID
-Popped Terminal ID
-TOKEN GIVEN BY DFA IS BC
-Popped Terminal BC
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as start
 TOKEN GIVEN BY DFA IS START
+SIZE OF STACK IS 7
 Popped Terminal START
-TOKEN GIVEN BY DFA IS CASE
-Popped Terminal CASE
-TOKEN GIVEN BY DFA IS true
-Popped Terminal true
-TOKEN GIVEN BY DFA IS COLON
-Popped Terminal COLON
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as A
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 6
+Popped Non Terminal statements
+SIZE OF STACK IS 7
+Popped Non Terminal statement
+SIZE OF STACK IS 7
+Popped Non Terminal simpleStmt
+SIZE OF STACK IS 7
+Popped Non Terminal assignmentStmt
+SIZE OF STACK IS 8
 Popped Terminal ID
-TOKEN GIVEN BY DFA IS ASSIGNOP
-Popped Terminal ASSIGNOP
-TOKEN GIVEN BY DFA IS NUM
-Popped Terminal NUM
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS BREAK
-Popped Terminal BREAK
-TOKEN GIVEN BY DFA IS SEMICOL
-Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS CASE
-Popped Terminal CASE
-TOKEN GIVEN BY DFA IS false
-Popped Terminal false
-TOKEN GIVEN BY DFA IS COLON
-Popped Terminal COLON
+LEAF NODE ADDED
+tokenize got the input as [
+TOKEN GIVEN BY DFA IS SQBO
+SIZE OF STACK IS 7
+Popped Non Terminal whichStmt
+SIZE OF STACK IS 7
+Popped Non Terminal lvalueARRStmt
+SIZE OF STACK IS 12
+Popped Terminal SQBO
+LEAF NODE ADDED
+tokenize got the input as k
 TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 11
+Popped Non Terminal arithmeticExprWArr
+SIZE OF STACK IS 12
+Popped Non Terminal termWArr
+SIZE OF STACK IS 13
+Popped Non Terminal signedFactorWArr
+SIZE OF STACK IS 14
+Popped Non Terminal sign
+SIZE OF STACK IS 13
+Popped Non Terminal factorWArr
+SIZE OF STACK IS 13
 Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as ]
+TOKEN GIVEN BY DFA IS SQBC
+SIZE OF STACK IS 12
+SIZE OF STACK IS 11
+Popped Non Terminal leftFactored_arithmeticExprWArr
+SIZE OF STACK IS 10
+Popped Terminal SQBC
+LEAF NODE ADDED
+tokenize got the input as :=
 TOKEN GIVEN BY DFA IS ASSIGNOP
+SIZE OF STACK IS 9
 Popped Terminal ASSIGNOP
+LEAF NODE ADDED
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+SIZE OF STACK IS 8
+Popped Non Terminal expression
+SIZE OF STACK IS 9
+Popped Non Terminal arithmeticBooleanExpr
+SIZE OF STACK IS 10
+Popped Non Terminal arithmeticExpr
+SIZE OF STACK IS 11
+Popped Non Terminal term
+SIZE OF STACK IS 12
+Popped Non Terminal factor
+SIZE OF STACK IS 14
+Popped Terminal BO
+LEAF NODE ADDED
+
+
+size = 106
+_______________________
+m - k)*(num - k); 
+ print(A[k]); 
+end  
+[num]:=use module arraysum with parameters A; 
+print(num); 
+ 
+end ÿ
+______________________
+
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 13
+Popped Non Terminal expression
+SIZE OF STACK IS 14
+Popped Non Terminal arithmeticBooleanExpr
+SIZE OF STACK IS 15
+Popped Non Terminal arithmeticExpr
+SIZE OF STACK IS 16
+Popped Non Terminal term
+SIZE OF STACK IS 17
+Popped Non Terminal factor
+SIZE OF STACK IS 17
+Popped Non Terminal var
+SIZE OF STACK IS 18
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as -
 TOKEN GIVEN BY DFA IS MINUS
+SIZE OF STACK IS 17
+Popped Non Terminal whichId
+SIZE OF STACK IS 16
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 15
+Popped Non Terminal leftFactored_arithmeticExpr
+SIZE OF STACK IS 17
+Popped Non Terminal pm
+SIZE OF STACK IS 17
 Popped Terminal MINUS
-TOKEN GIVEN BY DFA IS NUM
-Popped Terminal NUM
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 16
+Popped Non Terminal term
+SIZE OF STACK IS 17
+Popped Non Terminal factor
+SIZE OF STACK IS 17
+Popped Non Terminal var
+SIZE OF STACK IS 18
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+SIZE OF STACK IS 17
+Popped Non Terminal whichId
+SIZE OF STACK IS 16
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 15
+Popped Non Terminal leftFactored_arithmeticExpr
+SIZE OF STACK IS 14
+Popped Non Terminal relationalTerm
+SIZE OF STACK IS 13
+Popped Non Terminal logicalTerm
+SIZE OF STACK IS 12
+Popped Terminal BC
+LEAF NODE ADDED
+tokenize got the input as *
+TOKEN GIVEN BY DFA IS MUL
+SIZE OF STACK IS 11
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 13
+Popped Non Terminal md
+SIZE OF STACK IS 13
+Popped Terminal MUL
+LEAF NODE ADDED
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+SIZE OF STACK IS 12
+Popped Non Terminal factor
+SIZE OF STACK IS 14
+Popped Terminal BO
+LEAF NODE ADDED
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 13
+Popped Non Terminal expression
+SIZE OF STACK IS 14
+Popped Non Terminal arithmeticBooleanExpr
+SIZE OF STACK IS 15
+Popped Non Terminal arithmeticExpr
+SIZE OF STACK IS 16
+Popped Non Terminal term
+SIZE OF STACK IS 17
+Popped Non Terminal factor
+SIZE OF STACK IS 17
+Popped Non Terminal var
+SIZE OF STACK IS 18
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as -
+TOKEN GIVEN BY DFA IS MINUS
+SIZE OF STACK IS 17
+Popped Non Terminal whichId
+SIZE OF STACK IS 16
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 15
+Popped Non Terminal leftFactored_arithmeticExpr
+SIZE OF STACK IS 17
+Popped Non Terminal pm
+SIZE OF STACK IS 17
+Popped Terminal MINUS
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 16
+Popped Non Terminal term
+SIZE OF STACK IS 17
+Popped Non Terminal factor
+SIZE OF STACK IS 17
+Popped Non Terminal var
+SIZE OF STACK IS 18
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+SIZE OF STACK IS 17
+Popped Non Terminal whichId
+SIZE OF STACK IS 16
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 15
+Popped Non Terminal leftFactored_arithmeticExpr
+SIZE OF STACK IS 14
+Popped Non Terminal relationalTerm
+SIZE OF STACK IS 13
+Popped Non Terminal logicalTerm
+SIZE OF STACK IS 12
+Popped Terminal BC
+LEAF NODE ADDED
+tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 11
+Popped Non Terminal leftFactored_term
+SIZE OF STACK IS 10
+Popped Non Terminal leftFactored_arithmeticExpr
+SIZE OF STACK IS 9
+Popped Non Terminal relationalTerm
+SIZE OF STACK IS 8
+Popped Non Terminal logicalTerm
+SIZE OF STACK IS 7
 Popped Terminal SEMICOL
-TOKEN GIVEN BY DFA IS BREAK
-Popped Terminal BREAK
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as print
+TOKEN GIVEN BY DFA IS PRINT
+SIZE OF STACK IS 6
+Popped Non Terminal statements
+SIZE OF STACK IS 7
+Popped Non Terminal statement
+SIZE OF STACK IS 7
+Popped Non Terminal ioStmt
+SIZE OF STACK IS 9
+Popped Terminal PRINT
+LEAF NODE ADDED
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+SIZE OF STACK IS 8
+Popped Terminal BO
+LEAF NODE ADDED
+tokenize got the input as A
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 7
+Popped Non Terminal leftFactored_ioStmt
+SIZE OF STACK IS 9
+Popped Non Terminal var
+SIZE OF STACK IS 10
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as [
+TOKEN GIVEN BY DFA IS SQBO
+SIZE OF STACK IS 9
+Popped Non Terminal whichId
+SIZE OF STACK IS 11
+Popped Terminal SQBO
+LEAF NODE ADDED
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 10
+Popped Non Terminal sign
+SIZE OF STACK IS 9
+Popped Non Terminal leftFactored_whichId
+SIZE OF STACK IS 10
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as ]
+TOKEN GIVEN BY DFA IS SQBC
+SIZE OF STACK IS 9
+Popped Terminal SQBC
+LEAF NODE ADDED
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+SIZE OF STACK IS 8
+Popped Terminal BC
+LEAF NODE ADDED
+tokenize got the input as ;
 TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 7
 Popped Terminal SEMICOL
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as end
 TOKEN GIVEN BY DFA IS END
+SIZE OF STACK IS 6
+Popped Non Terminal statements
+SIZE OF STACK IS 5
 Popped Terminal END
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as [
+TOKEN GIVEN BY DFA IS SQBO
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 5
+Popped Non Terminal statement
+SIZE OF STACK IS 5
+Popped Non Terminal simpleStmt
+SIZE OF STACK IS 5
+Popped Non Terminal moduleReuseStmt
+SIZE OF STACK IS 12
+Popped Non Terminal optional
+SIZE OF STACK IS 15
+Popped Terminal SQBO
+LEAF NODE ADDED
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 14
+Popped Non Terminal idList
+SIZE OF STACK IS 15
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as ]
+TOKEN GIVEN BY DFA IS SQBC
+SIZE OF STACK IS 14
+Popped Non Terminal leftFactored_idList
+SIZE OF STACK IS 13
+Popped Terminal SQBC
+LEAF NODE ADDED
+tokenize got the input as :=
+TOKEN GIVEN BY DFA IS ASSIGNOP
+SIZE OF STACK IS 12
+Popped Terminal ASSIGNOP
+LEAF NODE ADDED
+tokenize got the input as use
+TOKEN GIVEN BY DFA IS USE
+SIZE OF STACK IS 11
+Popped Terminal USE
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as module
+TOKEN GIVEN BY DFA IS MODULE
+SIZE OF STACK IS 10
+Popped Terminal MODULE
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as arraysum
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 9
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as with
+TOKEN GIVEN BY DFA IS WITH
+SIZE OF STACK IS 8
+Popped Terminal WITH
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as parameters
+TOKEN GIVEN BY DFA IS PARAMETERS
+SIZE OF STACK IS 7
+Popped Terminal PARAMETERS
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as A
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 6
+Popped Non Terminal idList
+SIZE OF STACK IS 7
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 6
+Popped Non Terminal leftFactored_idList
+SIZE OF STACK IS 5
+Popped Terminal SEMICOL
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as print
+TOKEN GIVEN BY DFA IS PRINT
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 5
+Popped Non Terminal statement
+SIZE OF STACK IS 5
+Popped Non Terminal ioStmt
+SIZE OF STACK IS 7
+Popped Terminal PRINT
+LEAF NODE ADDED
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+SIZE OF STACK IS 6
+Popped Terminal BO
+LEAF NODE ADDED
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+SIZE OF STACK IS 5
+Popped Non Terminal leftFactored_ioStmt
+SIZE OF STACK IS 7
+Popped Non Terminal var
+SIZE OF STACK IS 8
+Popped Terminal ID
+LEAF NODE ADDED
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+SIZE OF STACK IS 7
+Popped Non Terminal whichId
+SIZE OF STACK IS 6
+Popped Terminal BC
+LEAF NODE ADDED
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+SIZE OF STACK IS 5
+Popped Terminal SEMICOL
+LEAF NODE ADDED
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as  
+tokenize got the input as 
+
+tokenize got the input as end
 TOKEN GIVEN BY DFA IS END
+SIZE OF STACK IS 4
+Popped Non Terminal statements
+SIZE OF STACK IS 3
 Popped Terminal END
+LEAF NODE ADDED
+tokenize got the input as  
 Tokenized EOF , sending it for parsing
 TOKEN GIVEN BY DFA IS EOF
+SIZE OF STACK IS 2
+Popped Non Terminal otherModules
+SIZE OF STACK IS 1
+Popped Terminal EOF
+LEAF NODE ADDED
+Tokenized EOF , sending it for parsing
+TOKEN GIVEN BY DFA IS EOF
+Tokenized EOF , sending it for parsing
+
+PRINTING PARSE TREE
+Non Terminal = 0
+GOING DOWN
+Non Terminal = 1
+GOING DOWN
+Non Terminal = 2
+GOING RIGHT
+Non Terminal = 4
+GOING RIGHT
+Non Terminal = 5
+GOING DOWN
+Terminal = 42
+GOING RIGHT
+Terminal = 9
+GOING RIGHT
+Terminal = 10
+GOING RIGHT
+Terminal = 43
+GOING RIGHT
+Non Terminal = 17
+GOING DOWN
+Terminal = 5
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 56
+GOING DOWN
+Terminal = 7
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING DOWN
+Terminal = 47
+GOING RIGHT
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 44
+GOING RIGHT
+Non Terminal = 12
+GOING DOWN
+Terminal = 0
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 56
+GOING DOWN
+Terminal = 7
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 44
+GOING RIGHT
+Non Terminal = 12
+GOING DOWN
+Terminal = 4
+GOING RIGHT
+Terminal = 49
+GOING RIGHT
+Non Terminal = 13
+GOING DOWN
+Non Terminal = 15
+GOING RIGHT
+Non Terminal = 14
+GOING DOWN
+Terminal = 55
+GOING RIGHT
+Terminal = 45
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 50
+GOING RIGHT
+Terminal = 3
+GOING RIGHT
+Non Terminal = 16
+GOING DOWN
+Terminal = 0
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 62
+GOING DOWN
+Terminal = 19
+GOING RIGHT
+Terminal = 51
+GOING RIGHT
+Terminal = 54
+GOING RIGHT
+Terminal = 20
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING RIGHT
+Terminal = 45
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Terminal = 55
+GOING RIGHT
+Terminal = 52
+GOING RIGHT
+Terminal = 5
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 26
+GOING DOWN
+Non Terminal = 27
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 28
+GOING DOWN
+Non Terminal = 30
+GOING DOWN
+Terminal = 49
+GOING RIGHT
+Non Terminal = 48
+GOING DOWN
+Non Terminal = 50
+GOING DOWN
+Non Terminal = 52
+GOING DOWN
+Non Terminal = 15
+GOING RIGHT
+Non Terminal = 53
+GOING DOWN
+Terminal = 54
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+EPSILON
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 49
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 50
+GOING RIGHT
+Terminal = 48
+GOING RIGHT
+Non Terminal = 35
+GOING DOWN
+Non Terminal = 38
+GOING DOWN
+Non Terminal = 41
+GOING DOWN
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Terminal = 51
+GOING RIGHT
+Non Terminal = 35
+GOING DOWN
+Non Terminal = 38
+GOING DOWN
+Non Terminal = 41
+GOING DOWN
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING DOWN
+Non Terminal = 43
+GOING DOWN
+Terminal = 31
+GOING UP
+GOING RIGHT
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 40
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 39
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 52
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING DOWN
+Non Terminal = 44
+GOING DOWN
+Terminal = 32
+GOING UP
+GOING RIGHT
+Non Terminal = 47
+GOING DOWN
+Terminal = 51
+GOING RIGHT
+Non Terminal = 35
+GOING DOWN
+Non Terminal = 38
+GOING DOWN
+Non Terminal = 41
+GOING DOWN
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING DOWN
+Non Terminal = 43
+GOING DOWN
+Terminal = 31
+GOING UP
+GOING RIGHT
+Non Terminal = 45
+GOING DOWN
+Non Terminal = 47
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 40
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 39
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 52
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 42
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 40
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 39
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING LEFT
+GOING UP
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 20
+GOING DOWN
+Terminal = 12
+GOING RIGHT
+Terminal = 51
+GOING RIGHT
+Non Terminal = 21
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING DOWN
+Terminal = 49
+GOING RIGHT
+Non Terminal = 15
+GOING RIGHT
+Non Terminal = 25
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Terminal = 50
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 52
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 6
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 26
+GOING DOWN
+Non Terminal = 31
+GOING DOWN
+Non Terminal = 32
+GOING DOWN
+Terminal = 49
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 50
+GOING RIGHT
+Terminal = 48
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 13
+GOING RIGHT
+Terminal = 8
+GOING RIGHT
+Terminal = 54
+GOING RIGHT
+Terminal = 14
+GOING RIGHT
+Terminal = 15
+GOING RIGHT
+Non Terminal = 33
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 34
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING DOWN
+Non Terminal = 19
+GOING DOWN
+Non Terminal = 20
+GOING DOWN
+Terminal = 12
+GOING RIGHT
+Terminal = 51
+GOING RIGHT
+Non Terminal = 21
+GOING DOWN
+Non Terminal = 23
+GOING DOWN
+Terminal = 54
+GOING RIGHT
+Non Terminal = 24
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 52
+GOING RIGHT
+Terminal = 46
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING UP
+GOING RIGHT
+Non Terminal = 18
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 6
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Non Terminal = 4
+GOING LEFT
+GOING LEFT
+GOING LEFT
+GOING UP
+GOING RIGHT
+Terminal = 53
+GOING LEFT
+GOING UP
