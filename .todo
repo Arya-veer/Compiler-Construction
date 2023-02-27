@@ -1,4 +1,5 @@
-PARSER:
+    
+
     RULE TABLE:
         ✔ Create First and Follow @today @done (25/02/2023, 10:08:25)
 
@@ -19,7 +20,8 @@ PARSER:
 
     ✔ Test parser @today @done (26/02/2023, 18:38:02)
 
-    HASH FUNCTION:
+    HASH FUNCTION: 
+        // Maddy
 
         ☐ Create Hash Function @critical 
 
@@ -32,6 +34,7 @@ PARSER:
         ☐ Test Everything @critical 
 
     FIRST AND FOLLOW AUTOMATION:
+        //Utsav
 
         ☐ Automate First @low
 
@@ -43,11 +46,13 @@ PARSER:
 
     TREE ADT:
     
-        ☐ Integrate in Stack @high 
+        ✔ Integrate in Stack @high @done (27/02/2023, 10:16:18)
 
-        ☐ Test with parser @high 
+        ✔ Integrate with parser @high @done (27/02/2023, 10:19:33)
+
 
     ERROR:
+        // Arya Veer
 
         ☐ Parser Error reporting @high 
 
@@ -56,6 +61,7 @@ PARSER:
         ☐ Parser Error recovery @high
     
     TESTING:
+        // Hardik and Ruchika
 
         ☐ Lexer Testing @critical 
 
@@ -68,5 +74,8 @@ PARSER:
 
         ☐ Remove Comments @today  :- Should we use DFA or can we do it directly
 
-        ☐ Error recovery is parser @today  
+        ☐ Error recovery in parser @today  
 
+        ☐ Comments @today  :- ** .... ** .... ** What to do for this
+
+        ☐ Epsilon Handling in Parse Tree @today :- Put Epsilon Node or not in Parse Tree
