@@ -1,32 +1,35 @@
-/*
-
-^   26/02
-*REQUIRES:
-    &DONE PARSE TABLE                   24/02
-    TODO: ERROR HANDLING                25/02
-    TODO: PARSE TREE IMPLEMENTATION     26/02
-    &LEXER
-    &STACK
-
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
-
 #include "parser.h"
 
 
+void errorHandiling(STACK st,LEXEME* lex,short type){
 
+    printf("!!!!!!!!!!!!!!!!!!!!!!!\n At line %d, ",lex->lineNo);
+    if(type == 1){
+        printf("ERROR OF TYPE 1 OCCURED\n");
+        printf("PARSER GOT INVALID TOKEN %s\n",TERMINALS_STRINGS[lex->token]);
+
+    }
+    if(type == 2){
+        printf("ERROR OF TYPE 2 OCCURED\n");
+        printf("PARSER CANNOT DERIVE TOKEN %s\n",TERMINALS_STRINGS[lex->token]);
+
+    }
+    if(type == 4){
+        printf("ERROR OF TYPE 4 OCCURED\n");
+        printf("INPUT IS YET TO BE PROCESSED %s\n",TERMINALS_STRINGS[lex->token]);
+
+    }
+}
 
 
 void parser(char* grammarFile,char* inputFile){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
     printf("RULES ADDED\n");
-    // printRules(119);
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
-    // printParseTable();
     printf("\nPARSE TABLE POPULATED\n");
     TwinBuffer* TB = initializeTwinBuffer(inputFile);
     printf("\nTWIN BUFFER INITIALIZED\n");
@@ -45,7 +48,6 @@ void parser(char* grammarFile,char* inputFile){
         if(stNode->isTerminal == 1){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
-                // printf("SIZE OF TOKEN = %ld\n",sizeof(stNode->treenode->TREENODEDATA->terminal));
                 stNode->treenode->TREENODEDATA->terminal = lex;
                 printf("LEAF NODE ADDED\n");
                 lex = simulateDFA(TB);
@@ -53,7 +55,7 @@ void parser(char* grammarFile,char* inputFile){
 
             }
             else{
-                printf("ERROR TYPE 1\n");
+                errorHandiling(st,lex,1);
                 break;
             }
         }
@@ -65,7 +67,8 @@ void parser(char* grammarFile,char* inputFile){
                 }
             }
             else{
-                printf("ERROR TYPE 2\n");
+                errorHandiling(st,lex,2);
+
                 break;
             }
         }
@@ -75,7 +78,7 @@ void parser(char* grammarFile,char* inputFile){
     }
     lex = simulateDFA(TB);
     if(lex->token != EOF_TOKEN){
-        printf("ERROR TYPE 4!\n");
+        errorHandiling(st,lex,4);
     }
     fclose(TB->fp);
     // stNode = popFromStack(st);
@@ -88,8 +91,8 @@ void parser(char* grammarFile,char* inputFile){
     // else{
     //     printf("ERROR TYPE 4\n");
     // }
-    printf("\nPRINTING PARSE TREE\n");
-    preorderTraversal(root);
+    // printf("\nPRINTING PARSE TREE\n");
+    // preorderTraversal(root);
 
 }
 

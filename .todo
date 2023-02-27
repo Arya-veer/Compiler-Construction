@@ -54,9 +54,9 @@
     ERROR:
         // Arya Veer
 
-        ☐ Parser Error reporting @high 
+        ✔ Parser Error reporting @high @done (27/02/2023, 14:50:54)
 
-        ☐ Lexer Error recovery @high
+        ✔ Lexer Error recovery @high @done (27/02/2023, 14:51:00)
 
         ☐ Parser Error recovery @high
     
@@ -70,12 +70,12 @@
     
     DOUBTS:
 
-        ☐ Keyword Length @today  :- What to do if Keyword Length is more than 20
+        ☐ Keyword Length @today  :- What to do if Keyword Length is more than 20 => skip
 
-        ☐ Remove Comments @today  :- Should we use DFA or can we do it directly
+        ☐ Remove Comments @today  :- Should we use DFA or can we do it directly => same
 
-        ☐ Error recovery in parser @today  
+        ☐ Error recovery in parser @today
 
-        ☐ Comments @today  :- ** .... ** .... ** What to do for this
+        ✔ Comments @today  :- ** .... ** .... ** What to do for this @done (27/02/2023, 15:13:31)
 
         ☐ Epsilon Handling in Parse Tree @today :- Put Epsilon Node or not in Parse Tree

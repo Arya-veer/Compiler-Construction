@@ -10,7 +10,7 @@ void populateTwinBuffer(TwinBuffer *TB){
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
     if(length != SIZE) TB->buffer[TB->currentForward][length] = EOF;
     // TB->buffer[TB->currentForward][length + 1] = -1;
-    printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
+    // printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
 TwinBuffer* initializeTwinBuffer(char* fname){
@@ -194,17 +194,18 @@ void skipComment(TwinBuffer *TB){
     // return lex;
 }
 
-LEXEME* tokenizeEOF(TwinBuffer *TB){
+LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     char* input = extractLexeme(TB);
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex -> token = EOF_TOKEN;
+    lex->lineNo = line;
     printf("Tokenized %s , sending it for parsing\n","EOF");
     return lex;
 }
 
 LEXEME* tokenize(TwinBuffer *TB,short int line){
     char* input = extractLexeme(TB);
-    printf("tokenize got the input as %s\n",input);
+    // printf("tokenize got the input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
@@ -242,7 +243,7 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
     return lex;
 }
 
-short int lineCount = 0;
+short int lineCount = 1;
 
 LEXEME* simulateDFA(TwinBuffer *TB){
     char* error;
@@ -256,21 +257,12 @@ LEXEME* simulateDFA(TwinBuffer *TB){
         switch(state){
             case -1:
                 errorChar = getCharacterAtForward(TB);
-                // printf("Error due to %c\n",c);
-                incrementForward(TB);
                 errorString = extractLexeme(TB);
                 printf("Lexical Error occured at line %hi, \"%s\" ,  invalid character '%c'\n",lineCount,errorString,c);
-                // lexicalError(c,lineCount,errorString);
-
-                // printf("Lexical Error Occured\n");
                 state = 0;
-                // return lex;
                 break;
             case 0:
-                // printf("START STATE\n");
-                // TB.lexemeBegin = TB.forward;
                 c = getCharacterAtForward(TB);
-                // printf("current char = %d\n",c);
                 if(c == '+')       state = 1;
                 else if (c == '-') state = 2;
                 else if (c == '/') state = 3;
@@ -297,7 +289,11 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                     break;
                 }
                 else if (c == EOF || c == '\0') state = 40;
-                else state = -1;
+                else {
+                    incrementForward(TB);
+                    state = -1;
+
+                }
                 break;
             
             case 1:
@@ -421,6 +417,8 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 incrementForward(TB);
                 c = getCharacterAtForward(TB);
                 if(c == '*') state = 18;
+                else if(c == EOF) return tokenizeEOF(TB,lineCount);
+                else if(c == '\n') ++lineCount;
                 else state = 17;
                 break;
             case 18:
@@ -630,7 +628,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 40:
                 // printf("STATE 40\n");
-                return tokenizeEOF(TB);
+                return tokenizeEOF(TB,lineCount);
         }
     }
 }

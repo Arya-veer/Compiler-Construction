@@ -1,13 +1,21 @@
-<<<driver program>>> 
+**declare module mod1; 
+<<<driver Program>>> 
 start 
- declare num, k:integer; 
- declare A:array [4..10] of integer; 
-for( k in 6..10) 
-start 
- A[k]:=(num - k)*(num - k); 
- print(A[k]); 
-end  
-[num]:=use module arraysum with parameters A; 
-print(num); 
- 
+ declare  v, w, r :integer; 
+ get_value(v); 
+ w:=5; 
+ declare m:real;
+ [r,m] := use  module mod1 with parameters v, w; 
+ print(r); 
+ print(m); 
 end 
+****
+<<module mod1>> 
+takes input [a: integer, b: integer]; 
+returns  [x: integer, abc: real]; 
+start 
+ declare c: real; 
+ c:=10.4; 
+ x:=a+b#10; 
+ abc:=b/5+c; 
+end
