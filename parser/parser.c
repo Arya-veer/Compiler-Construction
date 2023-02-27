@@ -7,8 +7,9 @@ void errorHandiling(STACK st,LEXEME* lex,short type){
 
     printf("!!!!!!!!!!!!!!!!!!!!!!!\n At line %d, ",lex->lineNo);
     if(type == 1){
-        printf("ERROR OF TYPE 1 OCCURED\n");
+        // printf("ERROR OF TYPE 1 OCCURED\n");
         printf("PARSER GOT INVALID TOKEN %s\n",TERMINALS_STRINGS[lex->token]);
+        
 
     }
     if(type == 2){
