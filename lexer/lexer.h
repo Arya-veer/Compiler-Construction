@@ -98,7 +98,7 @@ typedef enum  {
 union lexemeData{
     char *data;
     int intData;
-    float floatData;
+    long double floatData;
 };
 
 typedef struct lexeme LEXEME;

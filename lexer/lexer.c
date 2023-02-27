@@ -212,7 +212,7 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
         if(isFloat(input)){
             lex->lexemedata->floatData = atof(input);
             lex->token = RNUM_TOKEN;
-            printf("LINE NO: %d\tLEXEME: %f\tTOKEN: %s\n",line,lex->lexemedata->floatData,"RNUM");
+            printf("LINE NO: %d\tLEXEME: %Lf\tTOKEN: %s\n",line,lex->lexemedata->floatData,"RNUM");
         }
         else{
             lex->lexemedata->intData = atoi(input);
