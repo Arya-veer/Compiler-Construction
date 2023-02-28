@@ -56,7 +56,7 @@ whichStmt,lvalueARRStmt
 lvalueIDStmt,ASSIGNOP,expression,SEMICOL
 lvalueARRStmt,SQBO,arithmeticExprWArr,SQBC,ASSIGNOP,expression,SEMICOL
 moduleReuseStmt,optional,USE,MODULE,ID,WITH,PARAMETERS,paramList,SEMICOL
-param,signedParam
+param,sign,signedParam
 signedParam,ID,arrID
 arrID,SQBO,arithmeticExprWArr,SQBC
 arrID,epsilon
@@ -95,7 +95,7 @@ term,factor,leftFactored_term
 leftFactored_term,md,factor,leftFactored_term
 leftFactored_term,epsilon
 factor,BO,expression,BC
-factor,var
+factor,param
 arithmeticExprWArr,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,pm,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,epsilon
