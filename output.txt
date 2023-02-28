@@ -3,11 +3,14 @@ LINE NO: 1         LEXEME: driver         TOKEN: DRIVER
 LINE NO: 1         LEXEME: program         TOKEN: PROGRAM
 LINE NO: 1         LEXEME: >>>         TOKEN: DRIVERENDDEF
 LINE NO: 2         LEXEME: start         TOKEN: START
-LINE NO: 3         LEXEME: end         TOKEN: END
+LINE NO: 3         LEXEME: id         TOKEN: ID
+LINE NO: 3         LEXEME: :=         TOKEN: ASSIGNOP
+Lexical Error occured at line 3, "#" ,  invalid character '#'
+LINE NO: 3         LEXEME: ;         TOKEN: SEMICOL
 
-GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
-
-
+ At line 3, PARSER CANNOT DERIVE TOKEN SEMICOL
+ERROR RECOVERY DONE
+LINE NO: 4         LEXEME: end         TOKEN: END
 
 PRINTING PARSE TREE
 
@@ -24,6 +27,16 @@ Terminal = PROGRAM
 Terminal = DRIVERENDDEF
 Terminal = START
 Non Terminal = moduleDef
+Terminal = ID
+Non Terminal = assignmentStmt
+Terminal = ASSIGNOP
+Non Terminal = lvalueIDStmt
+Non Terminal = expression
+Terminal = SEMICOL
+Non Terminal = whichStmt
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
 TERMINAL = EPSILON
 Non Terminal = statements
 Terminal = END

@@ -4,8 +4,9 @@
 
 #include "dataStructures/parseTable.h"
 #include "dataStructures/stack.h"
-#include "FnFsets/automation.h"
+// #include "FnFsets/automation.h"
 #include "../lexer/lexer.h"
+#include "./FnFsets/followSets.h"
 
 void parser(char* grammarFile,char* inputFile);
 void testAutomation(char* grammarFile);

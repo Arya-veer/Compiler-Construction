@@ -129,3 +129,13 @@ short int *followSets[] = {
     follow_dfault,
     follow_iterativeStmt
 };
+
+int inFollowSets(int terminal,int nonterminal){
+    int n = followSets[nonterminal][0];
+    for(int j = 1;j<=n;j++){
+        if(terminal == followSets[nonterminal][j]){
+            return 1;
+        }
+    }
+    return 0;
+}
