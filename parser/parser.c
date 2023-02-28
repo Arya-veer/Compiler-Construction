@@ -39,10 +39,10 @@ void parser(char* grammarFile,char* inputFile){
     TREENODE root = createRootNode(RULES[0]);
     pushInStack(st,RULES[0]->next,root,1);
     LEXEME* lex = simulateDFA(TB);
-    printf("\nTOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
+    // printf("\nTOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
     while(st->size > 0){
-        printf("SIZE OF STACK IS %d\n",st->size);
+        // printf("SIZE OF STACK IS %d\n",st->size);
         stNode = popFromStack(st);
         /* Checking for the terminal */
 
@@ -50,9 +50,9 @@ void parser(char* grammarFile,char* inputFile){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
-                printf("LEAF NODE ADDED\n");
+                // printf("LEAF NODE ADDED\n");
                 lex = simulateDFA(TB);
-                printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
+                // printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
 
             }
             else{
