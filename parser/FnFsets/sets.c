@@ -75,10 +75,10 @@
     short int rule74[] = {6,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN,TRUE_BOOL,FALSE_BOOL}; 
     short int rule75[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
     short int rule76[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
-    short int rule77[] = {4,BO_TOKEN}; 
-    short int rule78[] = {4,IDENTIFIER_TOKEN}; 
-    short int rule79[] = {4,NUM_TOKEN}; 
-    short int rule80[] = {4,RNUM_TOKEN}; 
+    short int rule77[] = {1,BO_TOKEN}; 
+    short int rule78[] = {1,IDENTIFIER_TOKEN}; 
+    short int rule79[] = {1,NUM_TOKEN}; 
+    short int rule80[] = {1,RNUM_TOKEN}; 
     short int rule81[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
     short int rule82[] = {2,TRUE_BOOL,FALSE_BOOL}; 
     short int rule83[] = {2,AND_OPERATOR,OR_OPERATOR}; 
