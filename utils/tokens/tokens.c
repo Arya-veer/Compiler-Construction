@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "tokens.h"
 char* TOKENS_STRING[] = {
-
         "integer",
         "real",
         "boolean",
