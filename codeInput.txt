@@ -1,4 +1,4 @@
 <<<driver program>>> 
 start 
-id := #;
+use module mod1 with parameters 584739.543,a,b,true;
 end

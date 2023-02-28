@@ -56,11 +56,12 @@ whichStmt,lvalueARRStmt
 lvalueIDStmt,ASSIGNOP,expression,SEMICOL
 lvalueARRStmt,SQBO,arithmeticExprWArr,SQBC,ASSIGNOP,expression,SEMICOL
 moduleReuseStmt,optional,USE,MODULE,ID,WITH,PARAMETERS,paramList,SEMICOL
-param,ID,arrID
+param,signedParam
+signedParam,ID,arrID
 arrID,SQBO,arithmeticExprWArr,SQBC
 arrID,epsilon
-param,NUM
-param,RNUM
+signedParam,NUM
+signedParam,RNUM
 param,boolValues
 paramList,param,leftFactored_paramList
 leftFactored_paramList,COMMA,param,leftFactored_paramList
