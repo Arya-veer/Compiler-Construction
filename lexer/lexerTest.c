@@ -241,15 +241,10 @@ short isFloat(char* number){
 /* @param 
     TWINBUFFER TB;
     int line;
-    TODO: Handle comments
-
  */
 void skipComment(TwinBuffer *TB){
     char* input = extractLexeme(TB);
-    // LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
-    // lex -> token = EOF_TOKEN;
     printf("Skipped Comment\n");
-    // return lex;
 }
 
 LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
@@ -263,41 +258,44 @@ LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
 
 LEXEME* tokenize(TwinBuffer *TB,short int line){
     char* input = extractLexeme(TB);
-    printf("tokenize got the input as \"%s\"\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
     lex->lineNo = line;
-    /* Checking For Int or Float */
+
+    /* 
+        &Checking For Int or Float 
+    */
     if(input[0] >= '0' && input[0] <= '9'){
         if(isFloat(input)){
             lex->lexemedata->floatData = atof(input);
             lex->token = RNUM_TOKEN;
-
-            printf("Printing as float => %f\n",lex->lexemedata->floatData);
+            printf("LINE NO: %d\tLEXEME: %Lf\tTOKEN: %s\n",line,lex->lexemedata->floatData,"RNUM");
         }
         else{
             lex->lexemedata->intData = atoi(input);
             lex->token = NUM_TOKEN;
-            printf("Printing as integer => %d\n",lex->lexemedata->intData);
+            printf("LINE NO: %d\tLEXEME: %d\tTOKEN: %s\n",line,lex->lexemedata->intData,"NUM");
         }
         return lex;
     }
     lex->lexemedata->data = input;
     short found = 0;
-    // printf("Checking for keywords\n");
     /* Checking For Keywords */
     for(short int i=0;i <= 52;i++){
-        // printf("Are they equal %d\n",strcmp(input,TOKENS_STRING[i]));
         if(strcmp(input,TOKENS_STRING[i]) == 0){
             lex->token = (TOKENS) i;
             found = 1;
+            printf("LINE NO: %d\tLEXEME: %s\tTOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
             break;
         }
     } 
 
-    if(found == 0) lex->token = IDENTIFIER_TOKEN;
-    printf("Tokenized %s , sending it for parsing\n",TERMINALS_STRINGS[lex->token]);
+    if(found == 0){
+        lex->token = IDENTIFIER_TOKEN;
+        printf("LINE NO: %d\tLEXEME: %s\tTOKEN: %s\n",line,input,"ID");
+    }
+
     return lex;
 }
 
@@ -307,6 +305,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
     char* error;
     short int state = 0;
     char c;
+    short charCount;
     char errorChar;
     char* errorString;
     LEXEME* lex;
@@ -336,7 +335,10 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 else if (c == '*') state = 16;
                 else if (c == ':') state = 20;
                 else if (c >= '0' && c <= '9') state = 22;
-                else if ((c >= 'a' && c <= 'z') || (c >='A' && c <= 'Z') || (c == '_')) state = 28;
+                else if ((c >= 'a' && c <= 'z') || (c >='A' && c <= 'Z') || (c == '_')) {
+                    state = 28;
+                    charCount = 1;
+                }
                 else if (c == '>') state = 29;
                 else if (c == '<') state = 33;
                 else if (c == ' ') state = 37;
@@ -576,12 +578,19 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 28:
                 // printf("STATE 28\n");
+                charCount++;
                 incrementForward(TB);
                 c = getCharacterAtForward(TB);
                 // printf("%d\n",c);
                 if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c == '_')) state = 28;
                 else {
                     // printf("TOKENIZE TK_ID OR TK_KW\n");
+                    if(charCount > 20){
+                        errorString = extractLexeme(TB);
+                        printf("Lexical Error occured at line %hi, \"%s\" , Variable Length can not be more than 20\n",lineCount,errorString);
+                        state = 0;
+                        break;
+                    }
                     lex = tokenize(TB,lineCount);
                     return lex;
                 }
