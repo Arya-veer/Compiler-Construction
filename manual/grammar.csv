@@ -98,7 +98,7 @@ factor,var
 arithmeticExprWArr,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,pm,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,epsilon
-termWArr,signedFactorWArr,leftFactored_termWArrr
+termWArr,signedFactorWArr,leftFactored_termWArr
 leftFactored_termWArr,md,signedFactorWArr,leftFactored_termWArr
 leftFactored_termWArr,epsilon
 signedFactorWArr,sign,factorWArr
