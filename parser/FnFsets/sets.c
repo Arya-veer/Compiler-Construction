@@ -63,7 +63,7 @@
     short int rule62[] = {1, NUM_TOKEN};
     short int rule63[] = {1, RNUM_TOKEN};
     short int rule64[] = {2, TRUE_BOOL, FALSE_BOOL};
-    short int rule65[] = {4, NUM_TOKEN, RNUM_TOKEN, TRUE_BOOL, FALSE_BOOL};
+    short int rule65[] = {4, NUM_TOKEN, RNUM_TOKEN, TRUE_BOOL, FALSE_BOOL, IDENTIFIER_TOKEN};
     short int rule66[] = {1, COMMA_OPERATOR};
     short int rule67[] = {1,SEMICOL_OPERATOR};
     short int rule68[] = {1,SQBO_TOKEN}; //67 line
