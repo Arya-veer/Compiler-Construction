@@ -9,6 +9,5 @@
 
 
 LISTNODE* addRules(char* fname);
-char* TERMINALS_STRINGS[57];
 
 #endif

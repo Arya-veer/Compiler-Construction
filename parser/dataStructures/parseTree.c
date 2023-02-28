@@ -41,26 +41,27 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     return nextNode;
 }
 
-void preorderTraversal(TREENODE tn){
+void inorderTraversal(TREENODE tn,short goNext){
+    // printf(tn)
     // printf("Traversing\n");
     if(tn == NULL) return;
+    inorderTraversal(tn->child,0);
     if(tn->isTerminal == 1){
-        printf("Terminal = %d\n",tn->TREENODEDATA->terminal->token);
+        printf("Terminal = %s\n",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
     }
     else if(tn->isTerminal == 0){
-        printf("Non Terminal = %d\n",tn->TREENODEDATA->nonterminal);
+        printf("Non Terminal = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
     }
     else{
-        printf("EPSILON\n");
+        printf("TERMINAL = EPSILON\n");
     }
     if(tn->child != NULL){
-        printf("GOING DOWN\n");
-        preorderTraversal(tn->child);
-        printf("GOING UP\n");
+        // printf("GOING RIGHT OF CHILD\n");
+        inorderTraversal(tn->child->next,1);
+        // printf("GOING LEFT TO CHILD\n");
     }
-    if(tn->next != NULL){
-        printf("GOING RIGHT\n");
-        preorderTraversal(tn->next);
-        printf("GOING LEFT\n");
+    if(goNext == 1){
+        inorderTraversal(tn->next,1);
     }
+    
 }

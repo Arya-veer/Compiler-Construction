@@ -15,13 +15,14 @@ union TreeNodeData{
 struct TreeNode{
     TREENODE child;
     TREENODE next;
+    // TREENODE parent;
     union TreeNodeData* TREENODEDATA;
     short isTerminal;
 };
 TREENODE insertChildTree(TREENODE tn, LISTNODE ln);
 TREENODE insertNextTree(TREENODE tn, LISTNODE ln);
 TREENODE createRootNode(LISTNODE ln);
-void preorderTraversal(TREENODE tn);
+void inorderTraversal(TREENODE tn,short goNext);
 
 #endif
 
