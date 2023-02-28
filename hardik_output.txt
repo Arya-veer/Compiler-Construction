@@ -1,0 +1,388 @@
+RULES ADDED
+PARSE TABLE FILLED WITH -1
+ finalProgram => DECLARE = 0 | DEF = 0 | DRIVERDEF = 0 | 
+ program => DECLARE = 1 | DEF = 1 | DRIVERDEF = 1 | 
+ moduleDeclarations => DECLARE = 2 | DEF = 3 | DRIVERDEF = 3 | 
+ moduleDeclaration => DECLARE = 4 | 
+ otherModules => DEF = 5 | DRIVERDEF = 6 | EOF = 6 | 
+ driverModule => DRIVERDEF = 7 | 
+ module => DEF = 8 | 
+ ret => START = 10 | RETURNS = 9 | 
+ input_plist => ID = 11 | 
+ leftFactored_input_plist => COMMA = 12 | SQBC = 13 | 
+ output_plist => ID = 14 | 
+ leftFactored_output_plist => COMMA = 15 | SQBC = 16 | 
+ dataType => INTEGER = 17 | REAL = 18 | BOOLEAN = 19 | ARRAY = 20 | 
+ arrRange => PLUS = 21 | MINUS = 21 | ID = 21 | NUM = 21 | 
+ leftFactored_arrRange => ID = 22 | NUM = 23 | 
+ sign => PLUS = 24 | MINUS = 24 | BO = 25 | ID = 25 | NUM = 25 | RNUM = 25 | 
+ type => INTEGER = 26 | REAL = 27 | BOOLEAN = 28 | 
+ moduleDef => START = 29 | 
+ statements => END = 31 | DECLARE = 30 | GET_VALUE = 30 | PRINT = 30 | USE = 30 | FOR = 30 | SWITCH = 30 | BREAK = 31 | WHILE = 30 | SQBO = 30 | ID = 30 | 
+ statement => DECLARE = 34 | GET_VALUE = 32 | PRINT = 32 | USE = 33 | FOR = 36 | SWITCH = 35 | WHILE = 36 | SQBO = 33 | ID = 33 | 
+ ioStmt => GET_VALUE = 37 | PRINT = 38 | 
+ leftFactored_ioStmt => true = 40 | false = 40 | ID = 39 | NUM = 39 | RNUM = 39 | 
+ boolValues => true = 41 | false = 42 | 
+ var => ID = 43 | NUM = 44 | RNUM = 45 | 
+ whichId => AND = 47 | OR = 47 | PLUS = 47 | MINUS = 47 | MUL = 47 | DIV = 47 | LT = 47 | LE = 47 | GE = 47 | GT = 47 | EQ = 47 | NE = 47 | SEMICOL = 47 | SQBO = 46 | BC = 47 | 
+ leftFactored_whichId => ID = 48 | NUM = 49 | 
+ simpleStmt => USE = 51 | SQBO = 51 | ID = 50 | 
+ assignmentStmt => ID = 52 | 
+ whichStmt => ASSIGNOP = 53 | SQBO = 54 | 
+ lvalueIDStmt => ASSIGNOP = 55 | 
+ lvalueARRStmt => SQBO = 56 | 
+ moduleReuseStmt => USE = 57 | SQBO = 57 | 
+ optional => USE = 59 | COLON = 59 | SEMICOL = 59 | SQBO = 58 | SQBC = 59 | 
+ idList => ID = 60 | 
+ leftFactored_idList => COLON = 62 | SEMICOL = 62 | COMMA = 61 | SQBC = 62 | 
+ expression => true = 63 | false = 63 | PLUS = 64 | MINUS = 64 | BO = 63 | ID = 63 | NUM = 63 | RNUM = 63 | 
+ unaryTerm => PLUS = 65 | MINUS = 65 | 
+ arithmeticFactor => ARRAY = 69 | BO = 69 | ID = 69 | NUM = 68 | RNUM = 69 | 
+ arithmeticBooleanExpr => true = 71 | false = 71 | BO = 70 | ID = 70 | NUM = 70 | RNUM = 70 | 
+ logicalTerm => AND = 72 | OR = 72 | SEMICOL = 73 | BC = 73 | 
+ relationalTerm => AND = 75 | OR = 75 | LT = 74 | LE = 74 | GE = 74 | GT = 74 | EQ = 74 | NE = 74 | SEMICOL = 75 | BC = 75 | 
+ arithmeticExpr => BO = 76 | ID = 76 | NUM = 76 | RNUM = 76 | 
+ leftFactored_arithmeticExpr => AND = 78 | OR = 78 | PLUS = 77 | MINUS = 77 | LT = 78 | LE = 78 | GE = 78 | GT = 78 | EQ = 78 | NE = 78 | SEMICOL = 78 | BC = 78 | 
+ pm => PLUS = 79 | MINUS = 80 | 
+ md => MUL = 81 | DIV = 82 | 
+ term => BO = 83 | ID = 83 | NUM = 83 | RNUM = 83 | 
+ leftFactored_term => AND = 85 | OR = 85 | PLUS = 85 | MINUS = 85 | MUL = 84 | DIV = 84 | LT = 85 | LE = 85 | GE = 85 | GT = 85 | EQ = 85 | NE = 85 | SEMICOL = 85 | BC = 85 | 
+ factor => BO = 86 | ID = 87 | NUM = 87 | RNUM = 87 | 
+ arithmeticExprWArr => PLUS = 88 | MINUS = 88 | BO = 88 | ID = 88 | NUM = 88 | RNUM = 88 | 
+ leftFactored_arithmeticExprWArr => PLUS = 89 | MINUS = 89 | SQBC = 90 | BC = 90 | 
+ termWArr => PLUS = 91 | MINUS = 91 | BO = 91 | ID = 91 | NUM = 91 | RNUM = 91 | 
+ leftFactored_termWArr => PLUS = 93 | MINUS = 93 | MUL = 92 | DIV = 92 | SQBC = 93 | BC = 93 | 
+ signedFactorWArr => PLUS = 94 | MINUS = 94 | BO = 94 | ID = 94 | NUM = 94 | RNUM = 94 | 
+ factorWArr => BO = 95 | ID = 96 | NUM = 97 | RNUM = 98 | 
+ logicalOp => AND = 99 | OR = 100 | 
+ relationalOp => LT = 101 | LE = 102 | GE = 104 | GT = 103 | EQ = 105 | NE = 106 | 
+ declareStmt => DECLARE = 107 | 
+ conditionalStmt => SWITCH = 108 | 
+ caseStmt => CASE = 109 | 
+ leftFactored_caseStmt => END = 111 | CASE = 110 | DEFAULT = 111 | 
+ value => true = 113 | false = 114 | NUM = 112 | 
+ dfault => END = 116 | DEFAULT = 115 | 
+ iterativeStmt => FOR = 117 | WHILE = 118 | 
+
+PARSE TABLE POPULATED
+
+
+size = 128
+_______________________
+<<<driver program>>>
+start
+declare num, a, k:integer;
+num:=9;
+for( k in 2..8)
+start
+a:=(num - k)*(num - k);
+print(a);
+end
+endï¿½
+______________________
+
+
+TWIN BUFFER INITIALIZED
+
+STACK CREATED
+tokenize got the input as <<<
+
+TOKEN GIVEN BY DFA IS DRIVERDEF
+Popped Non Terminal program
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal otherModules
+Popped Non Terminal driverModule
+Popped Terminal DRIVERDEF
+tokenize got the input as driver
+TOKEN GIVEN BY DFA IS DRIVER
+Popped Terminal DRIVER
+tokenize got the input as  
+tokenize got the input as program
+TOKEN GIVEN BY DFA IS PROGRAM
+Popped Terminal PROGRAM
+tokenize got the input as >>>
+TOKEN GIVEN BY DFA IS DRIVERENDDEF
+Popped Terminal DRIVERENDDEF
+tokenize got the input as 
+
+tokenize got the input as start
+TOKEN GIVEN BY DFA IS START
+Popped Non Terminal moduleDef
+Popped Terminal START
+tokenize got the input as 
+
+tokenize got the input as declare
+TOKEN GIVEN BY DFA IS DECLARE
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+tokenize got the input as  
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal idList
+Popped Terminal ID
+tokenize got the input as ,
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+tokenize got the input as  
+tokenize got the input as a
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as ,
+TOKEN GIVEN BY DFA IS COMMA
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as :
+TOKEN GIVEN BY DFA IS COLON
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+tokenize got the input as integer
+TOKEN GIVEN BY DFA IS INTEGER
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as 
+
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+tokenize got the input as :=
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+tokenize got the input as 9
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+tokenize got the input as 
+
+tokenize got the input as for
+TOKEN GIVEN BY DFA IS FOR
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal iterativeStmt
+Popped Terminal FOR
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+Popped Terminal ID
+tokenize got the input as  
+tokenize got the input as in
+TOKEN GIVEN BY DFA IS IN
+Popped Terminal IN
+tokenize got the input as  
+tokenize got the input as 2
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal sign
+Popped Terminal NUM
+tokenize got the input as ..
+TOKEN GIVEN BY DFA IS RANGEOP
+Popped Terminal RANGEOP
+tokenize got the input as 8
+TOKEN GIVEN BY DFA IS NUM
+Popped Non Terminal sign
+Popped Terminal NUM
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+Popped Terminal BC
+tokenize got the input as 
+
+tokenize got the input as start
+TOKEN GIVEN BY DFA IS START
+Popped Terminal START
+tokenize got the input as 
+
+tokenize got the input as a
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+tokenize got the input as :=
+TOKEN GIVEN BY DFA IS ASSIGNOP
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Terminal BO
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+tokenize got the input as  
+tokenize got the input as -
+TOKEN GIVEN BY DFA IS MINUS
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal MINUS
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal BC
+tokenize got the input as *
+TOKEN GIVEN BY DFA IS MUL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal md
+Popped Terminal MUL
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+Popped Non Terminal factor
+Popped Terminal BO
+tokenize got the input as num
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+tokenize got the input as  
+tokenize got the input as -
+TOKEN GIVEN BY DFA IS MINUS
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal MINUS
+tokenize got the input as  
+tokenize got the input as k
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal BC
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+tokenize got the input as 
+
+tokenize got the input as print
+TOKEN GIVEN BY DFA IS PRINT
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal PRINT
+tokenize got the input as (
+TOKEN GIVEN BY DFA IS BO
+Popped Terminal BO
+tokenize got the input as a
+TOKEN GIVEN BY DFA IS ID
+Popped Non Terminal leftFactored_ioStmt
+Popped Non Terminal var
+Popped Terminal ID
+tokenize got the input as )
+TOKEN GIVEN BY DFA IS BC
+Popped Non Terminal whichId
+Popped Terminal BC
+tokenize got the input as ;
+TOKEN GIVEN BY DFA IS SEMICOL
+Popped Terminal SEMICOL
+tokenize got the input as 
+
+tokenize got the input as end
+TOKEN GIVEN BY DFA IS END
+Popped Non Terminal statements
+Popped Terminal END
+tokenize got the input as 
+
+tokenize got the input as end
+TOKEN GIVEN BY DFA IS END
+Popped Non Terminal statements
+Popped Terminal END
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+
+
+size = 29
+_______________________
+ï¿½ï¿½Ø³ï¿½ï¿½ï¿½Ø¶ÿÿàØ|ÿÿàØ±
+______________________
+
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "Ø" ,  invalid character 'Ø'
+Lexical Error occured at line 9, "³" ,  invalid character '³'
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "ï" ,  invalid character 'ï'
+Lexical Error occured at line 9, "¿" ,  invalid character '¿'
+Lexical Error occured at line 9, "½" ,  invalid character '½'
+Lexical Error occured at line 9, "Ø" ,  invalid character 'Ø'
+Lexical Error occured at line 9, "¶" ,  invalid character '¶'
+Tokenized EOF , sending it for parsing
+TOKEN GIVEN BY DFA IS EOF

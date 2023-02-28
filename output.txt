@@ -1,177 +1,387 @@
-(null)RULES ADDED
+RULES ADDED
 PARSE TABLE FILLED WITH -1
-DATA ENTRY DONE AT row = 0,col = 7,rule = 0
-DATA ENTRY DONE AT row = 0,col = 40,rule = 0
-DATA ENTRY DONE AT row = 0,col = 42,rule = 0
-DATA ENTRY DONE AT row = 1,col = 7,rule = 1
-DATA ENTRY DONE AT row = 1,col = 40,rule = 1
-DATA ENTRY DONE AT row = 1,col = 42,rule = 1
-DATA ENTRY DONE AT row = 2,col = 7,rule = 2
-DATA ENTRY DONE AT row = 2,col = 40,rule = 3
-DATA ENTRY DONE AT row = 2,col = 42,rule = 3
-DATA ENTRY DONE AT row = 3,col = 7,rule = 4
-DATA ENTRY DONE AT row = 4,col = 40,rule = 5
-DATA ENTRY DONE AT row = 4,col = 42,rule = 6
-DATA ENTRY DONE AT row = 4,col = 53,rule = 6
-DATA ENTRY DONE AT row = 5,col = 42,rule = 7
-DATA ENTRY DONE AT row = 6,col = 40,rule = 8
-DATA ENTRY DONE AT row = 7,col = 18,rule = 9
-DATA ENTRY DONE AT row = 7,col = 5,rule = 10
-DATA ENTRY DONE AT row = 8,col = 54,rule = 11
-DATA ENTRY DONE AT row = 9,col = 47,rule = 12
-DATA ENTRY DONE AT row = 9,col = 50,rule = 13
-DATA ENTRY DONE AT row = 10,col = 54,rule = 14
-DATA ENTRY DONE AT row = 11,col = 47,rule = 15
-DATA ENTRY DONE AT row = 11,col = 50,rule = 16
-DATA ENTRY DONE AT row = 12,col = 0,rule = 17
-DATA ENTRY DONE AT row = 12,col = 1,rule = 18
-DATA ENTRY DONE AT row = 12,col = 2,rule = 19
-DATA ENTRY DONE AT row = 12,col = 4,rule = 20
-DATA ENTRY DONE AT row = 13,col = 30,rule = 21
-DATA ENTRY DONE AT row = 13,col = 31,rule = 21
-DATA ENTRY DONE AT row = 13,col = 54,rule = 21
-DATA ENTRY DONE AT row = 13,col = 55,rule = 21
-DATA ENTRY DONE AT row = 14,col = 54,rule = 22
-DATA ENTRY DONE AT row = 14,col = 55,rule = 23
-DATA ENTRY DONE AT row = 15,col = 30,rule = 24
-DATA ENTRY DONE AT row = 15,col = 31,rule = 24
-DATA ENTRY DONE AT row = 15,col = 54,rule = 25
-DATA ENTRY DONE AT row = 15,col = 55,rule = 25
-DATA ENTRY DONE AT row = 15,col = 51,rule = 25
-DATA ENTRY DONE AT row = 15,col = 56,rule = 25
-DATA ENTRY DONE AT row = 16,col = 0,rule = 26
-DATA ENTRY DONE AT row = 16,col = 1,rule = 27
-DATA ENTRY DONE AT row = 16,col = 2,rule = 28
-DATA ENTRY DONE AT row = 17,col = 5,rule = 29
-DATA ENTRY DONE AT row = 18,col = 11,rule = 30
-DATA ENTRY DONE AT row = 18,col = 12,rule = 30
-DATA ENTRY DONE AT row = 18,col = 54,rule = 30
-DATA ENTRY DONE AT row = 18,col = 49,rule = 30
-DATA ENTRY DONE AT row = 18,col = 13,rule = 30
-DATA ENTRY DONE AT row = 18,col = 7,rule = 30
-DATA ENTRY DONE AT row = 18,col = 21,rule = 30
-DATA ENTRY DONE AT row = 18,col = 19,rule = 30
-DATA ENTRY DONE AT row = 18,col = 25,rule = 30
-DATA ENTRY DONE AT row = 18,col = 23,rule = 31
-DATA ENTRY DONE AT row = 18,col = 6,rule = 31
-DATA ENTRY DONE AT row = 19,col = 11,rule = 32
-DATA ENTRY DONE AT row = 19,col = 12,rule = 32
-DATA ENTRY DONE AT row = 19,col = 54,rule = 33
-DATA ENTRY DONE AT row = 19,col = 49,rule = 33
-DATA ENTRY DONE AT row = 19,col = 13,rule = 33
-DATA ENTRY DONE AT row = 19,col = 7,rule = 34
-DATA ENTRY DONE AT row = 19,col = 21,rule = 35
-DATA ENTRY DONE AT row = 19,col = 19,rule = 36
-DATA ENTRY DONE AT row = 19,col = 25,rule = 36
-DATA ENTRY DONE AT row = 20,col = 11,rule = 37
-DATA ENTRY DONE AT row = 20,col = 12,rule = 38
-DATA ENTRY DONE AT row = 21,col = 54,rule = 39
-DATA ENTRY DONE AT row = 21,col = 55,rule = 39
-DATA ENTRY DONE AT row = 21,col = 56,rule = 39
-DATA ENTRY DONE AT row = 21,col = 28,rule = 40
-DATA ENTRY DONE AT row = 21,col = 29,rule = 40
-DATA ENTRY DONE AT row = 22,col = 28,rule = 41
-DATA ENTRY DONE AT row = 22,col = 29,rule = 42
-DATA ENTRY DONE AT row = 23,col = 54,rule = 43
-DATA ENTRY DONE AT row = 23,col = 55,rule = 44
-DATA ENTRY DONE AT row = 23,col = 56,rule = 45
-DATA ENTRY DONE AT row = 24,col = 49,rule = 46
-DATA ENTRY DONE AT row = 24,col = 52,rule = 47
-DATA ENTRY DONE AT row = 24,col = 46,rule = 47
-DATA ENTRY DONE AT row = 24,col = 30,rule = 47
-DATA ENTRY DONE AT row = 24,col = 31,rule = 47
-DATA ENTRY DONE AT row = 24,col = 32,rule = 47
-DATA ENTRY DONE AT row = 24,col = 33,rule = 47
-DATA ENTRY DONE AT row = 24,col = 34,rule = 47
-DATA ENTRY DONE AT row = 24,col = 35,rule = 47
-DATA ENTRY DONE AT row = 24,col = 37,rule = 47
-DATA ENTRY DONE AT row = 24,col = 36,rule = 47
-DATA ENTRY DONE AT row = 24,col = 38,rule = 47
-DATA ENTRY DONE AT row = 24,col = 39,rule = 47
-DATA ENTRY DONE AT row = 24,col = 26,rule = 47
-DATA ENTRY DONE AT row = 24,col = 27,rule = 47
-DATA ENTRY DONE AT row = 25,col = 54,rule = 48
-DATA ENTRY DONE AT row = 25,col = 55,rule = 49
-DATA ENTRY DONE AT row = 26,col = 54,rule = 50
-DATA ENTRY DONE AT row = 26,col = 49,rule = 51
-DATA ENTRY DONE AT row = 26,col = 13,rule = 51
-DATA ENTRY DONE AT row = 27,col = 54,rule = 52
-DATA ENTRY DONE AT row = 28,col = 48,rule = 53
-DATA ENTRY DONE AT row = 28,col = 49,rule = 54
-DATA ENTRY DONE AT row = 29,col = 48,rule = 55
-DATA ENTRY DONE AT row = 30,col = 49,rule = 56
-DATA ENTRY DONE AT row = 31,col = 49,rule = 57
-DATA ENTRY DONE AT row = 31,col = 13,rule = 57
-DATA ENTRY DONE AT row = 32,col = 49,rule = 58
-DATA ENTRY DONE AT row = 32,col = 50,rule = 59
-DATA ENTRY DONE AT row = 32,col = 44,rule = 59
-DATA ENTRY DONE AT row = 32,col = 46,rule = 59
-DATA ENTRY DONE AT row = 33,col = 54,rule = 60
-DATA ENTRY DONE AT row = 34,col = 47,rule = 61
-DATA ENTRY DONE AT row = 34,col = 46,rule = 62
-DATA ENTRY DONE AT row = 34,col = 50,rule = 62
-DATA ENTRY DONE AT row = 34,col = 44,rule = 62
-DATA ENTRY DONE AT row = 35,col = 54,rule = 63
-DATA ENTRY DONE AT row = 35,col = 51,rule = 63
-DATA ENTRY DONE AT row = 35,col = 55,rule = 63
-DATA ENTRY DONE AT row = 35,col = 56,rule = 63
-DATA ENTRY DONE AT row = 35,col = 28,rule = 63
-DATA ENTRY DONE AT row = 35,col = 29,rule = 63
-DATA ENTRY DONE AT row = 35,col = 30,rule = 64
-DATA ENTRY DONE AT row = 35,col = 31,rule = 64
-DATA ENTRY DONE AT row = 36,col = 30,rule = 65
-DATA ENTRY DONE AT row = 36,col = 31,rule = 65
-DATA ENTRY DONE AT row = 37,col = 51,rule = 66
-DATA ENTRY DONE AT row = 37,col = 4,rule = 66
-DATA ENTRY DONE AT row = 37,col = 54,rule = 66
-DATA ENTRY DONE AT row = 37,col = 4,rule = 66
-DATA ENTRY DONE AT row = 37,col = 54,rule = 67
-DATA ENTRY DONE AT row = 37,col = 4,rule = 67
-DATA ENTRY DONE AT row = 37,col = 55,rule = 67
-DATA ENTRY DONE AT row = 37,col = 4,rule = 67
-DATA ENTRY DONE AT row = 37,col = 55,rule = 68
-DATA ENTRY DONE AT row = 37,col = 4,rule = 68
-DATA ENTRY DONE AT row = 37,col = 56,rule = 68
-DATA ENTRY DONE AT row = 37,col = 0,rule = 68
-DATA ENTRY DONE AT row = 37,col = 56,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 37,col = 0,rule = 69
-DATA ENTRY DONE AT row = 38,col = 54,rule = 70
-DATA ENTRY DONE AT row = 38,col = 51,rule = 70
-DATA ENTRY DONE AT row = 38,col = 55,rule = 70
-DATA ENTRY DONE AT row = 38,col = 56,rule = 70
-DATA ENTRY DONE AT row = 38,col = 28,rule = 71
-DATA ENTRY DONE AT row = 38,col = 29,rule = 71
-DATA ENTRY DONE AT row = -1,col = 26,rule = 72
-DATA ENTRY DONE AT row = -1,col = 27,rule = 72
-DATA ENTRY DONE AT row = 39,col = 46,rule = 73
-DATA ENTRY DONE AT row = 39,col = 52,rule = 73
-DATA ENTRY DONE AT row = 40,col = 34,rule = 74
-DATA ENTRY DONE AT row = 40,col = 35,rule = 74
-DATA ENTRY DONE AT row = 40,col = 37,rule = 74
-DATA ENTRY DONE AT row = 40,col = 36,rule = 74
-DATA ENTRY DONE AT row = 40,col = 38,rule = 74
-DATA ENTRY DONE AT row = 40,col = 39,rule = 74
-DATA ENTRY DONE AT row = 40,col = 26,rule = 75
-DATA ENTRY DONE AT row = 40,col = 27,rule = 75
-DATA ENTRY DONE AT row = 40,col = 46,rule = 75
-DATA ENTRY DONE AT row = 40,col = 52,rule = 75
-DATA ENTRY DONE AT row = 41,col = 54,rule = 76
-DATA ENTRY DONE AT row = 41,col = 51,rule = 76
-DATA ENTRY DONE AT row = 41,col = 55,rule = 76
-DATA ENTRY DONE AT row = 41,col = 56,rule = 76
-DATA ENTRY DONE AT row = 42,col = 30,rule = 77
-DATA ENTRY DONE AT row = 42,col = 31,rule = 77
-DATA ENTRY DONE AT row = 42,col = 52,rule = 78
-DATA ENTRY DONE AT row = 42,col = 34,rule = 78
-DATA ENTRY DONE AT row = 42,col = 35,rule = 78
-DATA ENTRY DONE AT row = 42,col = 36,rule = 78
-DATA ENTRY DONE AT row = 42,col = 37,rule = 78
-DATA ENTRY DONE AT row = 42,col = 38,rule = 78
-DATA ENTRY DONE AT row = 42,col = 39,rule = 78
-DATA ENTRY DONE AT row = 42,col = 26,rule = 78
-DATA ENTRY DONE AT row = 42,col = 27,rule = 78
-DATA ENTRY DONE AT row = 42,col = 46,rule = 78
-DATA ENTRY DONE AT row = 43,col = 30,rule = 79
-DATA ENTRY DONE AT row = 43,co
+
+PARSE TABLE POPULATED
+
+TWIN BUFFER INITIALIZED
+
+STACK CREATED
+LINE NO: 1	LEXEME: declare	TOKEN: declare
+Popped Non Terminal program
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal moduleDeclaration
+Popped Terminal DECLARE
+LINE NO: 1	LEXEME: module	TOKEN: module
+Popped Terminal MODULE
+LINE NO: 1	LEXEME: mod1	TOKEN: ID
+Popped Terminal ID
+LINE NO: 1	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 2	LEXEME: <<<	TOKEN: <<<
+Popped Non Terminal moduleDeclarations
+Popped Non Terminal otherModules
+Popped Non Terminal driverModule
+Popped Terminal DRIVERDEF
+LINE NO: 2	LEXEME: driver	TOKEN: driver
+Popped Terminal DRIVER
+LINE NO: 2	LEXEME: program	TOKEN: program
+Popped Terminal PROGRAM
+LINE NO: 2	LEXEME: >>>	TOKEN: >>>
+Popped Terminal DRIVERENDDEF
+LINE NO: 3	LEXEME: start	TOKEN: start
+Popped Non Terminal moduleDef
+Popped Terminal START
+LINE NO: 4	LEXEME: declare	TOKEN: declare
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+LINE NO: 4	LEXEME: v	TOKEN: ID
+Popped Non Terminal idList
+Popped Terminal ID
+LINE NO: 4	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+LINE NO: 4	LEXEME: w	TOKEN: ID
+Popped Terminal ID
+LINE NO: 4	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+LINE NO: 4	LEXEME: x	TOKEN: ID
+Popped Terminal ID
+LINE NO: 4	LEXEME: :	TOKEN: :
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+LINE NO: 4	LEXEME: integer	TOKEN: integer
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+LINE NO: 4	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 5	LEXEME: get_value	TOKEN: get_value
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal GET_VALUE
+LINE NO: 5	LEXEME: (	TOKEN: (
+Popped Terminal BO
+LINE NO: 5	LEXEME: v	TOKEN: ID
+Popped Terminal ID
+LINE NO: 5	LEXEME: )	TOKEN: )
+Popped Terminal BC
+LINE NO: 5	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 6	LEXEME: w	TOKEN: ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+LINE NO: 6	LEXEME: :=	TOKEN: :=
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+LINE NO: 6	LEXEME: 5	TOKEN: NUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+LINE NO: 6	LEXEME: ;	TOKEN: ;
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+LINE NO: 7	LEXEME: declare	TOKEN: declare
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+LINE NO: 7	LEXEME: m	TOKEN: ID
+Popped Non Terminal idList
+Popped Terminal ID
+LINE NO: 7	LEXEME: :	TOKEN: :
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+LINE NO: 7	LEXEME: real	TOKEN: real
+Popped Non Terminal dataType
+Popped Terminal REAL
+LINE NO: 7	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 8	LEXEME: [	TOKEN: [
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal moduleReuseStmt
+Popped Non Terminal optional
+Popped Terminal SQBO
+LINE NO: 8	LEXEME: r	TOKEN: ID
+Popped Non Terminal idList
+Popped Terminal ID
+LINE NO: 8	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+LINE NO: 8	LEXEME: m	TOKEN: ID
+Popped Terminal ID
+LINE NO: 8	LEXEME: ]	TOKEN: ]
+Popped Non Terminal leftFactored_idList
+Popped Terminal SQBC
+LINE NO: 8	LEXEME: :=	TOKEN: :=
+Popped Terminal ASSIGNOP
+LINE NO: 8	LEXEME: use	TOKEN: use
+Popped Terminal USE
+LINE NO: 8	LEXEME: module	TOKEN: module
+Popped Terminal MODULE
+LINE NO: 8	LEXEME: mod1	TOKEN: ID
+Popped Terminal ID
+LINE NO: 8	LEXEME: with	TOKEN: with
+Popped Terminal WITH
+LINE NO: 8	LEXEME: parameters	TOKEN: parameters
+Popped Terminal PARAMETERS
+LINE NO: 8	LEXEME: v	TOKEN: ID
+Popped Non Terminal idList
+Popped Terminal ID
+LINE NO: 8	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_idList
+Popped Terminal COMMA
+LINE NO: 8	LEXEME: w	TOKEN: ID
+Popped Terminal ID
+LINE NO: 8	LEXEME: ;	TOKEN: ;
+Popped Non Terminal leftFactored_idList
+Popped Terminal SEMICOL
+LINE NO: 9	LEXEME: print	TOKEN: print
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal PRINT
+LINE NO: 9	LEXEME: (	TOKEN: (
+Popped Terminal BO
+LINE NO: 9	LEXEME: r	TOKEN: ID
+Popped Non Terminal leftFactored_ioStmt
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 9	LEXEME: )	TOKEN: )
+Popped Non Terminal whichId
+Popped Terminal BC
+LINE NO: 9	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 10	LEXEME: print	TOKEN: print
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal ioStmt
+Popped Terminal PRINT
+LINE NO: 10	LEXEME: (	TOKEN: (
+Popped Terminal BO
+LINE NO: 10	LEXEME: m	TOKEN: ID
+Popped Non Terminal leftFactored_ioStmt
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 10	LEXEME: )	TOKEN: )
+Popped Non Terminal whichId
+Popped Terminal BC
+LINE NO: 10	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 11	LEXEME: end	TOKEN: end
+Popped Non Terminal statements
+Popped Terminal END
+LINE NO: 13	LEXEME: <<	TOKEN: <<
+Popped Non Terminal otherModules
+Popped Non Terminal module
+Popped Terminal DEF
+LINE NO: 13	LEXEME: module	TOKEN: module
+Popped Terminal MODULE
+LINE NO: 13	LEXEME: mod1	TOKEN: ID
+Popped Terminal ID
+LINE NO: 13	LEXEME: >>	TOKEN: >>
+Popped Terminal ENDDEF
+LINE NO: 14	LEXEME: takes	TOKEN: takes
+Popped Terminal TAKES
+LINE NO: 14	LEXEME: input	TOKEN: input
+Popped Terminal INPUT
+LINE NO: 14	LEXEME: [	TOKEN: [
+Popped Terminal SQBO
+LINE NO: 14	LEXEME: a	TOKEN: ID
+Popped Non Terminal input_plist
+Popped Terminal ID
+LINE NO: 14	LEXEME: :	TOKEN: :
+Popped Terminal COLON
+LINE NO: 14	LEXEME: integer	TOKEN: integer
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+LINE NO: 14	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_input_plist
+Popped Terminal COMMA
+LINE NO: 14	LEXEME: b	TOKEN: ID
+Popped Terminal ID
+LINE NO: 14	LEXEME: :	TOKEN: :
+Popped Terminal COLON
+LINE NO: 14	LEXEME: integer	TOKEN: integer
+Popped Non Terminal dataType
+Popped Terminal INTEGER
+LINE NO: 14	LEXEME: ]	TOKEN: ]
+Popped Non Terminal leftFactored_input_plist
+Popped Terminal SQBC
+LINE NO: 14	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 15	LEXEME: returns	TOKEN: returns
+Popped Non Terminal ret
+Popped Terminal RETURNS
+LINE NO: 15	LEXEME: [	TOKEN: [
+Popped Terminal SQBO
+LINE NO: 15	LEXEME: x	TOKEN: ID
+Popped Non Terminal output_plist
+Popped Terminal ID
+LINE NO: 15	LEXEME: :	TOKEN: :
+Popped Terminal COLON
+LINE NO: 15	LEXEME: integer	TOKEN: integer
+Popped Non Terminal type
+Popped Terminal INTEGER
+LINE NO: 15	LEXEME: ,	TOKEN: ,
+Popped Non Terminal leftFactored_output_plist
+Popped Terminal COMMA
+LINE NO: 15	LEXEME: abc	TOKEN: ID
+Popped Terminal ID
+LINE NO: 15	LEXEME: :	TOKEN: :
+Popped Terminal COLON
+LINE NO: 15	LEXEME: real	TOKEN: real
+Popped Non Terminal type
+Popped Terminal REAL
+LINE NO: 15	LEXEME: ]	TOKEN: ]
+Popped Non Terminal leftFactored_output_plist
+Popped Terminal SQBC
+LINE NO: 15	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 16	LEXEME: start	TOKEN: start
+Popped Non Terminal moduleDef
+Popped Terminal START
+LINE NO: 17	LEXEME: declare	TOKEN: declare
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal declareStmt
+Popped Terminal DECLARE
+LINE NO: 17	LEXEME: c	TOKEN: ID
+Popped Non Terminal idList
+Popped Terminal ID
+LINE NO: 17	LEXEME: :	TOKEN: :
+Popped Non Terminal leftFactored_idList
+Popped Terminal COLON
+LINE NO: 17	LEXEME: real	TOKEN: real
+Popped Non Terminal dataType
+Popped Terminal REAL
+LINE NO: 17	LEXEME: ;	TOKEN: ;
+Popped Terminal SEMICOL
+LINE NO: 18	LEXEME: c	TOKEN: ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+LINE NO: 18	LEXEME: :=	TOKEN: :=
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+END WORD IS 
+LINE NO: 18	LEXEME: 0.000000	TOKEN: RNUM
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal RNUM
+LINE NO: 18	LEXEME: ;	TOKEN: ;
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+LINE NO: 19	LEXEME: x	TOKEN: ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+LINE NO: 19	LEXEME: :=	TOKEN: :=
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+LINE NO: 19	LEXEME: a	TOKEN: ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 19	LEXEME: +	TOKEN: +
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal PLUS
+LINE NO: 19	LEXEME: b	TOKEN: ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 19	LEXEME: ;	TOKEN: ;
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+LINE NO: 20	LEXEME: abc	TOKEN: ID
+Popped Non Terminal statements
+Popped Non Terminal statement
+Popped Non Terminal simpleStmt
+Popped Non Terminal assignmentStmt
+Popped Terminal ID
+LINE NO: 20	LEXEME: :=	TOKEN: :=
+Popped Non Terminal whichStmt
+Popped Non Terminal lvalueIDStmt
+Popped Terminal ASSIGNOP
+LINE NO: 20	LEXEME: b	TOKEN: ID
+Popped Non Terminal expression
+Popped Non Terminal arithmeticBooleanExpr
+Popped Non Terminal arithmeticExpr
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 20	LEXEME: /	TOKEN: /
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal md
+Popped Terminal DIV
+LINE NO: 20	LEXEME: 5	TOKEN: NUM
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal NUM
+LINE NO: 20	LEXEME: +	TOKEN: +
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal pm
+Popped Terminal PLUS
+LINE NO: 20	LEXEME: c	TOKEN: ID
+Popped Non Terminal term
+Popped Non Terminal factor
+Popped Non Terminal var
+Popped Terminal ID
+LINE NO: 20	LEXEME: ;	TOKEN: ;
+Popped Non Terminal whichId
+Popped Non Terminal leftFactored_term
+Popped Non Terminal leftFactored_arithmeticExpr
+Popped Non Terminal relationalTerm
+Popped Non Terminal logicalTerm
+Popped Terminal SEMICOL
+LINE NO: 21	LEXEME: end	TOKEN: end
+Popped Non Terminal statements
+Popped Terminal END
+Tokenized EOF , sending it for parsing
+Popped Non Terminal otherModules
+Popped Terminal EOF
+Tokenized EOF , sending it for parsing
+Tokenized EOF , sending it for parsing

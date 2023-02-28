@@ -58,7 +58,7 @@
     short int rule57[] = {1,SQBO_TOKEN}; 
     short int rule58[] = {2,SQBO_TOKEN,USE_KEYWORD}; 
     short int rule59[] = {1,SQBO_TOKEN}; 
-    short int rule60[] = {3,SQBC_TOKEN,COLON_OPERATOR,SEMICOL_OPERATOR}; 
+    short int rule60[] = {4,SQBC_TOKEN,COLON_OPERATOR,SEMICOL_OPERATOR,USE_KEYWORD}; 
     short int rule61[] = {1,IDENTIFIER_TOKEN}; 
     short int rule62[] = {1,COMMA_OPERATOR}; 
     short int rule63[] = {3,SEMICOL_OPERATOR,SQBC_TOKEN,COLON_OPERATOR}; 

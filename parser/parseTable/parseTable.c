@@ -21,7 +21,7 @@ void fillParseTable(){
     }
 }
 
-void populateParseTable(){
+void populateParseTable(LISTNODE* RULES){
     // printf("%d\n",RULES[0]->head->NODETYPE->nonterminal);
     fillParseTable();
     printf("PARSE TABLE FILLED WITH -1\n");
@@ -29,10 +29,11 @@ void populateParseTable(){
     for(short int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i];
         short int row = head -> NODETYPE -> nonterminal;
+        // if(row == -1) continue;
         short int size = firstFollowSet[i][0];
         for(short int j = 1;j <= size;j++){
             short int col = firstFollowSet[i][j];
-            printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
+            // printf("DATA ENTRY DONE AT row = %d,col = %d,rule = %d\n",row,col,i);
             PARSETABLE[row][col] = i;
         }
     }

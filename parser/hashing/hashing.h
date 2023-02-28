@@ -3,4 +3,4 @@
 
 int hash(char* string);
 
-#endif // !
+#endif

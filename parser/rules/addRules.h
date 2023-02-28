@@ -1,13 +1,14 @@
 #ifndef PARSER_RULES_ADDRULES_H
 #define PARSER_RULES_ADDRULES_H
 
-#include "../../utils/nonTerminals/nonTerminals.h"
-#include "../../utils/terminals/terminals.h"
 #include "../dataStructures/linkedList.h"
-#include "../../utils/csvReader/index.h"
+#include "../csvReader/index.h"
 
 
-LISTNODE RULES[119];
-void addRules(char* fname);
+// LISTNODE RULES[119];
+
+
+LISTNODE* addRules(char* fname);
+char* TERMINALS_STRINGS[57];
 
 #endif

@@ -5,8 +5,8 @@
 #include "../FnFsets/sets.h"
 
 
-void populateParseTable();
-
-short PARSETABLE[63][58];
+void populateParseTable(LISTNODE* RULES);
+void printParseTable();
+short PARSETABLE[63][57];
 
 #endif
