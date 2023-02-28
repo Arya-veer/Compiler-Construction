@@ -178,5 +178,9 @@ char* NONTERMINALS_STRINGS[] = {
     "leftFactored_caseStmt",
     "value",
     "dfault",
-    "iterativeStmt"
+    "iterativeStmt",
+    "param",
+    "arrID",
+    "paramList",
+    "leftFactored_paramList"
 };

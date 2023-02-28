@@ -65,7 +65,10 @@ typedef enum  {
     value,
     dfault,
     iterativeStmt,
-
+    param,
+    arrID,
+    paramList,
+    leftFactored_paramList,
 } NONTERMINALS;
 
 typedef enum  {
@@ -130,7 +133,7 @@ typedef enum  {
 
 char* TOKENS_STRING[54];
 char* TERMINALS_STRINGS[57];
-char* NONTERMINALS_STRINGS[63];
+char* NONTERMINALS_STRINGS[67];
 
 
 #endif

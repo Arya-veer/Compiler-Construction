@@ -5,7 +5,6 @@
 #include "../csvReader/index.h"
 
 
-// LISTNODE RULES[119];
 
 
 LISTNODE* addRules(char* fname);

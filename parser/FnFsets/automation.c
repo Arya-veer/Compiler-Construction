@@ -49,9 +49,7 @@ void find(int *vis, LISTNODE *RULES, int i, int prev_i, LISTNODE prev_curr){
                 {
                     // printf("WILL NEED W\n");
                     find(vis, RULES, j, i, curr);
-                    
-                    vis[j] = 1;
-                    
+                    // if(vis[i] != 2) vis[i] = 1;
                 }
 
                 for (int k = FIRSTANDFOLLOWSETS[i][0] + 1; k <= FIRSTANDFOLLOWSETS[i][0] + FIRSTANDFOLLOWSETS[j][0]; k++)
@@ -66,26 +64,25 @@ void find(int *vis, LISTNODE *RULES, int i, int prev_i, LISTNODE prev_curr){
     else{
         if (vis[i] != 2){
             vis[i] = 2;
+            vis[prev_i] = 2;
             // follow();
-            // printf("WILL NEED FOLLOW\n");
+            printf("WILL NEED FOLLOW\n");
         }
-// printf("WILL NEED FOLLOW\n");
+
         if (prev_curr && prev_curr->next){
             // printf("prev_curr = %d\n",prev_curr->NODETYPE->nonterminal);
             prev_curr = prev_curr->next;
             if(prev_curr->isTerminal == 1){
-                // printf("prev curr is terminal\n");
-                // FIRSTANDFOLLOWSETS[prev_curr->NODETYPE->terminal][]
                 FIRSTANDFOLLOWSETS[prev_i][FIRSTANDFOLLOWSETS[prev_i][0]] = prev_curr->NODETYPE->terminal;
                 FIRSTANDFOLLOWSETS[prev_i][0]++;
                 return;
             }
-            for(int l = 0 ; l < 119 ; l++){
-                // printf("l = %d\n",l);
-                if (RULES[l]->NODETYPE->nonterminal == prev_curr->NODETYPE->nonterminal || RULES[l]->NODETYPE->terminal == prev_curr->NODETYPE->terminal){
 
+            for(int l = 0 ; l < 119 ; l++){
+                if (RULES[l]->NODETYPE->nonterminal == prev_curr->NODETYPE->nonterminal){
                     find(vis, RULES, l , prev_i, prev_curr);
                 }
+
                 for (int k = FIRSTANDFOLLOWSETS[prev_i][0] + 1; k <= FIRSTANDFOLLOWSETS[prev_i][0] + FIRSTANDFOLLOWSETS[l][0]; k++)
                 {
                     FIRSTANDFOLLOWSETS[prev_i][k] = FIRSTANDFOLLOWSETS[l][k - FIRSTANDFOLLOWSETS[prev_i][0]];
@@ -111,8 +108,7 @@ void automateFirstandFollow(LISTNODE* RULES){
     for (int i = 0; i < numRules; i++){
         // LISTNODE curr = RULES[i];
         // curr = curr->next;
-        find(vis, RULES, i, -1, NULL);
-         
+        find(vis, RULES, i, -1, NULL);  
     }
     printf("PRINTING FIRST\n");
     for(int i = 0;i<119;i++){

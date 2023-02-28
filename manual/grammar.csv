@@ -55,7 +55,16 @@ whichStmt,lvalueIDStmt
 whichStmt,lvalueARRStmt
 lvalueIDStmt,ASSIGNOP,expression,SEMICOL
 lvalueARRStmt,SQBO,arithmeticExprWArr,SQBC,ASSIGNOP,expression,SEMICOL
-moduleReuseStmt,optional,USE,MODULE,ID,WITH,PARAMETERS,idList,SEMICOL
+moduleReuseStmt,optional,USE,MODULE,ID,WITH,PARAMETERS,paramList,SEMICOL
+param,ID,arrID
+arrID,SQBO,arithmeticExprWArr,SQBC
+arrID,epsilon
+param,NUM
+param,RNUM
+param,boolValues
+paramList,param,leftFactored_paramList
+leftFactored_paramList,COMMA,param,leftFactored_paramList
+leftFactored_paramList,epsilon
 optional,SQBO,idList,SQBC,ASSIGNOP
 optional,epsilon
 idList,ID,leftFactored_idList
@@ -89,7 +98,7 @@ factor,var
 arithmeticExprWArr,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,pm,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,epsilon
-termWArr,signedFactorWArr,leftFactored_termWArrr
+termWArr,signedFactorWArr,leftFactored_termWArr
 leftFactored_termWArr,md,signedFactorWArr,leftFactored_termWArr
 leftFactored_termWArr,epsilon
 signedFactorWArr,sign,factorWArr
@@ -111,8 +120,7 @@ caseStmt,CASE,value,COLON,statements,BREAK,SEMICOL,leftFactored_caseStmt
 leftFactored_caseStmt,CASE,value,COLON,statements,BREAK,SEMICOL,leftFactored_caseStmt
 leftFactored_caseStmt,epsilon
 value,NUM
-value,true
-value,false
+value,boolValues
 dfault,DEFAULT,COLON,statements,BREAK,SEMICOL
 dfault,epsilon
 iterativeStmt,FOR,BO,ID,IN,sign,NUM,RANGEOP,sign,NUM,BC,START,statements,END
