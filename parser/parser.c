@@ -27,7 +27,6 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
 
 void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
-    FILE* output = fopen(outputFile, "w");
     LISTNODE* RULES = addRules(grammarFile);
     // printRules(129,RULES);
     // printf("RULES ADDED\n");
@@ -131,8 +130,10 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
     printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);
+    FILE* output = fopen(outputFile, "w");
     inorderTraversal(root,0, output);
-
+    fclose(output);
+    cleanTwinBuffer(TB);
 }
 
 /*Test Automation using this*/

@@ -5,6 +5,8 @@
 #include "automation.h"
 // FIRSTANDFOLLOWSETS[119][200]={0};
 // int FOLLOWSETS[129][20] = {0};
+int vis[129] = {0};
+
 
 int check(int i, int val)
 {
@@ -196,7 +198,6 @@ label:
 void automateFirstandFollow(LISTNODE *RULES)
 {
 
-    int vis[129] = {0};
     int numRules = 129;
     int follow_arr[50] = {0};
 
