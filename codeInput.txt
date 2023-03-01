@@ -41,7 +41,7 @@ end
 **use the same locations for array elements**
 
 <<module readArr>>
-takes input [arr1:array[-10..arr[9]] of real,k:integer];
+takes input [arr1:array[-10..25] of real,k:integer];
 start
 	declare tempvar:real;
 	declare i:integer;
