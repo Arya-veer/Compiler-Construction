@@ -15,7 +15,7 @@
     short int rule14[] = {1,SQBC_TOKEN}; 
     short int rule15[] = {1,IDENTIFIER_TOKEN}; 
     short int rule16[] = {1,COMMA_OPERATOR}; 
-    short int rule17[] = {1,SQBC_TOKEN}; 
+   short int rule17[] = {1,SQBC_TOKEN}; 
     short int rule18[] = {1,INTEGER_TYPE}; 
     short int rule19[] = {1,REAL_TYPE}; 
     short int rule20[] = {1,BOOLEAN_TYPE}; 

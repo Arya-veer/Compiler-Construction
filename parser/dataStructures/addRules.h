@@ -8,5 +8,6 @@
 
 
 LISTNODE* addRules(char* fname);
+void printRules(short int numRules, LISTNODE* RULES);
 
 #endif

@@ -2,7 +2,7 @@
 #define PARSER_FNFSETS_AUTOMATE_H
 #include "../dataStructures/addRules.h"
 
-int FIRSTANDFOLLOWSETS[119][20];
+int FIRSTANDFOLLOWSETS[129][20];
 void automateFirstandFollow(LISTNODE* RULES);
 
 #endif
