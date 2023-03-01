@@ -96,9 +96,9 @@ short isFloat(char* number){
     TWINBUFFER TB;
     int line;
  */
-void skipComment(TwinBuffer *TB){
+void skipComment(TwinBuffer *TB,short toPrint){
     char* input = extractLexeme(TB);
-    printf("Skipped Comment\n");
+    if(toPrint == 1)printf("Skipped Comment\n");
 }
 
 LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
@@ -109,7 +109,7 @@ LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     return lex;
 }
 
-LEXEME* tokenize(TwinBuffer *TB,short int line){
+LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     char* input = extractLexeme(TB);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
@@ -124,12 +124,12 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
             char* endWord;
             lex->lexemedata->floatData = strtod(input,&endWord);
             lex->token = RNUM_TOKEN;
-            printf("LINE NO: %d         LEXEME: %lf         TOKEN: %s\n",line,lex->lexemedata->floatData,"RNUM");
+            if(toPrint == 1)printf("LINE NO: %d         LEXEME: %lf         TOKEN: %s\n",line,lex->lexemedata->floatData,"RNUM");
         }
         else{
             lex->lexemedata->intData = atoi(input);
             lex->token = NUM_TOKEN;
-            printf("LINE NO: %d         LEXEME: %d         TOKEN: %s\n",line,lex->lexemedata->intData,"NUM");
+            if(toPrint == 1)printf("LINE NO: %d         LEXEME: %d         TOKEN: %s\n",line,lex->lexemedata->intData,"NUM");
         }
         return lex;
     }
@@ -140,14 +140,14 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
         if(strcmp(input,TOKENS_STRING[i]) == 0){
             lex->token = (TOKENS) i;
             found = 1;
-            printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
+            if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
             break;
         }
     } 
 
     if(found == 0){
         lex->token = IDENTIFIER_TOKEN;
-        printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,"ID");
+        if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,"ID");
     }
 
     return lex;
@@ -155,7 +155,7 @@ LEXEME* tokenize(TwinBuffer *TB,short int line){
 
 short int lineCount = 1;
 
-LEXEME* simulateDFA(TwinBuffer *TB){
+LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
     char* error;
     short int state = 0;
     char c;
@@ -211,47 +211,47 @@ LEXEME* simulateDFA(TwinBuffer *TB){
             
             case 1:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 2:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 3:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 4:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 5:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 6:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 7:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 8:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 9:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 10:
@@ -262,7 +262,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 11:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 12:
@@ -273,7 +273,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 13:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 14:
@@ -284,7 +284,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 15:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 16:
@@ -292,7 +292,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 c = getCharacterAtForward(TB);
                 if(c == '*') state = 17;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
@@ -312,7 +312,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 break;
             case 19:
                 incrementForward(TB);
-                skipComment(TB);
+                skipComment(TB,toPrint);
                 state=0;
                 break;
             case 20:
@@ -320,13 +320,13 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 c = getCharacterAtForward(TB);
                 if(c == '=') state = 21;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
             case 21:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 22:
@@ -335,7 +335,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 if(c == '.') state = 23;
                 else if(c >= '0' && c <= '9') state = 22;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
@@ -345,7 +345,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 if(c >= '0' && c <= '9') state = 24;
                 else if(c == '.'){
                     decrementForward(TB);
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 else state = -1;
@@ -356,7 +356,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 if(c >= '0' && c <= '9') state = 24;
                 else if (c == 'e' || c == 'E') state = 25;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
@@ -378,7 +378,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 c = getCharacterAtForward(TB);
                 if(c >= '0' && c <= '9') state = 27;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
@@ -394,7 +394,7 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                         state = 0;
                         break;
                     }
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
@@ -404,13 +404,13 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 if(c == '=') state = 30;
                 else if(c == '>') state = 31;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
             case 30:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 31:
@@ -418,13 +418,13 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 c = getCharacterAtForward(TB);
                 if(c == '>') state = 32;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
             case 32:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 33:
@@ -433,13 +433,13 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 if(c == '=') state = 34;
                 else if(c == '<') state = 35;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
             case 34:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 35:
@@ -447,28 +447,28 @@ LEXEME* simulateDFA(TwinBuffer *TB){
                 c = getCharacterAtForward(TB);
                 if(c == '<') state = 36;
                 else{
-                    lex = tokenize(TB,lineCount);
+                    lex = tokenize(TB,lineCount,toPrint);
                     return lex;
                 }
                 break;
             case 36:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 return lex;
                 break;
             case 37:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 state = 0;
                 break;
             case 38:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 state = 0;
                 break;
             case 39:
                 incrementForward(TB);
-                lex = tokenize(TB,lineCount);
+                lex = tokenize(TB,lineCount,toPrint);
                 state = 0;
                 break;
             case 40:

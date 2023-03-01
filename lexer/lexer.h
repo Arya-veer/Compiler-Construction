@@ -45,6 +45,6 @@ struct lexeme{
 };
 
 TwinBuffer* initializeTwinBuffer(char* fname);
-LEXEME* simulateDFA(TwinBuffer *TB);
+LEXEME* simulateDFA(TwinBuffer *TB,short toPrint);
 
 #endif
