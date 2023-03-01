@@ -2,12 +2,14 @@
 #include<stdio.h>
 #ifndef LEXER_LEXER_H
 #define LEXER_LEXER_H
-#define SIZE 128
+// #define SIZE 128
 #define LEXEME_SIZE 32
 #include "../constants/constants.h"
 
+int SIZE;
+
 typedef struct twinBuffer TwinBuffer;
-typedef char SingleBuffer[SIZE];
+typedef char* SingleBuffer;
 char ReturnLexeme[LEXEME_SIZE];
 struct twinBuffer{
     

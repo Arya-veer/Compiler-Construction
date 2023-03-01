@@ -3,10 +3,13 @@
 #include<string.h>
 #include "lexer.h"
 
+
+
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
     if(length != SIZE) TB->buffer[TB->currentForward][length] = EOF;
+    printf("\nBUFFER SIZE = %d\n", SIZE);
     // printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
@@ -17,6 +20,8 @@ TwinBuffer* initializeTwinBuffer(char* fname){
     TB->forward = 0;
     TB->currentLexemeBegin = 0;
     TB->currentForward = 0;
+    TB->buffer[0] = malloc(SIZE);
+    TB->buffer[1] = malloc(SIZE);
     populateTwinBuffer(TB);
     return TB;
 }

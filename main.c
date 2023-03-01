@@ -8,6 +8,7 @@ int main(int argc, char* argv[]){
     char* grammarFile = "manual/grammar.csv";
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
+    SIZE = atoi(argv[3]);
     while(option){
         switch (option)
         {
