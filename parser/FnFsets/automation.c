@@ -209,7 +209,7 @@ void automateFirstandFollow(LISTNODE *RULES)
     {
         int vis1[129] = {0};
         FOLLOWSETS[0][0] = 1;
-        FOLLOWSETS[0][1] = 53;
+        FOLLOWSETS[0][1] = EOF_TOKEN;
         vis1[0] = 1;
         follow(numRules, RULES, follow_arr[i], vis1);
         // printf(" %d \n", follow_arr[i]);

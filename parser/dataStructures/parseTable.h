@@ -8,6 +8,6 @@
 
 void populateParseTable(LISTNODE* RULES);
 void printParseTable();
-short PARSETABLE[70][57];
+short PARSETABLE[70][214];
 
 #endif

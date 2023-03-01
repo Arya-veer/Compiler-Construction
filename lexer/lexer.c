@@ -117,7 +117,6 @@ LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     return lex;
 }
 
-char* TOKENS_STRING[] = { "default" , "module" , "ID" , "ID" , "ID" , "ID" , ">>>" , "true" , "ID" , "ID" , "ID" , "ID" , "ID" , "case" , "ID" , "ID" , "ID" , "ID" , "driver" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "array" , "OR" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "print" , "ID" , "ID" , "ID" , "(" , ")" , "*" , "+" , "," , "-" , "ID" , "/" , "ID" , "while" , "ID" , "program" , "ID" , "ID" , "ID" , "ID" , "AND" , "ID" , ":" , ";" , "<" , "ID" , ">" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "start" , "ID" , "ID" , "ID" , "ID" , "ID" , "end" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "[" , "ID" , "]" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "for" , "ID" , "ID" , "ID" , "in" , "ID" , "ID" , "ID" , "of" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "boolean" , "get_value" , "real" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "!=" , "switch" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , ".." , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "input" , "ID" , "integer" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "use" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "takes" , "ID" , "ID" , "ID" , "declare" , "ID" , "ID" , "ID" , "false" , "ID" , ":=" , "ID" , "ID" , "<<" , "<=" , "ID" , "==" , "ID" , ">=" , ">>" , "parameters" , "ID" , "break" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "returns" , "ID" , "ID" , "ID" , "ID" , "<<<" , "ID" , "ID" , "ID" , "with" , "ID" , "ID" , "ID"};
 
 int hashCode(char* str){
     int num=2;
@@ -166,7 +165,7 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     if(strcmp(input,TOKENS_STRING[hc]) == 0){
         lex->token = (TOKENS) hc;
         found = 1;
-        if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %d\n",line,input,hc);
+        if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[hc]);
         // break;
     }
     if(found == 0){

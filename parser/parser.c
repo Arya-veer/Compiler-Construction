@@ -29,6 +29,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
     FILE* output = fopen(outputFile, "w");
     LISTNODE* RULES = addRules(grammarFile);
+    // printRules(129,RULES);
     // printf("RULES ADDED\n");
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
@@ -129,7 +130,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     if(lex->token != EOF_TOKEN) errorHandling(st,lex,4,stNode);
     else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
-    printf("\nPRINTING PARSE TREE\n\n\n");
+    printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);
     inorderTraversal(root,0, output);
 
 }

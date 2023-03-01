@@ -34,7 +34,6 @@ int main(int argc, char* argv[]){
                 break;
 
             case 3:
-                printf("%s\n",argv[1]);
                 inputFile = argv[1];
                 outputFile = argv[2];
                 parser(grammarFile,inputFile, outputFile,SIZE);

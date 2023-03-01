@@ -5,10 +5,11 @@
 
 void fillParseTable(){
     for(short int i=0; i<70; i++){
-        for(short int j=0; j<57; j++){
+        for(short int j=0; j<214; j++){
             PARSETABLE[i][j] = -1;
         }
     }
+    // printf("FILLED\n");
 }
 
 void populateParseTable(LISTNODE* RULES){
@@ -31,7 +32,7 @@ void populateParseTable(LISTNODE* RULES){
 void printParseTable(){
     for(short int i=0; i<70; i++){
         printf("\n %s => ",NONTERMINALS_STRINGS[i]);
-        for(short int j=0; j<57; j++){
+        for(short int j=0; j<214; j++){
             if(PARSETABLE[i][j] != -1)
             printf("%s = %d | ",TERMINALS_STRINGS[j] ,PARSETABLE[i][j]);
         }

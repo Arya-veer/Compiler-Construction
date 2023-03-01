@@ -4,7 +4,7 @@
 #include "addRules.h"
 
 short int checkTerminal(char* string){
-    for(short int i = 0;i<57;i++){
+    for(short int i = 0;i<214;i++){
         if(strcmp(string,TERMINALS_STRINGS[i]) == 0){
             return 1;
         }
@@ -14,7 +14,7 @@ short int checkTerminal(char* string){
 
 short int getType(char* string,short int type){
     if(type == 1){
-        for(short int i = 0;i<57;i++){
+        for(short int i = 0;i<214;i++){
             if(strcmp(string,TERMINALS_STRINGS[i]) == 0){
                 return i;
             }
@@ -57,10 +57,10 @@ void printRules(short int numRules, LISTNODE* RULES){
             short int isTerminal = curr->isTerminal;
             short int nodeType = isTerminal ? curr->NODETYPE->terminal : curr->NODETYPE->nonterminal;
             if(isTerminal == 1){
-                printf("Rule no. %d , Terminal %d\n",rule,nodeType);
+                printf("Rule no. %d , Terminal %s\n",rule,TERMINALS_STRINGS[nodeType]);
             }
             else{
-                printf("Rule no. %d , NonTerminal %d\n",rule,nodeType);
+                printf("Rule no. %d , NonTerminal %s\n",rule,NONTERMINALS_STRINGS[nodeType]);
             }
             curr=curr->next;
         }
