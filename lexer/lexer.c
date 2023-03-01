@@ -7,7 +7,6 @@ void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), TB->SIZE, TB->fp);
     if(length != TB->SIZE) TB->buffer[TB->currentForward][length] = EOF;
-    // printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
 TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize){
@@ -135,7 +134,6 @@ int hashCode(char* str){
 
 LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     char* input = extractLexeme(TB);
-    // printf("Tokenize got input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
@@ -161,7 +159,6 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     lex->lexemedata->data = input;
     short found = 0;
     int hc = hashCode(input);
-    // printf("HASH IS %d\n",hc);
     if(strcmp(input,TOKENS_STRING[hc]) == 0){
         lex->token = (TOKENS) hc;
         found = 1;
@@ -172,18 +169,6 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
         lex->token = IDENTIFIER_TOKEN;
         if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,"ID");
     }
-
-    /* Checking For Keywords */
-    // for(short int i=0;i <= 52;i++){
-        
-    //     if(strcmp(input,TOKENS_STRING[i]) == 0){
-    //         lex->token = (TOKENS) i;
-    //         found = 1;
-    //         if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
-    //         break;
-    //     }
-    // } 
-
 
     return lex;
 }

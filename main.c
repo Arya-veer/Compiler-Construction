@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]){
     int option = -1;
-    char* grammarFile = "manual/grammar.csv";
+    char* grammarFile = "grammar.txt";
     char* inputFile = argv[1];
     char* outputFile = argv[2];
     clock_t start_time = 0, end_time = 0;

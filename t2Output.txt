@@ -1,44 +1,43 @@
 TERMINAL = EPSILON
-Non Terminal = moduleDeclarations
-Non Terminal = program
+----------	moduleDeclarations	program	YES
+----------	program	finalProgram	YES
 TERMINAL = EPSILON
-Non Terminal = otherModules
-Terminal = DRIVERDEF
-Non Terminal = driverModule
-Terminal = DRIVER
-Terminal = PROGRAM
-Terminal = DRIVERENDDEF
-Terminal = START
-Non Terminal = moduleDef
+----------	otherModules	program	YES
+	2	DRIVERDEF	driverModule	YES
+----------	driverModule	program	YES
+	2	DRIVER	driverModule	YES
+	2	PROGRAM	driverModule	YES
+	2	DRIVERENDDEF	driverModule	YES
+	3	START	moduleDef	YES
+----------	moduleDef	driverModule	YES
 TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = END
-Terminal = DEF
-Non Terminal = module
-Terminal = MODULE
-Terminal = ID
-Terminal = ENDDEF
-Terminal = TAKES
-Terminal = INPUT
-Terminal = SQBO
-Terminal = ID
-Non Terminal = input_plist
-Terminal = COLON
-Terminal = BOOLEAN
-Non Terminal = dataType
+----------	statements	moduleDef	YES
+	5	END	moduleDef	YES
+	6	DEF	module	YES
+----------	module	otherModules	YES
+	6	MODULE	module	YES
+	6	ID	module	YES
+	6	ENDDEF	module	YES
+	7	TAKES	module	YES
+	7	INPUT	module	YES
+	7	SQBO	module	YES
+	7	ID	input_plist	YES
+----------	input_plist	module	YES
+	7	COLON	input_plist	YES
+	7	BOOLEAN	dataType	YES
+----------	dataType	input_plist	YES
 TERMINAL = EPSILON
-Non Terminal = leftFactored_input_plist
-Terminal = SQBC
-Terminal = SEMICOL
+----------	leftFactored_input_plist	input_plist	YES
+	7	SQBC	module	YES
+	7	SEMICOL	module	YES
 TERMINAL = EPSILON
-Non Terminal = ret
-Terminal = START
-Non Terminal = moduleDef
+----------	ret	module	YES
+	8	START	moduleDef	YES
+----------	moduleDef	module	YES
 TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = END
-Non Terminal = otherModules
+----------	statements	moduleDef	YES
+	10	END	moduleDef	YES
+----------	otherModules	program	YES
 TERMINAL = EPSILON
-Non Terminal = otherModules
-Non Terminal = finalProgram
-Terminal = EOF
+----------	otherModules	otherModules	YES
+----------	finalProgram	ROOT	YES

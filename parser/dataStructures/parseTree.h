@@ -15,7 +15,7 @@ union TreeNodeData{
 struct TreeNode{
     TREENODE child;
     TREENODE next;
-    // TREENODE parent;
+    TREENODE parent;
     union TreeNodeData* TREENODEDATA;
     short isTerminal;
 };
