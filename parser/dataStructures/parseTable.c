@@ -13,7 +13,7 @@ void fillParseTable(){
 
 void populateParseTable(LISTNODE* RULES){
     fillParseTable();
-    short int numRules = 130;
+    short int numRules = 129;
     for(short int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i];
         short int row = head -> NODETYPE -> nonterminal;
