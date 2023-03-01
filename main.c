@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]){
     int option = -1;
-    
+    char* grammarFile = "manual/grammar.csv";
     while(option){
         switch (option)
         {
@@ -21,7 +21,9 @@ int main(int argc, char* argv[]){
                 break;
 
             case 3:
-                printf("3\n");
+                printf("%s\n",argv[1]);
+                char* inputFile = argv[1];
+                parser(grammarFile,inputFile);
                 break;
 
             case 4:
@@ -32,6 +34,6 @@ int main(int argc, char* argv[]){
                 break;
         }
         printf("Enter your option: ");
-        scanf(" %d", &option);
+        scanf("%d", &option);
     }
 }

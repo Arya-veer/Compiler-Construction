@@ -184,5 +184,6 @@ char* NONTERMINALS_STRINGS[] = {
     "paramList",
     "leftFactored_paramList",
     "signedParam",
-    "anyTerm"
+    "anyTerm",
+    "idNum"
 };

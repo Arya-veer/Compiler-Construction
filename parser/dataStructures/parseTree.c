@@ -24,6 +24,9 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     if(ln->isTerminal == 0){
         childHead->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
+    else{
+        childHead->TREENODEDATA->terminal = NULL;
+    }
     return childHead;
 }
 
@@ -37,17 +40,18 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     if(ln->isTerminal == 0){
         nextNode->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
-
+    else{
+        nextNode->TREENODEDATA->terminal = NULL;
+    }
     return nextNode;
 }
 
 void inorderTraversal(TREENODE tn,short goNext){
-    // printf(tn)
-    // printf("Traversing\n");
     if(tn == NULL) return;
     inorderTraversal(tn->child,0);
     if(tn->isTerminal == 1){
-        printf("Terminal = %s\n",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
+        if(tn->TREENODEDATA->terminal != NULL) printf("Terminal = %s\n",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
+        else printf("Some Terminal Node with Error\n");
     }
     else if(tn->isTerminal == 0){
         printf("Non Terminal = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);

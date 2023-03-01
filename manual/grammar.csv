@@ -20,8 +20,9 @@ dataType,REAL
 dataType,BOOLEAN
 dataType,ARRAY,SQBO,arrRange,SQBC,OF,type
 arrRange,sign,leftFactored_arrRange
-leftFactored_arrRange,ID,RANGEOP,sign,ID
-leftFactored_arrRange,NUM,RANGEOP,sign,NUM
+leftFactored_arrRange,idNum,RANGEOP,sign,idNum
+idNum,ID
+idNum,NUM
 sign,pm
 sign,epsilon
 type,INTEGER
