@@ -78,10 +78,11 @@ arithmeticFactor,BO,arithmeticExpr,BC
 arithmeticFactor,ID
 arithmeticFactor,NUM
 arithmeticFactor,RNUM
-arithmeticBooleanExpr,arithmeticExpr,relationalTerm
-arithmeticBooleanExpr,boolValues
-logicalTerm,logicalOp,arithmeticBooleanExpr
+arithmeticBooleanExpr,anyTerm,logicalTerm
+logicalTerm,logicalOp,anyTerm,logicalTerm
 logicalTerm,epsilon
+anyTerm,arithmeticExpr,relationalTerm
+anyTerm,boolValues
 relationalTerm,relationalOp,arithmeticExpr
 relationalTerm,epsilon
 arithmeticExpr,term,leftFactored_arithmeticExpr
@@ -94,7 +95,7 @@ md,DIV
 term,factor,leftFactored_term
 leftFactored_term,md,factor,leftFactored_term
 leftFactored_term,epsilon
-factor,BO,expression,BC
+factor,BO,arithmeticBooleanExpr,BC
 factor,param
 arithmeticExprWArr,termWArr,leftFactored_arithmeticExprWArr
 leftFactored_arithmeticExprWArr,pm,termWArr,leftFactored_arithmeticExprWArr

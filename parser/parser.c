@@ -45,6 +45,7 @@ void parser(char* grammarFile,char* inputFile){
         /* Checking for the terminal */
 
         if(stNode->isTerminal == 1){
+            printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
                 lex = simulateDFA(TB);
@@ -76,6 +77,7 @@ void parser(char* grammarFile,char* inputFile){
             }
         }
         else if(stNode->isTerminal == 0){
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);

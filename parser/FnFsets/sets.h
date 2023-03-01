@@ -2,6 +2,6 @@
 #define PARSER_FNFSETS_SETS_H
 
 #include "../../lexer/lexer.h"
-short *firstFollowSet[128];
+short *firstFollowSet[129];
 
 #endif
