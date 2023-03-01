@@ -72,7 +72,7 @@ optional,epsilon
 idList,ID,leftFactored_idList
 leftFactored_idList,COMMA,ID,leftFactored_idList
 leftFactored_idList,epsilon
-expression,arithmeticBooleanExpr,logicalTerm
+expression,arithmeticBooleanExpr
 expression,unaryTerm
 unaryTerm,pm,arithmeticFactor
 arithmeticFactor,BO,arithmeticExpr,BC
@@ -83,7 +83,6 @@ arithmeticBooleanExpr,anyTerm,logicalTerm
 logicalTerm,logicalOp,anyTerm,logicalTerm
 logicalTerm,epsilon
 anyTerm,arithmeticExpr,relationalTerm
-anyTerm,boolValues
 relationalTerm,relationalOp,arithmeticExpr
 relationalTerm,epsilon
 arithmeticExpr,term,leftFactored_arithmeticExpr
@@ -127,4 +126,4 @@ value,boolValues
 dfault,DEFAULT,COLON,statements,BREAK,SEMICOL
 dfault,epsilon
 iterativeStmt,FOR,BO,ID,IN,sign,NUM,RANGEOP,sign,NUM,BC,START,statements,END
-iterativeStmt,WHILE,BO,arithmeticBooleanExpr,logicalTerm,BC,START,statements,END
+iterativeStmt,WHILE,BO,arithmeticBooleanExpr,BC,START,statements,END
