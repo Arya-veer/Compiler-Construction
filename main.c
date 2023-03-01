@@ -27,7 +27,8 @@ int main(int argc, char* argv[]){
             case 3:
                 printf("%s\n",argv[1]);
                 char* inputFile = argv[1];
-                parser(grammarFile,inputFile);
+                char* outputFile = argv[2];
+                parser(grammarFile,inputFile, outputFile);
                 break;
 
             case 4:

@@ -22,7 +22,7 @@ struct TreeNode{
 TREENODE insertChildTree(TREENODE tn, LISTNODE ln);
 TREENODE insertNextTree(TREENODE tn, LISTNODE ln);
 TREENODE createRootNode(LISTNODE ln);
-void inorderTraversal(TREENODE tn,short goNext);
+void inorderTraversal(TREENODE tn,short goNext, FILE* outputFile);
 
 #endif
 

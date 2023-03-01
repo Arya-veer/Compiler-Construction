@@ -46,26 +46,26 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     return nextNode;
 }
 
-void inorderTraversal(TREENODE tn,short goNext){
+void inorderTraversal(TREENODE tn, short goNext, FILE* outputFile){
     if(tn == NULL) return;
-    inorderTraversal(tn->child,0);
+    inorderTraversal(tn->child,0, outputFile);
     if(tn->isTerminal == 1){
-        if(tn->TREENODEDATA->terminal != NULL) printf("Terminal = %s\n",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
+        if(tn->TREENODEDATA->terminal != NULL) fprintf(outputFile, "Terminal = %s\n",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
         else printf("Some Terminal Node with Error\n");
     }
     else if(tn->isTerminal == 0){
-        printf("Non Terminal = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
+        fprintf(outputFile, "Non Terminal = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
     }
     else{
         printf("TERMINAL = EPSILON\n");
     }
     if(tn->child != NULL){
         // printf("GOING RIGHT OF CHILD\n");
-        inorderTraversal(tn->child->next,1);
+        inorderTraversal(tn->child->next,1, outputFile);
         // printf("GOING LEFT TO CHILD\n");
     }
     if(goNext == 1){
-        inorderTraversal(tn->next,1);
+        inorderTraversal(tn->next, 1, outputFile);
     }
     
 }

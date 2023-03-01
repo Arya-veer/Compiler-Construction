@@ -25,8 +25,9 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
 }
 
 
-void parser(char* grammarFile,char* inputFile){
+void parser(char* grammarFile,char* inputFile, char* outputFile){
     short int line = 0;
+    FILE* output = fopen(outputFile, "w");
     LISTNODE* RULES = addRules(grammarFile);
     // printf("RULES ADDED\n");
     RULES[0]->NODETYPE->nonterminal;
@@ -129,7 +130,7 @@ void parser(char* grammarFile,char* inputFile){
     else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
     printf("\nPRINTING PARSE TREE\n\n\n");
-    inorderTraversal(root,0);
+    inorderTraversal(root,0, output);
 
 }
 
