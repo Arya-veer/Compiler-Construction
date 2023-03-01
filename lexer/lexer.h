@@ -47,5 +47,6 @@ struct lexeme{
 
 TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize);
 LEXEME* simulateDFA(TwinBuffer *TB,short toPrint);
+void cleanTwinBuffer(TwinBuffer* TB);
 
 #endif

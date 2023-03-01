@@ -24,6 +24,11 @@ TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize){
     return TB;
 }
 
+void cleanTwinBuffer(TwinBuffer* TB){
+    free(TB->buffer[0]);
+    free(TB->buffer[1]);
+}
+
 void incrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero
     if(TB->forward == TB->SIZE - 1)  {
