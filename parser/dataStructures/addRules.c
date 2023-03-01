@@ -20,7 +20,7 @@ short int getType(char* string,short int type){
             }
         }
     }
-    for(short int i = 0;i<69;i++){
+    for(short int i = 0;i<70;i++){
         if(strcmp(string,NONTERMINALS_STRINGS[i]) == 0){
             return i;
         }
@@ -71,11 +71,11 @@ void printRules(short int numRules, LISTNODE* RULES){
 LISTNODE* addRules(char* fname){
     short int ruleNum = 0;
     FILE* fp = fopen(fname,"r");
-    LISTNODE* RULES = (LISTNODE*) malloc(129*sizeof(LISTNODE));
+    LISTNODE* RULES = (LISTNODE*) malloc(130*sizeof(LISTNODE));
     while(1){
         char** row = csvReader(fp);
         if(row[0] == NULL) break;
-        addRule(ruleNum,row,129,RULES);
+        addRule(ruleNum,row,130,RULES);
         ruleNum++;
     }
     fclose(fp);

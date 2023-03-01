@@ -9,7 +9,7 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
     printf("\n \x1B[1m\033[31m PARSING ERROR At line %d, ",lex->lineNo);
     error = 1;
     if(type == 1){
-        printf("PARSER GOT INVALID TOKEN \"%s\" , EXPECTED \"%s\"",TOKENS_STRING[lex->token],TOKENS_STRING[stNode->NODETYPE->terminal]);
+        printf("PARSER GOT INVALID TOKEN \"%s\" , EXPECTED \"%s\"",TERMINALS_STRINGS[lex->token],TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
         
 
     }
@@ -46,7 +46,7 @@ void parser(char* grammarFile,char* inputFile){
         /* Checking for the terminal */
 
         if(stNode->isTerminal == 1){
-            // printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
                 lex = simulateDFA(TB);
@@ -87,7 +87,7 @@ void parser(char* grammarFile,char* inputFile){
             }
         }
         else if(stNode->isTerminal == 0){
-            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);

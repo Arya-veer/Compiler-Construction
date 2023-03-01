@@ -4,7 +4,7 @@
 #include "parseTable.h"
 
 void fillParseTable(){
-    for(short int i=0; i<69; i++){
+    for(short int i=0; i<70; i++){
         for(short int j=0; j<57; j++){
             PARSETABLE[i][j] = -1;
         }
@@ -13,7 +13,7 @@ void fillParseTable(){
 
 void populateParseTable(LISTNODE* RULES){
     fillParseTable();
-    short int numRules = 129;
+    short int numRules = 130;
     for(short int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i];
         short int row = head -> NODETYPE -> nonterminal;
@@ -27,7 +27,7 @@ void populateParseTable(LISTNODE* RULES){
 
 
 void printParseTable(){
-    for(short int i=0; i<69; i++){
+    for(short int i=0; i<70; i++){
         printf("\n %s => ",NONTERMINALS_STRINGS[i]);
         for(short int j=0; j<57; j++){
             if(PARSETABLE[i][j] != -1)
