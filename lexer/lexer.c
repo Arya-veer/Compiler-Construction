@@ -3,31 +3,30 @@
 #include<string.h>
 #include "lexer.h"
 
-
-
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
-    int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
-    if(length != SIZE) TB->buffer[TB->currentForward][length] = EOF;
+    int length = fread(TB->buffer[TB->currentForward], sizeof(char), TB->SIZE, TB->fp);
+    if(length != TB->SIZE) TB->buffer[TB->currentForward][length] = EOF;
     // printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
-TwinBuffer* initializeTwinBuffer(char* fname){
+TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize){
     TwinBuffer* TB = (TwinBuffer*) malloc(sizeof(TwinBuffer));
     TB->fp = fopen(fname,"r");
+    TB->SIZE = bufferSize;
     TB->lexemeBegin = 0;
     TB->forward = 0;
     TB->currentLexemeBegin = 0;
     TB->currentForward = 0;
-    TB->buffer[0] = malloc(SIZE);
-    TB->buffer[1] = malloc(SIZE);
+    TB->buffer[0] = malloc(bufferSize);
+    TB->buffer[1] = malloc(bufferSize);
     populateTwinBuffer(TB);
     return TB;
 }
 
 void incrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero
-    if(TB->forward == SIZE - 1)  {
+    if(TB->forward == TB->SIZE - 1)  {
         TB->forward = 0;
         TB->currentForward = 1 - TB->currentForward;
         populateTwinBuffer(TB);
@@ -40,7 +39,7 @@ void incrementForward(TwinBuffer *TB){
 void decrementForward(TwinBuffer *TB){
     // if forward reached end of buffer, fill up the other buffer and put forward to zero
     if(TB->forward == 0)  {
-        TB->forward = SIZE - 1;
+        TB->forward = TB->SIZE - 1;
         TB->currentForward =   1 - TB->currentForward;
 
         return;
@@ -51,7 +50,7 @@ void decrementForward(TwinBuffer *TB){
 
 short findLexemeLength(TwinBuffer *TB){
     // Major case 1: when the forward is equal to or ahead of lexemeBegin
-    if(TB->currentForward != TB->currentLexemeBegin) return SIZE + TB->forward - TB->lexemeBegin;
+    if(TB->currentForward != TB->currentLexemeBegin) return TB->SIZE + TB->forward - TB->lexemeBegin;
 
     // Major case 2: when the forward is behind lexemeBegin
     else return  TB->forward - TB->lexemeBegin;
@@ -60,8 +59,8 @@ short findLexemeLength(TwinBuffer *TB){
 
 // not exported
 char moveLexemeBegin(TwinBuffer *TB){
-    if(TB->lexemeBegin == SIZE - 1)  {
-        char lexemeBeginCharacter = TB->buffer[TB->currentLexemeBegin][SIZE - 1];
+    if(TB->lexemeBegin == TB->SIZE - 1)  {
+        char lexemeBeginCharacter = TB->buffer[TB->currentLexemeBegin][TB->SIZE - 1];
         TB->lexemeBegin = 0;
         TB->currentLexemeBegin = 1 - TB->currentLexemeBegin;
         return lexemeBeginCharacter;
@@ -108,7 +107,7 @@ void skipComment(TwinBuffer *TB,short toPrint){
 LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     char* input = extractLexeme(TB);
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
-    lex -> token = EOF_TOKEN;
+    lex->token = EOF_TOKEN;
     lex->lineNo = line;
     return lex;
 }

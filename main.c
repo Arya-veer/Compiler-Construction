@@ -9,7 +9,7 @@ int main(int argc, char* argv[]){
     char* inputFile = argv[1];
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
-    SIZE = atoi(argv[3]);
+    int SIZE = atoi(argv[3]);
     while(option){
         switch (option)
         {
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
 
             case 2:
                 printf("2\n");
-                TwinBuffer* TB = initializeTwinBuffer(inputFile);
+                TwinBuffer* TB = initializeTwinBuffer(inputFile, SIZE);
                 LEXEME* lex = simulateDFA(TB,1);
                 while(lex->token != EOF_TOKEN){
                     lex = simulateDFA(TB,1);
@@ -36,13 +36,13 @@ int main(int argc, char* argv[]){
                 printf("%s\n",argv[1]);
                 char* inputFile = argv[1];
                 char* outputFile = argv[2];
-                parser(grammarFile,inputFile, outputFile);
+                parser(grammarFile,inputFile, outputFile, SIZE);
                 break;
 
             case 4:
                 start_time = clock();
                 // the code process
-                parser(grammarFile,inputFile,outputFile);
+                parser(grammarFile,inputFile,outputFile, SIZE);
                 end_time = clock();
                 total_CPU_time = (double) (end_time - start_time);
                 total_CPU_time_in_seconds = total_CPU_time / CLOCKS_PER_SEC;

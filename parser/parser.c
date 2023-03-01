@@ -25,7 +25,7 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
 }
 
 
-void parser(char* grammarFile,char* inputFile, char* outputFile){
+void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
     FILE* output = fopen(outputFile, "w");
     LISTNODE* RULES = addRules(grammarFile);
@@ -33,7 +33,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile){
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
     // printf("\nPARSE TABLE POPULATED\n");
-    TwinBuffer* TB = initializeTwinBuffer(inputFile);
+    TwinBuffer* TB = initializeTwinBuffer(inputFile, size);
     // printf("\nTWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
     // printf("\nSTACK CREATED\n");

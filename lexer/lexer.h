@@ -2,11 +2,8 @@
 #include<stdio.h>
 #ifndef LEXER_LEXER_H
 #define LEXER_LEXER_H
-// #define SIZE 128
 #define LEXEME_SIZE 32
 #include "../constants/constants.h"
-
-int SIZE;
 
 typedef struct twinBuffer TwinBuffer;
 typedef char* SingleBuffer;
@@ -30,6 +27,8 @@ struct twinBuffer{
     /* Filename
     */
     FILE* fp;
+
+    int SIZE;
 };
 
 
@@ -46,7 +45,7 @@ struct lexeme{
     union lexemeData *lexemedata;
 };
 
-TwinBuffer* initializeTwinBuffer(char* fname);
+TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize);
 LEXEME* simulateDFA(TwinBuffer *TB,short toPrint);
 
 #endif
