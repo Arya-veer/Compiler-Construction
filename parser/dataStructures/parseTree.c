@@ -57,7 +57,7 @@ void inorderTraversal(TREENODE tn, short goNext, FILE* outputFile){
         fprintf(outputFile, "Non Terminal = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
     }
     else{
-        printf("TERMINAL = EPSILON\n");
+        fprintf(outputFile,"TERMINAL = EPSILON\n");
     }
     if(tn->child != NULL){
         // printf("GOING RIGHT OF CHILD\n");

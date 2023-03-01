@@ -7,6 +7,7 @@ int main(int argc, char* argv[]){
     int option = -1;
     char* grammarFile = "manual/grammar.csv";
     char* inputFile = argv[1];
+    char* outputFile = argv[2];
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
     int SIZE = atoi(argv[3]);
@@ -34,9 +35,9 @@ int main(int argc, char* argv[]){
 
             case 3:
                 printf("%s\n",argv[1]);
-                char* inputFile = argv[1];
-                char* outputFile = argv[2];
-                parser(grammarFile,inputFile, outputFile, SIZE);
+                inputFile = argv[1];
+                outputFile = argv[2];
+                parser(grammarFile,inputFile, outputFile,SIZE);
                 break;
 
             case 4:

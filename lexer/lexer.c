@@ -117,8 +117,26 @@ LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     return lex;
 }
 
+char* TOKENS_STRING[] = { "default" , "module" , "ID" , "ID" , "ID" , "ID" , ">>>" , "true" , "ID" , "ID" , "ID" , "ID" , "ID" , "case" , "ID" , "ID" , "ID" , "ID" , "driver" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "array" , "OR" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "print" , "ID" , "ID" , "ID" , "(" , ")" , "*" , "+" , "," , "-" , "ID" , "/" , "ID" , "while" , "ID" , "program" , "ID" , "ID" , "ID" , "ID" , "AND" , "ID" , ":" , ";" , "<" , "ID" , ">" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "start" , "ID" , "ID" , "ID" , "ID" , "ID" , "end" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "[" , "ID" , "]" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "for" , "ID" , "ID" , "ID" , "in" , "ID" , "ID" , "ID" , "of" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "boolean" , "get_value" , "real" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "!=" , "switch" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , ".." , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "input" , "ID" , "integer" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "use" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "takes" , "ID" , "ID" , "ID" , "declare" , "ID" , "ID" , "ID" , "false" , "ID" , ":=" , "ID" , "ID" , "<<" , "<=" , "ID" , "==" , "ID" , ">=" , ">>" , "parameters" , "ID" , "break" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "ID" , "returns" , "ID" , "ID" , "ID" , "ID" , "<<<" , "ID" , "ID" , "ID" , "with" , "ID" , "ID" , "ID"};
+
+int hashCode(char* str){
+    int num=2;
+    int k=214;
+    int product=0;
+
+    for(int i=0;i<strlen(str);i++){
+        product=product*num+str[i];
+    }
+
+    product=product%k;
+
+    return product;
+}
+
+
 LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     char* input = extractLexeme(TB);
+    // printf("Tokenize got input as %s\n",input);
     if(input[0] == ' ' || input[0] == '\n' || input[0] == '\t' || input[0] == EOF) return NULL; // If a white space is there do not tokenize it
     LEXEME* lex = (LEXEME*) malloc(sizeof(LEXEME));
     lex->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
@@ -143,20 +161,30 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     }
     lex->lexemedata->data = input;
     short found = 0;
-    /* Checking For Keywords */
-    for(short int i=0;i <= 52;i++){
-        if(strcmp(input,TOKENS_STRING[i]) == 0){
-            lex->token = (TOKENS) i;
-            found = 1;
-            if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
-            break;
-        }
-    } 
-
+    int hc = hashCode(input);
+    // printf("HASH IS %d\n",hc);
+    if(strcmp(input,TOKENS_STRING[hc]) == 0){
+        lex->token = (TOKENS) hc;
+        found = 1;
+        if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %d\n",line,input,hc);
+        // break;
+    }
     if(found == 0){
         lex->token = IDENTIFIER_TOKEN;
         if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,"ID");
     }
+
+    /* Checking For Keywords */
+    // for(short int i=0;i <= 52;i++){
+        
+    //     if(strcmp(input,TOKENS_STRING[i]) == 0){
+    //         lex->token = (TOKENS) i;
+    //         found = 1;
+    //         if(toPrint == 1)printf("LINE NO: %d         LEXEME: %s         TOKEN: %s\n",line,input,TERMINALS_STRINGS[i]);
+    //         break;
+    //     }
+    // } 
+
 
     return lex;
 }

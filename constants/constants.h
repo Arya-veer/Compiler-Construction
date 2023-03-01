@@ -134,7 +134,7 @@ typedef enum  {
     RNUM_TOKEN
 } TOKENS;
 
-char* TOKENS_STRING[54];
+// char* TOKENS_STRING[54];
 char* TERMINALS_STRINGS[57];
 char* NONTERMINALS_STRINGS[70];
 

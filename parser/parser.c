@@ -14,11 +14,11 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
 
     }
     if(type == 2){
-        printf("PARSER GOT INVALID TOKEN \"%s\" ",TOKENS_STRING[lex->token]);
+        // printf("PARSER GOT INVALID TOKEN \"%s\" ",TOKENS_STRING[lex->token]);
 
     }
     if(type == 4){
-        printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TOKENS_STRING[lex->token]);
+        // printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TOKENS_STRING[lex->token]);
 
     }
     printf("\033[0m\033[0m\n\n");
