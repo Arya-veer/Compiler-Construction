@@ -57,67 +57,77 @@
     short int rule56[] = {1,ASSIGNOP_OPERATOR}; 
     short int rule57[] = {1,SQBO_TOKEN}; 
     short int rule58[] = {2,SQBO_TOKEN,USE_KEYWORD}; 
-    short int rule59[] = {1,SQBO_TOKEN}; 
-    short int rule60[] = {4,SQBC_TOKEN,COLON_OPERATOR,SEMICOL_OPERATOR,USE_KEYWORD}; 
-    short int rule61[] = {1,IDENTIFIER_TOKEN}; 
-    short int rule62[] = {1,COMMA_OPERATOR}; 
-    short int rule63[] = {3,SEMICOL_OPERATOR,SQBC_TOKEN,COLON_OPERATOR}; 
-    short int rule64[] = {6,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN,TRUE_BOOL,FALSE_BOOL}; 
-    short int rule65[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
-    short int rule66[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
-    short int rule67[] = {4,BO_TOKEN}; 
-    short int rule68[] = {4,IDENTIFIER_TOKEN}; 
-    short int rule69[] = {4,NUM_TOKEN}; 
-    short int rule70[] = {4,RNUM_TOKEN}; 
-    short int rule71[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule72[] = {2,TRUE_BOOL,FALSE_BOOL}; 
-    short int rule73[] = {2,AND_OPERATOR,OR_OPERATOR}; 
-    short int rule74[] = {2,SEMICOL_OPERATOR,BC_TOKEN}; 
-    short int rule75[] = {6,LT_OPERATOR,LE_OPERATOR,GT_OPERATOR,GE_OPERATOR,EQ_OPERATOR,NE_OPERATOR}; 
-    short int rule76[] = {4,AND_OPERATOR,OR_OPERATOR,SEMICOL_OPERATOR,BC_TOKEN}; 
-    short int rule77[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule78[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
-    short int rule79[] = {10,BC_TOKEN,LT_OPERATOR,LE_OPERATOR,GE_OPERATOR,GT_OPERATOR,EQ_OPERATOR,NE_OPERATOR,AND_OPERATOR,OR_OPERATOR,SEMICOL_OPERATOR}; 
-    short int rule80[] = {1,PLUS_OPERATOR}; 
-    short int rule81[] = {1,MINUS_OPERATOR}; 
-    short int rule82[] = {1,MUL_OPERATOR}; 
-    short int rule83[] = {1,DIV_OPERATOR}; 
-    short int rule84[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule85[] = {2,MUL_OPERATOR,DIV_OPERATOR}; 
-    short int rule86[] = {12,PLUS_OPERATOR,MINUS_OPERATOR,SEMICOL_OPERATOR,BC_TOKEN,LT_OPERATOR,LE_OPERATOR,GT_OPERATOR,GE_OPERATOR,EQ_OPERATOR,NE_OPERATOR,AND_OPERATOR,OR_OPERATOR}; 
-    short int rule87[] = {1,BO_TOKEN}; 
-    short int rule88[] = {3,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule89[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule90[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
-    short int rule91[] = {2,SQBC_TOKEN,BC_TOKEN}; 
-    short int rule92[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule93[] = {2,MUL_OPERATOR,DIV_OPERATOR}; 
-    short int rule94[] = {4,SQBC_TOKEN,PLUS_OPERATOR,MINUS_OPERATOR,BC_TOKEN}; 
-    short int rule95[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
-    short int rule96[] = {1,BO_TOKEN}; 
-    short int rule97[] = {1,IDENTIFIER_TOKEN}; 
-    short int rule98[] = {1,NUM_TOKEN}; 
-    short int rule99[] = {1,RNUM_TOKEN}; 
-    short int rule100[] = {1,AND_OPERATOR}; 
-    short int rule101[] = {1,OR_OPERATOR}; 
-    short int rule102[] = {1,LT_OPERATOR}; 
-    short int rule103[] = {1,LE_OPERATOR}; 
-    short int rule104[] = {1,GT_OPERATOR}; 
-    short int rule105[] = {1,GE_OPERATOR}; 
-    short int rule106[] = {1,EQ_OPERATOR}; 
-    short int rule107[] = {1,NE_OPERATOR}; 
-    short int rule108[] = {1,DECLARE_KEYWORD}; 
-    short int rule109[] = {1,SWITCH_KEYWORD}; 
-    short int rule110[] = {1,CASE_KEYWORD}; 
-    short int rule111[] = {1,CASE_KEYWORD}; 
-    short int rule112[] = {2,DEFAULT_KEYWORD,END_KEYWORD}; 
-    short int rule113[] = {1,NUM_TOKEN}; 
-    short int rule114[] = {1,TRUE_BOOL}; 
-    short int rule115[] = {1,FALSE_BOOL}; 
-    short int rule116[] = {1,DEFAULT_KEYWORD}; 
-    short int rule117[] = {1,END_KEYWORD}; 
-    short int rule118[] = {1,FOR_KEYWORD}; 
-    short int rule119[] = {1,WHILE_KEYWORD};
+    short int rule59[] = {5, IDENTIFIER_TOKEN, NUM_TOKEN, RNUM_TOKEN, PLUS_OPERATOR, MINUS_OPERATOR};
+    short int rule60[] = {1, IDENTIFIER_TOKEN};
+    short int rule61[] = {1, SQBO_TOKEN};
+    short int rule62[] = {15, COMMA_OPERATOR, SEMICOL_OPERATOR, MUL_OPERATOR, DIV_OPERATOR, PLUS_OPERATOR, MINUS_OPERATOR, BC_TOKEN, LT_OPERATOR,LE_OPERATOR, GT_OPERATOR, GE_OPERATOR, EQ_OPERATOR, NE_OPERATOR, AND_OPERATOR, OR_OPERATOR};
+    short int rule63[] = {1, NUM_TOKEN};
+    short int rule64[] = {1, RNUM_TOKEN};
+    short int rule65[] = {2, TRUE_BOOL, FALSE_BOOL};
+    short int rule66[] = {5, NUM_TOKEN, RNUM_TOKEN, TRUE_BOOL, FALSE_BOOL, IDENTIFIER_TOKEN};
+    short int rule67[] = {1, COMMA_OPERATOR};
+    short int rule68[] = {1,SEMICOL_OPERATOR};
+    short int rule69[] = {1,SQBO_TOKEN}; //67 line
+    short int rule70[] = {4,SQBC_TOKEN,COLON_OPERATOR,SEMICOL_OPERATOR,USE_KEYWORD}; 
+    short int rule71[] = {1,IDENTIFIER_TOKEN}; 
+    short int rule72[] = {1,COMMA_OPERATOR}; 
+    short int rule73[] = {3,SEMICOL_OPERATOR,SQBC_TOKEN,COLON_OPERATOR}; 
+    short int rule74[] = {6,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN,TRUE_BOOL,FALSE_BOOL}; 
+    short int rule75[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
+    short int rule76[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
+    short int rule77[] = {1,BO_TOKEN}; 
+    short int rule78[] = {1,IDENTIFIER_TOKEN}; 
+    short int rule79[] = {1,NUM_TOKEN}; 
+    short int rule80[] = {1,RNUM_TOKEN}; 
+    short int rule81[] = {6,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN,TRUE_BOOL,FALSE_BOOL}; //Changed
+    short int rule82[] = {2,AND_OPERATOR,OR_OPERATOR};
+    short int rule83[] = {2,SEMICOL_OPERATOR,BC_TOKEN};
+    short int rule84[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN};
+    short int rule85[] = {2,TRUE_BOOL,FALSE_BOOL}; 
+    short int rule86[] = {8,LT_OPERATOR,LE_OPERATOR,GT_OPERATOR,GE_OPERATOR,EQ_OPERATOR,NE_OPERATOR,BO_TOKEN,SEMICOL_OPERATOR};
+    short int rule87[] = {4,AND_OPERATOR,OR_OPERATOR,SEMICOL_OPERATOR,BC_TOKEN};
+    short int rule88[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule89[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
+    short int rule90[] = {10,BC_TOKEN,LT_OPERATOR,LE_OPERATOR,GE_OPERATOR,GT_OPERATOR,EQ_OPERATOR,NE_OPERATOR,AND_OPERATOR,OR_OPERATOR,SEMICOL_OPERATOR}; 
+    short int rule91[] = {1,PLUS_OPERATOR}; 
+    short int rule92[] = {1,MINUS_OPERATOR}; 
+    short int rule93[] = {1,MUL_OPERATOR}; 
+    short int rule94[] = {1,DIV_OPERATOR}; 
+    short int rule95[] = {4,IDENTIFIER_TOKEN,BO_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule96[] = {2,MUL_OPERATOR,DIV_OPERATOR}; 
+    short int rule97[] = {12,PLUS_OPERATOR,MINUS_OPERATOR,SEMICOL_OPERATOR,BC_TOKEN,LT_OPERATOR,LE_OPERATOR,GT_OPERATOR,GE_OPERATOR,EQ_OPERATOR,NE_OPERATOR,AND_OPERATOR,OR_OPERATOR}; 
+    short int rule98[] = {1,BO_TOKEN}; 
+    short int rule99[] = {3,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule100[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule101[] = {2,PLUS_OPERATOR,MINUS_OPERATOR}; 
+    short int rule102[] = {2,SQBC_TOKEN,BC_TOKEN}; 
+    short int rule103[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule104[] = {2,MUL_OPERATOR,DIV_OPERATOR}; 
+    short int rule105[] = {4,SQBC_TOKEN,PLUS_OPERATOR,MINUS_OPERATOR,BC_TOKEN}; 
+    short int rule106[] = {6,PLUS_OPERATOR,MINUS_OPERATOR,BO_TOKEN,IDENTIFIER_TOKEN,NUM_TOKEN,RNUM_TOKEN}; 
+    short int rule107[] = {1,BO_TOKEN}; 
+    short int rule108[] = {1,IDENTIFIER_TOKEN}; 
+    short int rule109[] = {1,NUM_TOKEN}; 
+    short int rule110[] = {1,RNUM_TOKEN}; 
+    short int rule111[] = {1,AND_OPERATOR}; 
+    short int rule112[] = {1,OR_OPERATOR}; 
+    short int rule113[] = {1,LT_OPERATOR}; 
+    short int rule114[] = {1,LE_OPERATOR}; 
+    short int rule115[] = {1,GT_OPERATOR}; 
+    short int rule116[] = {1,GE_OPERATOR}; 
+    short int rule117[] = {1,EQ_OPERATOR}; 
+    short int rule118[] = {1,NE_OPERATOR}; 
+    short int rule119[] = {1,DECLARE_KEYWORD}; 
+    short int rule120[] = {1,SWITCH_KEYWORD}; 
+    short int rule121[] = {1,CASE_KEYWORD}; 
+    short int rule122[] = {1,CASE_KEYWORD}; 
+    short int rule123[] = {2,DEFAULT_KEYWORD,END_KEYWORD}; 
+    short int rule124[] = {1,NUM_TOKEN}; 
+    short int rule125[] = {2,TRUE_BOOL, FALSE_BOOL}; 
+    short int rule126[] = {1,DEFAULT_KEYWORD}; 
+    short int rule127[] = {1,END_KEYWORD}; 
+    short int rule128[] = {1,FOR_KEYWORD}; 
+    short int rule129[] = {1,WHILE_KEYWORD};
 
 short int *firstFollowSet[] = {
     rule1,
@@ -238,5 +248,15 @@ short int *firstFollowSet[] = {
     rule116,
     rule117,
     rule118,
-    rule119
+    rule119,
+    rule120,
+    rule121,
+    rule122,
+    rule123,
+    rule124,
+    rule125,
+    rule126,
+    rule127,
+    rule128,
+    rule129
 };

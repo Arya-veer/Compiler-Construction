@@ -2,23 +2,22 @@
 #include<stdlib.h>
 #include "parser.h"
 
+int error = 0;
 
-void errorHandiling(STACK st,LEXEME* lex,short type){
+void errorHandling(STACK st,LEXEME* lex,short type){
 
-    printf("!!!!!!!!!!!!!!!!!!!!!!!\n At line %d, ",lex->lineNo);
+    printf("\n At line %d, ",lex->lineNo);
+    error = 1;
     if(type == 1){
-        // printf("ERROR OF TYPE 1 OCCURED\n");
         printf("PARSER GOT INVALID TOKEN %s\n",TERMINALS_STRINGS[lex->token]);
         
 
     }
     if(type == 2){
-        printf("ERROR OF TYPE 2 OCCURED\n");
         printf("PARSER CANNOT DERIVE TOKEN %s\n",TERMINALS_STRINGS[lex->token]);
 
     }
     if(type == 4){
-        printf("ERROR OF TYPE 4 OCCURED\n");
         printf("INPUT IS YET TO BE PROCESSED %s\n",TERMINALS_STRINGS[lex->token]);
 
     }
@@ -28,21 +27,20 @@ void errorHandiling(STACK st,LEXEME* lex,short type){
 void parser(char* grammarFile,char* inputFile){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
-    printf("RULES ADDED\n");
+    // printf("RULES ADDED\n");
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);
-    printf("\nPARSE TABLE POPULATED\n");
+    // printf("\nPARSE TABLE POPULATED\n");
     TwinBuffer* TB = initializeTwinBuffer(inputFile);
-    printf("\nTWIN BUFFER INITIALIZED\n");
+    // printf("\nTWIN BUFFER INITIALIZED\n");
     STACK st = createStack();
-    printf("\nSTACK CREATED\n");
+    // printf("\nSTACK CREATED\n");
     TREENODE root = createRootNode(RULES[0]);
     pushInStack(st,RULES[0]->next,root,1);
     LEXEME* lex = simulateDFA(TB);
-    // printf("\nTOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
     STACKNODE stNode;
+    short canContinue = 0;
     while(st->size > 0){
-        // printf("SIZE OF STACK IS %d\n",st->size);
         stNode = popFromStack(st);
         /* Checking for the terminal */
 
@@ -50,59 +48,82 @@ void parser(char* grammarFile,char* inputFile){
             printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
-                // printf("LEAF NODE ADDED\n");
                 lex = simulateDFA(TB);
-                // printf("TOKEN GIVEN BY DFA IS %s\n",TERMINALS_STRINGS[lex->token]);
-
             }
             else{
-                errorHandiling(st,lex,1);
-                break;
+                errorHandling(st,lex,1);
+                while(lex->token != SEMICOL_OPERATOR){
+                    lex = simulateDFA(TB);
+                    if(lex->token == EOF_TOKEN) break;
+                }
+                if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
+                else break;
+                while(1){
+                    popFromStack(st);
+                    if(st->top->isTerminal == 1 && (st->top->NODETYPE->terminal == SEMICOL_OPERATOR)) {
+                        canContinue = 1;
+                        break;
+                    }
+                    if(st->size == 0){
+                        canContinue = 0;
+                        break;
+                    }
+                }
+                if(canContinue == 1){
+                    stNode->treenode->TREENODEDATA->terminal = lex;
+                    lex = simulateDFA(TB);
+                }
+                else break;
             }
         }
         else if(stNode->isTerminal == 0){
-            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
-                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal != -1){ 
-                    pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
-                }
+                pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
+                if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);
             }
             else{
-                errorHandiling(st,lex,2);
-
-                break;
+                errorHandling(st,lex,2);
+                while(lex->token != SEMICOL_OPERATOR){
+                    lex = simulateDFA(TB);
+                    if(lex->token == EOF_TOKEN) break;
+                }
+                if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
+                else break;
+                while(1){
+                    stNode = popFromStack(st);
+                    if(stNode->isTerminal == 1 && (stNode->NODETYPE->terminal == SEMICOL_OPERATOR)) {
+                        canContinue = 1;
+                        break;
+                    }
+                    if(st->size == 0){
+                        canContinue = 0;
+                        break;
+                    }
+                    if(stNode->isTerminal == 0) printf("stNode = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+                    else printf("stNode = %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+                }
+                if(canContinue == 1){
+                    stNode->treenode->TREENODEDATA->terminal = lex;
+                    printf("ERROR RECOVERY DONE\n");
+                    lex = simulateDFA(TB);
+                }
+                else break;
             }
         }
         free(stNode);
-
-
     }
     lex = simulateDFA(TB);
-    if(lex->token != EOF_TOKEN){
-        errorHandiling(st,lex,4);
-    }
+    if(lex->token != EOF_TOKEN) errorHandling(st,lex,4);
+    else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
-    // stNode = popFromStack(st);
-    // printf("STACK BOTTOM IS %d %d\n",stNode->isTerminal,stNode->NODETYPE->nonterminal);
-    // if(lex->token == stNode->NODETYPE->terminal){
-    //     stNode->treenode->TREENODEDATA->terminal = lex;
-    //     printf("LEAF NODE ADDED\n");
-
-    // }
-    // else{
-    //     printf("ERROR TYPE 4\n");
-    // }
-    // printf("\nPRINTING PARSE TREE\n");
-    // preorderTraversal(root);
+    printf("\nPRINTING PARSE TREE\n\n\n");
+    inorderTraversal(root,0);
 
 }
 
-
+/*Test Automation using this*/
 void testAutomation(char* grammarFile){
     LISTNODE* RULES = addRules(grammarFile);
     automateFirstandFollow(RULES);
 }
-
-// int main(){
-//     parser();
-// }

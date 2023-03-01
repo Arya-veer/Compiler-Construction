@@ -23,9 +23,9 @@
     HASH FUNCTION: 
         // Maddy
 
-        ☐ Create Hash Function @critical 
+        ✔ Create Hash Function @critical @done (28/02/2023, 11:15:56)
 
-        ☐ Testing Hash Function for given sets of keywords @critical 
+        ✔ Testing Hash Function for given sets of keywords @critical @done (28/02/2023, 11:16:00)
 
         ☐ Reordering arrays and enums @critical 
 
@@ -36,13 +36,13 @@
     FIRST AND FOLLOW AUTOMATION:
         //Utsav
 
-        ☐ Automate First @low
+        ☐ Automate First @high 
 
-        ☐ Automate Follow @low 
+        ☐ Automate Follow @high  
 
-        ☐ Test implementation @low
+        ☐ Test implementation @high 
 
-        ☐ Integrate with parser @low 
+        ☐ Integrate with parser @high  
 
     TREE ADT:
     
@@ -66,13 +66,17 @@
         ☐ Lexer Testing @critical 
 
         ☐ Parser Testing @high
+
+    FIXES:
+
+        ☐ EPSILON IN PARSE TREE @critical 
     
     
     DOUBTS:
 
-        ☐ Keyword Length @today  :- What to do if Keyword Length is more than 20 => skip
+        ✔ Keyword Length @today  :- What to do if Keyword Length is more than 20 => skip @done (28/02/2023, 11:16:29)
 
-        ☐ Remove Comments @today  :- Should we use DFA or can we do it directly => same
+        ✔ Remove Comments @today  :- Should we use DFA or can we do it directly => same @done (28/02/2023, 11:16:31)
 
         ☐ Error recovery in parser @today
 

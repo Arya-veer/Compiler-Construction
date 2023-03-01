@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "hashing.h"
-#include "../../utils/tokens/tokens.c"
 
 int hash(char* string){
     int collect = 0;
