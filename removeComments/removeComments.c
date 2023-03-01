@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-short removeComments(char* src, char* dist){
+short removeComments(char* srcName, char* distName){
     // if(argc < 3) return 0;
-    FILE* src = fopen(src,"r");
-    FILE* dist = fopen(dist,"w");
+    FILE* src = fopen(srcName,"r");
+    FILE* dist = fopen(distName,"w");
 
     short shouldPrint = 1;
 

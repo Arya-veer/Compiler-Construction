@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "argparse/index.h"
+#include "removeComments/removeComments.c"
 
 int main(int argc, char* argv[]){
     int option = -1;
@@ -12,7 +13,7 @@ int main(int argc, char* argv[]){
                 break;
 
             case 1:
-                printf("1\n");
+                removeComments(argv[1], "/dev/stdout");
                 break;
 
             case 2:
