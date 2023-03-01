@@ -1,316 +1,8 @@
-Enter your option: codeInput.txt
-LINE NO: 1         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 1         LEXEME: module         TOKEN: MODULE
-LINE NO: 1         LEXEME: readArr         TOKEN: ID
-LINE NO: 1         LEXEME: ;         TOKEN: SEMICOL
-Skipped Comment
-LINE NO: 3         LEXEME: <<         TOKEN: DEF
-LINE NO: 3         LEXEME: module         TOKEN: MODULE
-LINE NO: 3         LEXEME: arraySum         TOKEN: ID
-LINE NO: 3         LEXEME: >>         TOKEN: ENDDEF
-LINE NO: 4         LEXEME: takes         TOKEN: TAKES
-LINE NO: 4         LEXEME: input         TOKEN: INPUT
-LINE NO: 4         LEXEME: [         TOKEN: SQBO
-LINE NO: 4         LEXEME: list         TOKEN: ID
-LINE NO: 4         LEXEME: :         TOKEN: COLON
-LINE NO: 4         LEXEME: array         TOKEN: ARRAY
-LINE NO: 4         LEXEME: [         TOKEN: SQBO
-LINE NO: 4         LEXEME: 1         TOKEN: NUM
-LINE NO: 4         LEXEME: ..         TOKEN: RANGEOP
-LINE NO: 4         LEXEME: 15         TOKEN: NUM
-LINE NO: 4         LEXEME: ]         TOKEN: SQBC
-LINE NO: 4         LEXEME: of         TOKEN: OF
-LINE NO: 4         LEXEME: real         TOKEN: REAL
-LINE NO: 4         LEXEME: ,         TOKEN: COMMA
-LINE NO: 4         LEXEME: n         TOKEN: ID
-LINE NO: 4         LEXEME: :         TOKEN: COLON
-LINE NO: 4         LEXEME: integer         TOKEN: INTEGER
-LINE NO: 4         LEXEME: ]         TOKEN: SQBC
-LINE NO: 4         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 5         LEXEME: returns         TOKEN: RETURNS
-LINE NO: 5         LEXEME: [         TOKEN: SQBO
-LINE NO: 5         LEXEME: sum         TOKEN: ID
-LINE NO: 5         LEXEME: :         TOKEN: COLON
-LINE NO: 5         LEXEME: real         TOKEN: REAL
-LINE NO: 5         LEXEME: ]         TOKEN: SQBC
-LINE NO: 5         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 6         LEXEME: start         TOKEN: START
-LINE NO: 7         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 7         LEXEME: index         TOKEN: ID
-LINE NO: 7         LEXEME: :         TOKEN: COLON
-LINE NO: 7         LEXEME: integer         TOKEN: INTEGER
-LINE NO: 7         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 8         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 8         LEXEME: t         TOKEN: ID
-LINE NO: 8         LEXEME: :         TOKEN: COLON
-LINE NO: 8         LEXEME: boolean         TOKEN: BOOLEAN
-LINE NO: 8         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 9         LEXEME: sum         TOKEN: ID
-LINE NO: 9         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 9         LEXEME: 0.000000         TOKEN: RNUM
-LINE NO: 9         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 10         LEXEME: for         TOKEN: FOR
-LINE NO: 10         LEXEME: (         TOKEN: BO
-LINE NO: 10         LEXEME: index         TOKEN: ID
-LINE NO: 10         LEXEME: in         TOKEN: IN
-LINE NO: 10         LEXEME: -         TOKEN: MINUS
-LINE NO: 10         LEXEME: 10         TOKEN: NUM
-LINE NO: 10         LEXEME: ..         TOKEN: RANGEOP
-LINE NO: 10         LEXEME: +         TOKEN: PLUS
-LINE NO: 10         LEXEME: 15         TOKEN: NUM
-LINE NO: 10         LEXEME: )         TOKEN: BC
-LINE NO: 11         LEXEME: start         TOKEN: START
-LINE NO: 12         LEXEME: t         TOKEN: ID
-LINE NO: 12         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 12         LEXEME: index         TOKEN: ID
-LINE NO: 12         LEXEME: <=         TOKEN: LE
-LINE NO: 12         LEXEME: n         TOKEN: ID
-LINE NO: 12         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 13         LEXEME: switch         TOKEN: SWITCH
-LINE NO: 13         LEXEME: (         TOKEN: BO
-LINE NO: 13         LEXEME: t         TOKEN: ID
-LINE NO: 13         LEXEME: )         TOKEN: BC
-LINE NO: 14         LEXEME: start         TOKEN: START
-LINE NO: 15         LEXEME: case         TOKEN: CASE
-LINE NO: 15         LEXEME: true         TOKEN: true
-LINE NO: 15         LEXEME: :         TOKEN: COLON
-LINE NO: 15         LEXEME: print         TOKEN: PRINT
-LINE NO: 15         LEXEME: (         TOKEN: BO
-LINE NO: 15         LEXEME: list         TOKEN: ID
-LINE NO: 15         LEXEME: [         TOKEN: SQBO
-LINE NO: 15         LEXEME: +         TOKEN: PLUS
-LINE NO: 15         LEXEME: index         TOKEN: ID
-LINE NO: 15         LEXEME: ]         TOKEN: SQBC
-LINE NO: 15         LEXEME: )         TOKEN: BC
-LINE NO: 15         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 16         LEXEME: sum         TOKEN: ID
-LINE NO: 16         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 16         LEXEME: sum         TOKEN: ID
-LINE NO: 16         LEXEME: +         TOKEN: PLUS
-LINE NO: 16         LEXEME: list         TOKEN: ID
-LINE NO: 16         LEXEME: [         TOKEN: SQBO
-LINE NO: 16         LEXEME: index         TOKEN: ID
-LINE NO: 16         LEXEME: ]         TOKEN: SQBC
-LINE NO: 16         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 17         LEXEME: break         TOKEN: BREAK
-LINE NO: 17         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 18         LEXEME: case         TOKEN: CASE
-LINE NO: 18         LEXEME: false         TOKEN: false
-LINE NO: 18         LEXEME: :         TOKEN: COLON
-LINE NO: 18         LEXEME: print         TOKEN: PRINT
-LINE NO: 18         LEXEME: (         TOKEN: BO
-LINE NO: 18         LEXEME: sum         TOKEN: ID
-LINE NO: 18         LEXEME: )         TOKEN: BC
-LINE NO: 18         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 19         LEXEME: print         TOKEN: PRINT
-LINE NO: 19         LEXEME: (         TOKEN: BO
-LINE NO: 19         LEXEME: index         TOKEN: ID
-LINE NO: 19         LEXEME: )         TOKEN: BC
-LINE NO: 19         LEXEME: ;         TOKEN: SEMICOL
-Skipped Comment
-LINE NO: 21         LEXEME: break         TOKEN: BREAK
-LINE NO: 21         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 22         LEXEME: end         TOKEN: END
-Skipped Comment
-LINE NO: 24         LEXEME: end         TOKEN: END
-LINE NO: 25         LEXEME: print         TOKEN: PRINT
-LINE NO: 25         LEXEME: (         TOKEN: BO
-LINE NO: 25         LEXEME: sum         TOKEN: ID
-LINE NO: 25         LEXEME: )         TOKEN: BC
-LINE NO: 25         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 26         LEXEME: end         TOKEN: END
-LINE NO: 27         LEXEME: <<<         TOKEN: DRIVERDEF
-LINE NO: 27         LEXEME: driver         TOKEN: DRIVER
-LINE NO: 27         LEXEME: program         TOKEN: PROGRAM
-LINE NO: 27         LEXEME: >>>         TOKEN: DRIVERENDDEF
-LINE NO: 28         LEXEME: start         TOKEN: START
-LINE NO: 29         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 29         LEXEME: A         TOKEN: ID
-LINE NO: 29         LEXEME: :         TOKEN: COLON
-LINE NO: 29         LEXEME: array         TOKEN: ARRAY
-LINE NO: 29         LEXEME: [         TOKEN: SQBO
-LINE NO: 29         LEXEME: 1         TOKEN: NUM
-LINE NO: 29         LEXEME: ..         TOKEN: RANGEOP
-LINE NO: 29         LEXEME: 15         TOKEN: NUM
-LINE NO: 29         LEXEME: ]         TOKEN: SQBC
-LINE NO: 29         LEXEME: of         TOKEN: OF
-LINE NO: 29         LEXEME: real         TOKEN: REAL
-LINE NO: 29         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 30         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 30         LEXEME: k         TOKEN: ID
-LINE NO: 30         LEXEME: :         TOKEN: COLON
-LINE NO: 30         LEXEME: integer         TOKEN: INTEGER
-LINE NO: 30         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 31         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 31         LEXEME: s         TOKEN: ID
-LINE NO: 31         LEXEME: :         TOKEN: COLON
-LINE NO: 31         LEXEME: real         TOKEN: REAL
-LINE NO: 31         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 32         LEXEME: get_value         TOKEN: GET_VALUE
-LINE NO: 32         LEXEME: (         TOKEN: BO
-LINE NO: 32         LEXEME: k         TOKEN: ID
-LINE NO: 32         LEXEME: )         TOKEN: BC
-LINE NO: 32         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 33         LEXEME: use         TOKEN: USE
-LINE NO: 33         LEXEME: module         TOKEN: MODULE
-LINE NO: 33         LEXEME: readArr         TOKEN: ID
-LINE NO: 33         LEXEME: with         TOKEN: WITH
-LINE NO: 33         LEXEME: parameters         TOKEN: PARAMETERS
-LINE NO: 33         LEXEME: A         TOKEN: ID
-LINE NO: 33         LEXEME: ,         TOKEN: COMMA
-LINE NO: 33         LEXEME: k         TOKEN: ID
-LINE NO: 33         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 34         LEXEME: [         TOKEN: SQBO
-LINE NO: 34         LEXEME: s         TOKEN: ID
-LINE NO: 34         LEXEME: ]         TOKEN: SQBC
-LINE NO: 34         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 34         LEXEME: use         TOKEN: USE
-LINE NO: 34         LEXEME: module         TOKEN: MODULE
-LINE NO: 34         LEXEME: arraySum         TOKEN: ID
-LINE NO: 34         LEXEME: with         TOKEN: WITH
-LINE NO: 34         LEXEME: parameters         TOKEN: PARAMETERS
-LINE NO: 34         LEXEME: A         TOKEN: ID
-LINE NO: 34         LEXEME: ,         TOKEN: COMMA
-LINE NO: 34         LEXEME: k         TOKEN: ID
-LINE NO: 34         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 35         LEXEME: print         TOKEN: PRINT
-LINE NO: 35         LEXEME: (         TOKEN: BO
-LINE NO: 35         LEXEME: s         TOKEN: ID
-LINE NO: 35         LEXEME: )         TOKEN: BC
-LINE NO: 35         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 36         LEXEME: end         TOKEN: END
-Skipped Comment
-Skipped Comment
-Skipped Comment
-Skipped Comment
-LINE NO: 43         LEXEME: <<         TOKEN: DEF
-LINE NO: 43         LEXEME: module         TOKEN: MODULE
-LINE NO: 43         LEXEME: readArr         TOKEN: ID
-LINE NO: 43         LEXEME: >>         TOKEN: ENDDEF
-LINE NO: 44         LEXEME: takes         TOKEN: TAKES
-LINE NO: 44         LEXEME: input         TOKEN: INPUT
-LINE NO: 44         LEXEME: [         TOKEN: SQBO
-LINE NO: 44         LEXEME: arr1         TOKEN: ID
-LINE NO: 44         LEXEME: :         TOKEN: COLON
-LINE NO: 44         LEXEME: array         TOKEN: ARRAY
-LINE NO: 44         LEXEME: [         TOKEN: SQBO
-LINE NO: 44         LEXEME: -         TOKEN: MINUS
-LINE NO: 44         LEXEME: 10         TOKEN: NUM
-LINE NO: 44         LEXEME: ..         TOKEN: RANGEOP
-LINE NO: 44         LEXEME: arr         TOKEN: ID
+Enter your option: First and Follow Automated
 
- [1m[31m PARSING ERROR At line 44, PARSER GOT INVALID TOKEN "ID" , EXPECTED "NUM"[0m[0m
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
-LINE NO: 44         LEXEME: [         TOKEN: SQBO
-LINE NO: 44         LEXEME: 9         TOKEN: NUM
-LINE NO: 44         LEXEME: ]         TOKEN: SQBC
-LINE NO: 44         LEXEME: ]         TOKEN: SQBC
-LINE NO: 44         LEXEME: of         TOKEN: OF
-LINE NO: 44         LEXEME: real         TOKEN: REAL
-LINE NO: 44         LEXEME: ,         TOKEN: COMMA
-LINE NO: 44         LEXEME: k         TOKEN: ID
-LINE NO: 44         LEXEME: :         TOKEN: COLON
-LINE NO: 44         LEXEME: integer         TOKEN: INTEGER
-LINE NO: 44         LEXEME: ]         TOKEN: SQBC
-LINE NO: 44         LEXEME: ;         TOKEN: SEMICOL
-[032mERROR RECOVERY DONE[0m
 
-LINE NO: 45         LEXEME: start         TOKEN: START
-
- [1m[31m PARSING ERROR At line 45, PARSER GOT INVALID TOKEN "START" , EXPECTED "SEMICOL"[0m[0m
-
-LINE NO: 46         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 46         LEXEME: tempvar         TOKEN: ID
-LINE NO: 46         LEXEME: :         TOKEN: COLON
-LINE NO: 46         LEXEME: real         TOKEN: REAL
-LINE NO: 46         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 47         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 47         LEXEME: i         TOKEN: ID
-LINE NO: 47         LEXEME: :         TOKEN: COLON
-LINE NO: 47         LEXEME: integer         TOKEN: INTEGER
-LINE NO: 47         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 49         LEXEME: i         TOKEN: ID
-LINE NO: 49         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 49         LEXEME: 1         TOKEN: NUM
-LINE NO: 49         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 50         LEXEME: while         TOKEN: WHILE
-LINE NO: 50         LEXEME: (         TOKEN: BO
-LINE NO: 50         LEXEME: i         TOKEN: ID
-LINE NO: 50         LEXEME: <=         TOKEN: LE
-LINE NO: 50         LEXEME: k         TOKEN: ID
-LINE NO: 50         LEXEME: )         TOKEN: BC
-LINE NO: 51         LEXEME: start         TOKEN: START
-LINE NO: 52         LEXEME: get_value         TOKEN: GET_VALUE
-LINE NO: 52         LEXEME: (         TOKEN: BO
-LINE NO: 52         LEXEME: tempvar         TOKEN: ID
-LINE NO: 52         LEXEME: )         TOKEN: BC
-LINE NO: 52         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 53         LEXEME: arr1         TOKEN: ID
-LINE NO: 53         LEXEME: [         TOKEN: SQBO
-LINE NO: 53         LEXEME: i         TOKEN: ID
-LINE NO: 53         LEXEME: ]         TOKEN: SQBC
-LINE NO: 53         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 53         LEXEME: tempvar         TOKEN: ID
-LINE NO: 53         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 54         LEXEME: declare         TOKEN: DECLARE
-LINE NO: 54         LEXEME: B         TOKEN: ID
-LINE NO: 54         LEXEME: :         TOKEN: COLON
-LINE NO: 54         LEXEME: array         TOKEN: ARRAY
-LINE NO: 54         LEXEME: [         TOKEN: SQBO
-LINE NO: 54         LEXEME: -         TOKEN: MINUS
-LINE NO: 54         LEXEME: p         TOKEN: ID
-LINE NO: 54         LEXEME: ..         TOKEN: RANGEOP
-LINE NO: 54         LEXEME: +         TOKEN: PLUS
-LINE NO: 54         LEXEME: q         TOKEN: ID
-LINE NO: 54         LEXEME: ]         TOKEN: SQBC
-LINE NO: 54         LEXEME: of         TOKEN: OF
-LINE NO: 54         LEXEME: boolean         TOKEN: BOOLEAN
-LINE NO: 54         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 55         LEXEME: tempvar         TOKEN: ID
-LINE NO: 55         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 55         LEXEME: -         TOKEN: MINUS
-LINE NO: 55         LEXEME: (         TOKEN: BO
-LINE NO: 55         LEXEME: tempvar         TOKEN: ID
-LINE NO: 55         LEXEME: +         TOKEN: PLUS
-LINE NO: 55         LEXEME: B         TOKEN: ID
-LINE NO: 55         LEXEME: [         TOKEN: SQBO
-LINE NO: 55         LEXEME: a         TOKEN: ID
-LINE NO: 55         LEXEME: +         TOKEN: PLUS
-LINE NO: 55         LEXEME: b         TOKEN: ID
-LINE NO: 55         LEXEME: *         TOKEN: MUL
-LINE NO: 55         LEXEME: c         TOKEN: ID
-LINE NO: 55         LEXEME: ]         TOKEN: SQBC
-LINE NO: 55         LEXEME: +         TOKEN: PLUS
-LINE NO: 55         LEXEME: A         TOKEN: ID
-LINE NO: 55         LEXEME: [         TOKEN: SQBO
-LINE NO: 55         LEXEME: +         TOKEN: PLUS
-LINE NO: 55         LEXEME: 5         TOKEN: NUM
-LINE NO: 55         LEXEME: ]         TOKEN: SQBC
-LINE NO: 55         LEXEME: -         TOKEN: MINUS
-LINE NO: 55         LEXEME: A         TOKEN: ID
-LINE NO: 55         LEXEME: [         TOKEN: SQBO
-LINE NO: 55         LEXEME: -         TOKEN: MINUS
-LINE NO: 55         LEXEME: 10         TOKEN: NUM
-LINE NO: 55         LEXEME: ]         TOKEN: SQBC
-LINE NO: 55         LEXEME: )         TOKEN: BC
-LINE NO: 55         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 56         LEXEME: B         TOKEN: ID
-LINE NO: 56         LEXEME: [         TOKEN: SQBO
-LINE NO: 56         LEXEME: k         TOKEN: ID
-LINE NO: 56         LEXEME: ]         TOKEN: SQBC
-LINE NO: 56         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 56         LEXEME: -         TOKEN: MINUS
-LINE NO: 56         LEXEME: 10         TOKEN: NUM
-LINE NO: 56         LEXEME: ;         TOKEN: SEMICOL
-LINE NO: 57         LEXEME: i         TOKEN: ID
-LINE NO: 57         LEXEME: :=         TOKEN: ASSIGNOP
-LINE NO: 57         LEXEME: i         TOKEN: ID
-LINE NO: 57         LEXEME: +         TOKEN: PLUS
-LINE NO: 57         LEXEME: 1         TOKEN: NUM
-LINE NO: 57         LEXEME: ;         TOKEN: SEMICOL
-Skipped Comment
-LINE NO: 59         LEXEME: end         TOKEN: END
-LINE NO: 60         LEXEME: end         TOKEN: END
 
 PRINTING PARSE TREE
 
@@ -324,61 +16,25 @@ Non Terminal = moduleDeclarations
 TERMINAL = EPSILON
 Non Terminal = moduleDeclarations
 Non Terminal = program
-Terminal = DEF
-Non Terminal = module
-Terminal = MODULE
-Terminal = ID
-Terminal = ENDDEF
-Terminal = TAKES
-Terminal = INPUT
-Terminal = SQBO
-Terminal = ID
-Non Terminal = input_plist
-Terminal = COLON
-Terminal = ARRAY
-Non Terminal = dataType
-Terminal = SQBO
 TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = arrRange
-Terminal = NUM
-Non Terminal = leftFactored_arrRange
-Terminal = RANGEOP
-TERMINAL = EPSILON
-Non Terminal = sign
-Terminal = NUM
-Terminal = SQBC
-Terminal = OF
-Terminal = REAL
-Non Terminal = type
-Terminal = COMMA
-Non Terminal = leftFactored_input_plist
-Terminal = ID
-Terminal = COLON
-Terminal = INTEGER
-Non Terminal = dataType
-TERMINAL = EPSILON
-Non Terminal = leftFactored_input_plist
-Terminal = SQBC
-Terminal = SEMICOL
-Terminal = RETURNS
-Non Terminal = ret
-Terminal = SQBO
-Terminal = ID
-Non Terminal = output_plist
-Terminal = COLON
-Terminal = REAL
-Non Terminal = type
-TERMINAL = EPSILON
-Non Terminal = leftFactored_output_plist
-Terminal = SQBC
-Terminal = SEMICOL
+Non Terminal = otherModules
+Terminal = DRIVERDEF
+Non Terminal = driverModule
+Terminal = DRIVER
+Terminal = PROGRAM
+Terminal = DRIVERENDDEF
 Terminal = START
 Non Terminal = moduleDef
 Terminal = DECLARE
 Non Terminal = declareStmt
 Terminal = ID
 Non Terminal = idList
+Terminal = COMMA
+Non Terminal = leftFactored_idList
+Terminal = ID
+Terminal = COMMA
+Non Terminal = leftFactored_idList
+Terminal = ID
 TERMINAL = EPSILON
 Non Terminal = leftFactored_idList
 Terminal = COLON
@@ -399,6 +55,38 @@ Non Terminal = dataType
 Terminal = SEMICOL
 Non Terminal = statement
 Non Terminal = statements
+Terminal = DECLARE
+Non Terminal = declareStmt
+Terminal = ID
+Non Terminal = idList
+TERMINAL = EPSILON
+Non Terminal = leftFactored_idList
+Terminal = COLON
+Terminal = INTEGER
+Non Terminal = dataType
+Terminal = SEMICOL
+Non Terminal = statement
+Non Terminal = statements
+Terminal = DECLARE
+Non Terminal = declareStmt
+Terminal = ID
+Non Terminal = idList
+TERMINAL = EPSILON
+Non Terminal = leftFactored_idList
+Terminal = COLON
+Terminal = REAL
+Non Terminal = dataType
+Terminal = SEMICOL
+Non Terminal = statement
+Non Terminal = statements
+Terminal = GET_VALUE
+Non Terminal = ioStmt
+Terminal = BO
+Terminal = ID
+Terminal = BC
+Terminal = SEMICOL
+Non Terminal = statement
+Non Terminal = statements
 Terminal = ID
 Non Terminal = assignmentStmt
 Terminal = ASSIGNOP
@@ -406,7 +94,7 @@ Non Terminal = lvalueIDStmt
 TERMINAL = EPSILON
 Non Terminal = sign
 Non Terminal = param
-Terminal = RNUM
+Terminal = NUM
 Non Terminal = signedParam
 Non Terminal = factor
 Non Terminal = term
@@ -422,29 +110,329 @@ Non Terminal = arithmeticBooleanExpr
 TERMINAL = EPSILON
 Non Terminal = logicalTerm
 Non Terminal = expression
-TERMINAL = EPSILON
-Non Terminal = logicalTerm
 Terminal = SEMICOL
 Non Terminal = whichStmt
 Non Terminal = simpleStmt
 Non Terminal = statement
 Non Terminal = statements
-Terminal = FOR
-Non Terminal = iterativeStmt
-Terminal = BO
 Terminal = ID
-Terminal = IN
+Non Terminal = assignmentStmt
+Terminal = ASSIGNOP
+Non Terminal = lvalueIDStmt
 Terminal = MINUS
 Non Terminal = pm
+Non Terminal = unaryTerm
+Terminal = BO
+Non Terminal = arithmeticFactor
+TERMINAL = EPSILON
 Non Terminal = sign
+Non Terminal = param
 Terminal = NUM
-Terminal = RANGEOP
+Non Terminal = signedParam
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Terminal = BC
+Non Terminal = expression
+Terminal = SEMICOL
+Non Terminal = whichStmt
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
+Terminal = SQBO
+Non Terminal = optional
+Terminal = ID
+Non Terminal = idList
+Terminal = COMMA
+Non Terminal = leftFactored_idList
+Terminal = ID
+Terminal = COMMA
+Non Terminal = leftFactored_idList
+Terminal = ID
+TERMINAL = EPSILON
+Non Terminal = leftFactored_idList
+Terminal = SQBC
+Terminal = ASSIGNOP
+Non Terminal = moduleReuseStmt
+Terminal = USE
+Terminal = MODULE
+Terminal = ID
+Terminal = WITH
+Terminal = PARAMETERS
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = paramList
+Terminal = COMMA
+Non Terminal = leftFactored_paramList
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Terminal = COMMA
+Non Terminal = leftFactored_paramList
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+TERMINAL = EPSILON
+Non Terminal = leftFactored_paramList
+Terminal = SEMICOL
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
+TERMINAL = EPSILON
+Non Terminal = statements
+Terminal = END
+Terminal = DEF
+Non Terminal = module
+Terminal = MODULE
+Terminal = ID
+Terminal = ENDDEF
+Terminal = TAKES
+Terminal = INPUT
+Terminal = SQBO
+Terminal = ID
+Non Terminal = input_plist
+Terminal = COLON
+Terminal = INTEGER
+Non Terminal = dataType
+Terminal = COMMA
+Non Terminal = leftFactored_input_plist
+Terminal = ID
+Terminal = COLON
+Terminal = INTEGER
+Non Terminal = dataType
+Terminal = COMMA
+Non Terminal = leftFactored_input_plist
+Terminal = ID
+Terminal = COLON
+Terminal = INTEGER
+Non Terminal = dataType
+TERMINAL = EPSILON
+Non Terminal = leftFactored_input_plist
+Terminal = SQBC
+Terminal = SEMICOL
+Terminal = RETURNS
+Non Terminal = ret
+Terminal = SQBO
+Terminal = ID
+Non Terminal = output_plist
+Terminal = COLON
+Terminal = BOOLEAN
+Non Terminal = type
+Terminal = COMMA
+Non Terminal = leftFactored_output_plist
+Terminal = ID
+Terminal = COLON
+Terminal = INTEGER
+Non Terminal = type
+Terminal = COMMA
+Non Terminal = leftFactored_output_plist
+Terminal = ID
+Terminal = COLON
+Terminal = REAL
+Non Terminal = type
+TERMINAL = EPSILON
+Non Terminal = leftFactored_output_plist
+Terminal = SQBC
+Terminal = SEMICOL
+Terminal = START
+Non Terminal = moduleDef
+Terminal = DECLARE
+Non Terminal = declareStmt
+Terminal = ID
+Non Terminal = idList
+TERMINAL = EPSILON
+Non Terminal = leftFactored_idList
+Terminal = COLON
+Terminal = BOOLEAN
+Non Terminal = dataType
+Terminal = SEMICOL
+Non Terminal = statement
+Non Terminal = statements
+Terminal = ID
+Non Terminal = assignmentStmt
+Terminal = ASSIGNOP
+Non Terminal = lvalueIDStmt
+Terminal = MINUS
+Non Terminal = pm
+Non Terminal = unaryTerm
+Terminal = BO
+Non Terminal = arithmeticFactor
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+Terminal = MUL
+Non Terminal = md
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+Terminal = MINUS
+Non Terminal = pm
+Non Terminal = leftFactored_arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+Terminal = DIV
+Non Terminal = md
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = NUM
+Non Terminal = signedParam
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Terminal = BC
+Non Terminal = expression
+Terminal = SEMICOL
+Non Terminal = whichStmt
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
+Terminal = ID
+Non Terminal = assignmentStmt
+Terminal = ASSIGNOP
+Non Terminal = lvalueIDStmt
+Terminal = BO
+Non Terminal = factor
+Terminal = BO
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
 Terminal = PLUS
 Non Terminal = pm
+Non Terminal = leftFactored_arithmeticExpr
+TERMINAL = EPSILON
 Non Terminal = sign
-Terminal = NUM
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+Non Terminal = arithmeticBooleanExpr
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
 Terminal = BC
-Terminal = START
+Non Terminal = term
+Terminal = MUL
+Non Terminal = md
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = NUM
+Non Terminal = signedParam
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+Terminal = PLUS
+Non Terminal = pm
+Non Terminal = leftFactored_arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = RNUM
+Non Terminal = signedParam
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+Non Terminal = arithmeticBooleanExpr
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Terminal = BC
+Non Terminal = term
+Terminal = DIV
+Non Terminal = md
+Non Terminal = leftFactored_term
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = NUM
+Non Terminal = signedParam
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+Non Terminal = arithmeticBooleanExpr
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Non Terminal = expression
+Terminal = SEMICOL
+Non Terminal = whichStmt
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
 Terminal = ID
 Non Terminal = assignmentStmt
 Terminal = ASSIGNOP
@@ -482,50 +470,9 @@ Non Terminal = arithmeticExpr
 TERMINAL = EPSILON
 Non Terminal = leftFactored_arithmeticExpr
 Non Terminal = arithmeticBooleanExpr
-TERMINAL = EPSILON
+Terminal = AND
+Non Terminal = logicalOp
 Non Terminal = logicalTerm
-Non Terminal = expression
-TERMINAL = EPSILON
-Non Terminal = logicalTerm
-Terminal = SEMICOL
-Non Terminal = whichStmt
-Non Terminal = simpleStmt
-Non Terminal = statement
-Non Terminal = statements
-Terminal = SWITCH
-Non Terminal = conditionalStmt
-Terminal = BO
-Terminal = ID
-Terminal = BC
-Terminal = START
-Terminal = CASE
-Non Terminal = caseStmt
-Terminal = true
-Non Terminal = boolValues
-Non Terminal = value
-Terminal = COLON
-Terminal = PRINT
-Non Terminal = ioStmt
-Terminal = BO
-Terminal = ID
-Non Terminal = var
-Terminal = SQBO
-Non Terminal = whichId
-Terminal = PLUS
-Non Terminal = pm
-Non Terminal = sign
-Terminal = ID
-Non Terminal = leftFactored_whichId
-Terminal = SQBC
-Non Terminal = leftFactored_ioStmt
-Terminal = BC
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-Terminal = ID
-Non Terminal = assignmentStmt
-Terminal = ASSIGNOP
-Non Terminal = lvalueIDStmt
 TERMINAL = EPSILON
 Non Terminal = sign
 Non Terminal = param
@@ -538,98 +485,259 @@ Non Terminal = term
 TERMINAL = EPSILON
 Non Terminal = leftFactored_term
 Non Terminal = arithmeticExpr
-Terminal = PLUS
-Non Terminal = pm
+TERMINAL = EPSILON
 Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+Terminal = GE
+Non Terminal = relationalOp
+Non Terminal = relationalTerm
 TERMINAL = EPSILON
 Non Terminal = sign
 Non Terminal = param
 Terminal = ID
 Non Terminal = signedParam
-Terminal = SQBO
+TERMINAL = EPSILON
 Non Terminal = arrID
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = signedFactorWArr
-Terminal = ID
-Non Terminal = factorWArr
-Non Terminal = termWArr
-TERMINAL = EPSILON
-Non Terminal = leftFactored_termWArr
-Non Terminal = arithmeticExprWArr
-TERMINAL = EPSILON
-Non Terminal = leftFactored_arithmeticExprWArr
-Terminal = SQBC
 Non Terminal = factor
 Non Terminal = term
 TERMINAL = EPSILON
 Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Terminal = OR
+Non Terminal = logicalOp
+Non Terminal = logicalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+Terminal = LT
+Non Terminal = relationalOp
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = NUM
+Non Terminal = signedParam
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Terminal = AND
+Non Terminal = logicalOp
+Non Terminal = logicalTerm
+Terminal = false
+Non Terminal = boolValues
+Non Terminal = param
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Non Terminal = expression
+Terminal = SEMICOL
+Non Terminal = whichStmt
+Non Terminal = simpleStmt
+Non Terminal = statement
+Non Terminal = statements
+Terminal = ID
+Non Terminal = assignmentStmt
+Terminal = ASSIGNOP
+Non Terminal = lvalueIDStmt
+Terminal = BO
+Non Terminal = factor
+Terminal = true
+Non Terminal = boolValues
+Non Terminal = param
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
 TERMINAL = EPSILON
 Non Terminal = leftFactored_arithmeticExpr
 Non Terminal = anyTerm
 TERMINAL = EPSILON
 Non Terminal = relationalTerm
 Non Terminal = arithmeticBooleanExpr
+Terminal = AND
+Non Terminal = logicalOp
+Non Terminal = logicalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+Terminal = EQ
+Non Terminal = relationalOp
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Terminal = BC
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+Non Terminal = arithmeticBooleanExpr
+Terminal = OR
+Non Terminal = logicalOp
+Non Terminal = logicalTerm
+Terminal = BO
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+Terminal = GT
+Non Terminal = relationalOp
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = arithmeticBooleanExpr
+Terminal = AND
+Non Terminal = logicalOp
+Non Terminal = logicalTerm
+Terminal = BO
+Non Terminal = factor
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+Terminal = LE
+Non Terminal = relationalOp
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = sign
+Non Terminal = param
+Terminal = ID
+Non Terminal = signedParam
+TERMINAL = EPSILON
+Non Terminal = arrID
+Non Terminal = factor
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = arithmeticBooleanExpr
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Terminal = BC
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
+TERMINAL = EPSILON
+Non Terminal = logicalTerm
+Terminal = BC
+Non Terminal = term
+TERMINAL = EPSILON
+Non Terminal = leftFactored_term
+Non Terminal = arithmeticExpr
+TERMINAL = EPSILON
+Non Terminal = leftFactored_arithmeticExpr
+Non Terminal = anyTerm
+TERMINAL = EPSILON
+Non Terminal = relationalTerm
 TERMINAL = EPSILON
 Non Terminal = logicalTerm
 Non Terminal = expression
-TERMINAL = EPSILON
-Non Terminal = logicalTerm
 Terminal = SEMICOL
 Non Terminal = whichStmt
 Non Terminal = simpleStmt
 Non Terminal = statement
 Non Terminal = statements
-TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = BREAK
-Terminal = SEMICOL
-Terminal = CASE
-Non Terminal = leftFactored_caseStmt
-Terminal = false
-Non Terminal = boolValues
-Non Terminal = value
-Terminal = COLON
-Terminal = PRINT
-Non Terminal = ioStmt
-Terminal = BO
-Terminal = ID
-Non Terminal = var
-TERMINAL = EPSILON
-Non Terminal = whichId
-Non Terminal = leftFactored_ioStmt
-Terminal = BC
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-Terminal = PRINT
-Non Terminal = ioStmt
-Terminal = BO
-Terminal = ID
-Non Terminal = var
-TERMINAL = EPSILON
-Non Terminal = whichId
-Non Terminal = leftFactored_ioStmt
-Terminal = BC
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = BREAK
-Terminal = SEMICOL
-TERMINAL = EPSILON
-Non Terminal = leftFactored_caseStmt
-TERMINAL = EPSILON
-Non Terminal = dfault
-Terminal = END
-Non Terminal = statement
-Non Terminal = statements
-TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = END
-Non Terminal = statement
-Non Terminal = statements
 Terminal = PRINT
 Non Terminal = ioStmt
 Terminal = BO
@@ -647,188 +755,6 @@ Non Terminal = statements
 Terminal = END
 Non Terminal = otherModules
 TERMINAL = EPSILON
-Non Terminal = otherModules
-Terminal = DRIVERDEF
-Non Terminal = driverModule
-Terminal = DRIVER
-Terminal = PROGRAM
-Terminal = DRIVERENDDEF
-Terminal = START
-Non Terminal = moduleDef
-Terminal = DECLARE
-Non Terminal = declareStmt
-Terminal = ID
-Non Terminal = idList
-TERMINAL = EPSILON
-Non Terminal = leftFactored_idList
-Terminal = COLON
-Terminal = ARRAY
-Non Terminal = dataType
-Terminal = SQBO
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = arrRange
-Terminal = NUM
-Non Terminal = leftFactored_arrRange
-Terminal = RANGEOP
-TERMINAL = EPSILON
-Non Terminal = sign
-Terminal = NUM
-Terminal = SQBC
-Terminal = OF
-Terminal = REAL
-Non Terminal = type
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-Terminal = DECLARE
-Non Terminal = declareStmt
-Terminal = ID
-Non Terminal = idList
-TERMINAL = EPSILON
-Non Terminal = leftFactored_idList
-Terminal = COLON
-Terminal = INTEGER
-Non Terminal = dataType
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-Terminal = DECLARE
-Non Terminal = declareStmt
-Terminal = ID
-Non Terminal = idList
-TERMINAL = EPSILON
-Non Terminal = leftFactored_idList
-Terminal = COLON
-Terminal = REAL
-Non Terminal = dataType
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-Terminal = GET_VALUE
-Non Terminal = ioStmt
-Terminal = BO
-Terminal = ID
-Terminal = BC
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-TERMINAL = EPSILON
-Non Terminal = optional
-Non Terminal = moduleReuseStmt
-Terminal = USE
-Terminal = MODULE
-Terminal = ID
-Terminal = WITH
-Terminal = PARAMETERS
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = param
-Terminal = ID
-Non Terminal = signedParam
-TERMINAL = EPSILON
-Non Terminal = arrID
-Non Terminal = paramList
-Terminal = COMMA
-Non Terminal = leftFactored_paramList
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = param
-Terminal = ID
-Non Terminal = signedParam
-TERMINAL = EPSILON
-Non Terminal = arrID
-TERMINAL = EPSILON
-Non Terminal = leftFactored_paramList
-Terminal = SEMICOL
-Non Terminal = simpleStmt
-Non Terminal = statement
-Non Terminal = statements
-Terminal = SQBO
-Non Terminal = optional
-Terminal = ID
-Non Terminal = idList
-TERMINAL = EPSILON
-Non Terminal = leftFactored_idList
-Terminal = SQBC
-Terminal = ASSIGNOP
-Non Terminal = moduleReuseStmt
-Terminal = USE
-Terminal = MODULE
-Terminal = ID
-Terminal = WITH
-Terminal = PARAMETERS
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = param
-Terminal = ID
-Non Terminal = signedParam
-TERMINAL = EPSILON
-Non Terminal = arrID
-Non Terminal = paramList
-Terminal = COMMA
-Non Terminal = leftFactored_paramList
-TERMINAL = EPSILON
-Non Terminal = sign
-Non Terminal = param
-Terminal = ID
-Non Terminal = signedParam
-TERMINAL = EPSILON
-Non Terminal = arrID
-TERMINAL = EPSILON
-Non Terminal = leftFactored_paramList
-Terminal = SEMICOL
-Non Terminal = simpleStmt
-Non Terminal = statement
-Non Terminal = statements
-Terminal = PRINT
-Non Terminal = ioStmt
-Terminal = BO
-Terminal = ID
-Non Terminal = var
-TERMINAL = EPSILON
-Non Terminal = whichId
-Non Terminal = leftFactored_ioStmt
-Terminal = BC
-Terminal = SEMICOL
-Non Terminal = statement
-Non Terminal = statements
-TERMINAL = EPSILON
-Non Terminal = statements
-Terminal = END
-Terminal = DEF
-Non Terminal = module
-Terminal = MODULE
-Terminal = ID
-Terminal = ENDDEF
-Terminal = TAKES
-Terminal = INPUT
-Terminal = SQBO
-Terminal = ID
-Non Terminal = input_plist
-Terminal = COLON
-Terminal = ARRAY
-Non Terminal = dataType
-Terminal = SQBO
-Terminal = MINUS
-Non Terminal = pm
-Non Terminal = sign
-Non Terminal = arrRange
-Terminal = NUM
-Non Terminal = leftFactored_arrRange
-Terminal = RANGEOP
-TERMINAL = EPSILON
-Non Terminal = sign
-Some Terminal Node with Error
-Some Terminal Node with Error
-Some Terminal Node with Error
-Non Terminal = type
-Non Terminal = leftFactored_input_plist
-Terminal = SEMICOL
-Some Terminal Node with Error
-Non Terminal = ret
-Non Terminal = moduleDef
-Non Terminal = otherModules
 Non Terminal = otherModules
 Non Terminal = finalProgram
 Terminal = EOF

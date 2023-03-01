@@ -13,13 +13,15 @@ void fillParseTable(){
 
 void populateParseTable(LISTNODE* RULES){
     fillParseTable();
+    automateFirstandFollow(RULES);
+    
     short int numRules = 129;
     for(short int i = 0;i<numRules;i++){
         LISTNODE head = RULES[i];
         short int row = head -> NODETYPE -> nonterminal;
-        short int size = firstFollowSet[i][0];
+        short int size = FIRSTANDFOLLOWSETS[i][0];
         for(short int j = 1;j <= size;j++){
-            short int col = firstFollowSet[i][j];
+            short int col = FIRSTANDFOLLOWSETS[i][j];
             PARSETABLE[row][col] = i;
         }
     }
