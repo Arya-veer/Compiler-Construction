@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include <time.h>
 #include "argparse/index.h"
 #include "removeComments/removeComments.c"
 
 int main(int argc, char* argv[]){
     int option = -1;
     char* grammarFile = "manual/grammar.csv";
+    clock_t start_time = 0, end_time = 0;
+    double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
     while(option){
         switch (option)
         {
@@ -14,6 +17,7 @@ int main(int argc, char* argv[]){
 
             case 1:
                 removeComments(argv[1], "/dev/stdout");
+                printf("\n");
                 break;
 
             case 2:
@@ -27,7 +31,12 @@ int main(int argc, char* argv[]){
                 break;
 
             case 4:
-                printf("4\n");
+                start_time = clock();
+                // the code process
+                end_time = clock();
+                total_CPU_time = (double) (end_time - start_time);
+                total_CPU_time_in_seconds = total_CPU_time / CLOCKS_PER_SEC;
+                printf("The code took %lf seconds.\n\n", total_CPU_time_in_seconds);
                 break;
             
             default:
