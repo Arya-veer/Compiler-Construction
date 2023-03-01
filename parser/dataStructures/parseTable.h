@@ -2,7 +2,8 @@
 #define PARSER_PARSETABLE_PARSETABLE_H
 
 #include "./addRules.h"
-#include "../FnFsets/sets.h"
+#include "../FnFsets/automation.h"
+
 
 
 void populateParseTable(LISTNODE* RULES);

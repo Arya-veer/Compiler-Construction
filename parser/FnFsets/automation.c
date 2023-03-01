@@ -4,7 +4,7 @@
 // #include "../rules/addRules.c"
 #include "automation.h"
 // FIRSTANDFOLLOWSETS[119][200]={0};
-int FOLLOWSETS[129][20] = {0};
+// int FOLLOWSETS[129][20] = {0};
 
 int check(int i, int val)
 {
@@ -212,7 +212,7 @@ void automateFirstandFollow(LISTNODE *RULES)
         FOLLOWSETS[0][1] = 53;
         vis1[0] = 1;
         follow(numRules, RULES, follow_arr[i], vis1);
-        printf(" %d \n", follow_arr[i]);
+        // printf(" %d \n", follow_arr[i]);
 
         for (int j = 0; j <= FOLLOWSETS[follow_arr[i]][0]; j++)
         {
@@ -221,19 +221,19 @@ void automateFirstandFollow(LISTNODE *RULES)
         }
         // printf("-----------------------------\n");
     }
+    printf("First and Follow Automated\n");
+    // printf("PRINTING FIRSTANDFOLLOW\n");
+    // for (int i = 0; i < 129; i++)
+    // {
+    //     int size = FIRSTANDFOLLOWSETS[i][0];
 
-    printf("PRINTING FIRSTANDFOLLOW\n");
-    for (int i = 0; i < 129; i++)
-    {
-        int size = FIRSTANDFOLLOWSETS[i][0];
-
-        // printf("vis = %d, ", vis1[i]);
-        printf("size = %d, ", FIRSTANDFOLLOWSETS[i][0]);
-        for (int j = 1; j <= size; j++)
-        {
-            // {   if(j!=0)
-            printf("%s, ", TERMINALS_STRINGS[FIRSTANDFOLLOWSETS[i][j]]);
-        }
-        printf("\n");
-    }
+    //     // printf("vis = %d, ", vis1[i]);
+    //     printf("size = %d, ", FIRSTANDFOLLOWSETS[i][0]);
+    //     for (int j = 1; j <= size; j++)
+    //     {
+    //         // {   if(j!=0)
+    //         printf("%s, ", TERMINALS_STRINGS[FIRSTANDFOLLOWSETS[i][j]]);
+    //     }
+    //     printf("\n");
+    // }
 }

@@ -135,7 +135,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile){
 }
 
 /*Test Automation using this*/
-void testAutomation(char* grammarFile){
-    LISTNODE* RULES = addRules(grammarFile);
-    automateFirstandFollow(RULES);
-}
+// void testAutomation(char* grammarFile){
+//     LISTNODE* RULES = addRules(grammarFile);
+//     automateFirstandFollow(RULES);
+// }

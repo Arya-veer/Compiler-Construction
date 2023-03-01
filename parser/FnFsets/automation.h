@@ -3,6 +3,7 @@
 #include "../dataStructures/addRules.h"
 
 int FIRSTANDFOLLOWSETS[129][20];
+int FOLLOWSETS[129][20];
 void automateFirstandFollow(LISTNODE* RULES);
 
 #endif
