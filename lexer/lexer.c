@@ -9,7 +9,6 @@ void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), SIZE, TB->fp);
     if(length != SIZE) TB->buffer[TB->currentForward][length] = EOF;
-    printf("\nBUFFER SIZE = %d\n", SIZE);
     // printf("\n\nsize = %d\n_______________________\n%s\n______________________\n\n", length, TB->buffer[TB->currentForward]);
 }
 
