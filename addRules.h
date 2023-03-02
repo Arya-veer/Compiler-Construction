@@ -1,5 +1,5 @@
-#ifndef PARSER_RULES_ADDRULES_H
-#define PARSER_RULES_ADDRULES_H
+#ifndef ADDRULES_H
+#define ADDRULES_H
 
 #include "./linkedList.h"
 #include "./csvReader.h"

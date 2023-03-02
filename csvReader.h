@@ -1,6 +1,6 @@
 #include <stdio.h>
-#ifndef UTILS_CSVREADER_H
-#define UTILS_CSVREADER_H
+#ifndef CSVREADER_H
+#define CSVREADER_H
 
 char **csvReader(FILE *fp);
 

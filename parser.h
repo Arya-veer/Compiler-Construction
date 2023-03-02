@@ -1,6 +1,6 @@
 
-#ifndef PARSER_PARSER_H
-#define PARSER_PARSER_H
+#ifndef PARSER_H
+#define PARSER_H
 
 #include "./parseTable.h"
 #include "./stack.h"

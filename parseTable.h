@@ -1,5 +1,5 @@
-#ifndef PARSER_PARSETABLE_PARSETABLE_H
-#define PARSER_PARSETABLE_PARSETABLE_H
+#ifndef PARSETABLE_H
+#define PARSETABLE_H
 
 #include "./addRules.h"
 #include "./automation.h"

@@ -1,6 +1,6 @@
 
-#ifndef PARSER_DATASTRUCTURES_PARSETREE_H
-#define PARSER_DATASTRUCTURES_PARSETREE_H
+#ifndef PARSETREE_H
+#define PARSETREE_H
 
 #include "./lexer.h"
 #include "linkedList.h"

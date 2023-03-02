@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#ifndef ARGPARSE_INDEX_H
-#define ARGPARSE_INDEX_H
+#ifndef INDEX_H
+#define INDEX_H
 #include "./parser.h"
     typedef char* Arguments;
 

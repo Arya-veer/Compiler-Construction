@@ -1,6 +1,6 @@
 
-#ifndef PARSER_DATASTRUCTURES_STACK_H
-#define PARSER_DATASTRUCTURES_STACK_H
+#ifndef STACK_H
+#define STACK_H
 
 
 #include "./parseTree.h"

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
-#include "argparse/index.h"
-#include "removeComments/removeComments.c"
+#include "./index.h"
+#include "./removeComments.c"
 
 int main(int argc, char* argv[]){
     int option = -1;

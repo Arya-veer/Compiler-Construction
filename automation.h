@@ -1,5 +1,5 @@
-#ifndef PARSER_FNFSETS_AUTOMATE_H
-#define PARSER_FNFSETS_AUTOMATE_H
+#ifndef AUTOMATE_H
+#define AUTOMATE_H
 #include "./addRules.h"
 
 int FIRSTANDFOLLOWSETS[129][20];
