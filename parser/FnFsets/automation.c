@@ -231,7 +231,7 @@ void automateFirstandFollow(LISTNODE *RULES)
         }
         // printf("-----------------------------\n");
     }
-    printf("        First and Follow Automated\n");
+    printf("\n           \x1B[32m FIRST AND FOLLOW AUTOMATED \x1B[0m\n");
     for(int i = 0 ; i < numRules ; i++){
         int vis1[129] = {0};
         FOLLOWSETS[0][0] = 1;
