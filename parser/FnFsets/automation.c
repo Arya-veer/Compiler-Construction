@@ -231,7 +231,7 @@ void automateFirstandFollow(LISTNODE *RULES)
         }
         // printf("-----------------------------\n");
     }
-    printf("First and Follow Automated\n");
+    printf("        First and Follow Automated\n");
     for(int i = 0 ; i < numRules ; i++){
         int vis1[129] = {0};
         FOLLOWSETS[0][0] = 1;
@@ -244,7 +244,6 @@ void automateFirstandFollow(LISTNODE *RULES)
         }
 
     }
-    printf("COPY FOLLOW\n");
     for (int i = 0; i < 129; i++)
     { 
         for (int j = 0; j <= FOLLOWSETS[i][0]; j++)
@@ -254,19 +253,6 @@ void automateFirstandFollow(LISTNODE *RULES)
         }
         // printf("\n");
     }
-
-    // printf("PRINTING SYNCSET\n");
-    // for (int i = 0; i < 70; i++)
-    // { 
-    //     int size = SYNCSET[i][0];
-
-    //     printf("\n%d,\n",i);
-    //     printf("size = %d, ", SYNCSET[i][0]);
-    //     for (int j = 1; j <= size; j++)
-    //     {
-    //         printf("%s, ", TERMINALS_STRINGS[SYNCSET[i][j]]);
-    //     }
-    // }
 }
 int inSyncSet(int terminal,int nonterminal){
     int n = SYNCSET[nonterminal][0];

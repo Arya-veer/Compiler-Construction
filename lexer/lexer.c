@@ -188,7 +188,7 @@ LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
             case -1:
                 errorChar = getCharacterAtForward(TB);
                 errorString = extractLexeme(TB);
-                printf("\x1B[1m\033[31m  LEXICAL ERROR OCCURED AT LINE %hi, \"%s\" ,  INVALID CHARACTER '%c'\n   \033[0m\033[0m\n",lineCount,errorString,c);
+                printf("\n\x1B[1m\033[31m  LEXICAL ERROR OCCURED AT LINE %hi, \"%s\" ,  INVALID CHARACTER '%c'\n   \033[0m\033[0m\n",lineCount,errorString,c);
                 state = 0;
                 break;
             case 0:
@@ -410,7 +410,7 @@ LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
                 else {
                     if(charCount > 20){
                         errorString = extractLexeme(TB);
-                        printf("\x1B[1m\033[31m  LEXICAL ERROR OCCURED AT LINE %hi, \"%s\" , VARIABLE LENGTH CAN NOT BE MORE THAN 20\n   \033[0m\033[0m\n",lineCount,errorString);
+                        printf("\n\x1B[1m\033[31m  LEXICAL ERROR OCCURED AT LINE %hi, \"%s\" , VARIABLE LENGTH CAN NOT BE MORE THAN 20\n   \033[0m\033[0m\n",lineCount,errorString);
                         state = 0;
                         break;
                     }
