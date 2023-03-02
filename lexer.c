@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "lexer.h"
+#include "lexerDef.h"
 
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled

@@ -98,3 +98,4 @@ void inorderTraversal(TREENODE tn, short goNext, FILE* outputFile){
     }
     
 }
+

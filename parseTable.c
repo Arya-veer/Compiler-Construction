@@ -9,7 +9,6 @@ void fillParseTable(){
             PARSETABLE[i][j] = -1;
         }
     }
-    // printf("FILLED\n");
 }
 
 void populateParseTable(LISTNODE* RULES){

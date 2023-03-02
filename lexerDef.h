@@ -2,6 +2,7 @@
 #ifndef LEXERDEF_H
 #define LEXERDEF_H
 #define LEXEME_SIZE 32
+
 #include "./constants.h"
 
 typedef struct twinBuffer TwinBuffer;
