@@ -3,6 +3,7 @@
 #include<string.h>
 #include "lexerDef.h"
 
+int lineCount = 1;
 void populateTwinBuffer(TwinBuffer *TB){
     // call this function whenever TB needs to be filled
     int length = fread(TB->buffer[TB->currentForward], sizeof(char), TB->SIZE, TB->fp);
@@ -20,6 +21,7 @@ TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize){
     TB->buffer[0] = malloc(bufferSize);
     TB->buffer[1] = malloc(bufferSize);
     populateTwinBuffer(TB);
+    lineCount = 1;
     return TB;
 }
 
@@ -86,9 +88,11 @@ char* extractLexeme(TwinBuffer *TB){
     
 }
 
+
 char getCharacterAtForward(TwinBuffer *TB){
     return TB->buffer[TB->currentForward][TB->forward];
 }
+
 
 short isFloat(char* number){
     short n = strlen(number);
@@ -107,6 +111,7 @@ void skipComment(TwinBuffer *TB,short toPrint){
     char* input = extractLexeme(TB);
     if(toPrint == 1)printf("Skipped Comment\n");
 }
+
 
 LEXEME* tokenizeEOF(TwinBuffer *TB,short line){
     char* input = extractLexeme(TB);
@@ -173,7 +178,6 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
     return lex;
 }
 
-short int lineCount = 1;
 
 LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
     char* error;

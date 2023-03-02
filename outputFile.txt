@@ -1,12 +1,12 @@
-       declare            119            DECLARE     moduleDeclaration      YES
+       declare            1            DECLARE     moduleDeclaration      YES
 
        ----------            moduleDeclaration             moduleDeclarations      NO
 
-       module            119            MODULE     moduleDeclaration      YES
+       module            1            MODULE     moduleDeclaration      YES
 
-       $            119            ID     moduleDeclaration      YES
+       $            1            ID     moduleDeclaration      YES
 
-       ;            119            SEMICOL     moduleDeclaration      YES
+       ;            1            SEMICOL     moduleDeclaration      YES
 
        ----------            moduleDeclarations             program      NO
 
@@ -16,33 +16,33 @@
 
        ----------            program             finalProgram      NO
 
-       <<            121            DEF     module      YES
+       <<            3            DEF     module      YES
 
        ----------            module             otherModules      NO
 
-       module            121            MODULE     module      YES
+       module            3            MODULE     module      YES
 
-       $            121            ID     module      YES
+       $            3            ID     module      YES
 
-       >>            121            ENDDEF     module      YES
+       >>            3            ENDDEF     module      YES
 
-       takes            122            TAKES     module      YES
+       takes            4            TAKES     module      YES
 
-       input            122            INPUT     module      YES
+       input            4            INPUT     module      YES
 
-       [            122            SQBO     module      YES
+       [            4            SQBO     module      YES
 
-       $            122            ID     input_plist      YES
+       $            4            ID     input_plist      YES
 
        ----------            input_plist             module      NO
 
-       :            122            COLON     input_plist      YES
+       :            4            COLON     input_plist      YES
 
-       array            122            ARRAY     dataType      YES
+       array            4            ARRAY     dataType      YES
 
        ----------            dataType             input_plist      NO
 
-       [            122            SQBO     dataType      YES
+       [            4            SQBO     dataType      YES
 
        epsilon     epsilon        sign      YES
 
@@ -50,63 +50,60 @@
 
        ----------            arrRange             dataType      NO
 
-       $            122            NUM            1     idNum      YES
+       $            4            NUM            1     idNum      YES
 
        ----------            idNum             leftFactored_arrRange      NO
 
        ----------            leftFactored_arrRange             arrRange      NO
 
-       ..            122            RANGEOP     leftFactored_arrRange      YES
+       ..            4            RANGEOP     leftFactored_arrRange      YES
 
        epsilon     epsilon        sign      YES
 
        ----------            sign             leftFactored_arrRange      NO
 
-       $            122            NUM            15     idNum      YES
+       $            4            NUM            15     idNum      YES
 
        ----------            idNum             leftFactored_arrRange      NO
 
-       ]            122            SQBC     dataType      YES
+       ]            4            SQBC     dataType      YES
 
-       of            122            OF     dataType      YES
+       of            4            OF     dataType      YES
 
-       real            122            REAL     type      YES
+       real            4            REAL     type      YES
 
        ----------            type             dataType      NO
 
-       ,            122            COMMA     leftFactored_input_plist      YES
+       ,            4            COMMA     leftFactored_input_plist      YES
 
        ----------            leftFactored_input_plist             input_plist      NO
 
-       $            122            ID     leftFactored_input_plist      YES
+       $            4            ID     leftFactored_input_plist      YES
 
-       :            122            COLON     leftFactored_input_plist      YES
-
-       integer            122            INTEGER     dataType      YES
-
+Some Terminal Node with Error
        ----------            dataType             leftFactored_input_plist      NO
 
        epsilon     epsilon        leftFactored_input_plist      YES
 
        ----------            leftFactored_input_plist             leftFactored_input_plist      NO
 
-       ]            122            SQBC     module      YES
+       ]            4            SQBC     module      YES
 
-       ;            122            SEMICOL     module      YES
+       ;            4            SEMICOL     module      YES
 
-       returns            123            RETURNS     ret      YES
+       returns            5            RETURNS     ret      YES
 
        ----------            ret             module      NO
 
-       [            123            SQBO     ret      YES
+       [            5            SQBO     ret      YES
 
-       $            123            ID     output_plist      YES
+       $            5            ID     output_plist      YES
 
        ----------            output_plist             ret      NO
 
-       :            123            COLON     output_plist      YES
+       :            5            COLON     output_plist      YES
 
-       real            123            REAL     type      YES
+       real            5            REAL     type      YES
 
        ----------            type             output_plist      NO
 
@@ -114,19 +111,19 @@
 
        ----------            leftFactored_output_plist             output_plist      NO
 
-       ]            123            SQBC     ret      YES
+       ]            5            SQBC     ret      YES
 
-       ;            123            SEMICOL     ret      YES
+       ;            5            SEMICOL     ret      YES
 
-       start            124            START     moduleDef      YES
+       start            6            START     moduleDef      YES
 
        ----------            moduleDef             module      NO
 
-       declare            125            DECLARE     declareStmt      YES
+       declare            7            DECLARE     declareStmt      YES
 
        ----------            declareStmt             statement      NO
 
-       $            125            ID     idList      YES
+       $            7            ID     idList      YES
 
        ----------            idList             declareStmt      NO
 
@@ -134,23 +131,23 @@
 
        ----------            leftFactored_idList             idList      NO
 
-       :            125            COLON     declareStmt      YES
+       :            7            COLON     declareStmt      YES
 
-       integer            125            INTEGER     dataType      YES
+       integer            7            INTEGER     dataType      YES
 
        ----------            dataType             declareStmt      NO
 
-       ;            125            SEMICOL     declareStmt      YES
+       ;            7            SEMICOL     declareStmt      YES
 
        ----------            statement             statements      NO
 
        ----------            statements             moduleDef      NO
 
-       declare            126            DECLARE     declareStmt      YES
+       declare            8            DECLARE     declareStmt      YES
 
        ----------            declareStmt             statement      NO
 
-       $            126            ID     idList      YES
+       $            8            ID     idList      YES
 
        ----------            idList             declareStmt      NO
 
@@ -158,65 +155,21 @@
 
        ----------            leftFactored_idList             idList      NO
 
-       :            126            COLON     declareStmt      YES
+       :            8            COLON     declareStmt      YES
 
-       boolean            126            BOOLEAN     dataType      YES
+       boolean            8            BOOLEAN     dataType      YES
 
        ----------            dataType             declareStmt      NO
 
-       ;            126            SEMICOL     declareStmt      YES
+       ;            8            SEMICOL     declareStmt      YES
 
        ----------            statement             statements      NO
 
        ----------            statements             statements      NO
 
-       $            127            ID     assignmentStmt      YES
+       $            9            ID     assignmentStmt      YES
 
        ----------            assignmentStmt             simpleStmt      NO
-
-       :=            127            ASSIGNOP     lvalueIDStmt      YES
-
-       ----------            lvalueIDStmt             whichStmt      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            127            RNUM            0.000000     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       ----------            factor             term      NO
-
-       ----------            term             arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       ----------            arithmeticExpr             anyTerm      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExpr      YES
-
-       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
-
-       ----------            anyTerm             arithmeticBooleanExpr      NO
-
-       epsilon     epsilon        relationalTerm      YES
-
-       ----------            relationalTerm             anyTerm      NO
-
-       ----------            arithmeticBooleanExpr             expression      NO
-
-       epsilon     epsilon        logicalTerm      YES
-
-       ----------            logicalTerm             arithmeticBooleanExpr      NO
-
-       ----------            expression             lvalueIDStmt      NO
-
-       ;            127            SEMICOL     lvalueIDStmt      YES
 
        ----------            whichStmt             assignmentStmt      NO
 
@@ -226,43 +179,91 @@
 
        ----------            statements             statements      NO
 
-       for            128            FOR     iterativeStmt      YES
+       for            10            FOR     iterativeStmt      YES
 
        ----------            iterativeStmt             statement      NO
 
-       (            128            BO     iterativeStmt      YES
+       (            10            BO     iterativeStmt      YES
 
-       $            128            ID     iterativeStmt      YES
+       $            10            ID     iterativeStmt      YES
 
-       in            128            IN     iterativeStmt      YES
-
-       -            128            MINUS     pm      YES
-
-       ----------            pm             sign      NO
+Some Terminal Node with Error
+       epsilon     epsilon        sign      YES
 
        ----------            sign             iterativeStmt      NO
 
-       $            128            NUM            10     iterativeStmt      YES
-
-       ..            128            RANGEOP     iterativeStmt      YES
-
-       +            128            PLUS     pm      YES
-
-       ----------            pm             sign      NO
+Some Terminal Node with Error
+Some Terminal Node with Error
+       epsilon     epsilon        sign      YES
 
        ----------            sign             iterativeStmt      NO
 
-       $            128            NUM            15     iterativeStmt      YES
+Some Terminal Node with Error
+Some Terminal Node with Error
+Some Terminal Node with Error
+       switch            13            SWITCH     conditionalStmt      YES
 
-       )            128            BC     iterativeStmt      YES
+       ----------            conditionalStmt             statement      NO
 
-       start            129            START     iterativeStmt      YES
+       (            13            BO     conditionalStmt      YES
 
-       $            130            ID     assignmentStmt      YES
+       $            13            ID     conditionalStmt      YES
+
+       )            13            BC     conditionalStmt      YES
+
+       start            14            START     conditionalStmt      YES
+
+       case            15            CASE     caseStmt      YES
+
+       ----------            caseStmt             conditionalStmt      NO
+
+       true            15            true     boolValues      YES
+
+       ----------            boolValues             value      NO
+
+       ----------            value             caseStmt      NO
+
+       :            15            COLON     caseStmt      YES
+
+       print            15            PRINT     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+       (            15            BO     ioStmt      YES
+
+       $            15            ID     var      YES
+
+       ----------            var             leftFactored_ioStmt      NO
+
+       [            15            SQBO     whichId      YES
+
+       ----------            whichId             var      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             whichId      NO
+
+       $            15            ID     leftFactored_whichId      YES
+
+       ----------            leftFactored_whichId             whichId      NO
+
+       ]            15            SQBC     leftFactored_whichId      YES
+
+       ----------            leftFactored_ioStmt             ioStmt      NO
+
+       )            15            BC     leftFactored_ioStmt      YES
+
+       ;            15            SEMICOL     leftFactored_ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             caseStmt      NO
+
+       $            16            ID     assignmentStmt      YES
 
        ----------            assignmentStmt             simpleStmt      NO
 
-       :=            130            ASSIGNOP     lvalueIDStmt      YES
+       :=            16            ASSIGNOP     lvalueIDStmt      YES
 
        ----------            lvalueIDStmt             whichStmt      NO
 
@@ -272,7 +273,293 @@
 
        ----------            param             factor      NO
 
-       $            130            ID     signedParam      YES
+       $            16            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+Some Terminal Node with Error
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       print            19            PRINT     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+       (            19            BO     ioStmt      YES
+
+       $            19            ID     var      YES
+
+       ----------            var             leftFactored_ioStmt      NO
+
+       epsilon     epsilon        whichId      YES
+
+       ----------            whichId             var      NO
+
+       ----------            leftFactored_ioStmt             ioStmt      NO
+
+       )            19            BC     leftFactored_ioStmt      YES
+
+       ;            19            SEMICOL     leftFactored_ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+       break            21            BREAK     caseStmt      YES
+
+       ;            21            SEMICOL     caseStmt      YES
+
+       epsilon     epsilon        leftFactored_caseStmt      YES
+
+       ----------            leftFactored_caseStmt             caseStmt      NO
+
+       epsilon     epsilon        dfault      YES
+
+       ----------            dfault             conditionalStmt      NO
+
+       end            22            END     conditionalStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             iterativeStmt      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+       end            24            END     iterativeStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       print            25            PRINT     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+       (            25            BO     ioStmt      YES
+
+       ----------            leftFactored_ioStmt             ioStmt      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+       end            26            END     moduleDef      YES
+
+       ----------            otherModules             program      NO
+
+       epsilon     epsilon        otherModules      YES
+
+       ----------            otherModules             otherModules      NO
+
+       <<<            27            DRIVERDEF     driverModule      YES
+
+       ----------            driverModule             program      NO
+
+       driver            27            DRIVER     driverModule      YES
+
+       program            27            PROGRAM     driverModule      YES
+
+       >>>            27            DRIVERENDDEF     driverModule      YES
+
+       start            28            START     moduleDef      YES
+
+       ----------            moduleDef             driverModule      NO
+
+       declare            29            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+       $            29            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+       :            29            COLON     declareStmt      YES
+
+       array            29            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+       [            29            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+       $            29            NUM            1     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+       ..            29            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+       $            29            NUM            15     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ]            29            SQBC     dataType      YES
+
+       of            29            OF     dataType      YES
+
+       real            29            REAL     type      YES
+
+       ----------            type             dataType      NO
+
+       ;            29            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             moduleDef      NO
+
+       declare            30            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+       $            30            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+       :            30            COLON     declareStmt      YES
+
+       integer            30            INTEGER     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+       ;            30            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       declare            31            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+       $            31            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+       :            31            COLON     declareStmt      YES
+
+       real            31            REAL     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+       ;            31            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       get_value            32            GET_VALUE     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+       (            32            BO     ioStmt      YES
+
+       $            32            ID     ioStmt      YES
+
+       )            32            BC     ioStmt      YES
+
+       ;            32            SEMICOL     ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        optional      YES
+
+       ----------            optional             moduleReuseStmt      NO
+
+       ----------            moduleReuseStmt             simpleStmt      NO
+
+       use            33            USE     moduleReuseStmt      YES
+
+       module            33            MODULE     moduleReuseStmt      YES
+
+       $            33            ID     moduleReuseStmt      YES
+
+Some Terminal Node with Error
+Some Terminal Node with Error
+       ----------            paramList             moduleReuseStmt      NO
+
+Some Terminal Node with Error
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       $            35            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+       :=            35            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+       $            35            ID     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -296,7 +583,7 @@
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       <=            130            LE     relationalOp      YES
+       <=            35            LE     relationalOp      YES
 
        ----------            relationalOp             relationalTerm      NO
 
@@ -308,7 +595,7 @@
 
        ----------            param             factor      NO
 
-       $            130            ID     signedParam      YES
+       $            35            ID     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -332,186 +619,11 @@
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      YES
-
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
        ----------            expression             lvalueIDStmt      NO
 
-       ;            130            SEMICOL     lvalueIDStmt      YES
-
-       ----------            whichStmt             assignmentStmt      NO
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             iterativeStmt      NO
-
-       switch            131            SWITCH     conditionalStmt      YES
-
-       ----------            conditionalStmt             statement      NO
-
-       (            131            BO     conditionalStmt      YES
-
-       $            131            ID     conditionalStmt      YES
-
-       )            131            BC     conditionalStmt      YES
-
-       start            132            START     conditionalStmt      YES
-
-       case            133            CASE     caseStmt      YES
-
-       ----------            caseStmt             conditionalStmt      NO
-
-       true            133            true     boolValues      YES
-
-       ----------            boolValues             value      NO
-
-       ----------            value             caseStmt      NO
-
-       :            133            COLON     caseStmt      YES
-
-       print            133            PRINT     ioStmt      YES
-
-       ----------            ioStmt             statement      NO
-
-       (            133            BO     ioStmt      YES
-
-       $            133            ID     var      YES
-
-       ----------            var             leftFactored_ioStmt      NO
-
-       [            133            SQBO     whichId      YES
-
-       ----------            whichId             var      NO
-
-       +            133            PLUS     pm      YES
-
-       ----------            pm             sign      NO
-
-       ----------            sign             whichId      NO
-
-       $            133            ID     leftFactored_whichId      YES
-
-       ----------            leftFactored_whichId             whichId      NO
-
-       ]            133            SQBC     leftFactored_whichId      YES
-
-       ----------            leftFactored_ioStmt             ioStmt      NO
-
-       )            133            BC     leftFactored_ioStmt      YES
-
-       ;            133            SEMICOL     leftFactored_ioStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             caseStmt      NO
-
-       $            134            ID     assignmentStmt      YES
-
-       ----------            assignmentStmt             simpleStmt      NO
-
-       :=            134            ASSIGNOP     lvalueIDStmt      YES
-
-       ----------            lvalueIDStmt             whichStmt      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            134            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       ----------            factor             term      NO
-
-       ----------            term             arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       ----------            arithmeticExpr             anyTerm      NO
-
-       +            134            PLUS     pm      YES
-
-       ----------            pm             leftFactored_arithmeticExpr      NO
-
-       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            134            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       [            134            SQBO     arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            134            ID     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       ----------            arithmeticExprWArr             arrID      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
-
-       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
-
-       ]            134            SQBC     arrID      YES
-
-       ----------            factor             term      NO
-
-       ----------            term             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExpr      YES
-
-       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
-
-       ----------            anyTerm             arithmeticBooleanExpr      NO
-
-       epsilon     epsilon        relationalTerm      YES
-
-       ----------            relationalTerm             anyTerm      NO
-
-       ----------            arithmeticBooleanExpr             expression      NO
-
-       epsilon     epsilon        logicalTerm      YES
-
-       ----------            logicalTerm             arithmeticBooleanExpr      NO
-
-       ----------            expression             lvalueIDStmt      NO
-
-       ;            134            SEMICOL     lvalueIDStmt      YES
-
+Some Terminal Node with Error
        ----------            whichStmt             assignmentStmt      NO
 
        ----------            simpleStmt             statement      NO
@@ -520,33 +632,13 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      YES
-
-       ----------            statements             statements      NO
-
-       break            135            BREAK     caseStmt      YES
-
-       ;            135            SEMICOL     caseStmt      YES
-
-       case            136            CASE     leftFactored_caseStmt      YES
-
-       ----------            leftFactored_caseStmt             caseStmt      NO
-
-       false            136            false     boolValues      YES
-
-       ----------            boolValues             value      NO
-
-       ----------            value             leftFactored_caseStmt      NO
-
-       :            136            COLON     leftFactored_caseStmt      YES
-
-       print            136            PRINT     ioStmt      YES
+       print            36            PRINT     ioStmt      YES
 
        ----------            ioStmt             statement      NO
 
-       (            136            BO     ioStmt      YES
+       (            36            BO     ioStmt      YES
 
-       $            136            ID     var      YES
+       $            36            ID     var      YES
 
        ----------            var             leftFactored_ioStmt      NO
 
@@ -556,34 +648,9 @@
 
        ----------            leftFactored_ioStmt             ioStmt      NO
 
-       )            136            BC     leftFactored_ioStmt      YES
+       )            36            BC     leftFactored_ioStmt      YES
 
-       ;            136            SEMICOL     leftFactored_ioStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             leftFactored_caseStmt      NO
-
-       print            137            PRINT     ioStmt      YES
-
-       ----------            ioStmt             statement      NO
-
-       (            137            BO     ioStmt      YES
-
-       $            137            ID     var      YES
-
-       ----------            var             leftFactored_ioStmt      NO
-
-       epsilon     epsilon        whichId      YES
-
-       ----------            whichId             var      NO
-
-       ----------            leftFactored_ioStmt             ioStmt      NO
-
-       )            137            BC     leftFactored_ioStmt      YES
-
-       ;            137            SEMICOL     leftFactored_ioStmt      YES
-
+Some Terminal Node with Error
        ----------            statement             statements      NO
 
        ----------            statements             statements      NO
@@ -592,439 +659,75 @@
 
        ----------            statements             statements      NO
 
-       break            139            BREAK     leftFactored_caseStmt      YES
+       end            37            END     moduleDef      YES
 
-       ;            139            SEMICOL     leftFactored_caseStmt      YES
-
-       epsilon     epsilon        leftFactored_caseStmt      YES
-
-       ----------            leftFactored_caseStmt             leftFactored_caseStmt      NO
-
-       epsilon     epsilon        dfault      YES
-
-       ----------            dfault             conditionalStmt      NO
-
-       end            140            END     conditionalStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       epsilon     epsilon        statements      YES
-
-       ----------            statements             statements      NO
-
-       end            142            END     iterativeStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       print            143            PRINT     ioStmt      YES
-
-       ----------            ioStmt             statement      NO
-
-       (            143            BO     ioStmt      YES
-
-       $            143            ID     var      YES
-
-       ----------            var             leftFactored_ioStmt      NO
-
-       epsilon     epsilon        whichId      YES
-
-       ----------            whichId             var      NO
-
-       ----------            leftFactored_ioStmt             ioStmt      NO
-
-       )            143            BC     leftFactored_ioStmt      YES
-
-       ;            143            SEMICOL     leftFactored_ioStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       epsilon     epsilon        statements      YES
-
-       ----------            statements             statements      NO
-
-       end            144            END     moduleDef      YES
-
-       ----------            otherModules             program      NO
-
-       epsilon     epsilon        otherModules      YES
-
-       ----------            otherModules             otherModules      NO
-
-       <<<            145            DRIVERDEF     driverModule      YES
-
-       ----------            driverModule             program      NO
-
-       driver            145            DRIVER     driverModule      YES
-
-       program            145            PROGRAM     driverModule      YES
-
-       >>>            145            DRIVERENDDEF     driverModule      YES
-
-       start            146            START     moduleDef      YES
-
-       ----------            moduleDef             driverModule      NO
-
-       declare            147            DECLARE     declareStmt      YES
-
-       ----------            declareStmt             statement      NO
-
-       $            147            ID     idList      YES
-
-       ----------            idList             declareStmt      NO
-
-       epsilon     epsilon        leftFactored_idList      YES
-
-       ----------            leftFactored_idList             idList      NO
-
-       :            147            COLON     declareStmt      YES
-
-       array            147            ARRAY     dataType      YES
-
-       ----------            dataType             declareStmt      NO
-
-       [            147            SQBO     dataType      YES
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             arrRange      NO
-
-       ----------            arrRange             dataType      NO
-
-       $            147            NUM            1     idNum      YES
-
-       ----------            idNum             leftFactored_arrRange      NO
-
-       ----------            leftFactored_arrRange             arrRange      NO
-
-       ..            147            RANGEOP     leftFactored_arrRange      YES
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             leftFactored_arrRange      NO
-
-       $            147            NUM            15     idNum      YES
-
-       ----------            idNum             leftFactored_arrRange      NO
-
-       ]            147            SQBC     dataType      YES
-
-       of            147            OF     dataType      YES
-
-       real            147            REAL     type      YES
-
-       ----------            type             dataType      NO
-
-       ;            147            SEMICOL     declareStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             moduleDef      NO
-
-       declare            148            DECLARE     declareStmt      YES
-
-       ----------            declareStmt             statement      NO
-
-       $            148            ID     idList      YES
-
-       ----------            idList             declareStmt      NO
-
-       epsilon     epsilon        leftFactored_idList      YES
-
-       ----------            leftFactored_idList             idList      NO
-
-       :            148            COLON     declareStmt      YES
-
-       integer            148            INTEGER     dataType      YES
-
-       ----------            dataType             declareStmt      NO
-
-       ;            148            SEMICOL     declareStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       declare            149            DECLARE     declareStmt      YES
-
-       ----------            declareStmt             statement      NO
-
-       $            149            ID     idList      YES
-
-       ----------            idList             declareStmt      NO
-
-       epsilon     epsilon        leftFactored_idList      YES
-
-       ----------            leftFactored_idList             idList      NO
-
-       :            149            COLON     declareStmt      YES
-
-       real            149            REAL     dataType      YES
-
-       ----------            dataType             declareStmt      NO
-
-       ;            149            SEMICOL     declareStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       get_value            150            GET_VALUE     ioStmt      YES
-
-       ----------            ioStmt             statement      NO
-
-       (            150            BO     ioStmt      YES
-
-       $            150            ID     ioStmt      YES
-
-       )            150            BC     ioStmt      YES
-
-       ;            150            SEMICOL     ioStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       epsilon     epsilon        optional      YES
-
-       ----------            optional             moduleReuseStmt      NO
-
-       ----------            moduleReuseStmt             simpleStmt      NO
-
-       use            151            USE     moduleReuseStmt      YES
-
-       module            151            MODULE     moduleReuseStmt      YES
-
-       $            151            ID     moduleReuseStmt      YES
-
-       with            151            WITH     moduleReuseStmt      YES
-
-       parameters            151            PARAMETERS     moduleReuseStmt      YES
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             paramList      NO
-
-       $            151            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       ----------            paramList             moduleReuseStmt      NO
-
-       ,            151            COMMA     leftFactored_paramList      YES
-
-       ----------            leftFactored_paramList             paramList      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             leftFactored_paramList      NO
-
-       $            151            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       epsilon     epsilon        leftFactored_paramList      YES
-
-       ----------            leftFactored_paramList             leftFactored_paramList      NO
-
-       ;            151            SEMICOL     moduleReuseStmt      YES
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       [            152            SQBO     optional      YES
-
-       ----------            optional             moduleReuseStmt      NO
-
-       $            152            ID     idList      YES
-
-       ----------            idList             optional      NO
-
-       epsilon     epsilon        leftFactored_idList      YES
-
-       ----------            leftFactored_idList             idList      NO
-
-       ]            152            SQBC     optional      YES
-
-       :=            152            ASSIGNOP     optional      YES
-
-       ----------            moduleReuseStmt             simpleStmt      NO
-
-       use            152            USE     moduleReuseStmt      YES
-
-       module            152            MODULE     moduleReuseStmt      YES
-
-       $            152            ID     moduleReuseStmt      YES
-
-       with            152            WITH     moduleReuseStmt      YES
-
-       parameters            152            PARAMETERS     moduleReuseStmt      YES
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             paramList      NO
-
-       $            152            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       ----------            paramList             moduleReuseStmt      NO
-
-       ,            152            COMMA     leftFactored_paramList      YES
-
-       ----------            leftFactored_paramList             paramList      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             leftFactored_paramList      NO
-
-       $            152            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       epsilon     epsilon        leftFactored_paramList      YES
-
-       ----------            leftFactored_paramList             leftFactored_paramList      NO
-
-       ;            152            SEMICOL     moduleReuseStmt      YES
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       print            153            PRINT     ioStmt      YES
-
-       ----------            ioStmt             statement      NO
-
-       (            153            BO     ioStmt      YES
-
-       $            153            ID     var      YES
-
-       ----------            var             leftFactored_ioStmt      NO
-
-       epsilon     epsilon        whichId      YES
-
-       ----------            whichId             var      NO
-
-       ----------            leftFactored_ioStmt             ioStmt      NO
-
-       )            153            BC     leftFactored_ioStmt      YES
-
-       ;            153            SEMICOL     leftFactored_ioStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       epsilon     epsilon        statements      YES
-
-       ----------            statements             statements      NO
-
-       end            154            END     moduleDef      YES
-
-       <<            161            DEF     module      YES
+       <<            44            DEF     module      YES
 
        ----------            module             otherModules      NO
 
-       module            161            MODULE     module      YES
+       module            44            MODULE     module      YES
 
-       $            161            ID     module      YES
+       $            44            ID     module      YES
 
-       >>            161            ENDDEF     module      YES
+       >>            44            ENDDEF     module      YES
 
-       takes            162            TAKES     module      YES
+       takes            45            TAKES     module      YES
 
-       input            162            INPUT     module      YES
+       input            45            INPUT     module      YES
 
-       [            162            SQBO     module      YES
+       [            45            SQBO     module      YES
 
-       $            162            ID     input_plist      YES
+       $            45            ID     input_plist      YES
 
        ----------            input_plist             module      NO
 
-       :            162            COLON     input_plist      YES
+       :            45            COLON     input_plist      YES
 
-       array            162            ARRAY     dataType      YES
+       array            45            ARRAY     dataType      YES
 
        ----------            dataType             input_plist      NO
 
-       [            162            SQBO     dataType      YES
+       [            45            SQBO     dataType      YES
 
-       -            162            MINUS     pm      YES
-
-       ----------            pm             sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             arrRange      NO
 
        ----------            arrRange             dataType      NO
 
-       $            162            NUM            10     idNum      YES
+       $            45            NUM            1     idNum      YES
 
        ----------            idNum             leftFactored_arrRange      NO
 
        ----------            leftFactored_arrRange             arrRange      NO
 
-       ..            162            RANGEOP     leftFactored_arrRange      YES
+       ..            45            RANGEOP     leftFactored_arrRange      YES
 
        epsilon     epsilon        sign      YES
 
        ----------            sign             leftFactored_arrRange      NO
 
-       $            162            NUM            25     idNum      YES
+       $            45            NUM            15     idNum      YES
 
        ----------            idNum             leftFactored_arrRange      NO
 
-       ]            162            SQBC     dataType      YES
+       ]            45            SQBC     dataType      YES
 
-       of            162            OF     dataType      YES
+       of            45            OF     dataType      YES
 
-       real            162            REAL     type      YES
+       real            45            REAL     type      YES
 
        ----------            type             dataType      NO
 
-       ,            162            COMMA     leftFactored_input_plist      YES
+       ,            45            COMMA     leftFactored_input_plist      YES
 
        ----------            leftFactored_input_plist             input_plist      NO
 
-       $            162            ID     leftFactored_input_plist      YES
+       $            45            ID     leftFactored_input_plist      YES
 
-       :            162            COLON     leftFactored_input_plist      YES
+       :            45            COLON     leftFactored_input_plist      YES
 
-       integer            162            INTEGER     dataType      YES
+       integer            45            INTEGER     dataType      YES
 
        ----------            dataType             leftFactored_input_plist      NO
 
@@ -1032,23 +735,23 @@
 
        ----------            leftFactored_input_plist             leftFactored_input_plist      NO
 
-       ]            162            SQBC     module      YES
+       ]            45            SQBC     module      YES
 
-       ;            162            SEMICOL     module      YES
+       ;            45            SEMICOL     module      YES
 
        epsilon     epsilon        ret      YES
 
        ----------            ret             module      NO
 
-       start            163            START     moduleDef      YES
+       start            46            START     moduleDef      YES
 
        ----------            moduleDef             module      NO
 
-       declare            164            DECLARE     declareStmt      YES
+       declare            47            DECLARE     declareStmt      YES
 
        ----------            declareStmt             statement      NO
 
-       $            164            ID     idList      YES
+       $            47            ID     idList      YES
 
        ----------            idList             declareStmt      NO
 
@@ -1056,23 +759,20 @@
 
        ----------            leftFactored_idList             idList      NO
 
-       :            164            COLON     declareStmt      YES
-
-       real            164            REAL     dataType      YES
+       :            47            COLON     declareStmt      YES
 
        ----------            dataType             declareStmt      NO
 
-       ;            164            SEMICOL     declareStmt      YES
-
+Some Terminal Node with Error
        ----------            statement             statements      NO
 
        ----------            statements             moduleDef      NO
 
-       declare            165            DECLARE     declareStmt      YES
+       declare            48            DECLARE     declareStmt      YES
 
        ----------            declareStmt             statement      NO
 
-       $            165            ID     idList      YES
+       $            48            ID     idList      YES
 
        ----------            idList             declareStmt      NO
 
@@ -1080,23 +780,23 @@
 
        ----------            leftFactored_idList             idList      NO
 
-       :            165            COLON     declareStmt      YES
+       :            48            COLON     declareStmt      YES
 
-       integer            165            INTEGER     dataType      YES
+       integer            48            INTEGER     dataType      YES
 
        ----------            dataType             declareStmt      NO
 
-       ;            165            SEMICOL     declareStmt      YES
+       ;            48            SEMICOL     declareStmt      YES
 
        ----------            statement             statements      NO
 
        ----------            statements             statements      NO
 
-       $            167            ID     assignmentStmt      YES
+       $            49            ID     assignmentStmt      YES
 
        ----------            assignmentStmt             simpleStmt      NO
 
-       :=            167            ASSIGNOP     lvalueIDStmt      YES
+       :=            49            ASSIGNOP     lvalueIDStmt      YES
 
        ----------            lvalueIDStmt             whichStmt      NO
 
@@ -1106,7 +806,7 @@
 
        ----------            param             factor      NO
 
-       $            167            NUM            1     signedParam      YES
+       $            49            NUM            1     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -1138,7 +838,7 @@
 
        ----------            expression             lvalueIDStmt      NO
 
-       ;            167            SEMICOL     lvalueIDStmt      YES
+       ;            49            SEMICOL     lvalueIDStmt      YES
 
        ----------            whichStmt             assignmentStmt      NO
 
@@ -1148,11 +848,11 @@
 
        ----------            statements             statements      NO
 
-       while            168            WHILE     iterativeStmt      YES
+       while            50            WHILE     iterativeStmt      YES
 
        ----------            iterativeStmt             statement      NO
 
-       (            168            BO     iterativeStmt      YES
+       (            50            BO     iterativeStmt      YES
 
        epsilon     epsilon        sign      YES
 
@@ -1160,7 +860,7 @@
 
        ----------            param             factor      NO
 
-       $            168            ID     signedParam      YES
+       $            50            ID     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -1184,7 +884,7 @@
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       <=            168            LE     relationalOp      YES
+       <=            50            LE     relationalOp      YES
 
        ----------            relationalOp             relationalTerm      NO
 
@@ -1196,7 +896,7 @@
 
        ----------            param             factor      NO
 
-       $            168            ID     signedParam      YES
+       $            50            ID     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -1224,31 +924,31 @@
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
-       )            168            BC     iterativeStmt      YES
+       )            50            BC     iterativeStmt      YES
 
-       start            169            START     iterativeStmt      YES
+       start            51            START     iterativeStmt      YES
 
-       get_value            170            GET_VALUE     ioStmt      YES
+       get_value            52            GET_VALUE     ioStmt      YES
 
        ----------            ioStmt             statement      NO
 
-       (            170            BO     ioStmt      YES
+       (            52            BO     ioStmt      YES
 
-       $            170            ID     ioStmt      YES
+       $            52            ID     ioStmt      YES
 
-       )            170            BC     ioStmt      YES
+       )            52            BC     ioStmt      YES
 
-       ;            170            SEMICOL     ioStmt      YES
+       ;            52            SEMICOL     ioStmt      YES
 
        ----------            statement             statements      NO
 
        ----------            statements             iterativeStmt      NO
 
-       $            171            ID     assignmentStmt      YES
+       $            53            ID     assignmentStmt      YES
 
        ----------            assignmentStmt             simpleStmt      NO
 
-       [            171            SQBO     lvalueARRStmt      YES
+       [            53            SQBO     lvalueARRStmt      YES
 
        ----------            lvalueARRStmt             whichStmt      NO
 
@@ -1258,7 +958,7 @@
 
        ----------            signedFactorWArr             termWArr      NO
 
-       $            171            ID     factorWArr      YES
+       $            53            ID     factorWArr      YES
 
        ----------            factorWArr             signedFactorWArr      NO
 
@@ -1274,9 +974,59 @@
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
-       ]            171            SQBC     lvalueARRStmt      YES
+       ]            53            SQBC     lvalueARRStmt      YES
 
-       :=            171            ASSIGNOP     lvalueARRStmt      YES
+       :=            53            ASSIGNOP     lvalueARRStmt      YES
+
+       ----------            expression             lvalueARRStmt      NO
+
+Some Terminal Node with Error
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       print            54            PRINT     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+       (            54            BO     ioStmt      YES
+
+       $            54            ID     var      YES
+
+       ----------            var             leftFactored_ioStmt      NO
+
+       [            54            SQBO     whichId      YES
+
+       ----------            whichId             var      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             whichId      NO
+
+       $            54            ID     leftFactored_whichId      YES
+
+       ----------            leftFactored_whichId             whichId      NO
+
+Some Terminal Node with Error
+       ----------            leftFactored_ioStmt             ioStmt      NO
+
+Some Terminal Node with Error
+Some Terminal Node with Error
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       $            55            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+       :=            55            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
 
        epsilon     epsilon        sign      YES
 
@@ -1284,7 +1034,7 @@
 
        ----------            param             factor      NO
 
-       $            171            ID     signedParam      YES
+       $            55            ID     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -1302,137 +1052,7 @@
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      YES
-
-       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
-
-       ----------            anyTerm             arithmeticBooleanExpr      NO
-
-       epsilon     epsilon        relationalTerm      YES
-
-       ----------            relationalTerm             anyTerm      NO
-
-       ----------            arithmeticBooleanExpr             expression      NO
-
-       epsilon     epsilon        logicalTerm      YES
-
-       ----------            logicalTerm             arithmeticBooleanExpr      NO
-
-       ----------            expression             lvalueARRStmt      NO
-
-       ;            171            SEMICOL     lvalueARRStmt      YES
-
-       ----------            whichStmt             assignmentStmt      NO
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       declare            172            DECLARE     declareStmt      YES
-
-       ----------            declareStmt             statement      NO
-
-       $            172            ID     idList      YES
-
-       ----------            idList             declareStmt      NO
-
-       epsilon     epsilon        leftFactored_idList      YES
-
-       ----------            leftFactored_idList             idList      NO
-
-       :            172            COLON     declareStmt      YES
-
-       array            172            ARRAY     dataType      YES
-
-       ----------            dataType             declareStmt      NO
-
-       [            172            SQBO     dataType      YES
-
-       -            172            MINUS     pm      YES
-
-       ----------            pm             sign      NO
-
-       ----------            sign             arrRange      NO
-
-       ----------            arrRange             dataType      NO
-
-       $            172            ID     idNum      YES
-
-       ----------            idNum             leftFactored_arrRange      NO
-
-       ----------            leftFactored_arrRange             arrRange      NO
-
-       ..            172            RANGEOP     leftFactored_arrRange      YES
-
-       +            172            PLUS     pm      YES
-
-       ----------            pm             sign      NO
-
-       ----------            sign             leftFactored_arrRange      NO
-
-       $            172            ID     idNum      YES
-
-       ----------            idNum             leftFactored_arrRange      NO
-
-       ]            172            SQBC     dataType      YES
-
-       of            172            OF     dataType      YES
-
-       boolean            172            BOOLEAN     type      YES
-
-       ----------            type             dataType      NO
-
-       ;            172            SEMICOL     declareStmt      YES
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       $            173            ID     assignmentStmt      YES
-
-       ----------            assignmentStmt             simpleStmt      NO
-
-       :=            173            ASSIGNOP     lvalueIDStmt      YES
-
-       ----------            lvalueIDStmt             whichStmt      NO
-
-       -            173            MINUS     pm      YES
-
-       ----------            pm             unaryTerm      NO
-
-       ----------            unaryTerm             expression      NO
-
-       (            173            BO     arithmeticFactor      YES
-
-       ----------            arithmeticFactor             unaryTerm      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            173            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       ----------            factor             term      NO
-
-       ----------            term             arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       ----------            arithmeticExpr             arithmeticFactor      NO
-
-       +            173            PLUS     pm      YES
+       +            55            PLUS     pm      YES
 
        ----------            pm             leftFactored_arithmeticExpr      NO
 
@@ -1444,311 +1064,7 @@
 
        ----------            param             factor      NO
 
-       $            173            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       [            173            SQBO     arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            173            ID     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       ----------            arithmeticExprWArr             arrID      NO
-
-       +            173            PLUS     pm      YES
-
-       ----------            pm             leftFactored_arithmeticExprWArr      NO
-
-       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            173            ID     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             leftFactored_arithmeticExprWArr      NO
-
-       *            173            MUL     md      YES
-
-       ----------            md             leftFactored_termWArr      NO
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             leftFactored_termWArr      NO
-
-       $            173            ID     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             leftFactored_termWArr      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
-
-       ----------            leftFactored_arithmeticExprWArr             leftFactored_arithmeticExprWArr      NO
-
-       ]            173            SQBC     arrID      YES
-
-       ----------            factor             term      NO
-
-       ----------            term             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       +            173            PLUS     pm      YES
-
-       ----------            pm             leftFactored_arithmeticExpr      NO
-
-       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            173            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       [            173            SQBO     arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       +            173            PLUS     pm      YES
-
-       ----------            pm             sign      NO
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            173            NUM            5     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       ----------            arithmeticExprWArr             arrID      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
-
-       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
-
-       ]            173            SQBC     arrID      YES
-
-       ----------            factor             term      NO
-
-       ----------            term             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       -            173            MINUS     pm      YES
-
-       ----------            pm             leftFactored_arithmeticExpr      NO
-
-       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            173            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       [            173            SQBO     arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       -            173            MINUS     pm      YES
-
-       ----------            pm             sign      NO
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            173            NUM            10     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       ----------            arithmeticExprWArr             arrID      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
-
-       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
-
-       ]            173            SQBC     arrID      YES
-
-       ----------            factor             term      NO
-
-       ----------            term             leftFactored_arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExpr      YES
-
-       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
-
-       )            173            BC     arithmeticFactor      YES
-
-       ----------            expression             lvalueIDStmt      NO
-
-       ;            173            SEMICOL     lvalueIDStmt      YES
-
-       ----------            whichStmt             assignmentStmt      NO
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       $            174            ID     assignmentStmt      YES
-
-       ----------            assignmentStmt             simpleStmt      NO
-
-       [            174            SQBO     lvalueARRStmt      YES
-
-       ----------            lvalueARRStmt             whichStmt      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             signedFactorWArr      NO
-
-       ----------            signedFactorWArr             termWArr      NO
-
-       $            174            ID     factorWArr      YES
-
-       ----------            factorWArr             signedFactorWArr      NO
-
-       ----------            termWArr             arithmeticExprWArr      NO
-
-       epsilon     epsilon        leftFactored_termWArr      YES
-
-       ----------            leftFactored_termWArr             termWArr      NO
-
-       ----------            arithmeticExprWArr             lvalueARRStmt      NO
-
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
-
-       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
-
-       ]            174            SQBC     lvalueARRStmt      YES
-
-       :=            174            ASSIGNOP     lvalueARRStmt      YES
-
-       -            174            MINUS     pm      YES
-
-       ----------            pm             unaryTerm      NO
-
-       ----------            unaryTerm             expression      NO
-
-       $            174            NUM            10     arithmeticFactor      YES
-
-       ----------            arithmeticFactor             unaryTerm      NO
-
-       ----------            expression             lvalueARRStmt      NO
-
-       ;            174            SEMICOL     lvalueARRStmt      YES
-
-       ----------            whichStmt             assignmentStmt      NO
-
-       ----------            simpleStmt             statement      NO
-
-       ----------            statement             statements      NO
-
-       ----------            statements             statements      NO
-
-       $            175            ID     assignmentStmt      YES
-
-       ----------            assignmentStmt             simpleStmt      NO
-
-       :=            175            ASSIGNOP     lvalueIDStmt      YES
-
-       ----------            lvalueIDStmt             whichStmt      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            175            ID     signedParam      YES
-
-       ----------            signedParam             param      NO
-
-       epsilon     epsilon        arrID      YES
-
-       ----------            arrID             signedParam      NO
-
-       ----------            factor             term      NO
-
-       ----------            term             arithmeticExpr      NO
-
-       epsilon     epsilon        leftFactored_term      YES
-
-       ----------            leftFactored_term             term      NO
-
-       ----------            arithmeticExpr             anyTerm      NO
-
-       +            175            PLUS     pm      YES
-
-       ----------            pm             leftFactored_arithmeticExpr      NO
-
-       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
-
-       epsilon     epsilon        sign      YES
-
-       ----------            sign             param      NO
-
-       ----------            param             factor      NO
-
-       $            175            NUM            1     signedParam      YES
+       $            55            NUM            1     signedParam      YES
 
        ----------            signedParam             param      NO
 
@@ -1778,7 +1094,7 @@
 
        ----------            expression             lvalueIDStmt      NO
 
-       ;            175            SEMICOL     lvalueIDStmt      YES
+       ;            55            SEMICOL     lvalueIDStmt      YES
 
        ----------            whichStmt             assignmentStmt      NO
 
@@ -1792,7 +1108,7 @@
 
        ----------            statements             statements      NO
 
-       end            177            END     iterativeStmt      YES
+       end            57            END     iterativeStmt      YES
 
        ----------            statement             statements      NO
 
@@ -1802,7 +1118,7 @@
 
        ----------            statements             statements      NO
 
-       end            178            END     moduleDef      YES
+       end            58            END     moduleDef      YES
 
        ----------            otherModules             program      NO
 

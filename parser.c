@@ -654,13 +654,16 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
         printf("PARSER GOT INVALID TOKEN \"%s\" , CAN NOT BE DERIVED USING %s",TERMINALS_STRINGS[lex->token],NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
     }
     if(type == 4){
-        printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TOKENS_STRING[lex->token]);
-        
+        printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TERMINALS_STRINGS[lex->token]);
+
 
     }
     printf("\033[0m\033[0m\n\n");
     while(!isStackEmpty(st) && st->top->isTerminal == 1){
         popFromStack(st);
+    }
+    if(isStackEmpty(st) == 1){
+        return lex;
     }
     stNode = st->top;
     // printf("NonTerminal now = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
@@ -680,12 +683,14 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
 }
 
 
+
+
 /*PARSER CODE*/
 
 void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
-    printRules(129,RULES);
+    // printRules(129,RULES);
     // printf("RULES ADDED\n");
     RULES[0]->NODETYPE->nonterminal;
     populateParseTable(RULES);

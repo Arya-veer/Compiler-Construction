@@ -13,7 +13,8 @@ all: driver.c
 	gcc -c constants.c -o build/constants.o
 		# Final compilation step
 		# Note: Please specify all the object files generated before 'driver.c'
-	gcc build/*.o driver.c -o erplag
+	gcc build/*.o driver.c -o stage1exe
 
 clean:
 	rm -rf build/
+	rm -f stage1exe
