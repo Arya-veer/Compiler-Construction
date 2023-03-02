@@ -2,7 +2,7 @@
 #define PARSER_PARSETABLE_PARSETABLE_H
 
 #include "./addRules.h"
-#include "../FnFsets/automation.h"
+#include "./automation.h"
 
 
 

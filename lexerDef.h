@@ -1,9 +1,8 @@
-
 #include<stdio.h>
-#ifndef LEXER_LEXER_H
-#define LEXER_LEXER_H
+#ifndef LEXERDEF_H
+#define LEXERDEF_H
 #define LEXEME_SIZE 32
-#include "../constants/constants.h"
+#include "./constants.h"
 
 typedef struct twinBuffer TwinBuffer;
 typedef char* SingleBuffer;
@@ -44,9 +43,4 @@ struct lexeme{
     short int lineNo;
     union lexemeData *lexemedata;
 };
-
-TwinBuffer* initializeTwinBuffer(char* fname, int bufferSize);
-LEXEME* simulateDFA(TwinBuffer *TB,short toPrint);
-void cleanTwinBuffer(TwinBuffer* TB);
-
 #endif

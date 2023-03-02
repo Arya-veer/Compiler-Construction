@@ -3,7 +3,7 @@
 #define PARSER_DATASTRUCTURES_STACK_H
 
 
-#include "parseTree.h"
+#include "./parseTree.h"
 #include "linkedList.h"
 
 

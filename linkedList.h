@@ -1,7 +1,7 @@
 #ifndef PARSER_DATASTRUCTURES_LINKEDLIST_H
 #define PARSER_DATASTRUCTURES_LINKEDLIST_H
 
-#include "../../lexer/lexer.h"
+#include "./lexer.h"
 
 
 
