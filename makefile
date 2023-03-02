@@ -18,6 +18,7 @@ all: main.c
 	gcc -c parser/dataStructures/addRules.c -o build/parser_dataStructures_addRules.o
 			##FnFsets folder
 	gcc -c parser/FnFsets/automation.c -o build/parser_FnFsets_automation.o
+	gcc -c parser/FnFsets/followSets.c -o build/parser_FnFsets_followSets.o
 			##
 	gcc -c parser/parser.c -o build/parser_parser.o
 			##csvReader folder

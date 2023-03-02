@@ -1,4 +1,4 @@
-#include "sets.h"
+#include "followSets.h"
 short int follow_finalProgram[] = {2, EOF_TOKEN, SEMICOL_OPERATOR};
 short int follow_program[] = {2, EOF_TOKEN, SEMICOL_OPERATOR};
 short int follow_moduleDeclarations[] = {3, DEF_OPERATOR, DRIVERDEF_OPERATOR, SEMICOL_OPERATOR};
@@ -62,6 +62,13 @@ short int follow_leftFactored_caseStmt[] = {3, DEFAULT_KEYWORD, END_KEYWORD, SEM
 short int follow_value[] = {2, COLON_OPERATOR, SEMICOL_OPERATOR};
 short int follow_dfault[] = {2, END_KEYWORD, SEMICOL_OPERATOR};
 short int follow_iterativeStmt[] = {12, END_KEYWORD, BREAK_KEYWORD, GET_VALUE_KEYWORD,PRINT_FUNCTION, IDENTIFIER_TOKEN, SQBO_TOKEN,USE_KEYWORD, DECLARE_KEYWORD, SWITCH_KEYWORD,FOR_KEYWORD, WHILE_KEYWORD, SEMICOL_OPERATOR};
+short int follow_param[] = {1,SEMICOL_OPERATOR};
+short int follow_arrID[] = {1,SEMICOL_OPERATOR};
+short int follow_paramList[] = {1,SEMICOL_OPERATOR};
+short int follow_leftFactored_paramList[] = {1,SEMICOL_OPERATOR};
+short int follow_signedParam[] = {1,SEMICOL_OPERATOR};
+short int follow_anyTerm[] = {1,SEMICOL_OPERATOR};
+short int follow_idNum[] = {1,SEMICOL_OPERATOR};
 
 
 short int *followSets[] = {
@@ -127,7 +134,15 @@ short int *followSets[] = {
     follow_leftFactored_caseStmt,
     follow_value,
     follow_dfault,
-    follow_iterativeStmt
+    follow_iterativeStmt,
+    follow_param,
+    follow_arrID,
+    follow_paramList,
+    follow_leftFactored_paramList,
+    follow_signedParam,
+    follow_anyTerm,
+    follow_idNum
+
 };
 
 int inFollowSets(int terminal,int nonterminal){

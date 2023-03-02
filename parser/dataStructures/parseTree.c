@@ -86,7 +86,7 @@ void inorderTraversal(TREENODE tn, short goNext, FILE* outputFile){
         fprintf(outputFile,"       epsilon     epsilon");
         if(tn->parent) fprintf(outputFile, "        %s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
         else fprintf(outputFile, "      %s\t      ","ROOT");
-        fprintf(outputFile,"NO\n\n");
+        fprintf(outputFile,"YES\n\n");
     }
     if(tn->child != NULL){
         // printf("GOING RIGHT OF CHILD\n");

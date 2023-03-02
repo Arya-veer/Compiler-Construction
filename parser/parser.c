@@ -4,7 +4,7 @@
 
 int error = 0;
 
-void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
+LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffer* TB){
 
     printf("\n \x1B[1m\033[31m PARSING ERROR At line %d, ",lex->lineNo);
     error = 1;
@@ -14,14 +14,31 @@ void errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode){
 
     }
     if(type == 2){
-        // printf("PARSER GOT INVALID TOKEN \"%s\" ",TOKENS_STRING[lex->token]);
-
+        printf("PARSER GOT INVALID TOKEN \"%s\" , CAN NOT BE DERIVED USING %s",TERMINALS_STRINGS[lex->token],NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
     }
     if(type == 4){
-        // printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TOKENS_STRING[lex->token]);
+        printf("INPUT IS YET TO BE PROCESSED \"%s\" ",TOKENS_STRING[lex->token]);
 
     }
     printf("\033[0m\033[0m\n\n");
+    while(!isStackEmpty(st) && st->top->isTerminal == 1){
+        popFromStack(st);
+    }
+    stNode = st->top;
+    printf("NonTerminal now = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+    while(!inFollowSets(lex->token,stNode->NODETYPE->nonterminal)) {
+        lex=simulateDFA(TB,1);
+    }
+    // popFromStack(st);
+    if(lex->token == SEMICOL_OPERATOR){
+        lex = simulateDFA(TB,1);
+    }
+    printf("\033[032mERROR RECOVERY DONE\033[0m\n");
+    if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] == -1){
+        popFromStack(st);
+    }
+    return lex;
+
 }
 
 
@@ -47,86 +64,86 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
         /* Checking for the terminal */
 
         if(stNode->isTerminal == 1){
-            // printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
                 lex = simulateDFA(TB,0);
             }
             else{
 
-                errorHandling(st,lex,1,stNode);
-                while(lex->token != SEMICOL_OPERATOR){
-                    lex = simulateDFA(TB,0);
-                    if(lex->token == EOF_TOKEN) break;
-                }
-                if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
-                else{ 
-                    canContinue = 0;
-                    break;
-                }
-                while(1){
-                    stNode = popFromStack(st);
-                    // if(stNode->isTerminal == 1) printf("Terminal = %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
-                    // else if(stNode->isTerminal == 0) printf("Non Terminal = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-                    if(stNode->isTerminal == 1 && stNode->NODETYPE->terminal == EOF_TOKEN){
-                        while(lex->token != EOF_TOKEN) lex = simulateDFA(TB,0);
-                        stNode->treenode->TREENODEDATA->terminal = lex;
-                        canContinue = 0;
-                        break;
-                    }
-                    if(st->top->isTerminal == 1 && (st->top->NODETYPE->terminal == SEMICOL_OPERATOR)) {
-                        canContinue = 1;
-                        break;
-                    }
-                }
-                if(canContinue == 1){
-                    stNode->treenode->TREENODEDATA->terminal = lex;
-                    printf("\033[032mERROR RECOVERY DONE\033[0m\n\n");
-                    lex = simulateDFA(TB,0);
-                }
+                lex = errorHandling(st,lex,1,stNode,TB);
+                // while(lex->token != SEMICOL_OPERATOR){
+                //     lex = simulateDFA(TB,0);
+                //     if(lex->token == EOF_TOKEN) break;
+                // }
+                // if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
+                // else{ 
+                //     canContinue = 0;
+                //     break;
+                // }
+                // while(1){
+                //     stNode = popFromStack(st);
+                //     // if(stNode->isTerminal == 1) printf("Terminal = %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+                //     // else if(stNode->isTerminal == 0) printf("Non Terminal = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+                //     if(stNode->isTerminal == 1 && stNode->NODETYPE->terminal == EOF_TOKEN){
+                //         while(lex->token != EOF_TOKEN) lex = simulateDFA(TB,0);
+                //         stNode->treenode->TREENODEDATA->terminal = lex;
+                //         canContinue = 0;
+                //         break;
+                //     }
+                //     if(st->top->isTerminal == 1 && (st->top->NODETYPE->terminal == SEMICOL_OPERATOR)) {
+                //         canContinue = 1;
+                //         break;
+                //     }
+                // }
+                // if(canContinue == 1){
+                //     stNode->treenode->TREENODEDATA->terminal = lex;
+                //     printf("\033[032mERROR RECOVERY DONE\033[0m\n\n");
+                //     lex = simulateDFA(TB,0);
+                // }
                 // else break;
             }
         }
         else if(stNode->isTerminal == 0){
-            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);
             }
             else{
-                errorHandling(st,lex,2,stNode);
-                while(lex->token != SEMICOL_OPERATOR){
-                    lex = simulateDFA(TB,0);
-                    if(lex->token == EOF_TOKEN) break;
-                }
-                if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
-                else break;
-                while(1){
-                    stNode = popFromStack(st);
-                    if(stNode->isTerminal == 1 && (stNode->NODETYPE->terminal == SEMICOL_OPERATOR)) {
-                        canContinue = 1;
-                        break;
-                    }
-                    if(st->size == 0){
-                        canContinue = 0;
-                        break;
-                    }
-                    // if(stNode->isTerminal == 0) printf("stNode = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-                    // else printf("stNode = %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
-                }
-                if(canContinue == 1){
-                    stNode->treenode->TREENODEDATA->terminal = lex;
-                    printf("\033[032mERROR RECOVERY DONE\033[0m\n");
-                    lex = simulateDFA(TB,0);
+                lex = errorHandling(st,lex,2,stNode,TB);
+                // while(lex->token != SEMICOL_OPERATOR){
+                //     lex = simulateDFA(TB,0);
+                //     if(lex->token == EOF_TOKEN) break;
+                // }
+                // if(lex->token == SEMICOL_OPERATOR) canContinue = 1;
+                // else break;
+                // while(1){
+                //     stNode = popFromStack(st);
+                //     if(stNode->isTerminal == 1 && (stNode->NODETYPE->terminal == SEMICOL_OPERATOR)) {
+                //         canContinue = 1;
+                //         break;
+                //     }
+                //     if(st->size == 0){
+                //         canContinue = 0;
+                //         break;
+                //     }
+                //     // if(stNode->isTerminal == 0) printf("stNode = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+                //     // else printf("stNode = %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+                // }
+                // if(canContinue == 1){
+                //     stNode->treenode->TREENODEDATA->terminal = lex;
+                //     printf("\033[032mERROR RECOVERY DONE\033[0m\n");
+                //     lex = simulateDFA(TB,0);
 
-                }
+                // }
                 // else break;
             }
         }
         free(stNode);
     }
     lex = simulateDFA(TB,0);
-    if(lex->token != EOF_TOKEN) errorHandling(st,lex,4,stNode);
+    if(lex->token != EOF_TOKEN) errorHandling(st,lex,4,stNode,TB);
     else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
     printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);

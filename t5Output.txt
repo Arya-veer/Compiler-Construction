@@ -10,7 +10,7 @@
 
        ----------            moduleDeclarations             program      NO
 
-       epsilon     epsilon        moduleDeclarations      NO
+       epsilon     epsilon        moduleDeclarations      YES
 
        ----------            moduleDeclarations             moduleDeclarations      NO
 
@@ -44,7 +44,7 @@
 
        [            4            SQBO     dataType      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             arrRange      NO
 
@@ -58,7 +58,7 @@
 
        ..            4            RANGEOP     leftFactored_arrRange      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             leftFactored_arrRange      NO
 
@@ -86,7 +86,7 @@
 
        ----------            dataType             leftFactored_input_plist      NO
 
-       epsilon     epsilon        leftFactored_input_plist      NO
+       epsilon     epsilon        leftFactored_input_plist      YES
 
        ----------            leftFactored_input_plist             leftFactored_input_plist      NO
 
@@ -110,7 +110,7 @@
 
        ----------            type             output_plist      NO
 
-       epsilon     epsilon        leftFactored_output_plist      NO
+       epsilon     epsilon        leftFactored_output_plist      YES
 
        ----------            leftFactored_output_plist             output_plist      NO
 
@@ -130,7 +130,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -154,7 +154,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -178,7 +178,7 @@
 
        ----------            lvalueIDStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -192,25 +192,25 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       epsilon     epsilon        relationalTerm      NO
+       epsilon     epsilon        relationalTerm      YES
 
        ----------            relationalTerm             anyTerm      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -266,7 +266,7 @@
 
        ----------            lvalueIDStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -276,7 +276,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -284,13 +284,13 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
@@ -302,7 +302,7 @@
 
        ----------            relationalTerm             anyTerm      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -312,7 +312,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -320,19 +320,19 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             relationalTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -416,7 +416,7 @@
 
        ----------            lvalueIDStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -426,7 +426,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -434,7 +434,7 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
@@ -446,7 +446,7 @@
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -460,7 +460,7 @@
 
        ----------            arrID             signedParam      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -472,13 +472,13 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
        ----------            arithmeticExprWArr             arrID      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
@@ -488,23 +488,23 @@
 
        ----------            term             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       epsilon     epsilon        relationalTerm      NO
+       epsilon     epsilon        relationalTerm      YES
 
        ----------            relationalTerm             anyTerm      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -520,7 +520,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -550,7 +550,7 @@
 
        ----------            var             leftFactored_ioStmt      NO
 
-       epsilon     epsilon        whichId      NO
+       epsilon     epsilon        whichId      YES
 
        ----------            whichId             var      NO
 
@@ -574,7 +574,7 @@
 
        ----------            var             leftFactored_ioStmt      NO
 
-       epsilon     epsilon        whichId      NO
+       epsilon     epsilon        whichId      YES
 
        ----------            whichId             var      NO
 
@@ -588,7 +588,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -596,11 +596,11 @@
 
        ;            21            SEMICOL     leftFactored_caseStmt      YES
 
-       epsilon     epsilon        leftFactored_caseStmt      NO
+       epsilon     epsilon        leftFactored_caseStmt      YES
 
        ----------            leftFactored_caseStmt             leftFactored_caseStmt      NO
 
-       epsilon     epsilon        dfault      NO
+       epsilon     epsilon        dfault      YES
 
        ----------            dfault             conditionalStmt      NO
 
@@ -610,7 +610,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -630,7 +630,7 @@
 
        ----------            var             leftFactored_ioStmt      NO
 
-       epsilon     epsilon        whichId      NO
+       epsilon     epsilon        whichId      YES
 
        ----------            whichId             var      NO
 
@@ -644,7 +644,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -652,7 +652,7 @@
 
        ----------            otherModules             program      NO
 
-       epsilon     epsilon        otherModules      NO
+       epsilon     epsilon        otherModules      YES
 
        ----------            otherModules             otherModules      NO
 
@@ -678,7 +678,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -690,7 +690,7 @@
 
        [            29            SQBO     dataType      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             arrRange      NO
 
@@ -704,7 +704,7 @@
 
        ..            29            RANGEOP     leftFactored_arrRange      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             leftFactored_arrRange      NO
 
@@ -734,7 +734,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -758,7 +758,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -790,7 +790,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        optional      NO
+       epsilon     epsilon        optional      YES
 
        ----------            optional             moduleReuseStmt      NO
 
@@ -806,7 +806,7 @@
 
        parameters            33            PARAMETERS     moduleReuseStmt      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -816,7 +816,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -826,7 +826,7 @@
 
        ----------            leftFactored_paramList             paramList      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -836,11 +836,11 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
-       epsilon     epsilon        leftFactored_paramList      NO
+       epsilon     epsilon        leftFactored_paramList      YES
 
        ----------            leftFactored_paramList             leftFactored_paramList      NO
 
@@ -860,7 +860,7 @@
 
        ----------            idList             optional      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -880,7 +880,7 @@
 
        parameters            34            PARAMETERS     moduleReuseStmt      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -890,7 +890,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -900,7 +900,7 @@
 
        ----------            leftFactored_paramList             paramList      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -910,11 +910,11 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
-       epsilon     epsilon        leftFactored_paramList      NO
+       epsilon     epsilon        leftFactored_paramList      YES
 
        ----------            leftFactored_paramList             leftFactored_paramList      NO
 
@@ -936,7 +936,7 @@
 
        ----------            var             leftFactored_ioStmt      NO
 
-       epsilon     epsilon        whichId      NO
+       epsilon     epsilon        whichId      YES
 
        ----------            whichId             var      NO
 
@@ -950,7 +950,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -1000,7 +1000,7 @@
 
        ..            44            RANGEOP     leftFactored_arrRange      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             leftFactored_arrRange      NO
 
@@ -1028,7 +1028,7 @@
 
        ----------            dataType             leftFactored_input_plist      NO
 
-       epsilon     epsilon        leftFactored_input_plist      NO
+       epsilon     epsilon        leftFactored_input_plist      YES
 
        ----------            leftFactored_input_plist             leftFactored_input_plist      NO
 
@@ -1036,7 +1036,7 @@
 
        ;            44            SEMICOL     module      YES
 
-       epsilon     epsilon        ret      NO
+       epsilon     epsilon        ret      YES
 
        ----------            ret             module      NO
 
@@ -1052,7 +1052,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -1076,7 +1076,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -1100,7 +1100,7 @@
 
        ----------            lvalueIDStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1114,25 +1114,25 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       epsilon     epsilon        relationalTerm      NO
+       epsilon     epsilon        relationalTerm      YES
 
        ----------            relationalTerm             anyTerm      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -1154,7 +1154,7 @@
 
        (            50            BO     iterativeStmt      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1164,7 +1164,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -1172,13 +1172,13 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
@@ -1190,7 +1190,7 @@
 
        ----------            relationalTerm             anyTerm      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1200,7 +1200,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -1208,19 +1208,19 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             relationalTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
        ----------            arithmeticBooleanExpr             iterativeStmt      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -1252,7 +1252,7 @@
 
        ----------            lvalueARRStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -1264,13 +1264,13 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
        ----------            arithmeticExprWArr             lvalueARRStmt      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
@@ -1278,7 +1278,7 @@
 
        :=            53            ASSIGNOP     lvalueARRStmt      YES
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1288,7 +1288,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -1296,25 +1296,25 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
        ----------            arithmeticExpr             anyTerm      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       epsilon     epsilon        relationalTerm      NO
+       epsilon     epsilon        relationalTerm      YES
 
        ----------            relationalTerm             anyTerm      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -1338,7 +1338,7 @@
 
        ----------            idList             declareStmt      NO
 
-       epsilon     epsilon        leftFactored_idList      NO
+       epsilon     epsilon        leftFactored_idList      YES
 
        ----------            leftFactored_idList             idList      NO
 
@@ -1408,7 +1408,7 @@
 
        ----------            arithmeticFactor             unaryTerm      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1418,7 +1418,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -1426,7 +1426,7 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
@@ -1438,7 +1438,7 @@
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1452,7 +1452,7 @@
 
        ----------            arrID             signedParam      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -1464,7 +1464,7 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
@@ -1476,7 +1476,7 @@
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -1494,7 +1494,7 @@
 
        ----------            leftFactored_termWArr             termWArr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -1504,11 +1504,11 @@
 
        ----------            factorWArr             signedFactorWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             leftFactored_termWArr      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             leftFactored_arithmeticExprWArr      NO
 
@@ -1518,7 +1518,7 @@
 
        ----------            term             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
@@ -1528,7 +1528,7 @@
 
        ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1556,13 +1556,13 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
        ----------            arithmeticExprWArr             arrID      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
@@ -1572,7 +1572,7 @@
 
        ----------            term             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
@@ -1582,7 +1582,7 @@
 
        ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1610,13 +1610,13 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
        ----------            arithmeticExprWArr             arrID      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
@@ -1626,11 +1626,11 @@
 
        ----------            term             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
 
@@ -1656,7 +1656,7 @@
 
        ----------            lvalueARRStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             signedFactorWArr      NO
 
@@ -1668,13 +1668,13 @@
 
        ----------            termWArr             arithmeticExprWArr      NO
 
-       epsilon     epsilon        leftFactored_termWArr      NO
+       epsilon     epsilon        leftFactored_termWArr      YES
 
        ----------            leftFactored_termWArr             termWArr      NO
 
        ----------            arithmeticExprWArr             lvalueARRStmt      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExprWArr      NO
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
 
        ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
 
@@ -1712,7 +1712,7 @@
 
        ----------            lvalueIDStmt             whichStmt      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1722,7 +1722,7 @@
 
        ----------            signedParam             param      NO
 
-       epsilon     epsilon        arrID      NO
+       epsilon     epsilon        arrID      YES
 
        ----------            arrID             signedParam      NO
 
@@ -1730,7 +1730,7 @@
 
        ----------            term             arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
@@ -1742,7 +1742,7 @@
 
        ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
 
-       epsilon     epsilon        sign      NO
+       epsilon     epsilon        sign      YES
 
        ----------            sign             param      NO
 
@@ -1756,23 +1756,23 @@
 
        ----------            term             leftFactored_arithmeticExpr      NO
 
-       epsilon     epsilon        leftFactored_term      NO
+       epsilon     epsilon        leftFactored_term      YES
 
        ----------            leftFactored_term             term      NO
 
-       epsilon     epsilon        leftFactored_arithmeticExpr      NO
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
 
        ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
 
        ----------            anyTerm             arithmeticBooleanExpr      NO
 
-       epsilon     epsilon        relationalTerm      NO
+       epsilon     epsilon        relationalTerm      YES
 
        ----------            relationalTerm             anyTerm      NO
 
        ----------            arithmeticBooleanExpr             expression      NO
 
-       epsilon     epsilon        logicalTerm      NO
+       epsilon     epsilon        logicalTerm      YES
 
        ----------            logicalTerm             arithmeticBooleanExpr      NO
 
@@ -1788,7 +1788,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -1798,7 +1798,7 @@
 
        ----------            statements             statements      NO
 
-       epsilon     epsilon        statements      NO
+       epsilon     epsilon        statements      YES
 
        ----------            statements             statements      NO
 
@@ -1806,7 +1806,7 @@
 
        ----------            otherModules             program      NO
 
-       epsilon     epsilon        otherModules      NO
+       epsilon     epsilon        otherModules      YES
 
        ----------            otherModules             otherModules      NO
 
