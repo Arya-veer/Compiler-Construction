@@ -4,10 +4,19 @@
 // #include "../rules/addRules.c"
 #include "automation.h"
 // FIRSTANDFOLLOWSETS[119][200]={0};
-// int FOLLOWSETS[129][20] = {0};
+int FOLLOWSETS[129][20] = {0};
+int SYNCSET[70][20] = {0};
+// 
 int vis[129] = {0};
 
-
+int check1(int i){
+    for(int j = 1;j<=FOLLOWSETS[i][0];j++){
+        if(FOLLOWSETS[i][j] == SEMICOL_OPERATOR){
+            return 0;
+        }
+    }
+    return 1;
+}
 int check(int i, int val)
 {
     for (int j = 1; j <= FOLLOWSETS[i][0]; j++)
@@ -223,18 +232,48 @@ void automateFirstandFollow(LISTNODE *RULES)
         // printf("-----------------------------\n");
     }
     printf("First and Follow Automated\n");
-    // printf("PRINTING FIRSTANDFOLLOW\n");
-    // for (int i = 0; i < 129; i++)
-    // {
-    //     int size = FIRSTANDFOLLOWSETS[i][0];
+    for(int i = 0 ; i < numRules ; i++){
+        int vis1[129] = {0};
+        FOLLOWSETS[0][0] = 1;
+        FOLLOWSETS[0][1] = EOF_TOKEN;
+        vis1[0] = 1;
+        follow(numRules , RULES , i , vis1);
+        if(check1(i)){
+            FOLLOWSETS[i][0]++;
+            FOLLOWSETS[i][FOLLOWSETS[i][0]]=SEMICOL_OPERATOR;
+        }
 
-    //     // printf("vis = %d, ", vis1[i]);
-    //     printf("size = %d, ", FIRSTANDFOLLOWSETS[i][0]);
+    }
+    printf("COPY FOLLOW\n");
+    for (int i = 0; i < 129; i++)
+    { 
+        for (int j = 0; j <= FOLLOWSETS[i][0]; j++)
+        {   
+            SYNCSET[RULES[i]->NODETYPE->nonterminal][j] = FOLLOWSETS[i][j];
+            // printf("%s, ", TERMINALS_STRINGS[FOLLOWSETS[i][j]]);
+        }
+        // printf("\n");
+    }
+
+    // printf("PRINTING SYNCSET\n");
+    // for (int i = 0; i < 70; i++)
+    // { 
+    //     int size = SYNCSET[i][0];
+
+    //     printf("\n%d,\n",i);
+    //     printf("size = %d, ", SYNCSET[i][0]);
     //     for (int j = 1; j <= size; j++)
     //     {
-    //         // {   if(j!=0)
-    //         printf("%s, ", TERMINALS_STRINGS[FIRSTANDFOLLOWSETS[i][j]]);
+    //         printf("%s, ", TERMINALS_STRINGS[SYNCSET[i][j]]);
     //     }
-    //     printf("\n");
     // }
+}
+int inSyncSet(int terminal,int nonterminal){
+    int n = SYNCSET[nonterminal][0];
+    for(int j = 1;j<=n;j++){
+        if(terminal == SYNCSET[nonterminal][j]){
+            return 1;
+        }
+    }
+    return 0;
 }

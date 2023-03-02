@@ -26,7 +26,7 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
     }
     stNode = st->top;
     printf("NonTerminal now = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
-    while(!inFollowSets(lex->token,stNode->NODETYPE->nonterminal)) {
+    while(!inSyncSet(lex->token,stNode->NODETYPE->nonterminal)) {
         lex=simulateDFA(TB,1);
     }
     // popFromStack(st);
@@ -109,6 +109,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);
+
             }
             else{
                 lex = errorHandling(st,lex,2,stNode,TB);
