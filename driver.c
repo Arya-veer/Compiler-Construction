@@ -53,9 +53,15 @@ short removeComments(char* srcName, char* distName){
 
 int main(int argc, char* argv[]){
     int option = -1;
+    printf("            FIRST AND FOLLOW SETS AUTOMATED         \n");
+    printf("            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         \n");
+    printf("            MODULES WORK WITH ALL GIVEN TEST CASES\n");
+
+
     char* grammarFile = "grammar.txt";
     char* inputFile = argv[1];
     char* outputFile = argv[2];
+    if(argc != 4){ printf("4 arguments expected, %d received\n",argc); return 0;}
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
     int SIZE = atoi(argv[3]);
