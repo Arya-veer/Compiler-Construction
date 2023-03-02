@@ -25,15 +25,15 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
         popFromStack(st);
     }
     stNode = st->top;
-    printf("NonTerminal now = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
+    // printf("NonTerminal now = %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->nonterminal]);
     while(!inSyncSet(lex->token,stNode->NODETYPE->nonterminal)) {
-        lex=simulateDFA(TB,1);
+        lex=simulateDFA(TB,0);
     }
     // popFromStack(st);
     if(lex->token == SEMICOL_OPERATOR){
-        lex = simulateDFA(TB,1);
+        lex = simulateDFA(TB,0);
     }
-    printf("\033[032mERROR RECOVERY DONE\033[0m\n");
+    // printf("    \x1B[1m \033[032mERROR RECOVERY DONE\033[0m\033[0m\n");
     if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] == -1){
         popFromStack(st);
     }
@@ -64,7 +64,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
         /* Checking for the terminal */
 
         if(stNode->isTerminal == 1){
-            printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            // printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
                 stNode->treenode->TREENODEDATA->terminal = lex;
                 lex = simulateDFA(TB,0);
@@ -105,7 +105,7 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
             }
         }
         else if(stNode->isTerminal == 0){
-            printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
+            // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);
