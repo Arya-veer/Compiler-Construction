@@ -1,0 +1,229 @@
+1. <finalProgram> -> <program> EOF
+{
+    // GOING DOWN
+    <finalProgram>.addr = <program>.addr
+    free(EOF)
+
+}
+
+2. <program> -> <moduleDeclarations> <otherModules> <driverModule> <otherModules>
+{
+    // GOING DOWN
+
+
+}
+
+3. <moduleDeclarations> -> <moduleDeclaration> <moduleDeclarations1>
+{
+    //GOING UP
+    <moduleDeclarations>.list_addr_syn = insertAtBegin(<moduleDeclaration>.addr,<moduleDeclarations1>.list_addr_syn)
+    <moduleDeclarations>.addr = <moduleDeclarations>.list_addr_syn
+}
+
+4. <moduleDeclarations> -> epsilon
+{
+    // GOING UP
+    <moduleDeclarations>.list_addr_syn = NULL
+    free(epsilon)
+}
+
+5. <moduleDeclaration> -> DECLARE MODULE ID SEMICOL
+{
+    // GOING UP
+    <moduleDeclaration>.addr = ID.addr
+    free(DECLARE)
+    free(MODULE)
+    free(SEMICOL)
+}
+
+6. <otherModules> -> <module> <otherModules1>
+{
+    // GOING UP
+    <otherModules>.list_addr_syn = insertAtBegin(<module>.addr,<otherModules1>.list_addr_syn)
+    <otherModules>.addr = <otherModules>.list_addr_syn
+}
+
+7. <otherModules> -> epsilon
+{
+    // GOING UP
+    <otherModules>.list_addr_syn = NULL
+    free(epsilon)
+}
+
+8. <driverModule> -> DRIVERDEF DRIVER PROGRAM DRIVERENDDEF <moduleDef>
+{
+    // GOING DOWN
+    <driverModule>.addr = <moduleDef>.addr
+    free(DRIVERDEF)
+    free(DRIVERENDDEF)
+    free(PROGRAM)
+    free(DRIVER)
+}
+
+9. <module> -> DEF MODULE ID ENDDEF TAKES INPUT SQBO <input_plist> SQBC SEMICOL <ret> <moduleDef>
+{
+    // GOING DOWN
+    <module>.addr = makeNode(ID,<module>.addr_syn,<moduleDef>.addr)
+    free(DEF)
+    free(MODULE)
+    free(ID)
+    free(ENDDEF)
+    free(TAKES)
+    free(INPUT)
+    free(SQBO)
+    free(SQBC)
+    free(SEMICOL)
+    <module>.addr_syn = makeNode(PARAMETERS,<input_plist>.addr,<ret>.addr)
+}
+
+10. <ret> -> RETURNS SQBO <output_plist> SQBC SEMICOL
+{
+    // GOING DOWN
+    <ret>.addr = <output_plist>.addr
+    free(RETURNS)
+    free(SQBO)
+    free(SQBC)
+    free(SEMICOL)
+}
+
+11. <ret> -> epsilon
+{
+    // GOING DOWN
+    free(epsilon)
+    // GOING UP
+    free(<ret>)
+}
+
+12. <input_plist> -> ID COLON <dataType> <leftFactored_input_plist>
+{
+    // GOING DOWN
+    <input_plist>.addr = makeNode(ID,<dataType>.addr,<input_plist>.addr_syn)
+    free(COLON)
+    free(ID)
+    // GOING UP
+    <input_plist>.addr_syn = <dataType>.addr_syn
+    <input_plist>.list_addr_syn = insertAtBegin(<input_plist>.addr,<leftFactored_input_plist>.list_addr_syn)
+}
+
+13. <leftFactored_input_plist> -> COMMA ID COLON <dataType> <leftFactored_input_plist1>
+{
+    // GOING DOWN
+    <leftFactored_input_plist>.addr = makeNode(ID,<dataType>.addr,<leftFactored_input_plist>.addr_syn)
+    <leftFactored_input_plist>.addr_syn = NULL
+    free(COLON)
+    free(COMMA)
+    free(ID)
+    // GOING UP
+    <leftFactored_input_plist>.addr_syn = <dataType>.addr_syn
+    <leftFactored_input_plist>.list_addr_syn = insertAtBegin(<leftFactored_input_plist>.addr,<leftFactored_input_plist1>.list_addr_syn)
+
+}
+
+14. <leftFactored_input_plist> -> epsilon
+{
+    // GOING DOWN
+    <leftFactored_input_plist>.addr = NULL
+    free(epsilon)
+}
+
+15. <output_plist> -> ID COLON <type> <leftFactored_output_plist>
+{
+    // GOING DOWN
+    <output_plist>.addr = makeNode(ID, <type>.addr, NULL)
+    free(COLON)
+    free(ID)
+    // GOING UP
+    <output_plist>.list_addr_syn = insertAtBegin(<output_plist>.addr,<leftFactored_output_plist>.list_addr_syn)
+}
+
+16. <leftFactored_output_plist> -> COMMA ID COLON <type> <leftFactored_output_plist>
+{
+    // GOING DOWN
+    <leftFactored_output_plist>.addr = makeNode(ID, <type>.addr, NULL)
+    free(COMMA)
+    free(COLON)
+    free(ID)
+}
+
+17. <leftFactored_output_plist> -> epsilon
+{
+    // GOING DOWN
+    <leftFactored_output_plist>.addr = NULL
+    free(epsilon)
+}
+
+18. <dataType> -> INTEGER
+{
+    // GOING DOWN
+    <dataType>.addr = INTEGER.addr
+}
+
+19. <dataType> -> REAL
+{
+    // GOING DOWN
+    <dataType>.addr = REAL.addr
+}
+
+20. <dataType> -> BOOLEAN
+{
+    // GOING DOWN
+    <dataType>.addr = BOOLEAN.addr
+}
+
+21. <dataType> -> ARRAY SQBO <arrRange> SQBC OF <type>
+{
+    // GOING DOWN
+    <dataType>.addr = <type>.addr
+    free(ARRAY)
+    free(SQBO)
+    free(SQBC)
+    free(OF)
+    // GOING UP
+    <dataType>.addr_syn = <arrRange>.addr_syn
+}
+
+22. <arrRange> -> <sign> <leftFactored_arrRange>
+{
+    // GOING DOWN
+    <arrRange>.addr = <sign>.addr
+    <leftFactored_arrRange>.addr_inh = <arrRange>.addr
+    // GOING UP
+    <arrRange>.addr_syn = <leftFactored_arrRange>.addr
+}
+
+23. <leftFactored_arrRange> -> <idNum1> RANGEOP <sign> <idNum2>
+{
+    // GOING DOWN
+    <leftFactored_arrRange>.addr = makeNode(RANGEOP,<idNum1>.addr,<idNum2>.addr)
+    <idNum1>.addr_inh = <leftFactored_arrRange>.addr_inh
+    <idNum2>.addr_inh = <sign>.addr
+    // GOING UP 
+    free(RANGEOP)
+}
+
+24. <idNum> -> ID
+{
+    // GOING DOWN
+    <idNum>.addr = makeNode(ID,<idNum>.addr_inh,NULL)
+    free(ID)
+}
+
+25. <idNum> -> NUM
+{
+    // GOING DOWN
+    <idNum>.addr = makeNode(NUM,<idNum>.addr_inh,NULL)
+    free(NUM)
+}
+
+26. <sign> -> <pm>
+{
+    // GOING DOWN
+    <sign>.addr = <pm>.addr
+}
+
+27. <sign> -> epsilon
+{
+    // GOING DOWN
+    <sign>.addr = NULL
+    free(epsilon)
+}
