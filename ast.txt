@@ -94,8 +94,6 @@
 {
     // GOING DOWN
     free(epsilon)
-    // GOING UP
-    free(<ret>)
 }
 
 12. <input_plist> -> ID COLON <dataType> <leftFactored_input_plist>
@@ -629,23 +627,80 @@
     <arithmeticFactor>.addr = RNUM.addr
 }
 
-82.
+82. <arithmeticBooleanExpr> -> <anyTerm> <logicalTerm>
+{
+    // GOING DOWN
+    <arithmeticBooleanExpr>.addr = <anyTerm>.addr
+    <logicalTerm>.addr_inh = <arithmeticBooleanExpr>.addr
+    // GOING UP
+    <arithmeticBooleanExpr>.addr_syn = <logicalTerm>.addr_syn
+}
 
-83.
+83. <logicalTerm> -> <logicalOp> <anyTerm> <logicalTerm1>
+{
+    // GOING DOWN
+    <logicalTerm>.addr = makeNode(<logicalOp>.addr,<logicalTerm>.addr_inh,<anyTerm>.addr)
+    <logicalTerm1>.addr_inh = logicalTerm.addr
+    // GOING UP
+    <logicalTerm>.addr_syn = <logicalTerm1>.addr_syn
+}
 
-84.
+84. <logicalTerm> -> epsilon
+{
+    // GOING DOWN
+    <logicalTerm>.addr_syn = <logicalTerm>.addr_inh
+    free(epsilon)
+}
 
-85.
+85. <anyTerm> -> <arithmeticExpr> <relationalTerm>
+{
+    // GOING DOWN
+    <anyTerm>.addr_syn = <arithmeticExpr>.addr_syn
+    <relationalTerm>.addr_inh = <anyTerm>.addr_syn
+    // GOING UP
+    <anyTerm>.addr = <relationalTerm>.addr
+}
 
-86.
+86. <relationalTerm> -> <relationalOp> <arithmeticExpr>
+{
+    // GOING DOWN
+    <relationalTerm>.addr = makeNode(<relationalOp>.addr,<relationalTerm>.addr_inh,<arithmeticExpr>.addr_syn)
+}
 
-87.
+87. <relationalTerm> -> epsilon
+{
+    // GOING DOWN
+    <relationalTerm>.addr = NULL
+    // GOING UP
+    free(epsilon)
+}
 
-88.
+88. <arithmeticExpr> -> <term> <leftFactored_arithmeticExpr>
+{
+    // GOING DOWN
+    <arithmeticExpr>.addr = <term>.addr ; 
+    <leftFactored_arithmeticExpr>.addr_inh = <arithmeticExpr>.addr ;
+    // GOING UP
+    <arithmeticExpr>.addr_syn = <leftFactored_arithmeticExpr>.addr_syn ; 
+}
 
-89.
+89. <leftFactored_arithmeticExpr> -> <pm> <term> <leftFactored_arithmeticExpr1>
+{
+    // GOING DOWN
+    <leftFactored_arithmeticExpr>.addr = makeNode(<pm>.addr , <leftFactored_arithmeticExpr>.addr_inh , <term>.addr_syn)
+    <leftFactored_arithmeticExpr1>.addr_inh = <leftFactored_arithmeticExpr>.addr
+    // GOING UP
+    <leftFactored_arithmeticExpr>.addr_syn <leftFactored_arithmeticExpr1>.addr_syn 
 
-90.
+}
+
+90. <leftFactored_arithmeticExpr> -> epsilon
+{
+    // GOING DOWN
+    <leftFactored_arithmeticExpr>.addr_syn = <leftFactored_arithmeticExpr>.addr_inh ;
+    // GOING UP
+    free(epsilon)
+}
 
 91. <pm> -> PLUS 
 {
@@ -671,48 +726,100 @@
     <md>.addr = DIV.addr ; 
 }
 
+95. <term> -> <factor> <leftFactored_term>
+{
+    // GOING DOWN
+    <term>.addr = <factor>.addr ;
+    <leftFactored_term>.addr_inh = <term>.addr ;
+    // GOING UP
+    <term>.addr_syn = <leftFactored_term>.addr_syn;
+}
+
+96. <leftFactored_term> -> <md> <factor> <leftFactored_term1>
+{
+    // GOING DOWN
+    <leftFactored_term>.addr = makeNode(<md>.addr, <leftFactored_term>.addr_inh , <factor>.addr);
+    <leftFactored_term1>.addr_inh = <leftFactored_term>.addr ; 
+
+    // GOING UP
+    <leftFactored_term>.addr_syn = <leftFactored_term1>.addr_syn
+}
+
+97. <leftFactored_term> -> epsilon
+{
+    // GOING DOWN
+    <leftFactored_term>.addr_syn = <leftFactored_term>.addr_inh
+    // GOING UP
+    free(epsilon)
+}
+
+98. <factor> -> BO <arithmeticBooleanExpr> BC
+{
+    // GOING DOWN
+    <factor>.addr = <arithmeticBooleanExpr>.addr
+    // GOING UP
+    free(BO)
+    free(BC)
+}
+
+99. <factor> -> <param>
+{
+    // GOING DOWN
+    <factor>.addr = <param>.addr
+}
+
 100. <arithmeticExprWArr> -> <termWArr> <leftFactored_arithmeticExprWArr>
 {
     // GOING DOWN
     <arithmeticExprWArr>.addr = <termWArr>.addr ; 
     <leftFactored_arithmeticExprWArr>.addr_inh = <arithmeticExprWArr>.addr ;
-    <arithmeticExprWArr>.addr_syn = <leftFactored_arithmeticExprWArr>.addr ; 
+    // GOING UP
+    <arithmeticExprWArr>.addr_syn = <leftFactored_arithmeticExprWArr>.addr_syn ; 
 }
 
 101. <leftFactored_arithmeticExprWArr> -> <pm> <termWArr> <leftFactored_arithmeticExprWArr1>
 {
     // GOING DOWN
-    <leftFactored_arithmeticExprWArr>.addr = makeNode(<pm>.addr , <leftFactored_arithmeticExprWArr>.addr_inh , <leftFactored_arithmeticExprWArr1>.addr_syn)
-    <leftFactored_arithmeticExprWArr1>.addr_inh = <leftFactored_arithmeticExprWArr>.addr_syn
+    <leftFactored_arithmeticExprWArr>.addr = makeNode(<pm>.addr , <leftFactored_arithmeticExprWArr>.addr_inh , <termWArr>.addr_syn)
+    <leftFactored_arithmeticExprWArr1>.addr_inh = <leftFactored_arithmeticExpr>.addr
+    // GOING UP
+    <leftFactored_arithmeticExprWArr>.addr_syn <leftFactored_arithmeticExprWArr1>.addr_syn 
+
 }
 
 102. <leftFactored_arithmeticExprWArr> -> epsilon
 {
     // GOING DOWN
-    <leftFactored_termWArr>.addr_syn = <leftFactored_termWArr>.addr_inh ;
+    <leftFactored_arithmeticExprWArr>.addr_syn = <leftFactored_arithmeticExprWArr>.addr_inh ;
     // GOING UP
     free(epsilon)
 }
 
-103. <termWArr> -> <signedFactorWArr> <leftFactored_termWArr>
+103. <termWArr> -> <factorWArr> <leftFactored_termWArr>
 {
     // GOING DOWN
     <termWArr>.addr = <signedFactorWArr>.addr ;
-    <leftFactored_termWArr>.addr_inh = <termWArr>.addr ; 
-    <termWArr>.addr_syn = <leftFactored_term>.addr;
+    <leftFactored_termWArr>.addr_inh = <termWArr>.addr ;
+    // GOING UP
+    <termWArr>.addr_syn = <leftFactored_termWArr>.addr_syn;
 }
 
 104. <leftFactored_termWArr> -> <md> <signedFactorWArr> <leftFactored_termWArr1>
 {
     // GOING DOWN
-    <leftFactored_termWArr>.addr = makeNode(<md>.addr, <signedFactorWArr> , <leftFactored_termWArr1>);
-    <leftFactored_termWArr1>.addr_inh = <leftFactored_termWArr>.addr_syn ; 
+    <leftFactored_termWArr>.addr = makeNode(<md>.addr, <leftFactored_termWArr>.addr_inh , <signedFactorWArr>.addr);
+    <leftFactored_termWArr1>.addr_inh = <leftFactored_termWArr>.addr ; 
+
+    // GOING UP
+    <leftFactored_termWArr>.addr_syn = <leftFactored_termWArr1>.addr_syn
     
 }
 105. <leftFactored_termWArr> -> epsilon
 {
     // GOING DOWN
     <leftFactored_termWArr>.addr_syn = <leftFactored_termWArr>.addr_inh
+    // GOING UP
+    free(epsilon)
     
 }
 106. <signedFactorWArr> -> <sign> <factorWArr>
