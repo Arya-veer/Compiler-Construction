@@ -41,6 +41,7 @@ typedef struct TreeNode* TREENODE;
 union TreeNodeData{
     LEXEME* terminal;
     NONTERMINALS nonterminal;
+    char* nodeName;
 };
 
 struct TreeNode{
@@ -49,6 +50,13 @@ struct TreeNode{
     TREENODE parent;
     union TreeNodeData* TREENODEDATA;
     short isTerminal;
+    short ruleNum;
+    TREENODE addr;
+    TREENODE list_addr_syn;
+    TREENODE list_addr_inh;
+    TREENODE left_child;
+    TREENODE right_child;
+    // AST 
 };
 
 /*STACK STRUCTURE*/
@@ -69,6 +77,19 @@ struct Stack {
     short size;
 };
 
+// typedef struct ASTNode* ASTNODE;
+// struct ASTNode {
+//     AST left;
+//     AST right;
+//     AST addr_inh;
+//     AST addr_syn;
+// };
 
+// typedef union Ast* AST;
+
+// union Ast {
+//     ASTNODE astNode;
+//     TREENODE treeNode;
+// };
 
 #endif

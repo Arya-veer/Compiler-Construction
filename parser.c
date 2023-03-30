@@ -215,6 +215,7 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     tn->child = childHead;
     childHead->next = NULL;
     childHead->child = NULL;
+    childHead->ruleNum = ln->ruleNum;
     childHead->isTerminal = ln->isTerminal;
     childHead->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     childHead->parent = tn;
@@ -232,6 +233,7 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     tn->next = nextNode;
     nextNode->next = NULL;
     nextNode->child = NULL;
+    nextNode->ruleNum = ln->ruleNum;
     nextNode->isTerminal = ln->isTerminal;
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     nextNode->parent = tn->parent;
@@ -694,7 +696,7 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
 
 /*PARSER CODE*/
 
-void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
+TREENODE* parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
     // printRules(129,RULES);
@@ -747,6 +749,34 @@ void parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     inorderTraversal(root,0, output);
     fclose(output);
     cleanTwinBuffer(TB);
+    return root;
 }
 
+/*
+FOLLOWING ARE THE FUNCTIONS OF PARSE TREE REQUIRED FOR AST CREATION
+*/
 
+
+TREENODE getChildNonTerminal(int nt,TREENODE tn){
+    if(tn->child == NULL) return NULL;
+    TREENODE ch1 = tn->child;
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
+            return ch1;
+        }
+    }
+    return NULL;
+}
+
+TREENODE getChildTerminal(int nt,TREENODE tn){
+    if(tn->child == NULL) return NULL;
+    TREENODE ch1 = tn->child;
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal->token == nt){
+            return ch1;
+        }
+    }
+    return NULL;
+}
