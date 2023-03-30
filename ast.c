@@ -207,304 +207,488 @@ void applyRule(int ruleNum,TREENODE parent){
         }
         case 30:{
             TREENODE moduleDef = parent;
+            free(getChildTerminal(START_KEYWORD,moduleDef));
+            free(getChildTerminal(END_KEYWORD,moduleDef));
             break;
         }
         case 31:{
-            
+            TREENODE statements = parent;
+            break;
         }
         case 32:{
-            
+            TREENODE statements = parent;
+            free(statements->child);
+            break;
         }
         case 33:{
-            
+            TREENODE statement = parent;
+            break;
         }
         case 34:{
-            
+            TREENODE statement = parent;
+            break;
         }
         case 35:{
-            
+            TREENODE statement = parent;
+            break;
         }
         case 36:{
-            
+            TREENODE statement = parent;
+            break;
         }
         case 37:{
-            
+            TREENODE statement = parent;
+            break;
         }
         case 38:{
-            
+            TREENODE ioStmt = parent;
+            free(getChildTerminal(GET_VALUE_KEYWORD,ioStmt));
+            free(getChildTerminal(BO_TOKEN,ioStmt));
+            free(getChildTerminal(BC_TOKEN,ioStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,ioStmt));
+            break;
         }
         case 39:{
-            
+            TREENODE ioStmt = parent;
+            free(getChildTerminal(PRINT_FUNCTION,ioStmt));
+            free(getChildTerminal(BO_TOKEN,ioStmt));
+            break;
         }
         case 40:{
-            
+            TREENODE leftFactored_ioStmt = parent;
+            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt));
+            break;
         }
         case 41:{
-            
+            TREENODE leftFactored_ioStmt = parent;
+            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt));
+            break;
         }
         case 42:{
-            
+            TREENODE boolValues = parent;
+            break;
         }
         case 43:{
-            
+            TREENODE boolValues = parent;
+            break;
         }
         case 44:{
-            
+            TREENODE var = parent;
+            free(getChildTerminal(IDENTIFIER_TOKEN,var));
+            break;
         }
         case 45:{
-            
+            TREENODE var = parent;
+            break;
         }
         case 46:{
-            
+            TREENODE var = parent;
+            break;
         }
         case 47:{
-            
+            TREENODE whichId = parent;
+            free(getChildTerminal(SQBO_TOKEN,whichId));
+            break;
         }
         case 48:{
-            
+            TREENODE whichId = parent;
+            free(whichId->child);
+            break;
         }
         case 49:{
-            
+            TREENODE leftFactored_whichId = parent;
+            free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId));
+            break;
         }
         case 50:{
-            
+            TREENODE leftFactored_whichId = parent;
+            free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId));
+            break;
         }
         case 51:{
-            
+            TREENODE simpleStmt = parent;
+            break;
         }
         case 52:{
-            
+            TREENODE simpleStmt = parent;
+            break;
         }
         case 53:{
-            
+            TREENODE assignmentStmt = parent;
+            break;
         }
         case 54:{
-            
+            TREENODE whichStmt = parent;
+            break;
         }
         case 55:{
-            
+            TREENODE whichStmt = parent;
+            break;
         }
         case 56:{
-            
+            TREENODE lvalueIDStmt = parent;
+            free(getChildTerminal(ASSIGNOP_OPERATOR,lvalueIDStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,lvalueIDStmt));
+            break;
         }
         case 57:{
-            
+            TREENODE lvalueARRStmt = parent;
+            free(getChildTerminal(SQBO_TOKEN,lvalueARRStmt));
+            free(getChildTerminal(SQBC_TOKEN,lvalueARRStmt));
+            free(getChildTerminal(ASSIGNOP_OPERATOR,lvalueARRStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,lvalueARRStmt));
+            break;
         }
         case 58:{
-            
+            TREENODE moduleReuseStmt = parent;
+            free(getChildTerminal(USE_KEYWORD,moduleReuseStmt));
+            free(getChildTerminal(MODULE_KEYWORD,moduleReuseStmt));
+            free(getChildTerminal(IDENTIFIER_TOKEN,moduleReuseStmt));
+            free(getChildTerminal(WITH_KEYWORD,moduleReuseStmt));
+            free(getChildTerminal(PARAMETERS_KEYWORD,moduleReuseStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,moduleReuseStmt));
+            break;
         }
         case 59:{
-            
+            TREENODE param = parent;
+            break;
         }
         case 60:{
-            
+            TREENODE signedParam = parent;
+            break;
         }
         case 61:{
-            
+            TREENODE arrID = parent;
+            free(getChildTerminal(SQBO_TOKEN,arrID));
+            free(getChildTerminal(SQBC_TOKEN,arrID));
+            break;
         }
         case 62:{
-            
+            TREENODE arrID = parent;
+            free(arrID->child);
+            break;
         }
         case 63:{
-            
+            TREENODE signedParam = parent;
+            break;
         }
         case 64:{
-            
+            TREENODE signedParam = parent;
+            break;
         }
         case 65:{
-            
+            TREENODE param = parent;
+            break;
         }
         case 66:{
-            
+            TREENODE paramList = parent;
+            break;
         }
         case 67:{
-            
+            TREENODE leftFactored_paramList = parent;
+            free(getChildTerminal(COMMA_OPERATOR,leftFactored_paramList));
+            break;
         }
         case 68:{
-            
+            TREENODE leftFactored_paramList = parent;
+            free(leftFactored_paramList->child);
+            break;
         }
         case 69:{
-            
+            TREENODE optional = parent;
+            free(getChildTerminal(SQBO_TOKEN,optional));
+            free(getChildTerminal(SQBC_TOKEN,optional));
+            free(getChildTerminal(ASSIGNOP_OPERATOR,optional));
+            break;
         }
         case 70:{
-            
+            TREENODE optional = parent;
+            free(optional->child);
+            break;
         }
         case 71:{
-            
+            TREENODE idList = parent;
+            break;
         }
         case 72:{
-            
+            TREENODE leftFactored_idList = parent;
+            free(getChildTerminal(COMMA_OPERATOR,leftFactored_idList));
+            free(getChildTerminal(IDENTIFIER_TOKEN,leftFactored_idList));
+            break;
         }
         case 73:{
-            
+            TREENODE leftFactored_idList = parent;
+            free(leftFactored_idList->child);
+            break;
         }
         case 74:{
-            
+            TREENODE expression = parent;
+            break;
         }
         case 75:{
-            
+            TREENODE expression = parent;
+            break;
         }
         case 76:{
-            
+            TREENODE unaryTerm = parent;
+            break;
         }
         case 77:{
-            
+            TREENODE arithmeticFactor = parent;
+            free(getChildTerminal(BO_TOKEN,arithmeticFactor));
+            free(getChildTerminal(BC_TOKEN,arithmeticFactor));
+            break;
         }
         case 78:{
-            
+            TREENODE arithmeticFactor = parent;
+            break;
         }
         case 79:{
-            
+            TREENODE arithmeticFactor = parent;
+            break;
         }
         case 80:{
-            
+            TREENODE arithmeticFactor = parent;
+            break;
         }
         case 81:{
-            
+            TREENODE arithmeticBooleanExpr = parent;
+            break;
         }
         case 82:{
-            
+            TREENODE logicalTerm = parent;
+            break;
         }
         case 83:{
-            
+            TREENODE logicalTerm = parent;
+            free(logicalTerm->child);
+            break;
         }
         case 84:{
-            
+            TREENODE anyTerm = parent;
+            break;
         }
         case 85:{
-            
+            TREENODE relationalTerm = parent;
+            break;
         }
         case 86:{
-            
+            TREENODE relationalTerm = parent;
+            free(relationalTerm->child);
+            break;
         }
         case 87:{
-            
+            TREENODE arithmeticExpr = parent;
+            break;
         }
         case 88:{
-            
+            TREENODE leftFactored_arithmeticExpr = parent;
+            break;
         }
         case 89:{
-            
+            TREENODE leftFactored_arithmeticExpr = parent;
+            free(leftFactored_arithmeticExpr->child);
+            break;
         }
         case 90:{
-            
+            TREENODE pm = parent;
+            break;
         }
         case 91:{
-            
+            TREENODE pm = parent;
+            break;
         }
         case 92:{
-            
+            TREENODE md = parent;
+            break;
         }
         case 93:{
-            
+            TREENODE md = parent;
+            break;
         }
         case 94:{
-            
+            TREENODE term = parent;
+            break;
         }
         case 95:{
-            
+            TREENODE leftFactored_term = parent;
+            break;;
         }
         case 96:{
-            
+            TREENODE leftFactored_term = parent;
+            free(leftFactored_term->child);
+            break;
         }
         case 97:{
-            
+            TREENODE factor = parent;
+            free(getChildTerminal(BO_TOKEN,factor));
+            free(getChildTerminal(BC_TOKEN,factor));
+            break;
         }
         case 98:{
-            
+            TREENODE factor = parent;
+            break;
         }
         case 99:{
-            
+            TREENODE arithmeticExprWArr = parent;
+            break;
         }
         case 100:{
-            
+            TREENODE leftFactored_arithmeticExprWArr = parent;
+            break;
         }
         case 101:{
-            
+            TREENODE leftFactored_arithmeticExprWArr = parent;
+            free(leftFactored_arithmeticExprWArr->child);
+            break;
         }
         case 102:{
-            
+            TREENODE termWArr = parent;
+            break;
         }
         case 103:{
-            
+            TREENODE leftFactored_termWArr = parent;
+            break;
         }
         case 104:{
-            
+            TREENODE leftFactored_termWArr = parent;
+            free(leftFactored_termWArr->child);
+            break;
         }
         case 105:{
-            
+            TREENODE signedFactorWArr = parent;
+            break;
         }
         case 106:{
-            
+            TREENODE factorWArr = parent;
+            free(getChildTerminal(BO_TOKEN,factorWArr));
+            free(getChildTerminal(BC_TOKEN,factorWArr));
+            break;
         }
         case 107:{
-            
+            TREENODE factorWArr = parent;
+            break;
         }
         case 108:{
-            
+            TREENODE factorWArr = parent;
+            break;
         }
         case 109:{
-            
+            TREENODE factorWArr = parent;
+            break;
         }
         case 110:{
-            
+            TREENODE logicalOp = parent;
+            break;
         }
         case 111:{
-            
+            TREENODE logicalOp = parent;
+            break;
         }
         case 112:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 113:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 114:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 115:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 116:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 117:{
-            
+            TREENODE relationalOp = parent;
+            break;
         }
         case 118:{
-            
+            TREENODE declareStmt = parent;
+            free(getChildTerminal(DECLARE_KEYWORD,declareStmt));
+            free(getChildTerminal(COLON_OPERATOR,declareStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,declareStmt));
+            break;
         }
         case 119:{
-            
+            TREENODE conditionalStmt = parent;
+            free(getChildTerminal(SWITCH_KEYWORD,conditionalStmt));
+            free(getChildTerminal(BO_TOKEN,conditionalStmt));
+            free(getChildTerminal(BC_TOKEN,conditionalStmt));
+            free(getChildTerminal(START_KEYWORD,conditionalStmt));
+            free(getChildTerminal(END_KEYWORD,conditionalStmt));
+            break;
         }
         case 120:{
-            
+            TREENODE caseStmt = parent;
+            free(getChildTerminal(CASE_KEYWORD,caseStmt));
+            free(getChildTerminal(COLON_OPERATOR,caseStmt));
+            free(getChildTerminal(BREAK_KEYWORD,caseStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,caseStmt));
+            break;
         }
         case 121:{
-            
+            TREENODE leftFactored_caseStmt = parent;
+            free(getChildTerminal(CASE_KEYWORD,leftFactored_caseStmt));
+            free(getChildTerminal(COLON_OPERATOR,leftFactored_caseStmt));
+            free(getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt));
+            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_caseStmt));
+            break;
         }
         case 122:{
-            
+            TREENODE leftFactored_caseStmt = parent;
+            free(leftFactored_caseStmt->child);
+            break;
         }
         case 123:{
-            
+            TREENODE value = parent;
+            break;
         }
         case 124:{
-            
+            TREENODE value = parent;
+            break;
         }
         case 125:{
-            
+            TREENODE dfault = parent;
+            free(getChildTerminal(DEFAULT_KEYWORD,dfault));
+            free(getChildTerminal(COLON_OPERATOR,dfault));
+            free(getChildTerminal(BREAK_KEYWORD,dfault));
+            free(getChildTerminal(SEMICOL_OPERATOR,dfault));
+            break;
         }
         case 126:{
-            
+            TREENODE dfault = parent;
+            free(dfault->child);
+            break;
         }
         case 127:{
-            
+            TREENODE iterativeStmt = parent;
+            free(getChildTerminal(FOR_KEYWORD,iterativeStmt));
+            free(getChildTerminal(BO_TOKEN,iterativeStmt));
+            free(getChildTerminal(IDENTIFIER_TOKEN,iterativeStmt));
+            free(getChildTerminal(IN_KEYWORD,iterativeStmt));
+            free(getChildTerminal(RANGEOP_OPERATOR,iterativeStmt));
+            free(getChildTerminal(BC_TOKEN,iterativeStmt));
+            free(getChildTerminal(START_KEYWORD,iterativeStmt));
+            free(getChildTerminal(END_KEYWORD,iterativeStmt));
+            break;
         }
         case 128:{
-            
-        }
-        case 129:{
-            
+            TREENODE iterativeStmt = parent;
+            free(getChildTerminal(WHILE_KEYWORD,iterativeStmt));
+            free(getChildTerminal(BO_TOKEN,iterativeStmt));
+            free(getChildTerminal(BC_TOKEN,iterativeStmt));
+            free(getChildTerminal(START_KEYWORD,iterativeStmt));
+            free(getChildTerminal(END_KEYWORD,iterativeStmt));
+            break;
         }
     }
 
