@@ -280,64 +280,93 @@ void applyRule(TREENODE parent){
             break;
         }
         case 30:{
-            TREENODE moduleDef = parent;
-            free(getChildTerminal(START_KEYWORD,moduleDef));
-            free(getChildTerminal(END_KEYWORD,moduleDef));
+            TREENODE moduleDef_node = parent;
+            TREENODE statements_node = getChildNonTerminal(statements,parent);
+            applyRule(statements_node);
+            moduleDef_node->addr = statements_node->addr;
+            free(getChildTerminal(START_KEYWORD,moduleDef_node));
+            free(getChildTerminal(END_KEYWORD,moduleDef_node));
             break;
         }
         case 31:{
-            TREENODE statements = parent;
+            TREENODE statements_node = parent;
+            TREENODE statement_node = getChildNonTerminal(statement,parent);
+            applyRule(statement_node);
+            TREENODE statements_node1 = getChildNonTerminal(statements,parent);
+            applyRule(statements_node1);
+            statements_node->list_addr_syn = insertAtBegin(statement_node->addr,statements_node1->list_addr_syn);
+            statements_node->addr = statements_node->list_addr_syn;
             break;
         }
         case 32:{
-            TREENODE statements = parent;
-            free(statements->child);
+            TREENODE statements_node = parent;
+            statements_node->list_addr_syn = NULL;
+            free(statements_node->child);
             break;
         }
         case 33:{
-            TREENODE statement = parent;
+            TREENODE statement_node = parent;
+            TREENODE ioStmt_node = getChildNonTerminal(ioStmt,parent);
+            statement_node->addr = ioStmt_node->addr;
             break;
         }
         case 34:{
-            TREENODE statement = parent;
+            TREENODE statement_node = parent;
+            TREENODE simpleStmt_node = getChildNonTerminal(simpleStmt,parent);
+            statement_node->addr = simpleStmt_node->addr;
             break;
         }
         case 35:{
-            TREENODE statement = parent;
+            TREENODE statement_node = parent;
+            TREENODE declareStmt_node = getChildNonTerminal(declareStmt,parent);
+            statement_node->addr = declareStmt_node->addr;
             break;
         }
         case 36:{
-            TREENODE statement = parent;
+            TREENODE statement_node = parent;
+            TREENODE conditionalStmt_node = getChildNonTerminal(conditionalStmt,parent);
+            statement_node->addr = conditionalStmt_node->addr;
             break;
         }
         case 37:{
-            TREENODE statement = parent;
+            TREENODE statement_node = parent;
+            TREENODE iterativeStmt_node = getChildNonTerminal(iterativeStmt,parent);
+            statement_node->addr = iterativeStmt_node->addr;
             break;
         }
         case 38:{
-            TREENODE ioStmt = parent;
-            free(getChildTerminal(GET_VALUE_KEYWORD,ioStmt));
-            free(getChildTerminal(BO_TOKEN,ioStmt));
-            free(getChildTerminal(BC_TOKEN,ioStmt));
-            free(getChildTerminal(SEMICOL_OPERATOR,ioStmt));
+            TREENODE ioStmt_node = parent;
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            ioStmt_node->addr = makeNode("GET_VALUE",ID->addr,NULL,NULL,2);
+            free(getChildTerminal(GET_VALUE_KEYWORD,ioStmt_node));
+            free(getChildTerminal(BO_TOKEN,ioStmt_node));
+            free(getChildTerminal(BC_TOKEN,ioStmt_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,ioStmt_node));
             break;
         }
         case 39:{
-            TREENODE ioStmt = parent;
-            free(getChildTerminal(PRINT_FUNCTION,ioStmt));
-            free(getChildTerminal(BO_TOKEN,ioStmt));
+            TREENODE ioStmt_node = parent;
+            TREENODE leftFactored_ioStmt_node = getChildNonTerminal(leftFactored_ioStmt,parent);
+            applyRule(leftFactored_ioStmt_node);
+            ioStmt_node->addr = makeNode("PRINT",leftFactored_ioStmt_node->addr,NULL,NULL,2);
+            free(getChildTerminal(PRINT_FUNCTION,ioStmt_node));
+            free(getChildTerminal(BO_TOKEN,ioStmt_node));
             break;
         }
         case 40:{
-            TREENODE leftFactored_ioStmt = parent;
-            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt));
-            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt));
+            TREENODE leftFactored_ioStmt_node = parent;
+            TREENODE var_node = getChildNonTerminal(var,parent);
+            applyRule(var_node);
+            leftFactored_ioStmt_node->addr = var_node->addr;
+            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             break;
         }
         case 41:{
-            TREENODE leftFactored_ioStmt = parent;
-            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt));
-            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt));
+            TREENODE leftFactored_ioStmt_node = parent;
+            
+            free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             break;
         }
         case 42:{
