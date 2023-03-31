@@ -3,9 +3,14 @@
 #include "parserDef.h"
 #include "parser.h"
 
-TREENODE makeNode(char* nodeName,TREENODE left,TREENODE right){
+TREENODE makeNode(char* nodeName,TREENODE left,TREENODE right,TREENODE assign,int which){
+    if(which == 1){
+        assign->left_child = left;
+        assign->right_child = right;
+        return assign;
+    }
     TREENODE tn = (TREENODE) malloc(sizeof(struct TreeNode));
-    tn->isTerminal=2;
+    tn->isTerminal=which;
     tn->TREENODEDATA = malloc(sizeof(union TreeNodeData));
     tn->TREENODEDATA->nodeName = nodeName;
     tn->left_child = left;
@@ -17,192 +22,261 @@ TREENODE makeNode(char* nodeName,TREENODE left,TREENODE right){
     return tn;
 }
 
-void applyRule(int ruleNum,TREENODE parent){
+void applyRule(TREENODE parent){
+
+    int ruleNum = parent->child->ruleNum;
 
     switch(ruleNum){
         case 0: {
-            TREENODE finalProgram = parent;
-            TREENODE program = getChildNonTerminal(1,finalProgram); 
-            applyRule(program->child->ruleNum,program);
-            finalProgram->addr = program->addr;
-            TREENODE eof = getChildTerminal(209,finalProgram);
-            free(eof);
+            TREENODE finalProgram_node = parent;
+            TREENODE program_node = getChildNonTerminal(program,finalProgram_node); 
+            applyRule(program);
+            finalProgram_node->addr = program_node->addr;
+            TREENODE eof_node = getChildTerminal(EOF_TOKEN,finalProgram_node);
+            free(eof_node);
             break;
         }
         case 1:{
 
         }
         case 2:{
-            TREENODE moduleDeclarations = parent;
-            TREENODE moduleDeclaration = getChildNonTerminal(3,moduleDeclarations);
-            TREENODE moduleDeclarations1 = getChildNonTerminal(2,moduleDeclarations);
-            applyRule(moduleDeclaration->child->ruleNum,moduleDeclaration);
-            applyRule(moduleDeclarations1->child->ruleNum,moduleDeclarations1);
-            moduleDeclarations->list_addr_syn = insertAtBegin(moduleDeclaration->addr,moduleDeclarations1->list_addr_syn);
-            moduleDeclarations->addr=moduleDeclarations->list_addr_syn;
+            TREENODE moduleDeclarations_node = parent;
+            TREENODE moduleDeclaration_node = getChildNonTerminal(moduleDeclaration,moduleDeclarations_node);
+            TREENODE moduleDeclarations1_node = getChildNonTerminal(moduleDeclarations,moduleDeclarations_node);
+            applyRule(moduleDeclaration);
+            applyRule(moduleDeclarations1_node);
+            moduleDeclarations_node->list_addr_syn = insertAtBegin(moduleDeclaration_node->addr,moduleDeclarations1_node->list_addr_syn);
+            moduleDeclarations_node->addr=moduleDeclarations_node->list_addr_syn;
             break;
         }
         case 3:{
-            TREENODE moduleDeclarations = parent;
-            moduleDeclarations->list_addr_syn = NULL;
-            free(moduleDeclarations->child);
+            TREENODE moduleDeclarations_node = parent;
+            moduleDeclarations_node->list_addr_syn = NULL;
+            free(moduleDeclarations_node->child);
             break;
         }
         case 4:{
-            TREENODE moduleDeclaration = parent;
-            moduleDeclaration->addr = getChildTerminal(211,moduleDeclaration);
-            free(getChildTerminal(DECLARE_KEYWORD,moduleDeclaration));
-            free(getChildTerminal(SEMICOL_OPERATOR,moduleDeclaration));
-            free(getChildTerminal(MODULE_KEYWORD,moduleDeclaration));
+            TREENODE moduleDeclaration_node = parent;
+            moduleDeclaration_node->addr = getChildTerminal(IDENTIFIER_TOKEN,moduleDeclaration_node);
+            free(getChildTerminal(DECLARE_KEYWORD,moduleDeclaration_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,moduleDeclaration_node));
+            free(getChildTerminal(MODULE_KEYWORD,moduleDeclaration_node));
             break;
         }
         case 5:{
-            TREENODE otherModules = parent;
-            TREENODE module = getChildNonTerminal(6,otherModules);
-            applyRule(module->child->ruleNum,module);
-            TREENODE otherModules1 = getChildNonTerminal(4,otherModules); 
-            applyRule(otherModules1->child->ruleNum,otherModules1);
-            otherModules->list_addr_syn = insertAtBegin(module->addr,otherModules1->list_addr_syn);
-            otherModules->addr = otherModules->list_addr_syn;
+            TREENODE otherModules_node = parent;
+            TREENODE module_node = getChildNonTerminal(module,otherModules_node);
+            applyRule(module_node);
+            TREENODE otherModules1 = getChildNonTerminal(otherModules,otherModules_node); 
+            applyRule(otherModules1);
+            otherModules_node->list_addr_syn = insertAtBegin(module_node->addr,otherModules1->list_addr_syn);
+            otherModules_node->addr = otherModules_node->list_addr_syn;
             break;
         }
         case 6:{
-            TREENODE otherModules = parent;
-            otherModules->list_addr_syn = NULL;
-            free(otherModules->child);
+            TREENODE otherModules_node = parent;
+            otherModules_node->list_addr_syn = NULL;
+            free(otherModules_node->child);
             break;
         }
         case 7:{
-            TREENODE driverModule = parent;
-            TREENODE moduleDef = getChildNonTerminal(17,driverModule);
-            applyRule(moduleDef->child->ruleNum,moduleDef);
-            driverModule->addr = moduleDef->addr;
-            free(getChildTerminal(DRIVERDEF_OPERATOR,driverModule));
-            free(getChildTerminal(DRIVERENDDEF_OPERATOR,driverModule));
-            free(getChildTerminal(PROGRAM_KEYWORD,driverModule));
-            free(getChildTerminal(DRIVER_KEYWORD,driverModule));
+            TREENODE driverModule_node = parent;
+            TREENODE moduleDef_node = getChildNonTerminal(moduleDef,driverModule_node);
+            applyRule(moduleDef_node);
+            driverModule_node->addr = moduleDef_node->addr;
+            free(getChildTerminal(DRIVERDEF_OPERATOR,driverModule_node));
+            free(getChildTerminal(DRIVERENDDEF_OPERATOR,driverModule_node));
+            free(getChildTerminal(PROGRAM_KEYWORD,driverModule_node));
+            free(getChildTerminal(DRIVER_KEYWORD,driverModule_node));
             break;
         }
         case 8:{
-            TREENODE module = parent;
-            free(getChildTerminal(DEF_OPERATOR,module));
-            free(getChildTerminal(MODULE_KEYWORD,module));
-            free(getChildTerminal(IDENTIFIER_TOKEN,module));
-            free(getChildTerminal(ENDDEF_OPERATOR,module));
-            free(getChildTerminal(TAKES_KEYWORD,module));
-            free(getChildTerminal(INPUT_KEYWORD,module));
-            free(getChildTerminal(SQBO_TOKEN,module));
-            free(getChildTerminal(SQBC_TOKEN,module));
-            free(getChildTerminal(SEMICOL_OPERATOR,module));
+            TREENODE module_node = parent;
+            TREENODE input_plist_node = getChildNonTerminal(input_plist,module_node);
+            applyRule(input_plist_node);
+            TREENODE ret_node = getChildNonTerminal(ret,module_node);
+            applyRule(ret_node);
+            TREENODE temp = makeNode("PARAMETERS",input_plist_node->addr,ret_node->addr,NULL,2);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,module_node);
+            TREENODE moduleDef_node = getChildNonTerminal(moduleDef,module_node);
+            applyRule(moduleDef_node);
+            module_node->addr = makeNode("ID",temp,moduleDef_node->addr,ID->addr,1);
+            free(getChildTerminal(DEF_OPERATOR,module_node));
+            free(getChildTerminal(MODULE_KEYWORD,module_node));
+            free(getChildTerminal(ENDDEF_OPERATOR,module_node));
+            free(getChildTerminal(TAKES_KEYWORD,module_node));
+            free(getChildTerminal(INPUT_KEYWORD,module_node));
+            free(getChildTerminal(SQBO_TOKEN,module_node));
+            free(getChildTerminal(SQBC_TOKEN,module_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,module_node));
             break;
         }
         case 9:{
-            TREENODE ret = parent;
-            free(getChildTerminal(RETURNS_KEYWORD,ret));
-            free(getChildTerminal(SQBO_TOKEN,ret));
-            free(getChildTerminal(SQBC_TOKEN,ret));
-            free(getChildTerminal(SEMICOL_OPERATOR,ret));
+            TREENODE ret_node = parent;
+            TREENODE output_plist_node = getChildNonTerminal(output_plist,ret_node);
+            applyRule(output_plist_node);
+            ret_node->addr = output_plist_node->addr;
+            free(getChildTerminal(RETURNS_KEYWORD,ret_node));
+            free(getChildTerminal(SQBO_TOKEN,ret_node));
+            free(getChildTerminal(SQBC_TOKEN,ret_node));
+            free(getChildTerminal(SEMICOL_OPERATOR,ret_node));
             break;
         }
         case 10:{
-            TREENODE ret = parent;
-            free(ret->child);
+            TREENODE ret_node = parent;
+            ret_node->addr = NULL;
+            free(ret_node->child);
             break;
         }
         case 11:{
-            TREENODE input_plist = parent;
+            TREENODE input_plist_node = parent;
+            TREENODE dataType_node = getChildNonTerminal(dataType,parent);
+            applyRule(dataType_node);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,input_plist_node);
+            input_plist_node->addr = makeNode("ID",dataType_node->addr,NULL,ID->addr,1);
+            TREENODE leftFactored_input_plist_node = getChildNonTerminal(leftFactored_input_plist,input_plist_node);
+            applyRule(leftFactored_input_plist_node);
+            input_plist_node->list_addr_syn = insertAtBegin(input_plist_node->addr,leftFactored_input_plist_node->list_addr_syn);
             free(getChildTerminal(IDENTIFIER_TOKEN,input_plist));
             free(getChildTerminal(COLON_OPERATOR,input_plist));
             break;
         }
         case 12:{
-            TREENODE leftFactored_input_plist = parent;
-            free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist));
-            free(getChildTerminal(IDENTIFIER_TOKEN,leftFactored_input_plist));
-            free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist));
+            TREENODE leftFactored_input_plist_node = parent;
+            TREENODE dataType_node = getChildNonTerminal(dataType,parent);
+            applyRule(dataType_node);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            leftFactored_input_plist_node->addr = makeNode("ID",dataType_node->addr,NULL,ID->addr,1);
+            TREENODE leftFactored_input_plist_node1 = getChildNonTerminal(leftFactored_input_plist,leftFactored_input_plist_node);
+            leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
+            free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist_node));
+            free(getChildTerminal(IDENTIFIER_TOKEN,leftFactored_input_plist_node));
+            free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist_node));
             break;
         }
         case 13:{
-            TREENODE leftFactored_input_plist = parent;
-            free(leftFactored_input_plist->child);
+            TREENODE leftFactored_input_plist_node = parent;
+            leftFactored_input_plist_node -> list_addr_syn = NULL;
+            free(leftFactored_input_plist_node->child);
             break;
         }
         case 14:{
-            TREENODE output_plist = parent;
-            free(getChildTerminal(IDENTIFIER_TOKEN,output_plist));
-            free(getChildTerminal(COLON_OPERATOR,output_plist));
+            TREENODE output_plist_node = parent;
+            TREENODE type_node = getChildNonTerminal(type,parent);
+            applyRule(type_node);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            output_plist_node->addr = makeNode("ID",type_node->addr,NULL,ID->addr,1);
+            free(getChildTerminal(IDENTIFIER_TOKEN,output_plist_node));
+            free(getChildTerminal(COLON_OPERATOR,output_plist_node));
             break;
         }
         case 15:{
-            TREENODE leftFactored_output_plist = parent;
-            free(getChildTerminal(COMMA_OPERATOR,leftFactored_output_plist));
-            free(getChildTerminal(IDENTIFIER_TOKEN,leftFactored_output_plist));
-            free(getChildTerminal(COLON_OPERATOR,leftFactored_output_plist));
+            TREENODE leftFactored_output_plist_node = parent;
+            TREENODE type_node = getChildNonTerminal(type,parent);
+            applyRule(type_node);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            leftFactored_output_plist_node->addr = makeNode("ID",type_node->addr,NULL,ID->addr,1);
+            free(getChildTerminal(COMMA_OPERATOR,leftFactored_output_plist_node));
+            free(getChildTerminal(IDENTIFIER_TOKEN,leftFactored_output_plist_node));
+            free(getChildTerminal(COLON_OPERATOR,leftFactored_output_plist_node));
             break;
         }
         case 16:{
-            TREENODE leftFactored_output_plist = parent;
-            free(leftFactored_output_plist->child);
+            TREENODE leftFactored_output_plist_node = parent;
+            leftFactored_output_plist_node ->addr = NULL;
+            free(leftFactored_output_plist_node->child);
             break;
         }
         case 17:{
-            TREENODE dataType = parent;
+            TREENODE dataType_node = parent;
+            TREENODE INTEGER = getChildTerminal(INTEGER_TYPE,parent);
+            dataType_node->addr = INTEGER->addr;
             break;
         }
         case 18:{
-            TREENODE dataType = parent;
+            TREENODE dataType_node = parent;
+            TREENODE REAL = getChildTerminal(REAL_TYPE,parent);
+            dataType_node->addr = REAL->addr;
             break;
         }
         case 19:{
-            TREENODE dataType = parent;
+            TREENODE dataType_node = parent;
+            TREENODE BOOLEAN = getChildTerminal(BOOLEAN_TYPE,parent);
+            dataType_node->addr = BOOLEAN->addr;
             break;
         }
         case 20:{
-            TREENODE dataType = parent;
-            free(getChildTerminal(ARRAY_KEYWORD,dataType));
-            free(getChildTerminal(SQBO_TOKEN,dataType));
-            free(getChildTerminal(SQBC_TOKEN,dataType));
-            free(getChildTerminal(OF_KEYWORD,dataType));
+            TREENODE dataType_node = parent;
+            TREENODE type_node = getChildNonTerminal(type,parent);
+            applyRule(type_node);
+            TREENODE arrRange_node = getChildNonTerminal(arrRange,parent);
+            applyRule(arrRange_node);
+            dataType_node->addr = makeNode("ARRAY",type_node->addr,arrRange_node->addr_syn,NULL,2);
+            free(getChildTerminal(ARRAY_KEYWORD,dataType_node));
+            free(getChildTerminal(SQBO_TOKEN,dataType_node));
+            free(getChildTerminal(SQBC_TOKEN,dataType_node));
+            free(getChildTerminal(OF_KEYWORD,dataType_node));
             break;
         }
         case 21:{
-            TREENODE arrRange = parent;
+            TREENODE arrRange_node = parent;
+            TREENODE sign_node = getChildNonTerminal(sign,parent);
+            applyRule(sign_node);
+            arrRange_node->addr = sign_node->addr;
+            TREENODE leftFactored_arrRange_node = getChildNonTerminal(leftFactored_arrRange,parent);
+            leftFactored_arrRange_node->addr_inh = arrRange_node->addr;
+            applyRule(leftFactored_arrRange_node);
+            arrRange_node->addr_syn = leftFactored_arrRange_node->addr;
             break;
         }
         case 22:{
+            /*
+            TODO: 
+            */
             TREENODE leftFactored_arrRange = parent;
             free(getChildTerminal(RANGEOP_OPERATOR,leftFactored_arrRange));
             break;
         }
         case 23:{
-            TREENODE idNum = parent;
-            free(getChildTerminal(IDENTIFIER_TOKEN,idNum));
+            TREENODE idNum_node = parent;
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            idNum_node->addr = makeNode("ID",idNum_node->addr_inh,NULL,ID->addr,1);
             break;
         }
         case 24:{
-            TREENODE idNum = parent;
-            free(getChildTerminal(NUM_TOKEN,idNum));
+            TREENODE idNum_node = parent;
+            TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
+            idNum_node->addr = makeNode("NUM",idNum_node->addr_inh,NULL,NUM->addr,1);
             break;
         }
         case 25:{
-            TREENODE sign = parent;
+            TREENODE sign_node = parent;
+            TREENODE pm_node = getChildNonTerminal(pm,parent);
+            sign_node->addr = pm_node->addr;
             break;
         }
         case 26:{
-            TREENODE sign = parent;
-            free(sign->child);
+            TREENODE sign_node = parent;
+            sign_node->addr = NULL;
+            free(sign_node->child);
             break;
         }
         case 27:{
-            TREENODE type = parent;
+            TREENODE type_node = parent;
+            TREENODE INTEGER = getChildTerminal(INTEGER_TYPE,parent);
+            type_node->addr = INTEGER->addr;
             break;
         }
         case 28:{
-            TREENODE type = parent;
+            TREENODE type_node = parent;
+            TREENODE REAL = getChildTerminal(REAL_TYPE,parent);
+            type_node->addr = REAL->addr;
             break;
         }
         case 29:{
-            TREENODE type = parent;
+            TREENODE type_node = parent;
+            TREENODE BOOLEAN = getChildTerminal(BOOLEAN_TYPE,parent);
+            type_node->addr = BOOLEAN->addr;
             break;
         }
         case 30:{
