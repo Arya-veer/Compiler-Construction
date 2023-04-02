@@ -1,0 +1,383 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+HELLO
+STARTING RULE 0                                            NODE = finalProgram
+NODE = program
+STARTING RULE 1                                            NODE = program
+NODE = moduleDeclarations
+STARTING RULE 3                                            NODE = moduleDeclarations
+ENDING RULE 3
+NODE = driverModule
+STARTING RULE 7                                            NODE = driverModule
+NODE = moduleDef
+STARTING RULE 30                                            NODE = moduleDef
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 35                                            NODE = statement
+NODE = declareStmt
+STARTING RULE 118                                            NODE = declareStmt
+NODE = idList
+STARTING RULE 71                                            NODE = idList
+CLEARING ID IN LINE 4
+NODE = leftFactored_idList
+STARTING RULE 73                                            NODE = leftFactored_idList
+ENDING RULE 73
+ENDING RULE 71
+NODE = dataType
+STARTING RULE 17                                            NODE = dataType
+CLEARING INTEGER IN LINE 4
+ENDING RULE 17
+CLEARING DECLARE IN LINE 4
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING SEMICOL IN LINE 4
+CLEARING COLON IN LINE 4
+ENDING RULE 118
+ENDING RULE 35
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 33                                            NODE = statement
+NODE = ioStmt
+STARTING RULE 38                                            NODE = ioStmt
+CLEARING ID IN LINE 5
+CLEARING GET_VALUE IN LINE 5
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING SEMICOL IN LINE 5
+CLEARING BC IN LINE 5
+CLEARING BO IN LINE 5
+ENDING RULE 38
+ENDING RULE 33
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 35                                            NODE = statement
+NODE = declareStmt
+STARTING RULE 118                                            NODE = declareStmt
+NODE = idList
+STARTING RULE 71                                            NODE = idList
+CLEARING ID IN LINE 6
+NODE = leftFactored_idList
+STARTING RULE 73                                            NODE = leftFactored_idList
+ENDING RULE 73
+ENDING RULE 71
+NODE = dataType
+STARTING RULE 17                                            NODE = dataType
+CLEARING INTEGER IN LINE 6
+ENDING RULE 17
+CLEARING DECLARE IN LINE 6
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING SEMICOL IN LINE 6
+CLEARING COLON IN LINE 6
+ENDING RULE 118
+ENDING RULE 35
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 34                                            NODE = statement
+NODE = simpleStmt
+STARTING RULE 52                                            NODE = simpleStmt
+NODE = moduleReuseStmt
+STARTING RULE 58                                            NODE = moduleReuseStmt
+NODE = optional
+STARTING RULE 69                                            NODE = optional
+NODE = idList
+STARTING RULE 71                                            NODE = idList
+CLEARING ID IN LINE 7
+NODE = leftFactored_idList
+STARTING RULE 73                                            NODE = leftFactored_idList
+ENDING RULE 73
+ENDING RULE 71
+CLEARING ASSIGNOP IN LINE 7
+CLEARING SQBC IN LINE 7
+CLEARING SQBO IN LINE 7
+ENDING RULE 69
+NODE = paramList
+STARTING RULE 66                                            NODE = paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 64                                            NODE = signedParam
+CLEARING RNUM IN LINE 7
+ENDING RULE 64
+NODE = sign
+STARTING RULE 26                                            NODE = sign
+ENDING RULE 26
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 67                                            NODE = leftFactored_paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 60                                            NODE = signedParam
+CLEARING ID IN LINE 7
+NODE = arrID
+STARTING RULE 61                                            NODE = arrID
+NODE = arithmeticExprWArr
+STARTING RULE 99                                            NODE = arithmeticExprWArr
+NODE = termWArr
+STARTING RULE 102                                            NODE = termWArr
+NODE = signedFactorWArr
+STARTING RULE 105                                            NODE = signedFactorWArr
+NODE = sign
+STARTING RULE 26                                            NODE = sign
+ENDING RULE 26
+NODE = factorWArr
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 105
+NODE = leftFactored_termWArr
+STARTING RULE 104                                            NODE = leftFactored_termWArr
+ENDING RULE 104
+ENDING RULE 102
+NODE = leftFactored_arithmeticExprWArr
+STARTING RULE 101                                            NODE = leftFactored_arithmeticExprWArr
+ENDING RULE 101
+ENDING RULE 99
+CLEARING SQBC IN LINE 7
+CLEARING SQBO IN LINE 7
+ENDING RULE 61
+ENDING RULE 60
+NODE = sign
+STARTING RULE 26                                            NODE = sign
+ENDING RULE 26
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 67                                            NODE = leftFactored_paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 63                                            NODE = signedParam
+CLEARING NUM IN LINE 7
+ENDING RULE 63
+NODE = sign
+STARTING RULE 25                                            NODE = sign
+NODE = pm
+ENDING RULE 25
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 67                                            NODE = leftFactored_paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 60                                            NODE = signedParam
+CLEARING ID IN LINE 7
+NODE = arrID
+STARTING RULE 62                                            NODE = arrID
+ENDING RULE 62
+ENDING RULE 60
+NODE = sign
+STARTING RULE 25                                            NODE = sign
+NODE = pm
+ENDING RULE 25
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 67                                            NODE = leftFactored_paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 60                                            NODE = signedParam
+CLEARING ID IN LINE 7
+NODE = arrID
+STARTING RULE 61                                            NODE = arrID
+NODE = arithmeticExprWArr
+STARTING RULE 99                                            NODE = arithmeticExprWArr
+NODE = termWArr
+STARTING RULE 102                                            NODE = termWArr
+NODE = signedFactorWArr
+STARTING RULE 105                                            NODE = signedFactorWArr
+NODE = sign
+STARTING RULE 26                                            NODE = sign
+ENDING RULE 26
+NODE = factorWArr
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 105
+NODE = leftFactored_termWArr
+STARTING RULE 104                                            NODE = leftFactored_termWArr
+ENDING RULE 104
+ENDING RULE 102
+NODE = leftFactored_arithmeticExprWArr
+STARTING RULE 101                                            NODE = leftFactored_arithmeticExprWArr
+ENDING RULE 101
+ENDING RULE 99
+CLEARING SQBC IN LINE 7
+CLEARING SQBO IN LINE 7
+ENDING RULE 61
+ENDING RULE 60
+NODE = sign
+STARTING RULE 25                                            NODE = sign
+NODE = pm
+ENDING RULE 25
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 67                                            NODE = leftFactored_paramList
+NODE = param
+STARTING RULE 59                                            NODE = param
+NODE = signedParam
+STARTING RULE 60                                            NODE = signedParam
+CLEARING ID IN LINE 7
+NODE = arrID
+STARTING RULE 62                                            NODE = arrID
+ENDING RULE 62
+ENDING RULE 60
+NODE = sign
+STARTING RULE 26                                            NODE = sign
+ENDING RULE 26
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 59
+NODE = leftFactored_paramList
+STARTING RULE 68                                            NODE = leftFactored_paramList
+ENDING RULE 68
+CLEARING COMMA IN LINE 7
+ENDING RULE 67
+CLEARING COMMA IN LINE 7
+ENDING RULE 67
+CLEARING COMMA IN LINE 7
+ENDING RULE 67
+CLEARING COMMA IN LINE 7
+ENDING RULE 67
+CLEARING COMMA IN LINE 7
+ENDING RULE 67
+ENDING RULE 66
+CLEARING ID IN LINE 7
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING SEMICOL IN LINE 7
+CLEARING PARAMETERS IN LINE 7
+CLEARING WITH IN LINE 7
+CLEARING MODULE IN LINE 7
+CLEARING USE IN LINE 7
+ENDING RULE 58
+ENDING RULE 52
+ENDING RULE 34
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 33                                            NODE = statement
+NODE = ioStmt
+STARTING RULE 39                                            NODE = ioStmt
+NODE = leftFactored_ioStmt
+STARTING RULE 40                                            NODE = leftFactored_ioStmt
+NODE = var
+STARTING RULE 44                                            NODE = var
+CLEARING ID IN LINE 9
+NODE = whichId
+STARTING RULE 48                                            NODE = whichId
+ENDING RULE 48
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+ENDING RULE 44
+CLEARING SEMICOL IN LINE 9
+CLEARING BC IN LINE 9
+ENDING RULE 40
+CLEARING PRINT IN LINE 9
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING BO IN LINE 9
+ENDING RULE 39
+ENDING RULE 33
+NODE = statements
+STARTING RULE 32                                            NODE = statements
+FREE KR RHA HU
+FREE HO GYA
+ENDING RULE 32
+ENDING RULE 31
+ENDING RULE 31
+ENDING RULE 31
+ENDING RULE 31
+ENDING RULE 31
+CLEARING END IN LINE 10
+CLEARING START IN LINE 3
+ENDING RULE 30
+CLEARING DRIVERENDDEF IN LINE 2
+CLEARING PROGRAM IN LINE 2
+CLEARING DRIVER IN LINE 2
+CLEARING DRIVERDEF IN LINE 2
+ENDING RULE 7
+STARTING RULE 6                                            NODE = otherModules
+ENDING RULE 6
+STARTING RULE 5                                            NODE = otherModules
+NODE = module
+STARTING RULE 8                                            NODE = module
+NODE = input_plist
+STARTING RULE 11                                            NODE = input_plist
+NODE = dataType
+STARTING RULE 17                                            NODE = dataType
+CLEARING INTEGER IN LINE 13
+ENDING RULE 17
+CLEARING ID IN LINE 13
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+NODE = leftFactored_input_plist
+STARTING RULE 13                                            NODE = leftFactored_input_plist
+ENDING RULE 13
+CLEARING COLON IN LINE 13
+ENDING RULE 11
+NODE = ret
+STARTING RULE 9                                            NODE = ret
+NODE = output_plist
+STARTING RULE 14                                            NODE = output_plist
+NODE = type
+STARTING RULE 27                                            NODE = type
+CLEARING INTEGER IN LINE 14
+ENDING RULE 27
+CLEARING ID IN LINE 14
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING COLON IN LINE 14
+ENDING RULE 14
+CLEARING SEMICOL IN LINE 14
+CLEARING SQBC IN LINE 14
+CLEARING SQBO IN LINE 14
+CLEARING RETURNS IN LINE 14
+ENDING RULE 9
+CLEARING TAKES IN LINE 13
+MAKENODE
+LEFT ASSIGNED
+RIGHT ASSIGNED
+CLEARING ID IN LINE 12
+NODE = moduleDef
+STARTING RULE 30                                            NODE = moduleDef
+NODE = statements
+STARTING RULE 31                                            NODE = statements
+NODE = statement
+STARTING RULE 34                                            NODE = stateme

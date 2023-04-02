@@ -212,6 +212,7 @@ TREENODE createRootNode(LISTNODE ln){
 
 TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     TREENODE childHead = (TREENODE) malloc(sizeof(struct TreeNode));
+
     tn->child = childHead;
     childHead->next = NULL;
     childHead->child = NULL;
@@ -223,7 +224,9 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
         childHead->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
     else{
-        childHead->TREENODEDATA->terminal = NULL;
+        childHead->TREENODEDATA->terminal = malloc(sizeof(LEXEME));
+        childHead->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
+
     }
     return childHead;
 }
@@ -235,13 +238,15 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     nextNode->child = NULL;
     nextNode->ruleNum = ln->ruleNum;
     nextNode->isTerminal = ln->isTerminal;
+
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     nextNode->parent = tn->parent;
     if(ln->isTerminal == 0){
         nextNode->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
     else{
-        nextNode->TREENODEDATA->terminal = NULL;
+        nextNode->TREENODEDATA->terminal = (LEXEME*) malloc(sizeof(LEXEME));
+        nextNode->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
     }
     return nextNode;
 }
@@ -310,7 +315,9 @@ STACK createStack(){
 
 void pushInStack(STACK st,LISTNODE node,TREENODE tn,short pushChild){
     if(node == NULL) return;
+
     STACKNODE newTop = (STACKNODE) malloc(sizeof(struct StackNode));
+
     TREENODE treenode;
     if(pushChild == 1){
         treenode = insertChildTree(tn,node);
@@ -318,6 +325,7 @@ void pushInStack(STACK st,LISTNODE node,TREENODE tn,short pushChild){
     else{
         treenode = insertNextTree(tn,node);
     }
+
     newTop -> next = NULL;
     newTop -> NODETYPE = node -> NODETYPE;
     newTop -> isTerminal = node -> isTerminal;
@@ -696,7 +704,7 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
 
 /*PARSER CODE*/
 
-TREENODE* parser(char* grammarFile,char* inputFile, char* outputFile, int size){
+TREENODE parser(char* grammarFile,char* inputFile, char* outputFile, int size){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
     // printRules(129,RULES);
@@ -720,8 +728,31 @@ TREENODE* parser(char* grammarFile,char* inputFile, char* outputFile, int size){
         if(stNode->isTerminal == 1){
             // printf("Popped Terminal %s\n",TERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(lex->token == stNode->NODETYPE->terminal){
-                stNode->treenode->TREENODEDATA->terminal = lex;
+                // printf("COPYING EVERYTHING\n");
+                stNode->treenode->TREENODEDATA->terminal->lineNo = lex->lineNo;
+                stNode->treenode->TREENODEDATA->terminal->token = lex->token;
+                if(lex->token == NUM_TOKEN){
+                    stNode->treenode->TREENODEDATA->terminal->lexemedata->intData = lex->lexemedata->intData;
+                }
+                else if(lex->token == RNUM_TOKEN){
+                    stNode->treenode->TREENODEDATA->terminal->lexemedata->floatData = lex->lexemedata->floatData;
+                }
+                else{
+                    if(lex->token !=  EOF_TOKEN){
+                        // printf("STRING COPY\n");
+                        stNode->treenode->TREENODEDATA->terminal->lexemedata->data = (char*) malloc(strlen(lex->lexemedata->data)+1);
+                        // printf("%s\n",lex->lexemedata->data);
+                        strcpy(stNode->treenode->TREENODEDATA->terminal->lexemedata->data,lex->lexemedata->data);
+                        // stNode->treenode->TREENODEDATA->terminal->lexemedata->data =lex->lexemedata->data;
+                    }
+                }
+                // printf("COPYIED EVERYTHING\n");
+                free(lex->lexemedata);
+                free(lex);
+                // if(stNode->treenode->isTerminal == 1 && stNode->treenode->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",stNode->treenode->TREENODEDATA->terminal->lexemedata->data);
                 lex = simulateDFA(TB,0);
+                // if(stNode->treenode->isTerminal == 1 && stNode->treenode->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",stNode->treenode->TREENODEDATA->terminal->lexemedata->data);
+                // printf("MATCHED\n");
             }
             else{
                 lex = errorHandling(st,lex,1,stNode,TB);
@@ -730,7 +761,9 @@ TREENODE* parser(char* grammarFile,char* inputFile, char* outputFile, int size){
         else if(stNode->isTerminal == 0){
             // printf("Popped Non Terminal %s\n",NONTERMINALS_STRINGS[stNode->NODETYPE->terminal]);
             if(PARSETABLE[stNode->NODETYPE->nonterminal][lex->token] != -1){
+
                 pushInStack(st,RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next,stNode->treenode,1);
+                
                 if(RULES[PARSETABLE[stNode->NODETYPE->nonterminal][lex->token]]->next->isTerminal == -1) stNode = popFromStack(st);
 
             }
@@ -738,17 +771,31 @@ TREENODE* parser(char* grammarFile,char* inputFile, char* outputFile, int size){
                 lex = errorHandling(st,lex,2,stNode,TB);
             }
         }
+        // printf("HHHH\n\n");
+
+        // if(tn->isTerminal == 1){
+        //     printf("%d\n",tn->TREENODEDATA->terminal->token);
+        //     printf("%s\n",TOKENS_STRING[tn->TREENODEDATA->terminal->token]);
+        // }
         free(stNode);
+        // if(tn->isTerminal == 1 && tn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",tn->TREENODEDATA->terminal->lexemedata->data);
+
+        // printf("%d\n",tn->isTerminal);
+        // if(tn->isTerminal == 1 && tn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",tn->TREENODEDATA->terminal->lexemedata->data);
     }
     // lex = simulateDFA(TB,0);
     if(lex->token != EOF_TOKEN) errorHandling(st,lex,4,stNode,TB);
     else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
     fclose(TB->fp);
-    printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);
-    FILE* output = fopen(outputFile, "w");
-    inorderTraversal(root,0, output);
-    fclose(output);
+    // printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);
+    // FILE* output = fopen(outputFile, "w");
+    // inorderTraversal(root,0, output);
+    // // printf("gkfsmgkdflg");
+    // // printf("gjngjnskgnkdsfn");
+    free(RULES);
+    // fclose(output);
     cleanTwinBuffer(TB);
+    // printf("HELLO\n");
     return root;
 }
 
@@ -758,45 +805,65 @@ FOLLOWING ARE THE FUNCTIONS OF PARSE TREE REQUIRED FOR AST CREATION
 
 
 TREENODE getChildNonTerminal(int nt,TREENODE tn){
-    if(tn->child == NULL) return NULL;
+    // printf("33434\n");
+    if(tn->child == NULL){ 
+        // printf("33434\n");
+
+        // printf("NODE = %s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
+        return NULL;
+    }
     TREENODE ch1 = tn->child;
     while(ch1!=NULL){
-        ch1 = ch1->next;
         if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
+            // printf("NODE = %s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
             return ch1;
         }
+        ch1 = ch1->next;
     }
     return NULL;
 }
 
 TREENODE getChildTerminal(int nt,TREENODE tn){
+    // printf("TERMINAL LENE AAYA HU\n");
     if(tn->child == NULL) return NULL;
     TREENODE ch1 = tn->child;
+    // printf("%d\n",ch1->ruleNum);
+    // printf("%s\n",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
     while(ch1!=NULL){
-        ch1 = ch1->next;
+        // if(ch1->isTerminal == 1) printf("%s\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token]);
+        // if(ch1->isTerminal == 0) printf("%s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
         if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal->token == nt){
+            // printf("CLEARING %s IN LINE %d\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token],ch1->TREENODEDATA->terminal->lineNo);
             return ch1;
         }
+        // printf("NEXT PE JA RHA HU\n");
+        ch1 = ch1->next;
     }
     return NULL;
 }
 
 TREENODE* getDualNonTerminal(int nt,TREENODE tn){
+    // printf("DUAL LENE AAYA HU\n");
     TREENODE* dual = (TREENODE*) malloc(sizeof(TREENODE)*2);
     TREENODE ch1 = tn->child;
     while(ch1!=NULL){
-        ch1 = ch1->next;
+        // if(ch1->isTerminal == 1) printf("%s\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token]);
+        // if(ch1->isTerminal == 0) printf("%s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
         if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
             dual[0] = ch1;
             break;
         }
-    }
-    while(ch1!=NULL){
         ch1 = ch1->next;
+    }
+    ch1 = ch1->next;
+    while(ch1!=NULL){
+        // if(ch1->isTerminal == 1) printf("%s\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token]);
+        // if(ch1->isTerminal == 0) printf("%s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
         if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
             dual[1] = ch1;
-            break;
+            return dual;
         }
+        ch1 = ch1->next;
     }
     return NULL;
 }
@@ -805,18 +872,23 @@ TREENODE* getDualTerminal(int nt,TREENODE tn){
     TREENODE* dual = (TREENODE*) malloc(sizeof(TREENODE)*2);
     TREENODE ch1 = tn->child;
     while(ch1!=NULL){
-        ch1 = ch1->next;
-        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal == nt){
+        // if(ch1->isTerminal == 1) printf("%s\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token]);
+        // if(ch1->isTerminal == 0) printf("%s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
+        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal->token == nt){
             dual[0] = ch1;
             break;
         }
-    }
-    while(ch1!=NULL){
         ch1 = ch1->next;
-        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal == nt){
+    }
+    ch1 = ch1->next;
+    while(ch1!=NULL){
+        // if(ch1->isTerminal == 1) printf("%s\n",TERMINALS_STRINGS[ch1->TREENODEDATA->terminal->token]);
+        // if(ch1->isTerminal == 0) printf("%s\n",NONTERMINALS_STRINGS[ch1->TREENODEDATA->nonterminal]);
+        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal->token == nt){
             dual[1] = ch1;
-            break;
+            return dual;
         }
+        ch1 = ch1->next;
     }
     return NULL;
 }

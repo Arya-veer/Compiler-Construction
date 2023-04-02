@@ -169,8 +169,10 @@ LEXEME* tokenize(TwinBuffer *TB,short int line,short toPrint){
         return lex;
     }
     lex->lexemedata->data = input;
+    // printf("%s\n",input);
     short found = 0;
     int hc = hashCode(input);
+    // printf(TOKENS_STRING[hc])
     if(strcmp(input,TOKENS_STRING[hc]) == 0){
         lex->token = (TOKENS) hc;
         found = 1;

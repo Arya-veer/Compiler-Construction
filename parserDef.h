@@ -41,7 +41,6 @@ typedef struct TreeNode* TREENODE;
 union TreeNodeData{
     LEXEME* terminal;
     NONTERMINALS nonterminal;
-    char* nodeName;
 };
 
 

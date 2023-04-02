@@ -10,6 +10,7 @@
 #include <time.h>
 #include "lexer.h"
 #include "parser.h"
+#include "ast.h"
 #include "parserDef.h"
 // #include "./removeComments.c"
 
@@ -94,7 +95,7 @@ int main(int argc, char* argv[]){
                 outputFile = argv[2];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
-                
+                applyRule(root);
                 break;
 
             case 4:

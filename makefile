@@ -18,6 +18,10 @@ all: driver.c
 
 		# constants => These are hard coded arrays or enums
 	gcc -c constants.c -o build/constants.o
+
+		#AST part
+	gcc -c ast.c -o build/ast.o
+	
 		# Final compilation step
 		# Note: Please specify all the object files generated before 'driver.c'
 	gcc build/*.o driver.c -o stage1exe

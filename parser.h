@@ -7,7 +7,7 @@
 
 #ifndef PARSER_H
 #define PARSER_H
-
+#include "parserDef.h"
 // #include "./FnFsets/followSets.h"
 
 TREENODE parser(char* grammarFile,char* inputFile, char* outputFile, int size);
