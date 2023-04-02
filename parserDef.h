@@ -55,7 +55,6 @@ struct TreeNode{
     TREENODE addr_syn;
     TREENODE addr_inh;
     TREENODE list_addr_syn;
-    TREENODE list_addr_inh;
     TREENODE left_child;
     TREENODE right_child;
     // AST 
