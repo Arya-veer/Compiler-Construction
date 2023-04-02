@@ -3,6 +3,11 @@
 #include "parserDef.h"
 #include "parser.h"
 
+TREENODE insertAtBegin(TREENODE toPut,TREENODE nextList){
+    toPut -> next = nextList;
+    return toPut;
+}
+
 TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
     assign->left_child = left;
     assign->right_child = right;
@@ -125,8 +130,8 @@ void applyRule(TREENODE parent){
             input_plist_node->addr = makeNode(ID,dataType_node->addr,NULL);
             TREENODE leftFactored_input_plist_node = getChildNonTerminal(leftFactored_input_plist,input_plist_node);
             applyRule(leftFactored_input_plist_node);
-            input_plist_node->list_addr_syn = insertAtBegin(input_plist_node->addr,leftFactored_input_plist_node->list_addr_syn);
             free(getChildTerminal(COLON_OPERATOR,input_plist));
+            input_plist_node->list_addr_syn = insertAtBegin(input_plist_node->addr,leftFactored_input_plist_node->list_addr_syn);
             break;
         }
         case 12:{
@@ -136,9 +141,9 @@ void applyRule(TREENODE parent){
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             leftFactored_input_plist_node->addr = makeNode(ID,dataType_node->addr,NULL);
             TREENODE leftFactored_input_plist_node1 = getChildNonTerminal(leftFactored_input_plist,leftFactored_input_plist_node);
-            leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist_node));
             free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist_node));
+            leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
             break;
         }
         case 13:{
@@ -215,11 +220,14 @@ void applyRule(TREENODE parent){
             break;
         }
         case 22:{
-            /*
-            TODO: 
-            */
-            TREENODE leftFactored_arrRange = parent;
-            free(getChildTerminal(RANGEOP_OPERATOR,leftFactored_arrRange));
+            TREENODE leftFactored_arrRange_node = parent;
+            TREENODE* idNum_node = getDualNonTerminal(idNum,parent);
+            TREENODE idNum1 = idNum_node[0];
+            TREENODE idNum2 = idNum_node[1];
+            applyRule(idNum1);
+            applyRule(idNum2);
+            TREENODE RANGEOP = getChildTerminal(RANGEOP_OPERATOR,leftFactored_arrRange_node);
+            leftFactored_arrRange_node->addr = makeNode(RANGEOP,idNum1->addr,idNum2->addr);
             break;
         }
         case 23:{
@@ -568,8 +576,8 @@ void applyRule(TREENODE parent){
             applyRule(param_node);
             TREENODE leftFactored_paramList_node1 = getChildNonTerminal(leftFactored_paramList_node,parent);
             applyRule(leftFactored_paramList_node1);
-            leftFactored_paramList_node->list_addr_syn = insertAtBegin(param_node->addr,leftFactored_paramList_node1->list_addr_syn);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_paramList_node));
+            leftFactored_paramList_node->list_addr_syn = insertAtBegin(param_node->addr,leftFactored_paramList_node1->list_addr_syn);
             break;
         }
         case 68:{
@@ -610,8 +618,8 @@ void applyRule(TREENODE parent){
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             TREENODE leftFactored_idList_node1 = getChildNonTerminal(leftFactored_idList,parent);
             applyRule(leftFactored_idList_node1);
-            leftFactored_idList_node->list_addr_syn = insertAtBegin(ID,leftFactored_idList_node1->list_addr_syn);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_idList_node));
+            leftFactored_idList_node->list_addr_syn = insertAtBegin(ID,leftFactored_idList_node1->list_addr_syn);
             break;
         }
         case 73:{
@@ -872,19 +880,36 @@ void applyRule(TREENODE parent){
         }
         case 103:{
             TREENODE leftFactored_termWArr_node = parent;
+            TREENODE md_node = getChildNonTerminal(md,parent);
+            TREENODE signedFactorWArr_node = getChildNonTerminal(signedFactorWArr,parent);
+            applyRule(md_node);
+            applyRule(signedFactorWArr_node);
+            leftFactored_termWArr_node->addr = makeNode(md_node->addr,leftFactored_termWArr_node->addr_inh,signedFactorWArr_node->addr);
+            TREENODE leftFactored_termWArr_node1 = getChildNonTerminal(leftFactored_termWArr,parent);
+            leftFactored_termWArr_node1->addr_inh = leftFactored_termWArr_node->addr;
+            applyRule(leftFactored_termWArr_node1);
+            leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node1->addr_syn;
             break;
         }
         case 104:{
             TREENODE leftFactored_termWArr_node = parent;
-            leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node->addr_inh;            free(leftFactored_termWArr_node->child);
+            leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node->addr_inh;            
+            free(leftFactored_termWArr_node->child);
             break;
         }
         case 105:{
             TREENODE signedFactorWArr_node = parent;
+            TREENODE sign_node = getChildNonTerminal(sign,parent);
+            applyRule(sign_node);
+            TREENODE factorWArr_node = getChildNonTerminal(factorWArr,parent);
+            signedFactorWArr_node->addr = makeNode(signedFactorWArr_node,sign_node->addr,factorWArr_node->addr);
             break;
         }
         case 106:{
             TREENODE factorWArr_node = parent;
+            TREENODE arithmeticExprWArr_node = getChildNonTerminal(arithmeticExprWArr,parent);
+            applyRule(arithmeticExprWArr_node);
+            factorWArr_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(BO_TOKEN,factorWArr_node));
             free(getChildTerminal(BC_TOKEN,factorWArr_node));
             break;
@@ -991,11 +1016,11 @@ void applyRule(TREENODE parent){
             caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,NULL);
             TREENODE leftFactored_caseStmt_node = getChildNonTerminal(leftFactored_caseStmt,parent);
             applyRule(leftFactored_caseStmt_node);
-            caseStmt_node->list_addr_syn = insertAtBegin(caseStmt_node->addr,leftFactored_caseStmt_node->list_addr_syn);
             free(getChildTerminal(CASE_KEYWORD,caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,caseStmt_node));
             free(getChildTerminal(BREAK_KEYWORD,caseStmt_node));
             free(getChildTerminal(SEMICOL_OPERATOR,caseStmt_node));
+            caseStmt_node->list_addr_syn = insertAtBegin(caseStmt_node->addr,leftFactored_caseStmt_node->list_addr_syn);
             break;
         }
         case 121:{
@@ -1007,11 +1032,11 @@ void applyRule(TREENODE parent){
             leftFactored_caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,NULL);
             TREENODE leftFactored_caseStmt_node1 = getChildNonTerminal(leftFactored_caseStmt,parent);
             applyRule(leftFactored_caseStmt_node1);
-            leftFactored_caseStmt_node->list_addr_syn = insertAtBegin(leftFactored_caseStmt_node->addr,leftFactored_caseStmt_node1->list_addr_syn);
             free(getChildTerminal(CASE_KEYWORD,leftFactored_caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,leftFactored_caseStmt_node));
             free(getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt_node));
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_caseStmt_node));
+            leftFactored_caseStmt_node->list_addr_syn = insertAtBegin(leftFactored_caseStmt_node->addr,leftFactored_caseStmt_node1->list_addr_syn);
             break;
         }
         case 122:{
@@ -1052,8 +1077,22 @@ void applyRule(TREENODE parent){
         }
         case 127:{
             TREENODE iterativeStmt_node = parent;
-            
-            free(getChildTerminal(FOR_KEYWORD,iterativeStmt_node));
+            TREENODE FOR = getChildTerminal(FOR_KEYWORD,iterativeStmt_node);
+            TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            TREENODE* NUM = getDualTerminal(NUM_TOKEN,parent);
+            TREENODE* sign_node = getChildNonTerminal(sign,parent);
+            TREENODE sign1 = sign_node[0];
+            applyRule(sign1);
+            TREENODE sign2 = sign_node[1];
+            applyRule(sign2);
+            TREENODE NUM1 = NUM[0];
+            TREENODE NUM2 = NUM[1];
+            TREENODE temp1 = makeNode(NUM1,sign1->addr,NULL);
+            TREENODE temp2 = makeNode(NUM2,sign2->addr,NULL);
+            TREENODE temp3 = makeNode(ID,temp1,temp2);
+            TREENODE statements_node = getChildNonTerminal(statements,parent);
+            applyRule(statements_node);
+            iterativeStmt_node->addr = makeNode(FOR,temp3,statements_node);
             free(getChildTerminal(BO_TOKEN,iterativeStmt_node));
             free(getChildTerminal(IN_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(RANGEOP_OPERATOR,iterativeStmt_node));

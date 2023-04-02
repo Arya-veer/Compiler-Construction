@@ -780,3 +780,43 @@ TREENODE getChildTerminal(int nt,TREENODE tn){
     }
     return NULL;
 }
+
+TREENODE* getDualNonTerminal(int nt,TREENODE tn){
+    TREENODE* dual = (TREENODE*) malloc(sizeof(TREENODE)*2);
+    TREENODE ch1 = tn->child;
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
+            dual[0] = ch1;
+            break;
+        }
+    }
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 0 && ch1->TREENODEDATA->nonterminal == nt){
+            dual[1] = ch1;
+            break;
+        }
+    }
+    return NULL;
+}
+
+TREENODE* getDualTerminal(int nt,TREENODE tn){
+    TREENODE* dual = (TREENODE*) malloc(sizeof(TREENODE)*2);
+    TREENODE ch1 = tn->child;
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal == nt){
+            dual[0] = ch1;
+            break;
+        }
+    }
+    while(ch1!=NULL){
+        ch1 = ch1->next;
+        if(ch1->isTerminal == 1 && ch1->TREENODEDATA->terminal == nt){
+            dual[1] = ch1;
+            break;
+        }
+    }
+    return NULL;
+}
