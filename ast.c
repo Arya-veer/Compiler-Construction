@@ -608,7 +608,7 @@ void applyRule(TREENODE parent){
             applyRule(arithmeticExprWArr_node);
             TREENODE ASSIGNOP = getChildTerminal(ASSIGNOP_OPERATOR,parent);
             TREENODE SQBO = getChildTerminal(SQBO_TOKEN,lvalueARRStmt_node);
-            TREENODE temp = makeNode(SQBO,lvalueARRStmt_node->addr_inh,arithmeticExprWArr_node->addr);
+            TREENODE temp = makeNode(SQBO,lvalueARRStmt_node->addr_inh,arithmeticExprWArr_node->addr_syn);
             lvalueARRStmt_node->addr = makeNode(ASSIGNOP,temp,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueARRStmt_node));
             free(getChildTerminal(SQBC_TOKEN,lvalueARRStmt_node));
@@ -658,7 +658,7 @@ void applyRule(TREENODE parent){
             TREENODE arrID_node = parent;
             TREENODE arithmeticExprWArr_node = getChildNonTerminal(arithmeticExprWArr,parent);
             applyRule(arithmeticExprWArr_node);
-            arrID_node->addr = arithmeticExprWArr_node->addr;
+            arrID_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(SQBC_TOKEN,arrID_node));
             free(getChildTerminal(SQBO_TOKEN,arrID_node));
             // printf("ENDING RULE %d\n",ruleNum);
@@ -1111,15 +1111,15 @@ void applyRule(TREENODE parent){
         }
         case 108:{
             TREENODE factorWArr_node = parent;
-            TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
-            factorWArr_node->addr = RNUM;
+            TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
+            factorWArr_node->addr = NUM;
             // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 109:{
             TREENODE factorWArr_node = parent;
-            TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
-            factorWArr_node->addr = NUM;
+            TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
+            factorWArr_node->addr = RNUM;
             // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
@@ -1199,7 +1199,7 @@ void applyRule(TREENODE parent){
             applyRule(caseStmt_node);
             TREENODE dfault_node = getChildNonTerminal(dfault,parent);
             applyRule(dfault_node);
-            conditionalStmt_node->addr = makeNode(ID,caseStmt_node,dfault_node);
+            conditionalStmt_node->addr = makeNode(ID,caseStmt_node->addr,dfault_node->addr);
             free(getChildTerminal(END_KEYWORD,conditionalStmt_node));
             free(getChildTerminal(START_KEYWORD,conditionalStmt_node));
             free(getChildTerminal(BC_TOKEN,conditionalStmt_node));
@@ -1300,7 +1300,7 @@ void applyRule(TREENODE parent){
             TREENODE temp3 = makeNode(ID,temp1,temp2);
             TREENODE statements_node = getChildNonTerminal(statements,parent);
             applyRule(statements_node);
-            iterativeStmt_node->addr = makeNode(FOR,temp3,statements_node);
+            iterativeStmt_node->addr = makeNode(FOR,temp3,statements_node->addr);
             free(getChildTerminal(END_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(START_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BC_TOKEN,iterativeStmt_node));
