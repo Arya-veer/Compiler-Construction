@@ -689,6 +689,7 @@ void applyRule(TREENODE parent){
         case 65:{
             TREENODE param_node = parent;
             TREENODE boolValues_node = getChildNonTerminal(boolValues,parent);
+            applyRule(boolValues_node);
             param_node->addr = boolValues_node->addr;
             // printf("ENDING RULE %d\n",ruleNum);
             break;
@@ -770,6 +771,7 @@ void applyRule(TREENODE parent){
         case 74:{
             TREENODE expression_node = parent;
             TREENODE arithmeticBooleanExpr_node = getChildNonTerminal(arithmeticBooleanExpr,parent);
+            printf("ABE LENE JA RHA HU");
             applyRule(arithmeticBooleanExpr_node);
             expression_node->addr = arithmeticBooleanExpr_node->addr_syn;
             // printf("%s\n",expression_node->addr->TREENODEDATA->terminal->lexemedata->data);
@@ -851,7 +853,7 @@ void applyRule(TREENODE parent){
             TREENODE logicalTerm_node1 = getChildNonTerminal(logicalTerm,parent);
             logicalTerm_node1->addr_inh = logicalTerm_node->addr;
             applyRule(logicalTerm_node1);
-            logicalTerm_node->addr =  logicalTerm_node1->addr_syn;
+            logicalTerm_node->addr_syn =  logicalTerm_node1->addr_syn;
             // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
@@ -1002,7 +1004,7 @@ void applyRule(TREENODE parent){
             TREENODE factor_node = parent;
             TREENODE arithmeticBooleanExpr_node = getChildNonTerminal(arithmeticBooleanExpr,parent);
             applyRule(arithmeticBooleanExpr_node);
-            factor_node->addr = arithmeticBooleanExpr_node->addr;
+            factor_node->addr = arithmeticBooleanExpr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,factor_node));
             free(getChildTerminal(BO_TOKEN,factor_node));
             // printf("ENDING RULE %d\n",ruleNum);
@@ -1317,7 +1319,7 @@ void applyRule(TREENODE parent){
             applyRule(arithmeticBooleanExpr_node);
             TREENODE statements_node = getChildNonTerminal(statements,parent);
             applyRule(statements_node);
-            iterativeStmt_node->addr = makeNode(WHILE,arithmeticBooleanExpr_node->addr,statements_node->addr);
+            iterativeStmt_node->addr = makeNode(WHILE,arithmeticBooleanExpr_node->addr_syn,statements_node->addr);
             free(getChildTerminal(END_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(START_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BC_TOKEN,iterativeStmt_node));

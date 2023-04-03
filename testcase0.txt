@@ -1,0 +1,4 @@
+<<<driver program>>>
+start
+    res_1:= (true AND c==b)OR(b>p AND (a<=c));
+end

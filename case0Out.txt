@@ -1,0 +1,938 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+STARTING RULE 0
+STARTING RULE 1
+STARTING RULE 3
+moduleDeclarations addr : NULL
+moduleDeclarations list_addr_syn : NULL
+ENDING RULE 3
+
+______________________________
+
+STARTING RULE 7
+STARTING RULE 30
+STARTING RULE 31
+STARTING RULE 34
+STARTING RULE 51
+STARTING RULE 53
+STARTING RULE 54
+STARTING RULE 56
+STARTING RULE 74
+ABE LENE JA RHA HUSTARTING RULE 81
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 97
+STARTING RULE 81
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 65
+STARTING RULE 42
+boolValues addr : true
+boolValues list_addr_syn : NULL
+ENDING RULE 42
+
+______________________________
+
+param addr : true
+param list_addr_syn : NULL
+ENDING RULE 65
+
+______________________________
+
+factor addr : true
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : true
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : true
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 86
+relationalTerm addr : true
+relationalTerm list_addr_syn : NULL
+ENDING RULE 86
+
+______________________________
+
+anyTerm addr : true
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+STARTING RULE 82
+STARTING RULE 110
+logicalOp addr : AND
+logicalOp list_addr_syn : NULL
+ENDING RULE 110
+
+______________________________
+
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : c
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+c
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : c
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : c
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : c
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : c
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 85
+STARTING RULE 116
+relationalOp addr : ==
+relationalOp list_addr_syn : NULL
+ENDING RULE 116
+
+______________________________
+
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : b
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+b
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : b
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : b
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : b
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : b
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+MAKENODE
+==
+LEFT ASSIGNED
+c
+RIGHT ASSIGNED
+b
+relationalTerm addr : ==
+relationalTerm list_addr_syn : NULL
+ENDING RULE 85
+
+______________________________
+
+anyTerm addr : ==
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+MAKENODE
+AND
+LEFT ASSIGNED
+true
+RIGHT ASSIGNED
+==
+STARTING RULE 83
+logicalTerm addr : NULL
+logicalTerm list_addr_syn : NULL
+ENDING RULE 83
+
+______________________________
+
+logicalTerm addr : AND
+logicalTerm list_addr_syn : NULL
+ENDING RULE 82
+
+______________________________
+
+arithmeticBooleanExpr addr : true
+arithmeticBooleanExpr list_addr_syn : NULL
+ENDING RULE 81
+
+______________________________
+
+factor addr : AND
+factor list_addr_syn : NULL
+ENDING RULE 97
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : AND
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : AND
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 86
+relationalTerm addr : AND
+relationalTerm list_addr_syn : NULL
+ENDING RULE 86
+
+______________________________
+
+anyTerm addr : AND
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+STARTING RULE 82
+STARTING RULE 111
+logicalOp addr : OR
+logicalOp list_addr_syn : NULL
+ENDING RULE 111
+
+______________________________
+
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 97
+STARTING RULE 81
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : b
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+b
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : b
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : b
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : b
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : b
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 85
+STARTING RULE 114
+relationalOp addr : >
+relationalOp list_addr_syn : NULL
+ENDING RULE 114
+
+______________________________
+
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : p
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+p
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : p
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : p
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : p
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : p
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+MAKENODE
+>
+LEFT ASSIGNED
+b
+RIGHT ASSIGNED
+p
+relationalTerm addr : >
+relationalTerm list_addr_syn : NULL
+ENDING RULE 85
+
+______________________________
+
+anyTerm addr : >
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+STARTING RULE 82
+STARTING RULE 110
+logicalOp addr : AND
+logicalOp list_addr_syn : NULL
+ENDING RULE 110
+
+______________________________
+
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 97
+STARTING RULE 81
+STARTING RULE 84
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : a
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+a
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : a
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : a
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : a
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : a
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 85
+STARTING RULE 113
+relationalOp addr : <=
+relationalOp list_addr_syn : NULL
+ENDING RULE 113
+
+______________________________
+
+STARTING RULE 87
+STARTING RULE 94
+STARTING RULE 98
+STARTING RULE 59
+STARTING RULE 60
+STARTING RULE 62
+arrID addr : NULL
+arrID list_addr_syn : NULL
+ENDING RULE 62
+
+______________________________
+
+signedParam addr : c
+signedParam list_addr_syn : NULL
+ENDING RULE 60
+
+______________________________
+
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+MAKENODE
+c
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+param addr : c
+param list_addr_syn : NULL
+ENDING RULE 59
+
+______________________________
+
+factor addr : c
+factor list_addr_syn : NULL
+ENDING RULE 98
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : c
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : c
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+MAKENODE
+<=
+LEFT ASSIGNED
+a
+RIGHT ASSIGNED
+c
+relationalTerm addr : <=
+relationalTerm list_addr_syn : NULL
+ENDING RULE 85
+
+______________________________
+
+anyTerm addr : <=
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+STARTING RULE 83
+logicalTerm addr : NULL
+logicalTerm list_addr_syn : NULL
+ENDING RULE 83
+
+______________________________
+
+arithmeticBooleanExpr addr : <=
+arithmeticBooleanExpr list_addr_syn : NULL
+ENDING RULE 81
+
+______________________________
+
+factor addr : <=
+factor list_addr_syn : NULL
+ENDING RULE 97
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : <=
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : <=
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 86
+relationalTerm addr : <=
+relationalTerm list_addr_syn : NULL
+ENDING RULE 86
+
+______________________________
+
+anyTerm addr : <=
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+MAKENODE
+AND
+LEFT ASSIGNED
+>
+RIGHT ASSIGNED
+<=
+STARTING RULE 83
+logicalTerm addr : NULL
+logicalTerm list_addr_syn : NULL
+ENDING RULE 83
+
+______________________________
+
+logicalTerm addr : AND
+logicalTerm list_addr_syn : NULL
+ENDING RULE 82
+
+______________________________
+
+arithmeticBooleanExpr addr : >
+arithmeticBooleanExpr list_addr_syn : NULL
+ENDING RULE 81
+
+______________________________
+
+factor addr : AND
+factor list_addr_syn : NULL
+ENDING RULE 97
+
+______________________________
+
+STARTING RULE 96
+leftFactored_term addr : NULL
+leftFactored_term list_addr_syn : NULL
+ENDING RULE 96
+
+______________________________
+
+term addr : AND
+term list_addr_syn : NULL
+ENDING RULE 94
+
+______________________________
+
+STARTING RULE 89
+leftFactored_arithmeticExpr addr : NULL
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 89
+
+______________________________
+
+arithmeticExpr addr : AND
+arithmeticExpr list_addr_syn : NULL
+ENDING RULE 87
+
+______________________________
+
+STARTING RULE 86
+relationalTerm addr : AND
+relationalTerm list_addr_syn : NULL
+ENDING RULE 86
+
+______________________________
+
+anyTerm addr : AND
+anyTerm list_addr_syn : NULL
+ENDING RULE 84
+
+______________________________
+
+MAKENODE
+OR
+LEFT ASSIGNED
+AND
+RIGHT ASSIGNED
+AND
+STARTING RULE 83
+logicalTerm addr : NULL
+logicalTerm list_addr_syn : NULL
+ENDING RULE 83
+
+______________________________
+
+logicalTerm addr : OR
+logicalTerm list_addr_syn : NULL
+ENDING RULE 82
+
+______________________________
+
+arithmeticBooleanExpr addr : AND
+arithmeticBooleanExpr list_addr_syn : NULL
+ENDING RULE 81
+
+______________________________
+
+expression addr : OR
+expression list_addr_syn : NULL
+ENDING RULE 74
+
+______________________________
+
+MAKENODE
+:=
+LEFT ASSIGNED
+res_1
+RIGHT ASSIGNED
+OR
+lvalueIDStmt addr : :=
+lvalueIDStmt list_addr_syn : NULL
+ENDING RULE 56
+
+______________________________
+
+whichStmt addr : :=
+whichStmt list_addr_syn : NULL
+ENDING RULE 54
+
+______________________________
+
+assignmentStmt addr : :=
+assignmentStmt list_addr_syn : NULL
+ENDING RULE 53
+
+______________________________
+
+simpleStmt addr : :=
+simpleStmt list_addr_syn : NULL
+ENDING RULE 51
+
+______________________________
+
+statement addr : :=
+statement list_addr_syn : NULL
+ENDING RULE 34
+
+______________________________
+
+STARTING RULE 32
+statements addr : NULL
+statements list_addr_syn : NULL
+ENDING RULE 32
+
+______________________________
+
+statements addr : :=
+statements list_addr_syn : :=
+ENDING RULE 31
+
+______________________________
+
+moduleDef addr : :=
+moduleDef list_addr_syn : NULL
+ENDING RULE 30
+
+______________________________
+
+driverModule addr : :=
+driverModule list_addr_syn : NULL
+ENDING RULE 7
+
+______________________________
+
+STARTING RULE 6
+otherModules addr : NULL
+otherModules list_addr_syn : NULL
+ENDING RULE 6
+
+______________________________
+
+HELLO
+STARTING RULE 6
+otherModules addr : NULL
+otherModules list_addr_syn : NULL
+ENDING RULE 6
+
+______________________________
+
+program addr : NULL
+program list_addr_syn : NULL
+ENDING RULE 1
+
+______________________________
+
+Enter your option: 

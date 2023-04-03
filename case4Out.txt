@@ -243,7 +243,7 @@ STARTING RULE 53
 STARTING RULE 54
 STARTING RULE 56
 STARTING RULE 74
-STARTING RULE 81
+ABE LENE JA RHA HUSTARTING RULE 81
 STARTING RULE 84
 STARTING RULE 87
 STARTING RULE 94
@@ -1241,7 +1241,7 @@ STARTING RULE 53
 STARTING RULE 54
 STARTING RULE 56
 STARTING RULE 74
-STARTING RULE 81
+ABE LENE JA RHA HUSTARTING RULE 81
 STARTING RULE 84
 STARTING RULE 87
 STARTING RULE 94
@@ -1764,7 +1764,7 @@ STARTING RULE 53
 STARTING RULE 54
 STARTING RULE 56
 STARTING RULE 74
-STARTING RULE 81
+ABE LENE JA RHA HUSTARTING RULE 81
 STARTING RULE 84
 STARTING RULE 87
 STARTING RULE 94
@@ -2294,13 +2294,20 @@ STARTING RULE 87
 STARTING RULE 94
 STARTING RULE 98
 STARTING RULE 65
-param addr : NULL
+STARTING RULE 43
+boolValues addr : false
+boolValues list_addr_syn : NULL
+ENDING RULE 43
+
+______________________________
+
+param addr : false
 param list_addr_syn : NULL
 ENDING RULE 65
 
 ______________________________
 
-factor addr : NULL
+factor addr : false
 factor list_addr_syn : NULL
 ENDING RULE 98
 
@@ -2313,7 +2320,7 @@ ENDING RULE 96
 
 ______________________________
 
-term addr : NULL
+term addr : false
 term list_addr_syn : NULL
 ENDING RULE 94
 
@@ -2326,20 +2333,20 @@ ENDING RULE 89
 
 ______________________________
 
-arithmeticExpr addr : NULL
+arithmeticExpr addr : false
 arithmeticExpr list_addr_syn : NULL
 ENDING RULE 87
 
 ______________________________
 
 STARTING RULE 86
-relationalTerm addr : NULL
+relationalTerm addr : false
 relationalTerm list_addr_syn : NULL
 ENDING RULE 86
 
 ______________________________
 
-anyTerm addr : NULL
+anyTerm addr : false
 anyTerm list_addr_syn : NULL
 ENDING RULE 84
 
@@ -2350,7 +2357,7 @@ AND
 LEFT ASSIGNED
 OR
 RIGHT ASSIGNED
-RIGHT IS NULL
+false
 STARTING RULE 83
 logicalTerm addr : NULL
 logicalTerm list_addr_syn : NULL
@@ -2364,13 +2371,13 @@ ENDING RULE 82
 
 ______________________________
 
-logicalTerm addr : NULL
+logicalTerm addr : OR
 logicalTerm list_addr_syn : NULL
 ENDING RULE 82
 
 ______________________________
 
-logicalTerm addr : NULL
+logicalTerm addr : AND
 logicalTerm list_addr_syn : NULL
 ENDING RULE 82
 
@@ -2382,7 +2389,7 @@ ENDING RULE 81
 
 ______________________________
 
-expression addr : NULL
+expression addr : AND
 expression list_addr_syn : NULL
 ENDING RULE 74
 
@@ -2393,7 +2400,7 @@ MAKENODE
 LEFT ASSIGNED
 b
 RIGHT ASSIGNED
-RIGHT IS NULL
+AND
 lvalueIDStmt addr : :=
 lvalueIDStmt list_addr_syn : NULL
 ENDING RULE 56
@@ -2431,7 +2438,7 @@ STARTING RULE 53
 STARTING RULE 54
 STARTING RULE 56
 STARTING RULE 74
-STARTING RULE 81
+ABE LENE JA RHA HUSTARTING RULE 81
 STARTING RULE 84
 STARTING RULE 87
 STARTING RULE 94
@@ -2442,13 +2449,20 @@ STARTING RULE 87
 STARTING RULE 94
 STARTING RULE 98
 STARTING RULE 65
-param addr : NULL
+STARTING RULE 42
+boolValues addr : true
+boolValues list_addr_syn : NULL
+ENDING RULE 42
+
+______________________________
+
+param addr : true
 param list_addr_syn : NULL
 ENDING RULE 65
 
 ______________________________
 
-factor addr : NULL
+factor addr : true
 factor list_addr_syn : NULL
 ENDING RULE 98
 
@@ -2461,7 +2475,7 @@ ENDING RULE 96
 
 ______________________________
 
-term addr : NULL
+term addr : true
 term list_addr_syn : NULL
 ENDING RULE 94
 
@@ -2474,20 +2488,20 @@ ENDING RULE 89
 
 ______________________________
 
-arithmeticExpr addr : NULL
+arithmeticExpr addr : true
 arithmeticExpr list_addr_syn : NULL
 ENDING RULE 87
 
 ______________________________
 
 STARTING RULE 86
-relationalTerm addr : NULL
+relationalTerm addr : true
 relationalTerm list_addr_syn : NULL
 ENDING RULE 86
 
 ______________________________
 
-anyTerm addr : NULL
+anyTerm addr : true
 anyTerm list_addr_syn : NULL
 ENDING RULE 84
 
@@ -2669,7 +2683,7 @@ ______________________________
 MAKENODE
 AND
 LEFT ASSIGNED
-LEFT IS NULL
+true
 RIGHT ASSIGNED
 ==
 STARTING RULE 83
@@ -2685,13 +2699,13 @@ ENDING RULE 82
 
 ______________________________
 
-arithmeticBooleanExpr addr : NULL
+arithmeticBooleanExpr addr : true
 arithmeticBooleanExpr list_addr_syn : NULL
 ENDING RULE 81
 
 ______________________________
 
-factor addr : NULL
+factor addr : AND
 factor list_addr_syn : NULL
 ENDING RULE 97
 
@@ -2704,7 +2718,7 @@ ENDING RULE 96
 
 ______________________________
 
-term addr : NULL
+term addr : AND
 term list_addr_syn : NULL
 ENDING RULE 94
 
@@ -2717,20 +2731,20 @@ ENDING RULE 89
 
 ______________________________
 
-arithmeticExpr addr : NULL
+arithmeticExpr addr : AND
 arithmeticExpr list_addr_syn : NULL
 ENDING RULE 87
 
 ______________________________
 
 STARTING RULE 86
-relationalTerm addr : NULL
+relationalTerm addr : AND
 relationalTerm list_addr_syn : NULL
 ENDING RULE 86
 
 ______________________________
 
-anyTerm addr : NULL
+anyTerm addr : AND
 anyTerm list_addr_syn : NULL
 ENDING RULE 84
 
@@ -3175,7 +3189,7 @@ ENDING RULE 81
 
 ______________________________
 
-factor addr : >
+factor addr : AND
 factor list_addr_syn : NULL
 ENDING RULE 97
 
@@ -3188,7 +3202,7 @@ ENDING RULE 96
 
 ______________________________
 
-term addr : >
+term addr : AND
 term list_addr_syn : NULL
 ENDING RULE 94
 
@@ -3201,20 +3215,20 @@ ENDING RULE 89
 
 ______________________________
 
-arithmeticExpr addr : >
+arithmeticExpr addr : AND
 arithmeticExpr list_addr_syn : NULL
 ENDING RULE 87
 
 ______________________________
 
 STARTING RULE 86
-relationalTerm addr : >
+relationalTerm addr : AND
 relationalTerm list_addr_syn : NULL
 ENDING RULE 86
 
 ______________________________
 
-anyTerm addr : >
+anyTerm addr : AND
 anyTerm list_addr_syn : NULL
 ENDING RULE 84
 
@@ -3223,9 +3237,9 @@ ______________________________
 MAKENODE
 OR
 LEFT ASSIGNED
-LEFT IS NULL
+AND
 RIGHT ASSIGNED
->
+AND
 STARTING RULE 83
 logicalTerm addr : NULL
 logicalTerm list_addr_syn : NULL
@@ -3239,13 +3253,13 @@ ENDING RULE 82
 
 ______________________________
 
-arithmeticBooleanExpr addr : NULL
+arithmeticBooleanExpr addr : AND
 arithmeticBooleanExpr list_addr_syn : NULL
 ENDING RULE 81
 
 ______________________________
 
-expression addr : NULL
+expression addr : OR
 expression list_addr_syn : NULL
 ENDING RULE 74
 
@@ -3256,7 +3270,7 @@ MAKENODE
 LEFT ASSIGNED
 res_1
 RIGHT ASSIGNED
-RIGHT IS NULL
+OR
 lvalueIDStmt addr : :=
 lvalueIDStmt list_addr_syn : NULL
 ENDING RULE 56
