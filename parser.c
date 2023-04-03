@@ -220,6 +220,10 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     childHead->isTerminal = ln->isTerminal;
     childHead->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     childHead->parent = tn;
+    childHead->addr = NULL;
+    childHead->addr_inh = NULL;
+    childHead->addr_syn = NULL;
+    childHead->list_addr_syn=NULL;
     if(ln->isTerminal == 0){
         childHead->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
@@ -238,6 +242,10 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     nextNode->child = NULL;
     nextNode->ruleNum = ln->ruleNum;
     nextNode->isTerminal = ln->isTerminal;
+    nextNode->addr = NULL;
+    nextNode->addr_inh = NULL;
+    nextNode->addr_syn = NULL;
+    nextNode->list_addr_syn=NULL;
 
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     nextNode->parent = tn->parent;
