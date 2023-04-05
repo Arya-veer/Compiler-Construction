@@ -1393,8 +1393,14 @@ void applyRule(TREENODE parent){
 */
 
 int getTypeAST(TREENODE node,SYMBOLTABLEROW* SYMBOLTABLE){
+    // printf("%s\n\n",node->TREENODEDATA->terminal->lexemedata->data);
     if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
         SYMBOLTABLEROW str = GetVarFromSymbolTable(SYMBOLTABLE,node);
+        if(str == NULL){
+            printf("VARIABLE NOT DEFINED: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
+            return TYPE_ERROR;
+        }
+        printf("GOT TYPE OF NODE AS %d\n\n",str->type);
         return str->type;
     }
     else{
@@ -1490,53 +1496,72 @@ void typeExtractionFalse(TREENODE false_node,SYMBOLTABLEROW* SYMBOLTABLE){
 }
 
 TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    if(expression_node == NULL) return TYPE_ERROR;
     int type_var = getTypeAST(expression_node,SYMBOLTABLE);
+    printf("%d\n\n",type_var);
+    printf("______________\n");
     if(type_var != -1){
+        printf("GOT TYPE AS %d\n\n",type_var);
         return expression_node->type = type_var;
     }
     else{
+        printf("TYPE EXTRACTION OF LEFT\n\n");
         typeExtractionExpr(expression_node->left_child,SYMBOLTABLE);
+        if(expression_node->left_child != NULL) printf("TYPE OF LEFT %s IS %d\n",expression_node->left_child->TREENODEDATA->terminal->lexemedata->data,expression_node->left_child->type);
+        printf("TYPE EXTRACTION OF RIGHT\n\n");
         typeExtractionExpr(expression_node->right_child,SYMBOLTABLE);
+        if(expression_node->right_child != NULL) printf("TYPE OF RIGHT %s IS %d\n",expression_node->right_child->TREENODEDATA->terminal->lexemedata->data,expression_node->right_child->type);
+        printf("AB %s KA LAGANE JA RHA HU\n\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
         int leftType = getTypeAST(expression_node->left_child,SYMBOLTABLE);
         int rightType = getTypeAST(expression_node->right_child,SYMBOLTABLE);
         if((expression_node->TREENODEDATA->terminal->token == MUL_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == PLUS_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == MINUS_OPERATOR)){
             if(leftType == TYPE_INTEGER && rightType == TYPE_INTEGER){
+                printf("INTEGER LAG GYA %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 return expression_node->type = TYPE_INTEGER;
             }
             else if(leftType == TYPE_REAL && rightType == TYPE_REAL){
+                printf("REAL LAG GYA %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 return expression_node->type = TYPE_REAL;
             }
             else{
+                printf("NODE IS %s\n\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
         else if(expression_node->TREENODEDATA->terminal->token == DIV_OPERATOR){
             if((leftType == TYPE_INTEGER && rightType == TYPE_INTEGER) || (leftType == TYPE_INTEGER && rightType == TYPE_REAL) || (leftType == TYPE_REAL && rightType == TYPE_INTEGER) || (leftType == TYPE_REAL && rightType == TYPE_REAL)){
+                printf("REAL LAG GYA %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 return expression_node->type = TYPE_REAL;
             }
             else{
+                printf("NODE IS %s\n\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
         else if((expression_node->TREENODEDATA->terminal->token == LT_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == LE_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == GT_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == GE_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == EQ_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == NE_OPERATOR)){
             if(leftType == TYPE_INTEGER && rightType == TYPE_INTEGER){
+                printf("BOOLEAN LAG GYA %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 return expression_node->type = TYPE_BOOLEAN;
             }
             else if(leftType == TYPE_REAL && rightType == TYPE_REAL){
-                return expression_node->type == TYPE_BOOLEAN;
+                printf("BOOLEAN LAG GYA %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
+                return expression_node->type = TYPE_BOOLEAN;
             }
             else{
+                printf("NODE IS %s\n\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
         else if((expression_node->TREENODEDATA->terminal->token == AND_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == OR_OPERATOR)){
             if(leftType == TYPE_BOOLEAN && rightType == TYPE_BOOLEAN){
-                return expression_node->type == TYPE_BOOLEAN;
+                printf("BOOLEAN LAG GYA to %s\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
+                return expression_node->type = TYPE_BOOLEAN;
             }
             else{
+                printf("NODE IS %s\n\n",expression_node->TREENODEDATA->terminal->lexemedata->data);
                 printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
@@ -1562,12 +1587,6 @@ void traversal(TREENODE node,SYMBOLTABLEROW* SYMBOLTABLE){
         row->SYMBOLTABLE = initializeSymbolTable();
         SYMBOLTABLE = row->SYMBOLTABLE;
     }
-    // else if(node->TREENODEDATA->terminal->token == WHILE_KEYWORD){
-    //     typeExtractionExpr(node->left_child,SYMBOLTABLE);
-    // }
-    // else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
-    //     typeExtractionExpr(node->right_child,SYMBOLTABLE);
-    // }
     else if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
 
         StoreFuncIntoSymbolTable(SYMBOLTABLE,node);
@@ -1653,22 +1672,41 @@ void traversal(TREENODE node,SYMBOLTABLEROW* SYMBOLTABLE){
             node->type = row->type;
         }
     }
-    // if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    // printf("TYPE OF THIS NODE IS: %d\n",node->type);
-    // printf("PRINTING LEFT CHILD\n");
-    // printf("PRINTING LEFT CHILD\n");
+    if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
+    else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
+    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    printf("TYPE OF THIS NODE IS: %d\n",node->type);
+    printf("PRINTING LEFT CHILD\n");
     traversal(node->left_child,SYMBOLTABLE);
-    // printf("PRINTING RIGHT CHILD\n");
+    printf("PRINTING RIGHT CHILD\n");
     traversal(node->right_child,SYMBOLTABLE);
-    // printf("GOING TO NEXT\n");ABE
+    printf("GOING TO NEXT\n");
     traversal(node->list_addr_syn,SYMBOLTABLE);
     // if(node->TREENODEDATA->terminal->token == DRIVER_KEYWORD){
     //     // printf("HFHFHF\n");
     //     // printf("DRIVER BELOW\n\n");
     //     // printSymbolTable(SYMBOLTABLE);
     // }
-    // printf("THIS NODE ENDED\n");
+    if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
+        printf("GOING FOR TYPE EXPRESSION\n\n");
+        typeExtractionExpr(node->right_child,SYMBOLTABLE);
+        SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOLTABLE,node->left_child);
+        if(row == NULL) printf("VARIABLE NOT DEFINED: %s in line %d\n\n",node->left_child->TREENODEDATA->terminal->lexemedata->data,node->left_child->TREENODEDATA->terminal->lineNo);
+        else{
+            if(row->type != node->right_child->type){
+                printf("ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n");
+            }
+            else{
+                node->left_child->type = row->type;
+            }
+        }
+    }
+    else if(node->TREENODEDATA->terminal->token == WHILE_KEYWORD){
+        typeExtractionExpr(node->left_child,SYMBOLTABLE);
+        if(node->left_child->type != TYPE_BOOLEAN){
+            printf("WHILE LOOP EXPRESSION MUST BE BOOLEAN\n\n");
+        }
+    }
+    printf("THIS NODE ENDED\n");
 }

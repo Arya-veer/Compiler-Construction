@@ -44,7 +44,7 @@ void StoreVarIntoSymbolTable(SYMBOLTABLEROW* SYMBOLTABLE,TREENODE var){
     SYMBOLTABLEROW str = SYMBOLTABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
-            printf("VARIABLE ALREADY DEFINED\n");
+            printf("VARIABLE ALREADY DEFINED %s\n",var->TREENODEDATA->terminal->lexemedata->data);
             return;
         }
         str = str->next;

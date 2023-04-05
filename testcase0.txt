@@ -1,19 +1,9 @@
-declare module sum;
 <<<driver program>>>
 start
 	declare result_,l,m:integer;
 	declare a,b,a:real;
 	declare x,y,z:boolean;
-    a:=d;
-end
-
-<<module sum>>
-takes input[a:integer, b:real, c:real];
-returns [res_1:boolean, res_2_a:boolean, res_2__b:real];
-    start
-        for(k in 10..20)
+    while(a==b)
         start
         end
-        use module sum with parameters a,b,c;
-
-    end
+end
