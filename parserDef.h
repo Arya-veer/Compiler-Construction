@@ -12,6 +12,14 @@
 
 #include "lexerDef.h"
 
+typedef enum{
+    TYPE_ERROR = -2,
+    TYPE_UNDEFINED = -1,
+    TYPE_INTEGER = 0,
+    TYPE_REAL = 1,
+    TYPE_BOOLEAN =2,
+}TYPE;
+
 /* LINKED LIST STRUCTURES*/
 union NodeType {
     TOKENS terminal;
@@ -58,6 +66,8 @@ struct TreeNode{
     TREENODE list_addr_syn;
     TREENODE left_child;
     TREENODE right_child;
+    TYPE type;
+    int isArray;
     // AST 
 };
 

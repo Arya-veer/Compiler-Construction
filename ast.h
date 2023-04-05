@@ -1,7 +1,9 @@
 #ifndef AST_H
 #define AST_H
-#include "parserDef.h"
+#include "symbolTable.h"
 
 void applyRule(TREENODE tn);
-
+void traversal(TREENODE tn,SYMBOLTABLEROW* SYMBOLTABLE);
+SYMBOLTABLEROW* GST;
+SYMBOLTABLEROW currFunc;
 #endif

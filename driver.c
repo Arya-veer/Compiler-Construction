@@ -96,6 +96,17 @@ int main(int argc, char* argv[]){
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
                 applyRule(root);
+                root = root->child->child;
+                SYMBOLTABLEROW* GLOBAL_SYMBOL_TABLE = initializeSymbolTable();
+                GST = GLOBAL_SYMBOL_TABLE;
+                while(root!=NULL){
+                    printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
+                    // if(root->TREENODEDATA->nonterminal == driverModule) traversal()
+                    // if(root->addr != NULL) printf("%d\n\n\n\n",root->addr->TREENODEDATA->terminal->token);
+                    traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                    root = root->next;
+                }
+                // printSymbolTable(GLOBAL_SYMBOL_TABLE);
                 break;
 
             case 4:

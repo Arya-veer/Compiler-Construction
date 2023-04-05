@@ -1,53 +1,69 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "parserDef.h"
-#include "parser.h"
+#include <string.h>
+#include "astDef.h"
+#include "ast.h"
 
 TREENODE insertAtBegin(TREENODE toPut,TREENODE nextList){
-    toPut -> next = nextList;
+    // printf("INSERT AT BEGIN\n");
+    // if(toPut->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",toPut->TREENODEDATA->terminal->lexemedata->intData);
+    // else if(toPut->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",toPut->TREENODEDATA->terminal->lexemedata->floatData);
+    // else if(toPut->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
+    // else printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
+    // if (nextList != NULL){
+    //     if(nextList->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",nextList->TREENODEDATA->terminal->lexemedata->intData);
+    //     else if(nextList->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",nextList->TREENODEDATA->terminal->lexemedata->floatData);
+    //     else if(nextList->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
+    //     else printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
+    // }
+    toPut -> list_addr_syn = nextList;
     return toPut;
 }
 
 TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
-    printf("MAKENODE\n");
+    // printf("MAKENODE\n");
     // if(assign->isTerminal == 1){
     // }
-    if(assign->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",assign->TREENODEDATA->terminal->lexemedata->intData);
-    else if(assign->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",assign->TREENODEDATA->terminal->lexemedata->floatData);
-    else if(assign->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
-    else printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
+    // if(assign->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",assign->TREENODEDATA->terminal->lexemedata->intData);
+    // else if(assign->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",assign->TREENODEDATA->terminal->lexemedata->floatData);
+    // else if(assign->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
+    // else printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
     assign->left_child = left;
-    printf("LEFT ASSIGNED\n");
-    if(left != NULL){
-        if(left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",left->TREENODEDATA->terminal->lexemedata->intData);
-        else if(left->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",left->TREENODEDATA->terminal->lexemedata->floatData);
-        else if(left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-        else printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-    }
-    else{
-        printf("LEFT IS NULL\n");
-    }
+    // printf("LEFT ASSIGNED\n");
+    // if(left != NULL){
+    //     if(left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",left->TREENODEDATA->terminal->lexemedata->intData);
+    //     else if(left->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",left->TREENODEDATA->terminal->lexemedata->floatData);
+    //     else if(left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
+    //     else printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
+    // }
+    // else{
+    //     // printf("LEFT IS NULL\n");
+    // }
     assign->right_child = right;
-    printf("RIGHT ASSIGNED\n");
-    if(right != NULL){
-        if(right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",right->TREENODEDATA->terminal->lexemedata->intData);
-        else if(right->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",right->TREENODEDATA->terminal->lexemedata->floatData);
-        else if(right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-        else printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-    }
-    else{
-        printf("RIGHT IS NULL\n");
-    }
+    // printf("RIGHT ASSIGNED\n");
+    // if(right != NULL){
+    //     if(right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",right->TREENODEDATA->terminal->lexemedata->intData);
+    //     else if(right->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",right->TREENODEDATA->terminal->lexemedata->floatData);
+    //     else if(right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
+    //     else printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
+    // }
+    // else{
+    //     printf("RIGHT IS NULL\n");
+    // }
     return assign;
 
 }
 
 
+/*
+* AST CREATION *
+*/
+
 void applyRule(TREENODE parent){
 
     int ruleNum = parent->child->ruleNum;
 
-    printf("STARTING RULE %d\n",ruleNum);
+    // printf("STARTING RULE %d\n",ruleNum);
     
 
     switch(ruleNum){
@@ -77,7 +93,7 @@ void applyRule(TREENODE parent){
             TREENODE otherModules_node2 = otherModules_node[1];
             // printf("%ld\n",otherModules_node2);
             applyRule(otherModules_node1);
-            printf("HELLO\n");
+            // printf("HELLO\n");
             applyRule(otherModules_node2);
             program_node->addr = moduleDeclarations_node->addr;
             // printf("ENDING RULE %d\n",ruleNum);
@@ -137,10 +153,10 @@ void applyRule(TREENODE parent){
             // printf("SEARCHING FOR CHILD MODULE DEF\n");
             TREENODE moduleDef_node = getChildNonTerminal(moduleDef,parent);
             applyRule(moduleDef_node);
-            driverModule_node->addr = moduleDef_node->addr;
+            TREENODE DRIVER = getChildTerminal(DRIVER_KEYWORD,parent);
+            driverModule_node->addr = makeNode(DRIVER,moduleDef_node->addr,NULL);
             free(getChildTerminal(DRIVERENDDEF_OPERATOR,driverModule_node));
             free(getChildTerminal(PROGRAM_KEYWORD,driverModule_node));
-            free(getChildTerminal(DRIVER_KEYWORD,driverModule_node));
             free(getChildTerminal(DRIVERDEF_OPERATOR,driverModule_node));
             // printf("7 HO GYA\n");
             // printf("ENDING RULE %d\n",ruleNum);
@@ -206,7 +222,8 @@ void applyRule(TREENODE parent){
             applyRule(dataType_node);
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             leftFactored_input_plist_node->addr = makeNode(ID,dataType_node->addr,NULL);
-            TREENODE leftFactored_input_plist_node1 = getChildNonTerminal(leftFactored_input_plist,leftFactored_input_plist_node);
+            TREENODE leftFactored_input_plist_node1 = getChildNonTerminal(leftFactored_input_plist,parent);
+            applyRule(leftFactored_input_plist_node1);
             free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist_node));
             leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
@@ -225,8 +242,11 @@ void applyRule(TREENODE parent){
             TREENODE type_node = getChildNonTerminal(type,parent);
             applyRule(type_node);
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            TREENODE leftFactored_output_plist_node = getChildNonTerminal(leftFactored_output_plist,parent);
+            applyRule(leftFactored_output_plist_node);
             output_plist_node->addr = makeNode(ID,type_node->addr,NULL);
             free(getChildTerminal(COLON_OPERATOR,output_plist_node));
+            output_plist_node->list_addr_syn = insertAtBegin(output_plist_node->addr,leftFactored_output_plist_node->list_addr_syn);
             // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
@@ -235,7 +255,10 @@ void applyRule(TREENODE parent){
             TREENODE type_node = getChildNonTerminal(type,parent);
             applyRule(type_node);
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            TREENODE leftFactored_output_plist_node1 = getChildNonTerminal(leftFactored_output_plist,parent);
+            applyRule(leftFactored_output_plist_node1);
             leftFactored_output_plist_node->addr = makeNode(ID,type_node->addr,NULL);
+            leftFactored_output_plist_node->list_addr_syn = insertAtBegin(leftFactored_output_plist_node->addr,leftFactored_output_plist_node1->list_addr_syn);
             free(getChildTerminal(COLON_OPERATOR,leftFactored_output_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_output_plist_node));
             // printf("ENDING RULE %d\n",ruleNum);
@@ -244,6 +267,7 @@ void applyRule(TREENODE parent){
         case 16:{
             TREENODE leftFactored_output_plist_node = parent;
             leftFactored_output_plist_node ->addr = NULL;
+            leftFactored_output_plist_node -> list_addr_syn = NULL;
             free(leftFactored_output_plist_node->child);
             // printf("ENDING RULE %d\n",ruleNum);
             break;
@@ -289,7 +313,7 @@ void applyRule(TREENODE parent){
             applyRule(sign_node);
             arrRange_node->addr = sign_node->addr;
             TREENODE leftFactored_arrRange_node = getChildNonTerminal(leftFactored_arrRange,parent);
-            leftFactored_arrRange_node->addr_inh = arrRange_node->addr;
+            leftFactored_arrRange_node->addr_inh = sign_node->addr;
             applyRule(leftFactored_arrRange_node);
             arrRange_node->addr_syn = leftFactored_arrRange_node->addr;
             // printf("ENDING RULE %d\n",ruleNum);
@@ -300,7 +324,11 @@ void applyRule(TREENODE parent){
             TREENODE* idNum_node = getDualNonTerminal(idNum,parent);
             TREENODE idNum1 = idNum_node[0];
             TREENODE idNum2 = idNum_node[1];
+            TREENODE sign_node = getChildNonTerminal(sign,parent);
+            applyRule(sign_node);
+            idNum1->addr_inh = leftFactored_arrRange_node->addr_inh;
             applyRule(idNum1);
+            idNum2->addr_inh = sign_node->addr;
             applyRule(idNum2);
             TREENODE RANGEOP = getChildTerminal(RANGEOP_OPERATOR,leftFactored_arrRange_node);
             leftFactored_arrRange_node->addr = makeNode(RANGEOP,idNum1->addr,idNum2->addr);
@@ -771,7 +799,7 @@ void applyRule(TREENODE parent){
         case 74:{
             TREENODE expression_node = parent;
             TREENODE arithmeticBooleanExpr_node = getChildNonTerminal(arithmeticBooleanExpr,parent);
-            printf("ABE LENE JA RHA HU");
+            // printf("ABE LENE JA RHA HU");
             applyRule(arithmeticBooleanExpr_node);
             expression_node->addr = arithmeticBooleanExpr_node->addr_syn;
             // printf("%s\n",expression_node->addr->TREENODEDATA->terminal->lexemedata->data);
@@ -1328,24 +1356,319 @@ void applyRule(TREENODE parent){
             break;
         }
     }
-    if(parent->addr != NULL){
-        if(parent->addr->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->intData);
-        else if(parent->addr->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->floatData);
-        else if(parent->addr->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-        else printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-    }
-    else{
-        printf("%s addr : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    }
-    if(parent->list_addr_syn != NULL){
-        if(parent->list_addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s list_addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->intData);
-        else if(parent->list_addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s list_addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
-        else if(parent->list_addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-        else printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    }
-    else{
-        printf("%s list_addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    }
-    printf("ENDING RULE %d\n\n______________________________\n\n",ruleNum);
+    // if(parent->addr != NULL){
+    //     if(parent->addr->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->intData);
+    //     else if(parent->addr->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->floatData);
+    //     else if(parent->addr->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
+    //     else printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
+    // }
+    // else{
+    //     printf("%s addr : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
+    // }
+    // if(parent->list_addr_syn != NULL){
+    //     if(parent->list_addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s list_addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->intData);
+    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s list_addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
+    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
+    //     else printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
+    // }
+    // else{
+    //     printf("%s list_addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
+    // }
+    // printf("ENDING RULE %d\n\n______________________________\n\n",ruleNum);
 }
 
+
+
+
+
+// void traverseList(TREENODE node){
+//     if(node == NULL) return;
+//     traversal(node->addr);
+//     traverseList(node->next);
+// }
+
+
+/*
+*TYPE EXTRACTION*
+*/
+
+int getTypeAST(TREENODE node,SYMBOLTABLEROW* SYMBOLTABLE){
+    if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+        SYMBOLTABLEROW str = GetVarFromSymbolTable(SYMBOLTABLE,node);
+        return str->type;
+    }
+    else{
+        return node->type;
+    }
+}
+
+
+void typeExtractionDT(TREENODE dataType_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    if(dataType_node->TREENODEDATA->terminal->token == INTEGER_TYPE){
+        dataType_node->type = TYPE_INTEGER;
+    } 
+    else if(dataType_node->TREENODEDATA->terminal->token == REAL_TYPE){
+        dataType_node->type = TYPE_REAL;
+    }
+    else if(dataType_node->TREENODEDATA->terminal->token == BOOLEAN_TYPE){
+        dataType_node->type = TYPE_BOOLEAN;
+    }
+    else if(dataType_node->TREENODEDATA->terminal->token == ARRAY_KEYWORD){
+        dataType_node->isArray = 1;
+        if(dataType_node->left_child->TREENODEDATA->terminal->token == INTEGER_TYPE){
+            dataType_node->type = TYPE_INTEGER;
+        } 
+        else if(dataType_node->left_child->TREENODEDATA->terminal->token == REAL_TYPE){
+            dataType_node->type = TYPE_REAL;
+        }
+        else if(dataType_node->left_child->TREENODEDATA->terminal->token == BOOLEAN_TYPE){
+            dataType_node->type = TYPE_BOOLEAN;
+        }
+    }
+    else{
+        printf("NO TYPE\n");
+    }
+}
+
+void typeExtractionDeclare(TREENODE declare_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    typeExtractionDT(declare_node->right_child,SYMBOLTABLE);
+    declare_node->type = declare_node->right_child->type;
+    declare_node->isArray = declare_node->left_child->isArray;
+    TREENODE idlist_node = declare_node->left_child;
+    while(idlist_node!=NULL){
+        idlist_node->type = declare_node->type;
+        idlist_node->isArray = declare_node->isArray;
+        StoreVarIntoSymbolTable(SYMBOLTABLE,idlist_node);
+        idlist_node = idlist_node->list_addr_syn;
+    }
+    return;
+}
+
+void typeExtractionIPList(TREENODE input_plist_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    TREENODE idNode = input_plist_node;
+    while(idNode!=NULL){
+
+        // printf("%s\n",idNode->TREENODEDATA->terminal->lexemedata->data);
+        typeExtractionDT(idNode->left_child,SYMBOLTABLE);
+        idNode->type = idNode->left_child->type;
+        idNode->isArray = idNode->left_child->isArray;
+        StoreVarIntoSymbolTable(SYMBOLTABLE,idNode);
+        idNode = idNode->list_addr_syn;
+    }
+}
+
+void typeExtractionOPList(TREENODE output_plist_node,SYMBOLTABLEROW* SYMBOLTABLE){
+
+    TREENODE idNode = output_plist_node;
+    while(idNode!=NULL){
+        typeExtractionDT(idNode->left_child,SYMBOLTABLE);
+        idNode->type = idNode->left_child->type;
+        idNode->isArray = idNode->left_child->isArray;
+        StoreVarIntoSymbolTable(SYMBOLTABLE,idNode);
+        idNode = idNode->list_addr_syn;
+    }
+}
+
+void typeExtractionForLoop(TREENODE for_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    for_node -> left_child -> type = TYPE_INTEGER;
+}
+
+void typeExtractionNum(TREENODE num_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    num_node->type = TYPE_INTEGER;
+}
+
+void typeExtractionRNum(TREENODE rnum_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    rnum_node->type = TYPE_REAL;
+}
+
+void typeExtractionTrue(TREENODE true_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    true_node->type = TYPE_BOOLEAN;
+}
+
+void typeExtractionFalse(TREENODE false_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    false_node->type = TYPE_BOOLEAN;
+}
+
+TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLEROW* SYMBOLTABLE){
+    int type_var = getTypeAST(expression_node,SYMBOLTABLE);
+    if(type_var != -1){
+        return expression_node->type = type_var;
+    }
+    else{
+        typeExtractionExpr(expression_node->left_child,SYMBOLTABLE);
+        typeExtractionExpr(expression_node->right_child,SYMBOLTABLE);
+        int leftType = getTypeAST(expression_node->left_child,SYMBOLTABLE);
+        int rightType = getTypeAST(expression_node->right_child,SYMBOLTABLE);
+        if((expression_node->TREENODEDATA->terminal->token == MUL_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == PLUS_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == MINUS_OPERATOR)){
+            if(leftType == TYPE_INTEGER && rightType == TYPE_INTEGER){
+                return expression_node->type = TYPE_INTEGER;
+            }
+            else if(leftType == TYPE_REAL && rightType == TYPE_REAL){
+                return expression_node->type = TYPE_REAL;
+            }
+            else{
+                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                return expression_node->type = TYPE_ERROR;
+            }
+        }
+        else if(expression_node->TREENODEDATA->terminal->token == DIV_OPERATOR){
+            if((leftType == TYPE_INTEGER && rightType == TYPE_INTEGER) || (leftType == TYPE_INTEGER && rightType == TYPE_REAL) || (leftType == TYPE_REAL && rightType == TYPE_INTEGER) || (leftType == TYPE_REAL && rightType == TYPE_REAL)){
+                return expression_node->type = TYPE_REAL;
+            }
+            else{
+                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                return expression_node->type = TYPE_ERROR;
+            }
+        }
+        else if((expression_node->TREENODEDATA->terminal->token == LT_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == LE_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == GT_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == GE_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == EQ_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == NE_OPERATOR)){
+            if(leftType == TYPE_INTEGER && rightType == TYPE_INTEGER){
+                return expression_node->type = TYPE_BOOLEAN;
+            }
+            else if(leftType == TYPE_REAL && rightType == TYPE_REAL){
+                return expression_node->type == TYPE_BOOLEAN;
+            }
+            else{
+                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                return expression_node->type = TYPE_ERROR;
+            }
+        }
+        else if((expression_node->TREENODEDATA->terminal->token == AND_OPERATOR) || (expression_node->TREENODEDATA->terminal->token == OR_OPERATOR)){
+            if(leftType == TYPE_BOOLEAN && rightType == TYPE_BOOLEAN){
+                return expression_node->type == TYPE_BOOLEAN;
+            }
+            else{
+                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                return expression_node->type = TYPE_ERROR;
+            }
+        }
+    }
+}
+
+/*
+*AST TRAVERSAL*
+*/
+
+
+void traversal(TREENODE node,SYMBOLTABLEROW* SYMBOLTABLE){
+    if(node == NULL) return;
+    // printf("%d\n",node->addr->isTerminal);
+    
+    if(node->TREENODEDATA->terminal->token == DECLARE_KEYWORD){
+        typeExtractionDeclare(node,SYMBOLTABLE);
+    }
+    else if(node->TREENODEDATA->terminal->token == DRIVER_KEYWORD){
+        SYMBOLTABLEROW row = StoreFuncIntoSymbolTable(SYMBOLTABLE,node);
+        currFunc = row;
+        row->SYMBOLTABLE = initializeSymbolTable();
+        SYMBOLTABLE = row->SYMBOLTABLE;
+    }
+    // else if(node->TREENODEDATA->terminal->token == WHILE_KEYWORD){
+    //     typeExtractionExpr(node->left_child,SYMBOLTABLE);
+    // }
+    // else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
+    //     typeExtractionExpr(node->right_child,SYMBOLTABLE);
+    // }
+    else if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
+
+        StoreFuncIntoSymbolTable(SYMBOLTABLE,node);
+    }
+    else if(node->left_child!=NULL && node->left_child->TREENODEDATA->terminal->token == TAKES_KEYWORD){
+        SYMBOLTABLEROW row = StoreFuncIntoSymbolTable(SYMBOLTABLE,node);
+        currFunc = row;
+        row->SYMBOLTABLE = initializeSymbolTable();
+        row->INPUTPARAMS = initializeSymbolTable();
+        typeExtractionIPList(node->left_child->left_child,row->INPUTPARAMS);
+
+        // printf("\nINPUT PARAMS\n");
+        // printSymbolTable(row->INPUTPARAMS);
+        if(node->left_child->right_child!=NULL){
+            row->OUTPUTPARAMS = initializeSymbolTable();
+            typeExtractionOPList(node->left_child->right_child,row->OUTPUTPARAMS);
+            // printSymbolTable(row->OUTPUTPARAMS);
+
+        }
+        // printSymbolTable(SYMBOLTABLE);
+        SYMBOLTABLE = row->SYMBOLTABLE;
+        traversal(node->right_child,SYMBOLTABLE);
+        traversal(node->list_addr_syn,SYMBOLTABLE);
+        // printSymbolTable(SYMBOLTABLE);
+        return;
+
+    }
+    else if(node->TREENODEDATA->terminal->token == FOR_KEYWORD){
+        typeExtractionForLoop(node,SYMBOLTABLE);
+    }
+    else if(node->TREENODEDATA->terminal->token == NUM_TOKEN){
+        typeExtractionNum(node,SYMBOLTABLE);
+    }
+    else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN){
+        typeExtractionRNum(node,SYMBOLTABLE);
+    }
+    else if(node->TREENODEDATA->terminal->token == TRUE_BOOL){
+        typeExtractionTrue(node,SYMBOLTABLE);
+    }
+    else if(node->TREENODEDATA->terminal->token == FALSE_BOOL){
+        typeExtractionFalse(node,SYMBOLTABLE);
+    }
+    if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
+        SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
+        if(row==NULL){
+            printf("FUNCTION NOT DEFINED: %s\n",node->TREENODEDATA->terminal->lexemedata->data);
+        }
+        else if(row == currFunc){
+            printf("RECURSION IS NOT ALLOWED\n\n");
+        }
+    }
+    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
+
+        SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOLTABLE,node);
+        if(row==NULL){
+            if(currFunc->INPUTPARAMS!=NULL){
+                SYMBOLTABLEROW* ip = currFunc->INPUTPARAMS;
+                row = GetVarFromSymbolTable(ip,node);
+                if(row == NULL){
+                    if(currFunc->OUTPUTPARAMS!=NULL){
+                        ip = currFunc->OUTPUTPARAMS;
+                        row = GetVarFromSymbolTable(ip,node);
+                        if(row == NULL){
+                            printf("VARIABLE NOT DEFINED: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
+                        }
+                        else{
+                            node->type = row->type;
+                        }
+                    }
+                    else{
+                        printf("VARIABLE NOT DEFINED: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
+                    }
+                }
+                else{
+                    node->type = row->type;
+                }
+            }
+            else{
+                printf("VARIABLE NOT DEFINED: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
+            }
+        }
+        else{
+            node->type = row->type;
+        }
+    }
+    // if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
+    // else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
+    // else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    // else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    // printf("TYPE OF THIS NODE IS: %d\n",node->type);
+    // printf("PRINTING LEFT CHILD\n");
+    // printf("PRINTING LEFT CHILD\n");
+    traversal(node->left_child,SYMBOLTABLE);
+    // printf("PRINTING RIGHT CHILD\n");
+    traversal(node->right_child,SYMBOLTABLE);
+    // printf("GOING TO NEXT\n");ABE
+    traversal(node->list_addr_syn,SYMBOLTABLE);
+    // if(node->TREENODEDATA->terminal->token == DRIVER_KEYWORD){
+    //     // printf("HFHFHF\n");
+    //     // printf("DRIVER BELOW\n\n");
+    //     // printSymbolTable(SYMBOLTABLE);
+    // }
+    // printf("THIS NODE ENDED\n");
+}

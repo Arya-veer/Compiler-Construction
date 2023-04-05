@@ -224,6 +224,8 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     childHead->addr_inh = NULL;
     childHead->addr_syn = NULL;
     childHead->list_addr_syn=NULL;
+    childHead->isArray = 0;
+    childHead->type = -1;
     if(ln->isTerminal == 0){
         childHead->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
     }
@@ -246,7 +248,8 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     nextNode->addr_inh = NULL;
     nextNode->addr_syn = NULL;
     nextNode->list_addr_syn=NULL;
-
+    nextNode->isArray = 0;
+    nextNode->type = -1;
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
     nextNode->parent = tn->parent;
     if(ln->isTerminal == 0){
@@ -749,7 +752,7 @@ TREENODE parser(char* grammarFile,char* inputFile, char* outputFile, int size){
                     if(lex->token !=  EOF_TOKEN){
                         // printf("STRING COPY\n");
                         stNode->treenode->TREENODEDATA->terminal->lexemedata->data = (char*) malloc(strlen(lex->lexemedata->data)+1);
-                        // printf("%s\n",lex->lexemedata->data);
+                        // printf("%s\n\n\n\n",lex->lexemedata->data);
                         strcpy(stNode->treenode->TREENODEDATA->terminal->lexemedata->data,lex->lexemedata->data);
                         // stNode->treenode->TREENODEDATA->terminal->lexemedata->data =lex->lexemedata->data;
                     }
