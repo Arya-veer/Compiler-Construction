@@ -3,6 +3,7 @@
 
 #include "parserDef.h"
 
+typedef struct SymbolTable* SYMBOLTABLE;
 typedef struct SymTabRowNode* SYMBOLTABLEROW;
 typedef struct arrRange* ARRRANGE;
 
@@ -13,15 +14,23 @@ struct arrRange{
 
 
 struct SymTabRowNode{
-    ARRRANGE range;
+    ARRRANGE range; // TODO: Dynamic or Static
     LEXEME* id;
     TYPE type;
     int offset; // TODO: Assign Offsets
     short isArray;
-    SYMBOLTABLEROW* SYMBOLTABLE;
+    SYMBOLTABLE SYMBOLTABLE;
     SYMBOLTABLEROW next;
-    SYMBOLTABLEROW* INPUTPARAMS;
-    SYMBOLTABLEROW* OUTPUTPARAMS;
+    SYMBOLTABLEROW INPUTPARAMSHEAD;
+    SYMBOLTABLEROW OUTPUTPARAMSHEAD;
 }; 
+
+struct SymbolTable{
+    SYMBOLTABLEROW* TABLE;
+    int currOffset;
+    char* name;
+    SYMBOLTABLE next;
+    SYMBOLTABLE parent;
+};
 
 #endif

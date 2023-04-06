@@ -3,7 +3,7 @@
 #include "symbolTable.h"
 
 void applyRule(TREENODE tn);
-void traversal(TREENODE tn,SYMBOLTABLEROW* SYMBOLTABLE);
-SYMBOLTABLEROW* GST;
+void traversal(TREENODE tn,SYMBOLTABLE SYMBOL_TABLE);
+SYMBOLTABLE GST;
 SYMBOLTABLEROW currFunc;
 #endif

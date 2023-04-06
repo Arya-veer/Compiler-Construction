@@ -90,14 +90,14 @@ int main(int argc, char* argv[]){
                 cleanTwinBuffer(TB);
                 break;
 
-            case 3:
+            case 3:{
                 inputFile = argv[1];
                 outputFile = argv[2];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
                 applyRule(root);
                 root = root->child->child;
-                SYMBOLTABLEROW* GLOBAL_SYMBOL_TABLE = initializeSymbolTable();
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module");
                 GST = GLOBAL_SYMBOL_TABLE;
                 while(root!=NULL){
                     printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
@@ -108,18 +108,30 @@ int main(int argc, char* argv[]){
                 }
                 // printSymbolTable(GLOBAL_SYMBOL_TABLE);
                 break;
-
-            case 4:
+            }
+            case 4:{
                 start_time = clock();
                 // the code process
-                parser(grammarFile,inputFile,outputFile, SIZE);
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
+                applyRule(root);
+                root = root->child->child;
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module");
+                GST = GLOBAL_SYMBOL_TABLE;
+                while(root!=NULL){
+                    // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
+                    // if(root->TREENODEDATA->nonterminal == driverModule) traversal()
+                    // if(root->addr != NULL) printf("%d\n\n\n\n",root->addr->TREENODEDATA->terminal->token);
+                    traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                    root = root->next;
+                }
                 end_time = clock();
                 total_CPU_time = (end_time - start_time);
                 printf("Clock Ticks = %lf\n",total_CPU_time);
                 total_CPU_time_in_seconds = (double) total_CPU_time / CLOCKS_PER_SEC;
                 printf("The code took %lf seconds.\n\n", total_CPU_time_in_seconds);
                 break;
-            
+            }
             default:
                 break;
         }
