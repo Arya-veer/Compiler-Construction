@@ -21,24 +21,18 @@ SYMBOLTABLE initializeSymbolTable(char* name){
 
 
 int hashCodeSymbolTable(char* str){
-    // printf("GETTING HASH\n");
-    // printf("GETTING HASH\n");
     int num=2;
     int k=SYMTABSIZE;
     int product=0;
-
     for(int i=0;i<strlen(str);i++){
         product=product*num+str[i];
     }
-
     product=product%k;
-    // printf("HASH = %d\n",product);
-    // printf("HASH = %d\n",product);
     return product;
 }
 
 
-void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var){
+void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE range){
     
     int index = hashCodeSymbolTable(var->TREENODEDATA->terminal->lexemedata->data);
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
@@ -52,13 +46,16 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var){
     SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
     row->id = var->TREENODEDATA->terminal;
     row->type = var->type;
+    row->range = NULL;
     row->SYMBOLTABLE = NULL;
     row->INPUTPARAMSHEAD = NULL;
     row->OUTPUTPARAMSHEAD = NULL;
     row->next = NULL;
     if(var->isArray == 1){
-        row->range = malloc(sizeof(struct arrRange));
-        TREENODE range = var->left_child->right_child;
+        printf("ARRAY %s getting stored in SYMBOL TABLE\n\n",row->id->lexemedata->data);
+        ARRRANGE aR = malloc(sizeof(struct arrRange));
+        row->range = aR;
+        printf("%s\n",range->TREENODEDATA->terminal->lexemedata->data);
         if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             row->range = NULL;
         }
@@ -76,6 +73,9 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var){
                 row->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
             }
         }
+    }
+    else{
+        row->range = NULL;
     }
 
     if(SYMBOL_TABLE->TABLE[index] == NULL){
@@ -154,17 +154,17 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         }
         str = str->next;
     }
-    printf("DECLARE YE HUA NHI\n\n");
+    // printf("DECLARE YE HUA NHI\n\n");
     if(func->INPUTPARAMSHEAD == NULL) return NULL;
     str = func->INPUTPARAMSHEAD;
     while(str!=NULL){
-        printf("%s\n\n",str->id->lexemedata->data);
+        // printf("%s\n\n",str->id->lexemedata->data);
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
             return str;
         }
         str = str->next;
     }
-    printf("INPUT ME YE HAI NHI\n\n");
+    // printf("INPUT ME YE HAI NHI\n\n");
     if(func->OUTPUTPARAMSHEAD == NULL) return NULL;
     str = func->OUTPUTPARAMSHEAD;
     while(str!=NULL){
@@ -183,7 +183,9 @@ SYMBOLTABLEROW GetFuncFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE func){
 
 void printLinkedListST(SYMBOLTABLEROW row){
     if(row == NULL) return;
-    printf("%s\n",row->id->lexemedata->data);
+    printf("%s %d ",row->id->lexemedata->data,row->type);
+    if(row->range == NULL) printf("0\n");
+    else printf("1\n");
     printLinkedListST(row->next);
 }
 
@@ -214,6 +216,9 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
     if(var->isArray == 1){
         IP->range = malloc(sizeof(struct arrRange));
         TREENODE range = var->left_child->right_child;
+        printf("ARRAY %s getting stored in INPUT TABLE\n\n",IP->id->lexemedata->data);
+        printf("%s\n",range->TREENODEDATA->terminal->lexemedata->data);
+
         if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             IP->range = NULL;
         }
@@ -237,10 +242,10 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
 }
 
 SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
-    printf("OUTPUT PARAMS LIST ASSIGNMENT\n\n");
     OP = malloc(sizeof(struct SymTabRowNode));
     OP->id = var->TREENODEDATA->terminal;
     OP->type = var->type;
+
     OP->SYMBOLTABLE = NULL;
     OP->INPUTPARAMSHEAD = NULL;
     OP->OUTPUTPARAMSHEAD = NULL;
@@ -265,6 +270,9 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
                 OP->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
             }
         }
+    }
+    else{
+        OP->range = NULL;
     }
     return OP;
 }

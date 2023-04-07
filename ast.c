@@ -5,51 +5,52 @@
 #include "ast.h"
 
 TREENODE insertAtBegin(TREENODE toPut,TREENODE nextList){
-    // printf("INSERT AT BEGIN\n");
-    // if(toPut->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",toPut->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(toPut->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",toPut->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(toPut->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
-    // if (nextList != NULL){
-    //     if(nextList->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",nextList->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(nextList->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",nextList->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(nextList->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
-    // }
+    printf("INSERT AT BEGIN\n");
+    if(toPut->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",toPut->TREENODEDATA->terminal->lexemedata->intData);
+    else if(toPut->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",toPut->TREENODEDATA->terminal->lexemedata->floatData);
+    else if(toPut->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
+    else printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
+    if (nextList != NULL){
+        if(nextList->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",nextList->TREENODEDATA->terminal->lexemedata->intData);
+        else if(nextList->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",nextList->TREENODEDATA->terminal->lexemedata->floatData);
+        else if(nextList->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
+        else printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
+    }
     toPut -> list_addr_syn = nextList;
     return toPut;
 }
 
 TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
-    // printf("MAKENODE\n");
+    printf("MAKENODE\n");
+    // printf("%ld\n\n",assign);
     if(assign->isTerminal == 1){
     }
-    // if(assign->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",assign->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(assign->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",assign->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(assign->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
+    if(assign->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",assign->TREENODEDATA->terminal->lexemedata->intData);
+    else if(assign->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",assign->TREENODEDATA->terminal->lexemedata->floatData);
+    else if(assign->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
+    else printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
     assign->left_child = left;
-    // printf("LEFT ASSIGNED\n");
-    // if(left != NULL){
-    //     if(left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",left->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(left->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",left->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("LEFT IS NULL\n");
-    // }
+    printf("LEFT ASSIGNED\n");
+    if(left != NULL){
+        if(left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",left->TREENODEDATA->terminal->lexemedata->intData);
+        else if(left->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",left->TREENODEDATA->terminal->lexemedata->floatData);
+        else if(left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
+        else printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
+    }
+    else{
+        printf("LEFT IS NULL\n");
+    }
     assign->right_child = right;
-    // printf("RIGHT ASSIGNED\n");
-    // if(right != NULL){
-    //     if(right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",right->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(right->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",right->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("RIGHT IS NULL\n");
-    // }
+    printf("RIGHT ASSIGNED\n");
+    if(right != NULL){
+        if(right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",right->TREENODEDATA->terminal->lexemedata->intData);
+        else if(right->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",right->TREENODEDATA->terminal->lexemedata->floatData);
+        else if(right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
+        else printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
+    }
+    else{
+        printf("RIGHT IS NULL\n");
+    }
     return assign;
 
 }
@@ -63,7 +64,7 @@ void applyRule(TREENODE parent){
 
     int ruleNum = parent->child->ruleNum;
 
-    // printf("STARTING RULE %d\n",ruleNum);
+    printf("STARTING RULE %d\n",ruleNum);
     
 
     switch(ruleNum){
@@ -304,7 +305,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(OF_KEYWORD,dataType_node));
             free(getChildTerminal(SQBC_TOKEN,dataType_node));
             free(getChildTerminal(SQBO_TOKEN,dataType_node));
-            // printf("ENDING RULE %d\n",ruleNum);
+            printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 21:{
@@ -636,7 +637,7 @@ void applyRule(TREENODE parent){
             applyRule(arithmeticExprWArr_node);
             TREENODE ASSIGNOP = getChildTerminal(ASSIGNOP_OPERATOR,parent);
             TREENODE SQBO = getChildTerminal(SQBO_TOKEN,lvalueARRStmt_node);
-            TREENODE temp = makeNode(SQBO,lvalueARRStmt_node->addr_inh,arithmeticExprWArr_node->addr_syn);
+            TREENODE temp = makeNode(lvalueARRStmt_node->addr_inh,NULL,arithmeticExprWArr_node->addr_syn);
             lvalueARRStmt_node->addr = makeNode(ASSIGNOP,temp,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueARRStmt_node));
             free(getChildTerminal(SQBC_TOKEN,lvalueARRStmt_node));
@@ -665,7 +666,7 @@ void applyRule(TREENODE parent){
             applyRule(signedParam_node);
             TREENODE sign_node = getChildNonTerminal(sign,parent);
             applyRule(sign_node);
-            // printf()
+            // printf("HELLO\n\n");
             param_node -> addr = makeNode(signedParam_node->addr,sign_node->addr,signedParam_node->addr_syn);
             // printf("%s\n",param_node->addr->TREENODEDATA->terminal->lexemedata->data);
             // printf("ENDING RULE %d\n",ruleNum);
@@ -1356,25 +1357,25 @@ void applyRule(TREENODE parent){
             break;
         }
     }
-    // if(parent->addr != NULL){
-    //     if(parent->addr->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->addr->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->addr->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s addr : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // if(parent->list_addr_syn != NULL){
-    //     if(parent->list_addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s list_addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s list_addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s list_addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // printf("ENDING RULE %d\n\n______________________________\n\n",ruleNum);
+    if(parent->addr != NULL){
+        if(parent->addr->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->intData);
+        else if(parent->addr->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->floatData);
+        else if(parent->addr->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
+        else printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
+    }
+    else{
+        printf("%s addr : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
+    }
+    if(parent->list_addr_syn != NULL){
+        if(parent->list_addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s list_addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->intData);
+        else if(parent->list_addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s list_addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
+        else if(parent->list_addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
+        else printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
+    }
+    else{
+        printf("%s list_addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
+    }
+    printf("ENDING RULE %d\n\n______________________________\n\n",ruleNum);
 }
 
 
@@ -1478,6 +1479,7 @@ void typeExtractionDT(TREENODE dataType_node){
         dataType_node->type = TYPE_BOOLEAN;
     }
     else if(dataType_node->TREENODEDATA->terminal->token == ARRAY_KEYWORD){
+        printf("ARRAY AAYA\n\n%s\n\n",dataType_node->TREENODEDATA->terminal->lexemedata->data);
         dataType_node->isArray = 1;
         if(dataType_node->left_child->TREENODEDATA->terminal->token == INTEGER_TYPE){
             dataType_node->type = TYPE_INTEGER;
@@ -1497,12 +1499,14 @@ void typeExtractionDT(TREENODE dataType_node){
 void typeExtractionDeclare(TREENODE declare_node,SYMBOLTABLE SYMBOL_TABLE){
     typeExtractionDT(declare_node->right_child);
     declare_node->type = declare_node->right_child->type;
-    declare_node->isArray = declare_node->left_child->isArray;
+    declare_node->isArray = declare_node->right_child->isArray;
     TREENODE idlist_node = declare_node->left_child;
     while(idlist_node!=NULL){
+        printf("LOOP ME HAI\n\n");
+        printf("%s %d\n\n",idlist_node->TREENODEDATA->terminal->lexemedata->data,idlist_node->isArray);
         idlist_node->type = declare_node->type;
         idlist_node->isArray = declare_node->isArray;
-        StoreVarIntoSymbolTable(SYMBOL_TABLE,idlist_node);
+        StoreVarIntoSymbolTable(SYMBOL_TABLE,idlist_node,declare_node->right_child->right_child);
         idlist_node = idlist_node->list_addr_syn;
     }
     return;
@@ -1518,7 +1522,9 @@ SYMBOLTABLEROW typeExtractionIPList(TREENODE input_plist_node){
         typeExtractionDT(idNode->left_child);
         idNode->type = idNode->left_child->type;
         idNode->isArray = idNode->left_child->isArray;
-        next = StoreVarAsOutputParam(IPNODE,idNode);
+        printf("%s\n%d\n",idNode->TREENODEDATA->terminal->lexemedata->data,idNode->isArray);
+
+        next = StoreVarAsInputParam(IPNODE,idNode);
         if(head == NULL) head = next;
         if(IPNODE == NULL) IPNODE = next;
         else{
@@ -1527,7 +1533,7 @@ SYMBOLTABLEROW typeExtractionIPList(TREENODE input_plist_node){
         }
         idNode = idNode->list_addr_syn;
     }
-    printf("%s\n",head->id->lexemedata->data);
+    // printf("%s\n",head->id->lexemedata->data);
     return head;
 
 }
@@ -1609,7 +1615,11 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
             else if(expression_node->right_child == NULL){
                 return expression_node->type = leftType;
             }
+            else if(expression_node->left_child == NULL){
+                return expression_node->type = rightType;
+            }
             else{
+                printf("%d %d\n",leftType,rightType);
                 printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
@@ -1647,6 +1657,29 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
     }
 }
 
+
+void handleSwitchCase(int t,TREENODE node){
+    if(t == TYPE_INTEGER && node->right_child == NULL){
+        printf("DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n\n");
+    }
+    else if(t == TYPE_BOOLEAN && node->right_child != NULL){
+        printf("NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n");
+    }
+    else if(t == TYPE_REAL){
+        printf("SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n");
+    }
+    TREENODE caseVal = node->left_child;
+    while(caseVal!=NULL){
+        if(caseVal->type != t){
+            printf("CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n\n");
+
+        }
+        caseVal = caseVal->next;
+    }
+}
+
+
+
 /*
 *AST TRAVERSAL*
 */
@@ -1677,7 +1710,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             row->OUTPUTPARAMSHEAD = typeExtractionOPList(node->left_child->right_child);
         }
         SYMBOL_TABLE = row->SYMBOLTABLE;
+        SYMBOL_TABLE->name = row->id->lexemedata->data;
         SYMBOL_TABLE->parent = GST;
+        traversal(node->left_child,SYMBOL_TABLE);
         traversal(node->right_child,SYMBOL_TABLE);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         printSymbolTable(currFunc);
@@ -1717,29 +1752,51 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             return;
         }
     }
+
     else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
 
+        // printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+        // printf("%ld\n",node);
+        printf("%s\n\n",SYMBOL_TABLE->name);
         SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
         if(row==NULL){
             printf("VARIABLE NOT DEFINED IN SCOPE: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
         }
         else{
             node->type = row->type;
+            traversal(node->left_child,SYMBOL_TABLE);
+            traversal(node->right_child,SYMBOL_TABLE);
+            if(node->right_child != NULL && row->range == NULL){
+                printf("ONLY ARRAYS CAN HAVE AN INDEX IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
+            }
+            if(node->right_child != NULL && node->right_child->type != TYPE_INTEGER){
+                printf("%s\n\n",node->right_child->TREENODEDATA->terminal->lexemedata->data);
+                printf("ARRAY INDEX SHOULD BE AN INTEGER IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
+            }
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
+        if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
+            traversal(node->left_child,SYMBOL_TABLE);
+            traversal(node->right_child,SYMBOL_TABLE);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            handleSwitchCase(node->type,node);
+            return;
         }
     }
-    if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
-    else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
-    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    printf("PRINTING LEFT CHILD\n");
+    // if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
+    // else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
+    // else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    // else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
+    // // printf("PRINTING LEFT CHILD\n");
     traversal(node->left_child,SYMBOL_TABLE);
-    printf("PRINTING RIGHT CHILD\n");
+    // printf("PRINTING RIGHT CHILD\n");
     traversal(node->right_child,SYMBOL_TABLE);
     if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
         int type = TYPE_UNDEFINED;
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
-        type = getTypeAST(node->right_child,SYMBOL_TABLE);
-        
+        type = getTypeAST(node->left_child,SYMBOL_TABLE);
+        // printf("%d\n",type);
         if(type != node->right_child->type){
             printf("ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n");
         }
@@ -1754,5 +1811,5 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
     }
     traversal(node->list_addr_syn,SYMBOL_TABLE);
-    printf("THIS NODE ENDED\n");
+    // printf("THIS NODE ENDED\n");
 }

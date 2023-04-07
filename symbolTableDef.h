@@ -18,7 +18,6 @@ struct SymTabRowNode{
     LEXEME* id;
     TYPE type;
     int offset; // TODO: Assign Offsets
-    short isArray;
     SYMBOLTABLE SYMBOLTABLE;
     SYMBOLTABLEROW next;
     SYMBOLTABLEROW INPUTPARAMSHEAD;

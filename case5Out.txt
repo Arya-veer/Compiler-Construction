@@ -25,6 +25,8 @@ ENDING RULE 3
 
 ______________________________
 
+INSERT AT BEGIN
+readArr
 moduleDeclarations addr : readArr
 moduleDeclarations list_addr_syn : readArr
 ENDING RULE 2
@@ -44,6 +46,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+A
 idList addr : A
 idList list_addr_syn : A
 ENDING RULE 71
@@ -67,6 +71,13 @@ ENDING RULE 26
 ______________________________
 
 STARTING RULE 22
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
 STARTING RULE 24
 MAKENODE
 1
@@ -117,6 +128,7 @@ LEFT ASSIGNED
 real
 RIGHT ASSIGNED
 ..
+ENDING RULE 20
 dataType addr : array
 dataType list_addr_syn : NULL
 ENDING RULE 20
@@ -152,6 +164,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+k
 idList addr : k
 idList list_addr_syn : k
 ENDING RULE 71
@@ -194,6 +208,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+s
 idList addr : s
 idList list_addr_syn : s
 ENDING RULE 71
@@ -334,12 +350,17 @@ ENDING RULE 68
 
 ______________________________
 
+INSERT AT BEGIN
+k
 leftFactored_paramList addr : NULL
 leftFactored_paramList list_addr_syn : k
 ENDING RULE 67
 
 ______________________________
 
+INSERT AT BEGIN
+A
+k
 paramList addr : A
 paramList list_addr_syn : A
 ENDING RULE 66
@@ -383,6 +404,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+s
 idList addr : s
 idList list_addr_syn : s
 ENDING RULE 71
@@ -472,12 +495,17 @@ ENDING RULE 68
 
 ______________________________
 
+INSERT AT BEGIN
+k
 leftFactored_paramList addr : NULL
 leftFactored_paramList list_addr_syn : k
 ENDING RULE 67
 
 ______________________________
 
+INSERT AT BEGIN
+A
+k
 paramList addr : A
 paramList list_addr_syn : A
 ENDING RULE 66
@@ -563,42 +591,62 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+print
 statements addr : print
 statements list_addr_syn : print
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+arraySum
+print
 statements addr : arraySum
 statements list_addr_syn : arraySum
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+readArr
+arraySum
 statements addr : readArr
 statements list_addr_syn : readArr
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+get_value
+readArr
 statements addr : get_value
 statements list_addr_syn : get_value
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+get_value
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+declare
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+declare
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
@@ -611,7 +659,13 @@ ENDING RULE 30
 
 ______________________________
 
-driverModule addr : declare
+MAKENODE
+driver
+LEFT ASSIGNED
+declare
+RIGHT ASSIGNED
+RIGHT IS NULL
+driverModule addr : driver
 driverModule list_addr_syn : NULL
 ENDING RULE 7
 
@@ -637,6 +691,13 @@ ENDING RULE 26
 ______________________________
 
 STARTING RULE 22
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
 STARTING RULE 24
 MAKENODE
 1
@@ -687,6 +748,7 @@ LEFT ASSIGNED
 real
 RIGHT ASSIGNED
 ..
+ENDING RULE 20
 dataType addr : array
 dataType list_addr_syn : NULL
 ENDING RULE 20
@@ -713,12 +775,24 @@ LEFT ASSIGNED
 integer
 RIGHT ASSIGNED
 RIGHT IS NULL
+STARTING RULE 13
+leftFactored_input_plist addr : NULL
+leftFactored_input_plist list_addr_syn : NULL
+ENDING RULE 13
+
+______________________________
+
+INSERT AT BEGIN
+n
 leftFactored_input_plist addr : n
 leftFactored_input_plist list_addr_syn : n
 ENDING RULE 12
 
 ______________________________
 
+INSERT AT BEGIN
+list
+n
 input_plist addr : list
 input_plist list_addr_syn : list
 ENDING RULE 11
@@ -734,14 +808,23 @@ ENDING RULE 28
 
 ______________________________
 
+STARTING RULE 16
+leftFactored_output_plist addr : NULL
+leftFactored_output_plist list_addr_syn : NULL
+ENDING RULE 16
+
+______________________________
+
 MAKENODE
 sum
 LEFT ASSIGNED
 real
 RIGHT ASSIGNED
 RIGHT IS NULL
+INSERT AT BEGIN
+sum
 output_plist addr : sum
-output_plist list_addr_syn : NULL
+output_plist list_addr_syn : sum
 ENDING RULE 14
 
 ______________________________
@@ -770,6 +853,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+index
 idList addr : index
 idList list_addr_syn : index
 ENDING RULE 71
@@ -812,6 +897,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+t
 idList addr : t
 idList list_addr_syn : t
 ENDING RULE 71
@@ -1629,12 +1716,17 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+:=
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+print
+:=
 statements addr : print
 statements list_addr_syn : print
 ENDING RULE 31
@@ -1765,12 +1857,17 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+print
 statements addr : print
 statements list_addr_syn : print
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+print
+print
 statements addr : print
 statements list_addr_syn : print
 ENDING RULE 31
@@ -1790,12 +1887,17 @@ ENDING RULE 122
 
 ______________________________
 
+INSERT AT BEGIN
+false
 leftFactored_caseStmt addr : false
 leftFactored_caseStmt list_addr_syn : false
 ENDING RULE 121
 
 ______________________________
 
+INSERT AT BEGIN
+true
+false
 caseStmt addr : true
 caseStmt list_addr_syn : true
 ENDING RULE 120
@@ -1834,12 +1936,17 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+t
 statements addr : t
 statements list_addr_syn : t
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+t
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
@@ -1919,30 +2026,44 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+print
 statements addr : print
 statements list_addr_syn : print
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+for
+print
 statements addr : for
 statements list_addr_syn : for
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+for
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+:=
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+declare
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
@@ -1974,13 +2095,14 @@ ENDING RULE 6
 
 ______________________________
 
+INSERT AT BEGIN
+arraySum
 otherModules addr : arraySum
 otherModules list_addr_syn : arraySum
 ENDING RULE 5
 
 ______________________________
 
-HELLO
 STARTING RULE 5
 STARTING RULE 8
 STARTING RULE 11
@@ -2008,11 +2130,18 @@ ENDING RULE 25
 ______________________________
 
 STARTING RULE 22
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
 STARTING RULE 24
 MAKENODE
 10
 LEFT ASSIGNED
-LEFT IS NULL
+-
 RIGHT ASSIGNED
 RIGHT IS NULL
 idNum addr : 10
@@ -2058,6 +2187,7 @@ LEFT ASSIGNED
 real
 RIGHT ASSIGNED
 ..
+ENDING RULE 20
 dataType addr : array
 dataType list_addr_syn : NULL
 ENDING RULE 20
@@ -2066,6 +2196,101 @@ ______________________________
 
 MAKENODE
 arr1
+LEFT ASSIGNED
+array
+RIGHT ASSIGNED
+RIGHT IS NULL
+STARTING RULE 12
+STARTING RULE 20
+STARTING RULE 28
+type addr : real
+type list_addr_syn : NULL
+ENDING RULE 28
+
+______________________________
+
+STARTING RULE 21
+STARTING RULE 25
+STARTING RULE 91
+pm addr : -
+pm list_addr_syn : NULL
+ENDING RULE 91
+
+______________________________
+
+sign addr : -
+sign list_addr_syn : NULL
+ENDING RULE 25
+
+______________________________
+
+STARTING RULE 22
+STARTING RULE 26
+sign addr : NULL
+sign list_addr_syn : NULL
+ENDING RULE 26
+
+______________________________
+
+STARTING RULE 24
+MAKENODE
+10
+LEFT ASSIGNED
+-
+RIGHT ASSIGNED
+RIGHT IS NULL
+idNum addr : 10
+idNum list_addr_syn : NULL
+ENDING RULE 24
+
+______________________________
+
+STARTING RULE 24
+MAKENODE
+25
+LEFT ASSIGNED
+LEFT IS NULL
+RIGHT ASSIGNED
+RIGHT IS NULL
+idNum addr : 25
+idNum list_addr_syn : NULL
+ENDING RULE 24
+
+______________________________
+
+MAKENODE
+..
+LEFT ASSIGNED
+10
+RIGHT ASSIGNED
+25
+leftFactored_arrRange addr : ..
+leftFactored_arrRange list_addr_syn : NULL
+ENDING RULE 22
+
+______________________________
+
+arrRange addr : -
+arrRange list_addr_syn : NULL
+ENDING RULE 21
+
+______________________________
+
+MAKENODE
+array
+LEFT ASSIGNED
+real
+RIGHT ASSIGNED
+..
+ENDING RULE 20
+dataType addr : array
+dataType list_addr_syn : NULL
+ENDING RULE 20
+
+______________________________
+
+MAKENODE
+A
 LEFT ASSIGNED
 array
 RIGHT ASSIGNED
@@ -2084,12 +2309,33 @@ LEFT ASSIGNED
 integer
 RIGHT ASSIGNED
 RIGHT IS NULL
+STARTING RULE 13
+leftFactored_input_plist addr : NULL
+leftFactored_input_plist list_addr_syn : NULL
+ENDING RULE 13
+
+______________________________
+
+INSERT AT BEGIN
+k
 leftFactored_input_plist addr : k
 leftFactored_input_plist list_addr_syn : k
 ENDING RULE 12
 
 ______________________________
 
+INSERT AT BEGIN
+A
+k
+leftFactored_input_plist addr : A
+leftFactored_input_plist list_addr_syn : A
+ENDING RULE 12
+
+______________________________
+
+INSERT AT BEGIN
+arr1
+A
 input_plist addr : arr1
 input_plist list_addr_syn : arr1
 ENDING RULE 11
@@ -2121,6 +2367,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+tempvar
 idList addr : tempvar
 idList list_addr_syn : tempvar
 ENDING RULE 71
@@ -2156,6 +2404,11 @@ STARTING RULE 31
 STARTING RULE 35
 STARTING RULE 118
 STARTING RULE 71
+STARTING RULE 72
+STARTING RULE 72
+STARTING RULE 72
+STARTING RULE 72
+STARTING RULE 72
 STARTING RULE 73
 leftFactored_idList addr : NULL
 leftFactored_idList list_addr_syn : NULL
@@ -2163,6 +2416,53 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+q
+leftFactored_idList addr : NULL
+leftFactored_idList list_addr_syn : q
+ENDING RULE 72
+
+______________________________
+
+INSERT AT BEGIN
+p
+q
+leftFactored_idList addr : NULL
+leftFactored_idList list_addr_syn : p
+ENDING RULE 72
+
+______________________________
+
+INSERT AT BEGIN
+c
+p
+leftFactored_idList addr : NULL
+leftFactored_idList list_addr_syn : c
+ENDING RULE 72
+
+______________________________
+
+INSERT AT BEGIN
+b
+c
+leftFactored_idList addr : NULL
+leftFactored_idList list_addr_syn : b
+ENDING RULE 72
+
+______________________________
+
+INSERT AT BEGIN
+a
+b
+leftFactored_idList addr : NULL
+leftFactored_idList list_addr_syn : a
+ENDING RULE 72
+
+______________________________
+
+INSERT AT BEGIN
+i
+a
 idList addr : i
 idList list_addr_syn : i
 ENDING RULE 71
@@ -2394,28 +2694,14 @@ ENDING RULE 94
 
 ______________________________
 
-STARTING RULE 89
-leftFactored_arithmeticExpr addr : NULL
-leftFactored_arithmeticExpr list_addr_syn : NULL
-ENDING RULE 89
+STARTING RULE 88
+STARTING RULE 90
+pm addr : +
+pm list_addr_syn : NULL
+ENDING RULE 90
 
 ______________________________
 
-arithmeticExpr addr : i
-arithmeticExpr list_addr_syn : NULL
-ENDING RULE 87
-
-______________________________
-
-STARTING RULE 85
-STARTING RULE 113
-relationalOp addr : <=
-relationalOp list_addr_syn : NULL
-ENDING RULE 113
-
-______________________________
-
-STARTING RULE 87
 STARTING RULE 94
 STARTING RULE 98
 STARTING RULE 59
@@ -2471,6 +2757,12 @@ ENDING RULE 94
 
 ______________________________
 
+MAKENODE
++
+LEFT ASSIGNED
+i
+RIGHT ASSIGNED
+k
 STARTING RULE 89
 leftFactored_arithmeticExpr addr : NULL
 leftFactored_arithmeticExpr list_addr_syn : NULL
@@ -2478,25 +2770,26 @@ ENDING RULE 89
 
 ______________________________
 
-arithmeticExpr addr : k
+leftFactored_arithmeticExpr addr : +
+leftFactored_arithmeticExpr list_addr_syn : NULL
+ENDING RULE 88
+
+______________________________
+
+arithmeticExpr addr : i
 arithmeticExpr list_addr_syn : NULL
 ENDING RULE 87
 
 ______________________________
 
-MAKENODE
-<=
-LEFT ASSIGNED
-i
-RIGHT ASSIGNED
-k
-relationalTerm addr : <=
+STARTING RULE 86
+relationalTerm addr : +
 relationalTerm list_addr_syn : NULL
-ENDING RULE 85
+ENDING RULE 86
 
 ______________________________
 
-anyTerm addr : <=
+anyTerm addr : +
 anyTerm list_addr_syn : NULL
 ENDING RULE 84
 
@@ -2509,7 +2802,7 @@ ENDING RULE 83
 
 ______________________________
 
-arithmeticBooleanExpr addr : <=
+arithmeticBooleanExpr addr : +
 arithmeticBooleanExpr list_addr_syn : NULL
 ENDING RULE 81
 
@@ -2702,15 +2995,15 @@ ENDING RULE 99
 ______________________________
 
 MAKENODE
-[
-LEFT ASSIGNED
 arr1
+LEFT ASSIGNED
+LEFT IS NULL
 RIGHT ASSIGNED
 i
 MAKENODE
 :=
 LEFT ASSIGNED
-[
+arr1
 RIGHT ASSIGNED
 tempvar
 lvalueARRStmt addr : :=
@@ -2754,6 +3047,8 @@ ENDING RULE 73
 
 ______________________________
 
+INSERT AT BEGIN
+B
 idList addr : B
 idList list_addr_syn : B
 ENDING RULE 71
@@ -2761,10 +3056,10 @@ ENDING RULE 71
 ______________________________
 
 STARTING RULE 20
-STARTING RULE 29
-type addr : boolean
+STARTING RULE 28
+type addr : real
 type list_addr_syn : NULL
-ENDING RULE 29
+ENDING RULE 28
 
 ______________________________
 
@@ -2784,11 +3079,25 @@ ENDING RULE 25
 ______________________________
 
 STARTING RULE 22
+STARTING RULE 25
+STARTING RULE 90
+pm addr : +
+pm list_addr_syn : NULL
+ENDING RULE 90
+
+______________________________
+
+sign addr : +
+sign list_addr_syn : NULL
+ENDING RULE 25
+
+______________________________
+
 STARTING RULE 23
 MAKENODE
 p
 LEFT ASSIGNED
-LEFT IS NULL
+-
 RIGHT ASSIGNED
 RIGHT IS NULL
 idNum addr : p
@@ -2801,7 +3110,7 @@ STARTING RULE 23
 MAKENODE
 q
 LEFT ASSIGNED
-LEFT IS NULL
++
 RIGHT ASSIGNED
 RIGHT IS NULL
 idNum addr : q
@@ -2831,9 +3140,10 @@ ______________________________
 MAKENODE
 array
 LEFT ASSIGNED
-boolean
+real
 RIGHT ASSIGNED
 ..
+ENDING RULE 20
 dataType addr : array
 dataType list_addr_syn : NULL
 ENDING RULE 20
@@ -3611,15 +3921,15 @@ ENDING RULE 99
 ______________________________
 
 MAKENODE
-[
-LEFT ASSIGNED
 B
+LEFT ASSIGNED
+LEFT IS NULL
 RIGHT ASSIGNED
 k
 MAKENODE
 :=
 LEFT ASSIGNED
-[
+B
 RIGHT ASSIGNED
 -
 lvalueARRStmt addr : :=
@@ -3873,36 +4183,53 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+:=
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+:=
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+:=
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+:=
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+declare
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+get_value
+:=
 statements addr : get_value
 statements list_addr_syn : get_value
 ENDING RULE 31
@@ -3912,7 +4239,7 @@ ______________________________
 MAKENODE
 while
 LEFT ASSIGNED
-<=
++
 RIGHT ASSIGNED
 get_value
 iterativeStmt addr : while
@@ -3934,24 +4261,35 @@ ENDING RULE 32
 
 ______________________________
 
+INSERT AT BEGIN
+while
 statements addr : while
 statements list_addr_syn : while
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+:=
+while
 statements addr : :=
 statements list_addr_syn : :=
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+:=
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
 
 ______________________________
 
+INSERT AT BEGIN
+declare
+declare
 statements addr : declare
 statements list_addr_syn : declare
 ENDING RULE 31
@@ -3983,6 +4321,8 @@ ENDING RULE 6
 
 ______________________________
 
+INSERT AT BEGIN
+readArr
 otherModules addr : readArr
 otherModules list_addr_syn : readArr
 ENDING RULE 5
@@ -3995,4 +4335,393 @@ ENDING RULE 1
 
 ______________________________
 
+moduleDeclarations
+otherModules
+ARRAY AAYA
+
+array
+
+list
+1
+ARRAY list getting stored in INPUT TABLE
+
+..
+INPUT PARAMS LIST KA VAR ASSIGNED
+
+n
+0
+INPUT PARAMS LIST KA VAR ASSIGNED
+
+LOOP ME HAI
+
+index 0
+
+LOOP ME HAI
+
+t 0
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+arraySum
+
+
+
+PRINTING SYMBOL TABLE FOR FUNCTION arraySum
+
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: 
+19: 
+20: 
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: index 0 0
+
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: 
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: t 2 0
+
+58: 
+
+ENDING PRINTING
+
+
+
+PRINTING INPUT TABLE FOR FUNCTION arraySum
+
+list 1 1
+n 0 1
+
+
+PRINTING OUTPUT TABLE FOR FUNCTION arraySum
+
+sum 1 0
+driverModule
+ARRAY AAYA
+
+array
+
+LOOP ME HAI
+
+A 0
+
+ARRAY A getting stored in SYMBOL TABLE
+
+..
+LOOP ME HAI
+
+k 0
+
+LOOP ME HAI
+
+s 0
+
+driver
+
+driver
+
+driver
+
+driver
+
+driver
+
+driver
+
+driver
+
+FUNCTION CALL TESTING FOR arraySum IN driver
+
+
+INPUT LIST CHECKED
+
+FUNCTION CALL TESTING FOR arraySum IN driver
+
+
+OUTPUT LIST CHECKED
+
+FUNCTION CALL TESTING FOR readArr IN driver
+
+
+NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+FUNCTION CALL TESTING FOR readArr IN driver
+
+
+OUTPUT LIST CHECKED
+
+otherModules
+ARRAY AAYA
+
+array
+
+arr1
+1
+ARRAY arr1 getting stored in INPUT TABLE
+
+..
+INPUT PARAMS LIST KA VAR ASSIGNED
+
+ARRAY AAYA
+
+array
+
+A
+1
+ARRAY A getting stored in INPUT TABLE
+
+..
+INPUT PARAMS LIST KA VAR ASSIGNED
+
+k
+0
+INPUT PARAMS LIST KA VAR ASSIGNED
+
+LOOP ME HAI
+
+tempvar 0
+
+LOOP ME HAI
+
+i 0
+
+LOOP ME HAI
+
+a 0
+
+LOOP ME HAI
+
+b 0
+
+LOOP ME HAI
+
+c 0
+
+LOOP ME HAI
+
+p 0
+
+LOOP ME HAI
+
+q 0
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+ARRAY AAYA
+
+array
+
+LOOP ME HAI
+
+B 0
+
+ARRAY B getting stored in SYMBOL TABLE
+
+..
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+ONLY ARRAYS CAN HAVE AN INDEX IN LINE 55
+
++
+
+ARRAY INDEX SHOULD BE AN INTEGER IN LINE 55
+
+readArr
+
+readArr
+
+readArr
+
+readArr
+
+ONLY ARRAYS CAN HAVE AN INDEX IN LINE 56
+
+ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+readArr
+
+readArr
+
+WHILE LOOP EXPRESSION MUST BE BOOLEAN
+
+
+
+PRINTING SYMBOL TABLE FOR FUNCTION readArr
+
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: B 1 0
+
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: 
+19: 
+20: 
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: tempvar 1 0
+
+35: 
+36: 
+37: 
+38: a 0 0
+
+39: b 0 0
+
+40: c 0 0
+
+41: 
+42: 
+43: 
+44: 
+45: 
+46: i 0 0
+
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: p 0 0
+
+54: q 0 0
+
+55: 
+56: 
+57: 
+58: 
+
+ENDING PRINTING
+
+
+
+PRINTING INPUT TABLE FOR FUNCTION readArr
+
+arr1 1 1
+A 1 1
+k 0 1
 Enter your option: 

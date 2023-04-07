@@ -17,7 +17,7 @@ typedef enum{
     TYPE_UNDEFINED = -1,
     TYPE_INTEGER = 0,
     TYPE_REAL = 1,
-    TYPE_BOOLEAN =2,
+    TYPE_BOOLEAN = 2,
 }TYPE;
 
 /* LINKED LIST STRUCTURES*/
