@@ -1,10 +1,42 @@
 <<<driver program>>>
 start
-	declare var_1_, var_2_, var_3_:integer;
-	declare R1_abc: boolean;
-	declare r2_ABC: integer;
-	declare R3_abc: real;
-	R3_abc[R1_abc] := R3_abc[R1_abc];
+	declare a:integer;
+	declare b:boolean;
+	declare A:array[-1..+10] of integer;
+	for(i in -1..10)
+	start
+		switch(b)
+		start
+			case true: a:=1;
+			break;
+			case false: a:=2;
+			break;
+		end
+		a:=a + A[i];
+		for(j in -1..10)
+			start
+				A[j] := A[i];
+			end
+		switch(b)
+		start
+			case true: a:=1;
+			break;
+			case false: a:=2;
+			break;
+		end
+		for(j in -1..10)
+			start
+				A[j] := A[i];
+			end
+		for(j in -1..10)
+			start
+				A[j] := A[i];
+			end
+	end
+	while(a < A[5])
+		start
+			declare a,b:integer;
+			a:=A[1];
+		end
 end
-**verify the output of the lexical analyzer as well**
-**check the correctness of the parse tree**
+

@@ -4,10 +4,14 @@
 #include "symbolTable.h"
 
 int SYMTABSIZE = 59;
+int FOR_ROW = 60;
+int WHILE_ROW = 61; 
+int SWITCH_ROW = 62; 
+int OFFSETS[] = {4,4,1};
 
 SYMBOLTABLE initializeSymbolTable(char* name){
-    SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc(SYMTABSIZE*sizeof(SYMBOLTABLEROW));
-    for(int i = 0;i<SYMTABSIZE;i++){
+    SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc((SYMTABSIZE+5)*sizeof(SYMBOLTABLEROW));
+    for(int i = 0;i<(SYMTABSIZE+5);i++){
         // SYMBOLTABLEROW str = malloc(sizeof(struct SymTabRowNode));
         TABLE[i] = NULL;
         // TABLE[i] = NULL;
@@ -16,6 +20,7 @@ SYMBOLTABLE initializeSymbolTable(char* name){
     st->TABLE = TABLE;
     st->currOffset = 0;
     st->name = name;
+    st->parent = NULL;
     return st;
 }
 
@@ -45,6 +50,8 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
     }
     SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
     row->id = var->TREENODEDATA->terminal;
+    row->offset = SYMBOL_TABLE->currOffset;
+    SYMBOL_TABLE->currOffset += OFFSETS[var->type];
     row->type = var->type;
     row->range = NULL;
     row->SYMBOLTABLE = NULL;
@@ -52,12 +59,13 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
     row->OUTPUTPARAMSHEAD = NULL;
     row->next = NULL;
     if(var->isArray == 1){
-        printf("ARRAY %s getting stored in SYMBOL TABLE\n\n",row->id->lexemedata->data);
+        row->isDynamic = 0; 
         ARRRANGE aR = malloc(sizeof(struct arrRange));
         row->range = aR;
-        printf("%s\n",range->TREENODEDATA->terminal->lexemedata->data);
         if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             row->range = NULL;
+            row->isDynamic = 1; 
+
         }
         else{
             if(range->left_child->left_child == NULL || range->left_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
@@ -127,8 +135,71 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         }
     }
 
+
 }
 
+SYMBOLTABLEROW StoreForIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE FOR){
+    int index = FOR_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+    SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
+    row->id = FOR->TREENODEDATA->terminal;
+    row->type = TYPE_UNDEFINED;
+    row->SYMBOLTABLE = NULL;
+    row->INPUTPARAMSHEAD = NULL;
+    row->OUTPUTPARAMSHEAD = NULL;
+    row->next = NULL;
+    if(str == NULL){ 
+        SYMBOL_TABLE->TABLE[index] = row;
+    }
+    else{
+        while(str->next != NULL) str = str->next;
+        str->next= row;
+    }
+
+    return row;
+}
+
+SYMBOLTABLEROW StoreWhileIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE WHILE){
+    int index = WHILE_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+    SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
+    row->id = WHILE->TREENODEDATA->terminal;
+    row->type = TYPE_UNDEFINED;
+    row->SYMBOLTABLE = NULL;
+    row->INPUTPARAMSHEAD = NULL;
+    row->OUTPUTPARAMSHEAD = NULL;
+    row->next = NULL;
+    if(str == NULL){ 
+        SYMBOL_TABLE->TABLE[index] = row;
+    }
+    else{
+        while(str->next != NULL) str = str->next;
+        str->next= row;
+    }
+
+    return row;
+}
+
+SYMBOLTABLEROW StoreSwitchIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWITCH){
+    int index = SWITCH_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+    SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
+    row->id = SWITCH->TREENODEDATA->terminal;
+    row->type = TYPE_UNDEFINED;
+    row->SYMBOLTABLE = NULL;
+    row->INPUTPARAMSHEAD = NULL;
+    row->OUTPUTPARAMSHEAD = NULL;
+    row->next = NULL;
+    if(str == NULL){ 
+        SYMBOL_TABLE->TABLE[index] = row;
+    }
+    else{
+        while(str->next != NULL) str = str->next;
+        str->next= row;
+    }
+
+    return row;
+}
 
 SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
     int index = hashCodeSymbolTable(func);
@@ -143,11 +214,13 @@ SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
 }
 
 SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
+    if(SYMBOL_TABLE == NULL || SYMBOL_TABLE->parent == NULL) return NULL;
     SYMBOLTABLEROW func = GetFuncFromName(SYMBOL_TABLE->parent,SYMBOL_TABLE->name);
     int index;
     SYMBOLTABLEROW str;
     index = hashCodeSymbolTable(var->TREENODEDATA->terminal->lexemedata->data);
-    str = func->SYMBOLTABLE->TABLE[index];
+    // printSymbolTable(SYMBOL_TABLE);
+    str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
             return str;
@@ -155,7 +228,10 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         str = str->next;
     }
     // printf("DECLARE YE HUA NHI\n\n");
-    if(func->INPUTPARAMSHEAD == NULL) return NULL;
+    if(func == NULL || func->INPUTPARAMSHEAD == NULL){ 
+        if(SYMBOL_TABLE->parent == NULL) return NULL;
+        return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
+    }
     str = func->INPUTPARAMSHEAD;
     while(str!=NULL){
         // printf("%s\n\n",str->id->lexemedata->data);
@@ -165,7 +241,11 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         str = str->next;
     }
     // printf("INPUT ME YE HAI NHI\n\n");
-    if(func->OUTPUTPARAMSHEAD == NULL) return NULL;
+    if(func->OUTPUTPARAMSHEAD == NULL){ 
+        if(SYMBOL_TABLE->parent == NULL) return NULL;
+        printf("PARENT ME LENE JA RHA HAI\n\n");
+        return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
+    }
     str = func->OUTPUTPARAMSHEAD;
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
@@ -173,7 +253,9 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         }
         str = str->next;
     }
-    return NULL;
+    if(SYMBOL_TABLE->parent == NULL) return NULL;
+    printf("PARENT ME LENE JA RHA HAI\n\n");
+    return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
 }
 
 SYMBOLTABLEROW GetFuncFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE func){
@@ -192,7 +274,7 @@ void printLinkedListST(SYMBOLTABLEROW row){
 void printSymbolTable(SYMBOLTABLEROW func){
     // printf("%ld\n\n",SYMBOLTABLE);
     printf("\n\nPRINTING SYMBOL TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
-    for(int i = 0;i<SYMTABSIZE;i++){
+    for(int i = 0;i<(SYMTABSIZE+5);i++){
         printf("\n%d: ",i);
         printLinkedListST(func->SYMBOLTABLE->TABLE[i]);
     }
@@ -213,14 +295,18 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
     IP->INPUTPARAMSHEAD = NULL;
     IP->OUTPUTPARAMSHEAD = NULL;
     IP->next = NULL;
-    if(var->isArray == 1){
-        IP->range = malloc(sizeof(struct arrRange));
-        TREENODE range = var->left_child->right_child;
-        printf("ARRAY %s getting stored in INPUT TABLE\n\n",IP->id->lexemedata->data);
-        printf("%s\n",range->TREENODEDATA->terminal->lexemedata->data);
+    IP->range = NULL;
+    TREENODE range = var->left_child->right_child;
+    printf("ARRAY %s getting stored in INPUT TABLE\n\n",IP->id->lexemedata->data);
+    printf("%s\n",var->left_child->TREENODEDATA->terminal->lexemedata->data);
+    if(range != NULL){
+        IP->isDynamic = 0;
+        ARRRANGE aR = malloc(sizeof(struct arrRange));
+        IP->range = aR;
 
         if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             IP->range = NULL;
+            IP->isDynamic = 1;
         }
         else{
             if(range->left_child->left_child == NULL || range->left_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
@@ -235,6 +321,9 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
             else{
                 IP->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
             }
+            if(IP->range->left > IP->range->right){
+                printf("LEFT RANGE MUST BE SMALLER THAN RIGHT RANGE\n\n");
+            }
         }
     }
     printf("INPUT PARAMS LIST KA VAR ASSIGNED\n\n");
@@ -245,13 +334,13 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
     OP = malloc(sizeof(struct SymTabRowNode));
     OP->id = var->TREENODEDATA->terminal;
     OP->type = var->type;
-
     OP->SYMBOLTABLE = NULL;
     OP->INPUTPARAMSHEAD = NULL;
     OP->OUTPUTPARAMSHEAD = NULL;
     OP->next = NULL;
     if(var->isArray == 1){
-        OP->range = malloc(sizeof(struct arrRange));
+        ARRRANGE aR = malloc(sizeof(struct arrRange));
+        OP->range = aR;
         TREENODE range = var->left_child->right_child;
         if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             OP->range = NULL;

@@ -14,15 +14,18 @@ struct arrRange{
 
 
 struct SymTabRowNode{
-    ARRRANGE range; // TODO: Dynamic or Static
+    ARRRANGE range;
+    short isDynamic;
     LEXEME* id;
     TYPE type;
-    int offset; // TODO: Assign Offsets
+    int offset;
     SYMBOLTABLE SYMBOLTABLE;
     SYMBOLTABLEROW next;
     SYMBOLTABLEROW INPUTPARAMSHEAD;
     SYMBOLTABLEROW OUTPUTPARAMSHEAD;
 }; 
+
+
 
 struct SymbolTable{
     SYMBOLTABLEROW* TABLE;
