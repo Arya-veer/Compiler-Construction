@@ -223,12 +223,7 @@ LINE 91: TYPE DID NOT MATCH FOR PARAM NUMBER 4
 k
 
 
-10
-
-
-*****ERROR*****10
-
-
+LINE 92: ONLY ARRAYS CAN HAVE AN INDEX
 declare
 
 
@@ -252,12 +247,6 @@ ARRAY INDEX OUT OF BOUNDS IN LINE 98
 :=
 
 
-20
-
-
-*****ERROR*****20
-
-
 :=
 
 
@@ -278,12 +267,6 @@ LINE 105: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 
 :=
-
-
-default
-
-
-*****ERROR*****default
 
 
 :=

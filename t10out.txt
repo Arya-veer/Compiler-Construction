@@ -28,12 +28,7 @@ get_value
 k
 
 
-10
-
-
-*****ERROR*****10
-
-
+LINE 17: ONLY ARRAYS CAN HAVE AN INDEX
 declare
 
 
@@ -47,12 +42,6 @@ declare
 
 
 :=
-
-
-20
-
-
-*****ERROR*****20
 
 
 :=
@@ -65,12 +54,6 @@ for
 
 
 :=
-
-
-default
-
-
-*****ERROR*****default
 
 
 :=
@@ -82,36 +65,13 @@ default
 p
 
 
-1
-
-
-*****ERROR*****1
-
-
-:=
-
-
-LINE 40: TYPE ERROR OCCURED
-LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
-
-default
-
-
-*****ERROR*****default
-
-
-:=
-
+LINE 38: ONLY ARRAYS CAN HAVE AN INDEX
+LINE 38: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE
 
 h
 
 
-false
-
-
-*****ERROR*****false
-
-
+LINE 46: ONLY ARRAYS CAN HAVE AN INDEX
 declare
 
 
@@ -127,47 +87,14 @@ declare
 :=
 
 
-20
-
-
-*****ERROR*****20
-
-
-:=
-
-
-get_value
-
-
-for
-
-
-:=
-
-
-:=
-
-
-true
-
-
-*****ERROR*****true
-
-
+LINE 54: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR
 :=
 
 
 print
 
 
-default
-
-
-*****ERROR*****default
-
-
-:=
-
+LINE 46: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION
 
 for_loop_demo
 
@@ -203,37 +130,13 @@ for_loop_demo
 a
 
 
-1
-
-
-*****ERROR*****1
+:=
 
 
 :=
 
 
-2
-
-
-*****ERROR*****2
-
-
 :=
-
-
-3
-
-
-*****ERROR*****3
-
-
-:=
-
-
-4
-
-
-*****ERROR*****4
 
 
 :=
@@ -241,5 +144,6 @@ a
 
 LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+LINE 90: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER
 otherModules
 Enter your option: 

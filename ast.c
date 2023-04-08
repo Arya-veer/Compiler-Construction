@@ -1466,26 +1466,6 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 }
 
 
-void handleSwitchCase(int t,TREENODE node){
-    if(t == TYPE_INTEGER && node->right_child == NULL){
-        printf("LINE %d: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",node->TREENODEDATA->terminal->lineNo);
-    }
-    else if(t == TYPE_BOOLEAN && node->right_child != NULL){
-        printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->TREENODEDATA->terminal->lineNo);
-    }
-    else if(t == TYPE_REAL){
-        printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
-    }
-    TREENODE caseVal = node->left_child;
-    while(caseVal!=NULL){
-        if(caseVal->type != t){
-            printf("LINE %d: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n",caseVal->TREENODEDATA->terminal->lineNo);
-        }
-        caseVal = caseVal->next;
-    }
-}
-
-
 
 /*
 *AST TRAVERSAL*
@@ -1496,7 +1476,6 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
     printASTNODE(node);
-
 
     /*MODULE DECLARATION*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
@@ -1576,10 +1555,38 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreSwitchIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("SWITCH");
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        traversal(node->left_child,row->SYMBOLTABLE);
-        traversal(node->right_child,row->SYMBOLTABLE);
-        // printSymbolTable(row);
-        handleSwitchCase(node->type,node);
+        int t = getTypeAST(node,SYMBOL_TABLE);
+        if(t == TYPE_REAL){
+            printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
+        TREENODE caseVal = node->left_child;
+
+        while(caseVal!=NULL){
+            caseVal->type = getTypeAST(caseVal,SYMBOL_TABLE);
+            if(caseVal->type != t){
+                printf("LINE %d: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n",caseVal->TREENODEDATA->terminal->lineNo);
+            }
+            else{
+                SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
+                case_node->SYMBOLTABLE = initializeSymbolTable("CASE");
+                case_node->SYMBOLTABLE->parent = SYMBOL_TABLE;
+                traversal(caseVal->left_child,case_node->SYMBOLTABLE);
+            }
+            caseVal = caseVal->list_addr_syn;
+        }
+        if(t == TYPE_INTEGER && node->right_child == NULL){
+            printf("LINE %d: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",node->TREENODEDATA->terminal->lineNo);
+        }
+        else if(t == TYPE_INTEGER && node->right_child != NULL){
+            traversal(node->right_child->left_child,row->SYMBOLTABLE);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
+        else if(t == TYPE_BOOLEAN && node->right_child != NULL){
+            printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->TREENODEDATA->terminal->lineNo);
+        }
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }

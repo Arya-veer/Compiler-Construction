@@ -7,6 +7,7 @@ int SYMTABSIZE = 59;
 int FOR_ROW = 60;
 int WHILE_ROW = 61; 
 int SWITCH_ROW = 62; 
+int CASE_ROW = 63; 
 int OFFSETS[] = {4,4,1};
 
 SYMBOLTABLE initializeSymbolTable(char* name){
@@ -201,6 +202,27 @@ SYMBOLTABLEROW StoreSwitchIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWIT
     return row;
 }
 
+SYMBOLTABLEROW StoreCaseIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE){
+    int index = CASE_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+    SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
+    row->id = CASE->TREENODEDATA->terminal;
+    row->type = TYPE_UNDEFINED;
+    row->SYMBOLTABLE = NULL;
+    row->INPUTPARAMSHEAD = NULL;
+    row->OUTPUTPARAMSHEAD = NULL;
+    row->next = NULL;
+    if(str == NULL){ 
+        SYMBOL_TABLE->TABLE[index] = row;
+    }
+    else{
+        while(str->next != NULL) str = str->next;
+        str->next= row;
+    }
+
+    return row;
+}
+
 SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
     int index = hashCodeSymbolTable(func);
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
@@ -263,8 +285,9 @@ SYMBOLTABLEROW GetFuncFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE func){
 
 void printLinkedListST(SYMBOLTABLEROW row){
     if(row == NULL) return;
-    printf("%s %d ",row->id->lexemedata->data,row->type);
-    if(row->range == NULL) printf("0\n");
+    if(row->id->token == IDENTIFIER_TOKEN)printf("%s %d ",row->id->lexemedata->data,row->type);
+    else if(row->id->token == NUM_TOKEN)printf("%d %d ",row->id->lexemedata->intData,row->type);
+    if(row->isDynamic == -1) printf("0\n");
     else printf("1\n");
     printLinkedListST(row->next);
 }
