@@ -4,55 +4,27 @@
 #include "astDef.h"
 #include "ast.h"
 
+
+
+void printASTNODE(TREENODE node){
+    if(node == NULL) printf("NODE IS NULL\n\n");
+    if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n\n\n",node->TREENODEDATA->terminal->lexemedata->intData);
+    else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n\n\n",node->TREENODEDATA->terminal->lexemedata->floatData);
+    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data);
+    else printf("%s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data);
+}
+
+
 TREENODE insertAtBegin(TREENODE toPut,TREENODE nextList){
-    // printf("INSERT AT BEGIN\n");
-    // if(toPut->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",toPut->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(toPut->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",toPut->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(toPut->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",toPut->TREENODEDATA->terminal->lexemedata->data);
-    // if (nextList != NULL){
-    //     if(nextList->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",nextList->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(nextList->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",nextList->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(nextList->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",nextList->TREENODEDATA->terminal->lexemedata->data);
-    // }
     toPut -> list_addr_syn = nextList;
     return toPut;
 }
 
-TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
-    // printf("MAKENODE\n");
-    // // printf("%ld\n\n",assign);
-    // if(assign->isTerminal == 1){
-    // }
-    // if(assign->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",assign->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(assign->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",assign->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(assign->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",assign->TREENODEDATA->terminal->lexemedata->data);
-    assign->left_child = left;
-    // printf("LEFT ASSIGNED\n");
-    // if(left != NULL){
-    //     if(left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",left->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(left->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",left->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",left->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("LEFT IS NULL\n");
-    // }
-    assign->right_child = right;
-    // printf("RIGHT ASSIGNED\n");
-    // if(right != NULL){
-    //     if(right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",right->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(right->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",right->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s\n",right->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("RIGHT IS NULL\n");
-    // }
-    return assign;
 
+TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
+    assign->left_child = left;
+    assign->right_child = right;
+    return assign;
 }
 
 
@@ -64,19 +36,14 @@ void applyRule(TREENODE parent){
 
     int ruleNum = parent->child->ruleNum;
 
-    // printf("STARTING RULE %d\n",ruleNum);
-    
-
     switch(ruleNum){
         case 0: {
             TREENODE finalProgram_node = parent;
-            // printf("SEARCHING FOR CHILD PROGRAM\n");
             TREENODE program_node = getChildNonTerminal(program,finalProgram_node);
             applyRule(program_node);
             finalProgram_node->addr = program_node->addr;
             TREENODE eof_node = getChildTerminal(EOF_TOKEN,finalProgram_node);
             free(eof_node);
-            // printf("EYB\n");
             
             return;
         }
@@ -84,20 +51,14 @@ void applyRule(TREENODE parent){
             TREENODE program_node = parent;
             TREENODE moduleDeclarations_node = getChildNonTerminal(moduleDeclarations,parent);
             applyRule(moduleDeclarations_node);
-            // printf("DRIVER MODULE LENE JA RHA HU\n");
             TREENODE driverModule_node = getChildNonTerminal(driverModule,parent);
             applyRule(driverModule_node);
-
             TREENODE* otherModules_node = getDualNonTerminal(otherModules,parent);
             TREENODE otherModules_node1 = otherModules_node[0];
-            // printf("%ld\n",otherModules_node1);
             TREENODE otherModules_node2 = otherModules_node[1];
-            // printf("%ld\n",otherModules_node2);
             applyRule(otherModules_node1);
-            // printf("HELLO\n");
             applyRule(otherModules_node2);
             program_node->addr = moduleDeclarations_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
 
         }
@@ -109,7 +70,6 @@ void applyRule(TREENODE parent){
             applyRule(moduleDeclarations1_node);
             moduleDeclarations_node->list_addr_syn = insertAtBegin(moduleDeclaration_node->addr,moduleDeclarations1_node->list_addr_syn);
             moduleDeclarations_node->addr=moduleDeclarations_node->list_addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 3:{
@@ -117,8 +77,6 @@ void applyRule(TREENODE parent){
             moduleDeclarations_node->list_addr_syn = NULL;
             moduleDeclarations_node->addr = NULL;
             free(moduleDeclarations_node->child);
-            // printf("3 HO GYA\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 4:{
@@ -127,7 +85,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,moduleDeclaration_node));
             free(getChildTerminal(MODULE_KEYWORD,moduleDeclaration_node));
             free(getChildTerminal(DECLARE_KEYWORD,moduleDeclaration_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 5:{
@@ -138,7 +95,6 @@ void applyRule(TREENODE parent){
             applyRule(otherModules1_node);
             otherModules_node->list_addr_syn = insertAtBegin(module_node->addr,otherModules1_node->list_addr_syn);
             otherModules_node->addr = otherModules_node->list_addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 6:{
@@ -146,7 +102,6 @@ void applyRule(TREENODE parent){
             otherModules_node->list_addr_syn = NULL;
             otherModules_node->addr = NULL;
             free(otherModules_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 7:{
@@ -160,7 +115,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(PROGRAM_KEYWORD,driverModule_node));
             free(getChildTerminal(DRIVERDEF_OPERATOR,driverModule_node));
             // printf("7 HO GYA\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 8:{
@@ -182,7 +136,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(ENDDEF_OPERATOR,module_node));
             free(getChildTerminal(MODULE_KEYWORD,module_node));
             free(getChildTerminal(DEF_OPERATOR,module_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 9:{
@@ -194,14 +147,12 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SQBC_TOKEN,ret_node));
             free(getChildTerminal(SQBO_TOKEN,ret_node));
             free(getChildTerminal(RETURNS_KEYWORD,ret_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 10:{
             TREENODE ret_node = parent;
             ret_node->addr = NULL;
             free(ret_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 11:{
@@ -214,7 +165,6 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_input_plist_node);
             free(getChildTerminal(COLON_OPERATOR,input_plist_node));
             input_plist_node->list_addr_syn = insertAtBegin(input_plist_node->addr,leftFactored_input_plist_node->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 12:{
@@ -228,14 +178,12 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist_node));
             leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 13:{
             TREENODE leftFactored_input_plist_node = parent;
             leftFactored_input_plist_node -> list_addr_syn = NULL;
             free(leftFactored_input_plist_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 14:{
@@ -248,7 +196,6 @@ void applyRule(TREENODE parent){
             output_plist_node->addr = makeNode(ID,type_node->addr,NULL);
             free(getChildTerminal(COLON_OPERATOR,output_plist_node));
             output_plist_node->list_addr_syn = insertAtBegin(output_plist_node->addr,leftFactored_output_plist_node->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 15:{
@@ -262,7 +209,6 @@ void applyRule(TREENODE parent){
             leftFactored_output_plist_node->list_addr_syn = insertAtBegin(leftFactored_output_plist_node->addr,leftFactored_output_plist_node1->list_addr_syn);
             free(getChildTerminal(COLON_OPERATOR,leftFactored_output_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_output_plist_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 16:{
@@ -270,28 +216,24 @@ void applyRule(TREENODE parent){
             leftFactored_output_plist_node ->addr = NULL;
             leftFactored_output_plist_node -> list_addr_syn = NULL;
             free(leftFactored_output_plist_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 17:{
             TREENODE dataType_node = parent;
             TREENODE INTEGER = getChildTerminal(INTEGER_TYPE,parent);
             dataType_node->addr = INTEGER;
-            printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 18:{
             TREENODE dataType_node = parent;
             TREENODE REAL = getChildTerminal(REAL_TYPE,parent);
             dataType_node->addr = REAL;
-            printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 19:{
             TREENODE dataType_node = parent;
             TREENODE BOOLEAN = getChildTerminal(BOOLEAN_TYPE,parent);
             dataType_node->addr = BOOLEAN;
-            printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 20:{
@@ -305,7 +247,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(OF_KEYWORD,dataType_node));
             free(getChildTerminal(SQBC_TOKEN,dataType_node));
             free(getChildTerminal(SQBO_TOKEN,dataType_node));
-            printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 21:{
@@ -317,7 +258,6 @@ void applyRule(TREENODE parent){
             leftFactored_arrRange_node->addr_inh = sign_node->addr;
             applyRule(leftFactored_arrRange_node);
             arrRange_node->addr_syn = leftFactored_arrRange_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 22:{
@@ -333,21 +273,18 @@ void applyRule(TREENODE parent){
             applyRule(idNum2);
             TREENODE RANGEOP = getChildTerminal(RANGEOP_OPERATOR,leftFactored_arrRange_node);
             leftFactored_arrRange_node->addr = makeNode(RANGEOP,idNum1->addr,idNum2->addr);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 23:{
             TREENODE idNum_node = parent;
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             idNum_node->addr = makeNode(ID,idNum_node->addr_inh,NULL);//*CHECK THIS*
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 24:{
             TREENODE idNum_node = parent;
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             idNum_node->addr = makeNode(NUM,idNum_node->addr_inh,NULL);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 25:{
@@ -355,35 +292,30 @@ void applyRule(TREENODE parent){
             TREENODE pm_node = getChildNonTerminal(pm,parent);
             applyRule(pm_node);
             sign_node->addr = pm_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 26:{
             TREENODE sign_node = parent;
             sign_node->addr = NULL;
             free(sign_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 27:{
             TREENODE type_node = parent;
             TREENODE INTEGER = getChildTerminal(INTEGER_TYPE,parent);
             type_node->addr = INTEGER;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 28:{
             TREENODE type_node = parent;
             TREENODE REAL = getChildTerminal(REAL_TYPE,parent);
             type_node->addr = REAL;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 29:{
             TREENODE type_node = parent;
             TREENODE BOOLEAN = getChildTerminal(BOOLEAN_TYPE,parent);
             type_node->addr = BOOLEAN;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 30:{
@@ -395,7 +327,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(END_KEYWORD,moduleDef_node));
             free(getChildTerminal(START_KEYWORD,moduleDef_node));
             // printf("SAHI HO GYA\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 31:{
@@ -406,7 +337,6 @@ void applyRule(TREENODE parent){
             applyRule(statements_node1);
             statements_node->list_addr_syn = insertAtBegin(statement_node->addr,statements_node1->list_addr_syn);
             statements_node->addr = statements_node->list_addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 32:{
@@ -416,7 +346,6 @@ void applyRule(TREENODE parent){
             // printf("FREE KR RHA HU\n");
             free(statements_node->child);
             // printf("FREE HO GYA\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 33:{
@@ -424,7 +353,6 @@ void applyRule(TREENODE parent){
             TREENODE ioStmt_node = getChildNonTerminal(ioStmt,parent);
             applyRule(ioStmt_node);
             statement_node->addr = ioStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 34:{
@@ -432,7 +360,6 @@ void applyRule(TREENODE parent){
             TREENODE simpleStmt_node = getChildNonTerminal(simpleStmt,parent);
             applyRule(simpleStmt_node);
             statement_node->addr = simpleStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 35:{
@@ -440,7 +367,6 @@ void applyRule(TREENODE parent){
             TREENODE declareStmt_node = getChildNonTerminal(declareStmt,parent);
             applyRule(declareStmt_node);
             statement_node->addr = declareStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 36:{
@@ -448,7 +374,6 @@ void applyRule(TREENODE parent){
             TREENODE conditionalStmt_node = getChildNonTerminal(conditionalStmt,parent);
             applyRule(conditionalStmt_node);
             statement_node->addr = conditionalStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 37:{
@@ -456,7 +381,6 @@ void applyRule(TREENODE parent){
             TREENODE iterativeStmt_node = getChildNonTerminal(iterativeStmt,parent);
             applyRule(iterativeStmt_node);
             statement_node->addr = iterativeStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 38:{
@@ -467,7 +391,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,ioStmt_node));
             free(getChildTerminal(BC_TOKEN,ioStmt_node));
             free(getChildTerminal(BO_TOKEN,ioStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 39:{
@@ -477,7 +400,6 @@ void applyRule(TREENODE parent){
             TREENODE PRINT = getChildTerminal(PRINT_FUNCTION,ioStmt_node);
             ioStmt_node->addr = makeNode(PRINT,leftFactored_ioStmt_node->addr,NULL);
             free(getChildTerminal(BO_TOKEN,ioStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 40:{
@@ -487,7 +409,6 @@ void applyRule(TREENODE parent){
             leftFactored_ioStmt_node->addr = var_node->addr;
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 41:{
@@ -497,21 +418,18 @@ void applyRule(TREENODE parent){
             leftFactored_ioStmt_node->addr = boolValues_node->addr;
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 42:{
             TREENODE boolValues_node = parent;
             TREENODE TRUE = getChildTerminal(TRUE_BOOL,parent);
             boolValues_node->addr = TRUE;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 43:{
             TREENODE boolValues_node = parent;
             TREENODE FALSE = getChildTerminal(FALSE_BOOL,parent);
             boolValues_node->addr = FALSE;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 44:{
@@ -521,21 +439,18 @@ void applyRule(TREENODE parent){
             applyRule(whichId_node);
             var_node->addr = makeNode(ID,whichId_node->addr_syn,whichId_node->addr);//*CHECK THIS*
 
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 45:{
             TREENODE var_node = parent;
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             var_node->addr = NUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 46:{
             TREENODE var_node = parent;
             TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
             var_node->addr = RNUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 47:{
@@ -547,7 +462,6 @@ void applyRule(TREENODE parent){
             applyRule(sign_node);
             whichId_node->addr_syn = sign_node->addr;
             free(getChildTerminal(SQBO_TOKEN,whichId_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 48:{
@@ -555,7 +469,6 @@ void applyRule(TREENODE parent){
             whichId_node->addr = NULL;
             whichId_node->addr_syn = NULL;
             free(whichId_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 49:{
@@ -563,7 +476,6 @@ void applyRule(TREENODE parent){
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             leftFactored_whichId_node->addr = ID;
             free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 50:{
@@ -571,7 +483,6 @@ void applyRule(TREENODE parent){
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             leftFactored_whichId_node->addr = NUM;
             free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 51:{
@@ -579,7 +490,6 @@ void applyRule(TREENODE parent){
             TREENODE assignmentStmt_node = getChildNonTerminal(assignmentStmt,parent);
             applyRule(assignmentStmt_node);
             simpleStmt_node->addr = assignmentStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 52:{
@@ -587,7 +497,6 @@ void applyRule(TREENODE parent){
             TREENODE moduleReuseStmt_node = getChildNonTerminal(moduleReuseStmt,parent);
             applyRule(moduleReuseStmt_node);
             simpleStmt_node->addr = moduleReuseStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 53:{
@@ -598,7 +507,6 @@ void applyRule(TREENODE parent){
             applyRule(whichStmt_node);
             assignmentStmt_node->addr = whichStmt_node->addr;
 
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 54:{
@@ -607,7 +515,6 @@ void applyRule(TREENODE parent){
             lvalueIDStmt_node->addr_inh = whichStmt_node->addr_inh;
             applyRule(lvalueIDStmt_node);
             whichStmt_node->addr = lvalueIDStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 55:{
@@ -616,7 +523,6 @@ void applyRule(TREENODE parent){
             lvalueARRStmt_node->addr_inh = whichStmt_node->addr_inh;
             applyRule(lvalueARRStmt_node);
             whichStmt_node->addr = lvalueARRStmt_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 56:{
@@ -626,7 +532,6 @@ void applyRule(TREENODE parent){
             TREENODE ASSIGNOP = getChildTerminal(ASSIGNOP_OPERATOR,parent);
             lvalueIDStmt_node->addr = makeNode(ASSIGNOP,lvalueIDStmt_node->addr_inh,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueIDStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 57:{
@@ -641,7 +546,6 @@ void applyRule(TREENODE parent){
             lvalueARRStmt_node->addr = makeNode(ASSIGNOP,temp,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueARRStmt_node));
             free(getChildTerminal(SQBC_TOKEN,lvalueARRStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 58:{
@@ -657,7 +561,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(WITH_KEYWORD,moduleReuseStmt_node));
             free(getChildTerminal(MODULE_KEYWORD,moduleReuseStmt_node));
             free(getChildTerminal(USE_KEYWORD,moduleReuseStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 59:{
@@ -669,7 +572,6 @@ void applyRule(TREENODE parent){
             // printf("HELLO\n\n");
             param_node -> addr = makeNode(signedParam_node->addr,sign_node->addr,signedParam_node->addr_syn);//*CHECK THIS*
             // printf("%s\n",param_node->addr->TREENODEDATA->terminal->lexemedata->data);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 60:{
@@ -680,7 +582,6 @@ void applyRule(TREENODE parent){
             TREENODE arrID_node = getChildNonTerminal(arrID,parent);
             applyRule(arrID_node);
             signedParam_node->addr_syn = arrID_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 61:{
@@ -690,14 +591,12 @@ void applyRule(TREENODE parent){
             arrID_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(SQBC_TOKEN,arrID_node));
             free(getChildTerminal(SQBO_TOKEN,arrID_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 62:{
             TREENODE arrID_node = parent;
             arrID_node->addr = NULL;
             free(arrID_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 63:{
@@ -705,14 +604,12 @@ void applyRule(TREENODE parent){
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             signedParam_node->addr = NUM;
             signedParam_node->addr_syn = NULL;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 64:{
             TREENODE signedParam_node = parent;
             TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
             signedParam_node->addr = RNUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 65:{
@@ -720,7 +617,6 @@ void applyRule(TREENODE parent){
             TREENODE boolValues_node = getChildNonTerminal(boolValues,parent);
             applyRule(boolValues_node);
             param_node->addr = boolValues_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 66:{
@@ -731,7 +627,6 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_paramList_node);
             paramList_node->list_addr_syn = insertAtBegin(param_node->addr,leftFactored_paramList_node->list_addr_syn);
             paramList_node->addr = paramList_node->list_addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 67:{
@@ -742,14 +637,12 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_paramList_node1);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_paramList_node));
             leftFactored_paramList_node->list_addr_syn = insertAtBegin(param_node->addr,leftFactored_paramList_node1->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 68:{
             TREENODE leftFactored_paramList_node = parent;
             leftFactored_paramList_node->list_addr_syn = NULL;
             free(leftFactored_paramList_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 69:{
@@ -760,14 +653,12 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(ASSIGNOP_OPERATOR,optional_node));
             free(getChildTerminal(SQBC_TOKEN,optional_node));
             free(getChildTerminal(SQBO_TOKEN,optional_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 70:{
             TREENODE optional_node = parent;
             optional_node->addr = NULL;
             free(optional_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 71:{
@@ -777,7 +668,6 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_idList_node);
             idList_node->list_addr_syn = insertAtBegin(ID,leftFactored_idList_node->list_addr_syn);
             idList_node->addr = idList_node->list_addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 72:{
@@ -787,14 +677,12 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_idList_node1);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_idList_node));
             leftFactored_idList_node->list_addr_syn = insertAtBegin(ID,leftFactored_idList_node1->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 73:{
             TREENODE leftFactored_idList_node = parent;
             leftFactored_idList_node->list_addr_syn = NULL;
             free(leftFactored_idList_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 74:{
@@ -807,7 +695,6 @@ void applyRule(TREENODE parent){
             // printf("%s\n",expression_node->addr->left_child->TREENODEDATA->terminal->lexemedata->data);
             // printf("%s\n",expression_node->addr->right_child->TREENODEDATA->terminal->lexemedata->data);
 
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 75:{
@@ -815,7 +702,6 @@ void applyRule(TREENODE parent){
             TREENODE unaryTerm_node = getChildNonTerminal(unaryTerm,parent);
             applyRule(unaryTerm_node);
             expression_node->addr = unaryTerm_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 76:{
@@ -825,7 +711,6 @@ void applyRule(TREENODE parent){
             TREENODE arithmeticFactor_node = getChildNonTerminal(arithmeticFactor,parent);
             applyRule(arithmeticFactor_node);
             unaryTerm_node->addr = makeNode(pm_node->addr,arithmeticFactor_node->addr,NULL);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 77:{
@@ -836,28 +721,24 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(BC_TOKEN,arithmeticFactor_node));
             free(getChildTerminal(BO_TOKEN,arithmeticFactor_node));
             // printf("HO GYA 77\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 78:{
             TREENODE arithmeticFactor_node = parent;
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             arithmeticFactor_node->addr = ID;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 79:{
             TREENODE arithmeticFactor_node = parent;
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             arithmeticFactor_node->addr = NUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 80:{
             TREENODE arithmeticFactor_node = parent;
             TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
             arithmeticFactor_node->addr = RNUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 81:{
@@ -869,7 +750,6 @@ void applyRule(TREENODE parent){
             logicalTerm_node->addr_inh = arithmeticBooleanExpr_node->addr;
             applyRule(logicalTerm_node);
             arithmeticBooleanExpr_node->addr_syn = logicalTerm_node->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 82:{
@@ -883,7 +763,6 @@ void applyRule(TREENODE parent){
             logicalTerm_node1->addr_inh = logicalTerm_node->addr;
             applyRule(logicalTerm_node1);
             logicalTerm_node->addr_syn =  logicalTerm_node1->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 83:{
@@ -892,7 +771,6 @@ void applyRule(TREENODE parent){
             logicalTerm_node->addr_syn = logicalTerm_node->addr_inh;
             free(logicalTerm_node->child);
             // printf("FREE TO HO GYA HAI\n");
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 84:{
@@ -904,7 +782,6 @@ void applyRule(TREENODE parent){
             relationalTerm_node->addr_inh = anyTerm_node->addr_syn;
             applyRule(relationalTerm_node);
             anyTerm_node->addr = relationalTerm_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 85:{
@@ -914,14 +791,12 @@ void applyRule(TREENODE parent){
             TREENODE arithmeticExpr_node = getChildNonTerminal(arithmeticExpr,parent);
             applyRule(arithmeticExpr_node);
             relationalTerm_node->addr = makeNode(relationalOp_node->addr,relationalTerm_node->addr_inh,arithmeticExpr_node->addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 86:{
             TREENODE relationalTerm_node = parent;
             relationalTerm_node->addr = relationalTerm_node->addr_inh;
             free(relationalTerm_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 87:{
@@ -933,7 +808,6 @@ void applyRule(TREENODE parent){
             leftFactored_arithmeticExpr_node->addr_inh = arithmeticExpr_node->addr;
             applyRule(leftFactored_arithmeticExpr_node);
             arithmeticExpr_node->addr_syn = leftFactored_arithmeticExpr_node->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 88:{
@@ -947,42 +821,36 @@ void applyRule(TREENODE parent){
             leftFactored_arithmeticExpr_node1->addr_inh = leftFactored_arithmeticExpr_node->addr;
             applyRule(leftFactored_arithmeticExpr_node1);
             leftFactored_arithmeticExpr_node->addr_syn = leftFactored_arithmeticExpr_node1->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 89:{
             TREENODE leftFactored_arithmeticExpr_node = parent;
             leftFactored_arithmeticExpr_node->addr_syn = leftFactored_arithmeticExpr_node->addr_inh;
             free(leftFactored_arithmeticExpr_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 90:{
             TREENODE pm_node = parent;
             TREENODE PLUS = getChildTerminal(PLUS_OPERATOR,parent);
             pm_node->addr = PLUS;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 91:{
             TREENODE pm_node = parent;
             TREENODE MINUS = getChildTerminal(MINUS_OPERATOR,parent);
             pm_node->addr = MINUS;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 92:{
             TREENODE md_node = parent;
             TREENODE MUL = getChildTerminal(MUL_OPERATOR,parent);
             md_node->addr = MUL;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 93:{
             TREENODE md_node = parent;
             TREENODE DIV = getChildTerminal(DIV_OPERATOR,parent);
             md_node->addr = DIV;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 94:{
@@ -995,7 +863,6 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_term_node);
             term_node->addr_syn = leftFactored_term_node->addr_syn;
             // printf("%s\n",term_node->addr_syn)
-            // printf("ENDING RULE %d\n",ruleNum);
             // free(factor_node);
             break;
         }
@@ -1017,7 +884,6 @@ void applyRule(TREENODE parent){
             leftFactored_term_node1->addr_inh = leftFactored_term_node->addr;
             applyRule(leftFactored_term_node1);
             leftFactored_term_node->addr_syn = leftFactored_term_node1->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             free(factor_node);
             free(md_node);
             break;
@@ -1026,7 +892,6 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_term_node = parent;
             leftFactored_term_node->addr_syn = leftFactored_term_node->addr_inh;
             free(leftFactored_term_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 97:{
@@ -1036,7 +901,6 @@ void applyRule(TREENODE parent){
             factor_node->addr = arithmeticBooleanExpr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,factor_node));
             free(getChildTerminal(BO_TOKEN,factor_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 98:{
@@ -1044,7 +908,6 @@ void applyRule(TREENODE parent){
             TREENODE param_node = getChildNonTerminal(param,parent);
             applyRule(param_node);
             factor_node->addr = param_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 99:{
@@ -1056,7 +919,6 @@ void applyRule(TREENODE parent){
             leftFactored_arithmeticExprWArr_node->addr_inh = arithmeticExprWArr_node->addr;
             applyRule(leftFactored_arithmeticExprWArr_node);
             arithmeticExprWArr_node->addr_syn = leftFactored_arithmeticExprWArr_node->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 100:{
@@ -1070,14 +932,12 @@ void applyRule(TREENODE parent){
             leftFactored_arithmeticExprWArr_node1->addr_inh = leftFactored_arithmeticExprWArr_node->addr;
             applyRule(leftFactored_arithmeticExprWArr_node1);
             leftFactored_arithmeticExprWArr_node->addr_syn = leftFactored_arithmeticExprWArr_node1->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 101:{
             TREENODE leftFactored_arithmeticExprWArr_node = parent;
             leftFactored_arithmeticExprWArr_node->addr_syn = leftFactored_arithmeticExprWArr_node->addr_inh;
             free(leftFactored_arithmeticExprWArr_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 102:{
@@ -1089,7 +949,6 @@ void applyRule(TREENODE parent){
             leftFactored_termWArr_node->addr_inh = termWArr_node->addr;
             applyRule(leftFactored_termWArr_node);
             termWArr_node->addr_syn = leftFactored_termWArr_node->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 103:{
@@ -1103,14 +962,12 @@ void applyRule(TREENODE parent){
             leftFactored_termWArr_node1->addr_inh = leftFactored_termWArr_node->addr;
             applyRule(leftFactored_termWArr_node1);
             leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node1->addr_syn;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 104:{
             TREENODE leftFactored_termWArr_node = parent;
             leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node->addr_inh;            
             free(leftFactored_termWArr_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 105:{
@@ -1120,7 +977,6 @@ void applyRule(TREENODE parent){
             TREENODE factorWArr_node = getChildNonTerminal(factorWArr,parent);
             applyRule(factorWArr_node);
             signedFactorWArr_node->addr = makeNode(factorWArr_node->addr,sign_node->addr,NULL);//*CHECK THIS*
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 106:{
@@ -1130,84 +986,72 @@ void applyRule(TREENODE parent){
             factorWArr_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,factorWArr_node));
             free(getChildTerminal(BO_TOKEN,factorWArr_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 107:{
             TREENODE factorWArr_node = parent;
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             factorWArr_node->addr = ID;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 108:{
             TREENODE factorWArr_node = parent;
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             factorWArr_node->addr = NUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 109:{
             TREENODE factorWArr_node = parent;
             TREENODE RNUM = getChildTerminal(RNUM_TOKEN,parent);
             factorWArr_node->addr = RNUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 110:{
             TREENODE logicalOp_node = parent;
             TREENODE AND = getChildTerminal(AND_OPERATOR,parent);
             logicalOp_node->addr = AND;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 111:{
             TREENODE logicalOp_node = parent;
             TREENODE OR = getChildTerminal(OR_OPERATOR,parent);
             logicalOp_node->addr = OR;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 112:{
             TREENODE relationalOp_node = parent;
             TREENODE LT = getChildTerminal(LT_OPERATOR,parent);
             relationalOp_node->addr = LT;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 113:{
             TREENODE relationalOp_node = parent;
             TREENODE LE = getChildTerminal(LE_OPERATOR,parent);
             relationalOp_node->addr = LE;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 114:{
             TREENODE relationalOp_node = parent;
             TREENODE GT = getChildTerminal(GT_OPERATOR,parent);
             relationalOp_node->addr = GT;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 115:{
             TREENODE relationalOp_node = parent;
             TREENODE GE = getChildTerminal(GE_OPERATOR,parent);
             relationalOp_node->addr = GE;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 116:{
             TREENODE relationalOp_node = parent;
             TREENODE EQ = getChildTerminal(EQ_OPERATOR,parent);
             relationalOp_node->addr = EQ;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 117:{
             TREENODE relationalOp_node = parent;
             TREENODE NE = getChildTerminal(NE_OPERATOR,parent);
             relationalOp_node->addr = NE;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 118:{
@@ -1220,7 +1064,6 @@ void applyRule(TREENODE parent){
             declareStmt_node->addr = makeNode(DECLARE,idList_node->addr,dataType_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,declareStmt_node));
             free(getChildTerminal(COLON_OPERATOR,declareStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 119:{
@@ -1236,7 +1079,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(BC_TOKEN,conditionalStmt_node));
             free(getChildTerminal(BO_TOKEN,conditionalStmt_node));
             free(getChildTerminal(SWITCH_KEYWORD,conditionalStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 120:{
@@ -1253,7 +1095,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(COLON_OPERATOR,caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,caseStmt_node));
             caseStmt_node->list_addr_syn = insertAtBegin(caseStmt_node->addr,leftFactored_caseStmt_node->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 121:{
@@ -1270,21 +1111,18 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(COLON_OPERATOR,leftFactored_caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,leftFactored_caseStmt_node));
             leftFactored_caseStmt_node->list_addr_syn = insertAtBegin(leftFactored_caseStmt_node->addr,leftFactored_caseStmt_node1->list_addr_syn);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 122:{
             TREENODE leftFactored_caseStmt_node = parent;
             leftFactored_caseStmt_node->list_addr_syn = NULL;
             free(leftFactored_caseStmt_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 123:{
             TREENODE value_node = parent;
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             value_node->addr = NUM;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 124:{
@@ -1292,7 +1130,6 @@ void applyRule(TREENODE parent){
             TREENODE boolValues_node = getChildNonTerminal(boolValues,parent);
             applyRule(boolValues_node);
             value_node->addr = boolValues_node->addr;
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 125:{
@@ -1304,14 +1141,12 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,dfault_node));
             free(getChildTerminal(BREAK_KEYWORD,dfault_node));
             free(getChildTerminal(COLON_OPERATOR,dfault_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 126:{
             TREENODE dfault_node = parent;
             dfault_node->addr = NULL;
             free(dfault_node->child);
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 127:{
@@ -1338,7 +1173,6 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(RANGEOP_OPERATOR,iterativeStmt_node));
             free(getChildTerminal(IN_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BO_TOKEN,iterativeStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
         case 128:{
@@ -1353,125 +1187,41 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(START_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BC_TOKEN,iterativeStmt_node));
             free(getChildTerminal(BO_TOKEN,iterativeStmt_node));
-            // printf("ENDING RULE %d\n",ruleNum);
             break;
         }
     }
-    // if(parent->addr != NULL){
-    //     if(parent->addr->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->addr->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->addr->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s addr : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s addr : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // if(parent->addr_inh != NULL){
-    //     if(parent->addr_inh->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr_inh : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_inh->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->addr_inh->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr_inh : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_inh->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->addr_inh->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr_inh : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_inh->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s addr_inh : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_inh->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s addr_inh : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // if(parent->addr_syn != NULL){
-    //     if(parent->addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_syn->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // if(parent->list_addr_syn != NULL){
-    //     if(parent->list_addr_syn->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%s list_addr_syn : %d\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->intData);
-    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%s list_addr_syn : %f\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->floatData);
-    //     else if(parent->list_addr_syn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    //     else printf("%s list_addr_syn : %s\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal],parent->list_addr_syn->TREENODEDATA->terminal->lexemedata->data);
-    // }
-    // else{
-    //     printf("%s list_addr_syn : NULL\n",NONTERMINALS_STRINGS[parent->TREENODEDATA->nonterminal]);
-    // }
-    // printf("ENDING RULE %d\n\n______________________________\n\n",ruleNum);
 }
 
-
-
-
-
-// void traverseList(TREENODE node){
-//     if(node == NULL) return;
-//     traversal(node->addr);
-//     traverseList(node->next);
-// }
 
 
 /*
 *TYPE EXTRACTION*
 */
 
-void checkInputList(TREENODE node,SYMBOLTABLEROW row){
-    printf("FUNCTION CALL TESTING FOR %s IN %s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data,currFunc->id->lexemedata->data);
-
-    SYMBOLTABLEROW formalParam = row->INPUTPARAMSHEAD;
-    TREENODE actualParam = node->right_child;
-    int count = 0;
-    while(1){
-        if(actualParam == NULL && formalParam != NULL){
-            printf("NUMBER OF ACTUAL PARAMS IS LESS THAN NUMBER OF FORMAL PARAMS\n\n");
-            return;
-        }
-        else if(actualParam != NULL && formalParam == NULL){
-            printf("NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS\n\n");
-            return;
-        }
-        else if(actualParam == NULL && formalParam == NULL){
-            printf("INPUT LIST CHECKED\n\n");
-            return;
-        }
-        count++;
-        if(actualParam->type != formalParam->type){
-            printf("TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",count);
-        }
-        actualParam = actualParam->list_addr_syn;
-        formalParam = formalParam->next;
-    }
-}
-
-
-void checkOutputList(TREENODE node,SYMBOLTABLEROW row){
-    printf("FUNCTION CALL TESTING FOR %s IN %s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data,currFunc->id->lexemedata->data);
-    SYMBOLTABLEROW formalParam = row->OUTPUTPARAMSHEAD;
-    TREENODE actualParam = node->left_child;
-    int count = 0;
-    while(1){
-        if(actualParam == NULL && formalParam != NULL){
-            printf("NUMBER OF ACTUAL PARAMS IS LESS THAN NUMBER OF FORMAL PARAMS\n\n");
-            return;
-        }
-        else if(actualParam != NULL && formalParam == NULL){
-            printf("NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS\n\n");
-            return;
-        }
-        else if(actualParam == NULL && formalParam == NULL){
-            printf("OUTPUT LIST CHECKED\n\n");
-            return;
-        }
-        count++;
-        if(actualParam->type != formalParam->type){
-            printf("TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",count);
-        }
-        actualParam = actualParam->list_addr_syn;
-        formalParam = formalParam->next;
-    }
-}
-
-
 int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return TYPE_UNDEFINED;
     if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
-        
+        SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
+        if(row==NULL){
+            printf("LINE %d: VARIABLE NOT DEFINED IN SCOPE\n\n",node->TREENODEDATA->terminal->lineNo);
+            return TYPE_UNDEFINED;
+        }
+        else{
+            node->type = row->type;
+            TREENODE sign_node = node->left_child;
+            
+            if(node->right_child != NULL){ 
+                if(row->range == NULL)printf("LINE %d: ONLY ARRAYS CAN HAVE AN INDEX\n",node->TREENODEDATA->terminal->lineNo);
+                else{
+                    typeExtractionExpr(node->right_child,SYMBOL_TABLE);
+                    if(node->right_child->type != TYPE_INTEGER)printf("LINE %d: ARRAY INDEX SHOULD BE AN INTEGER\n",node->TREENODEDATA->terminal->lineNo);
+                    else{
+                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)&&(row->range->left > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right < node->right_child->TREENODEDATA->terminal->lexemedata->intData))printf("ARRAY INDEX OUT OF BOUNDS IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
+                    }
+                }
+            }
+            return node->type;
+        }
     }
     else if(node->TREENODEDATA->terminal->token == NUM_TOKEN){
         return node->type = TYPE_INTEGER;
@@ -1489,6 +1239,63 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         return node->type;
     }
 }
+
+
+
+void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
+
+    SYMBOLTABLEROW formalParam = row->INPUTPARAMSHEAD;
+    TREENODE actualParam = node->right_child;
+    int count = 0;
+    while(1){
+        if(actualParam == NULL && formalParam != NULL){
+            printf("LINE %d: NUMBER OF ACTUAL PARAMS IS LESS THAN NUMBER OF FORMAL PARAMS\n\n", node->TREENODEDATA->terminal->lineNo);
+            return;
+        }
+        else if(actualParam != NULL && formalParam == NULL){
+            printf("LINE %d: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS\n\n",node->TREENODEDATA->terminal->lineNo);
+            return;
+        }
+        else if(actualParam == NULL && formalParam == NULL){
+            return;
+        }
+        count++;
+        actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
+        if(actualParam->type != formalParam->type){
+            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",node->TREENODEDATA->terminal->lineNo, count);
+        }
+        actualParam = actualParam->list_addr_syn;
+        formalParam = formalParam->next;
+    }
+}
+
+
+void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
+    SYMBOLTABLEROW formalParam = row->OUTPUTPARAMSHEAD;
+    TREENODE actualParam = node->left_child;
+    int count = 0;
+    while(1){
+        if(actualParam == NULL && formalParam != NULL){
+            printf("LINE %d: NUMBER OF ACTUAL RETURN PARAMS IS LESS THAN NUMBER OF FORMAL RETURN PARAMS\n\n",node->TREENODEDATA->terminal->lineNo);
+            return;
+        }
+        else if(actualParam != NULL && formalParam == NULL){
+            printf("LINE %d: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS\n\n",node->TREENODEDATA->terminal->lineNo);
+            return;
+        }
+        else if(actualParam == NULL && formalParam == NULL){
+            return;
+        }
+        count++;
+        actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
+        if(actualParam->type != formalParam->type){
+            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",node->TREENODEDATA->terminal->lineNo, count);
+        }
+        actualParam = actualParam->list_addr_syn;
+        formalParam = formalParam->next;
+    }
+}
+
 
 
 void typeExtractionDT(TREENODE dataType_node){
@@ -1514,7 +1321,7 @@ void typeExtractionDT(TREENODE dataType_node){
         }
     }
     else{
-        printf("NO TYPE\n");
+        printf("NO TYPE\n"); // ? YHA MT DAALNA LINE NUMBER
     }
 }
 
@@ -1603,7 +1410,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
                 return expression_node->type = TYPE_REAL;
             }
             else{
-                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                printf("LINE %d: TYPE ERROR OCCURED\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
@@ -1621,7 +1428,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
                 return expression_node->type = rightType;
             }
             else{
-                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                printf("LINE %d: TYPE ERROR OCCURED\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
@@ -1630,7 +1437,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
                 return expression_node->type = TYPE_REAL;
             }
             else{
-                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                printf("LINE %d: TYPE ERROR OCCURED\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
@@ -1661,19 +1468,18 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 
 void handleSwitchCase(int t,TREENODE node){
     if(t == TYPE_INTEGER && node->right_child == NULL){
-        printf("DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n\n");
+        printf("LINE %d: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",node->TREENODEDATA->terminal->lineNo);
     }
     else if(t == TYPE_BOOLEAN && node->right_child != NULL){
-        printf("NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n");
+        printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->TREENODEDATA->terminal->lineNo);
     }
     else if(t == TYPE_REAL){
-        printf("SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n");
+        printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
     }
     TREENODE caseVal = node->left_child;
     while(caseVal!=NULL){
         if(caseVal->type != t){
-            printf("CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n\n");
-
+            printf("LINE %d: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n",caseVal->TREENODEDATA->terminal->lineNo);
         }
         caseVal = caseVal->next;
     }
@@ -1689,6 +1495,9 @@ void handleSwitchCase(int t,TREENODE node){
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
+    printASTNODE(node);
+
+
     /*MODULE DECLARATION*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
         StoreFuncIntoSymbolTable(SYMBOL_TABLE,node);
@@ -1717,7 +1526,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         row->SYMBOLTABLE->name = row->id->lexemedata->data;
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        traversal(node->right_child,SYMBOL_TABLE);
+        traversal(node->right_child,row->SYMBOLTABLE);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
 
@@ -1738,7 +1547,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
         traversal(node->right_child,row->SYMBOLTABLE);
-        printSymbolTable(row);
+        // printSymbolTable(row);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -1750,113 +1559,80 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         typeExtractionExpr(node->left_child,row->SYMBOLTABLE);
         if(node->left_child->type != TYPE_BOOLEAN){
-            printf("WHILE LOOP EXPRESSION MUST BE BOOLEAN\n\n");
+            printf("LINE %d: WHILE LOOP EXPRESSION MUST BE BOOLEAN\n\n",node->TREENODEDATA->terminal->lineNo);
         }
         traversal(node->right_child,row->SYMBOLTABLE);
-        printSymbolTable(row);
+        // printSymbolTable(row);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
     /*CONDITIONAL STMT*/
     else if(node->parent!=NULL && node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
-        printf("SWITCH\n\n");
         SYMBOLTABLEROW row = StoreSwitchIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("SWITCH");
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         traversal(node->left_child,row->SYMBOLTABLE);
         traversal(node->right_child,row->SYMBOLTABLE);
-        printSymbolTable(row);
+        // printSymbolTable(row);
         handleSwitchCase(node->type,node);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
-    // TODO: ACHE SE KRNA HAI
+    /*MODULE REUSE STMT: SIMPLE STMT*/
     else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
         if(row==NULL){
-            printf("FUNCTION NOT DEFINED: %s\n",node->TREENODEDATA->terminal->lexemedata->data);
+            printf("LINE %d: FUNCTION NOT DEFINED",node->TREENODEDATA->terminal->lineNo);
         }
         else if(row == currFunc){
-            printf("RECURSION IS NOT ALLOWED\n\n");
+            printf("LINE %d: RECURSION IS NOT ALLOWED\n\n",node->TREENODEDATA->terminal->lineNo);
         }
         else{
-            traversal(node->left_child,SYMBOL_TABLE);
-            traversal(node->right_child,SYMBOL_TABLE);
-            traversal(node->list_addr_syn,SYMBOL_TABLE);
-            checkInputList(node, row);
-            checkOutputList(node, row);
-            return;
-        }
-    }
-
-    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
-
-        // printf("%ld\n",node);
-        SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
-        if(row==NULL){
-            printf("VARIABLE NOT DEFINED IN SCOPE: %s in line %d\n\n",node->TREENODEDATA->terminal->lexemedata->data,node->TREENODEDATA->terminal->lineNo);
-            return TYPE_UNDEFINED;
-        }
-        else{
-            node->type = row->type;
-            traversal(node->left_child,SYMBOL_TABLE);
-            traversal(node->right_child,SYMBOL_TABLE);
-            if(node->right_child != NULL){ 
-                if(row->range == NULL){
-                    printf("ONLY ARRAYS CAN HAVE AN INDEX IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
-                }
-                else{
-                    typeExtractionExpr(node->right_child,SYMBOL_TABLE);
-                    if(node->right_child->type != TYPE_INTEGER){
-                        printf("ARRAY INDEX SHOULD BE AN INTEGER IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
-                    }
-                    else{
-
-                        if(node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0){
-                            if(row->range->left > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right < node->right_child->TREENODEDATA->terminal->lexemedata->intData){
-                                printf("ARRAY INDEX OUT OF BOUNDS IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
-                            }
-                        }
-                    }
-                }
-            }
+            checkInputList(node, row, SYMBOL_TABLE);
+            checkOutputList(node, row, SYMBOL_TABLE);
             traversal(node->list_addr_syn,SYMBOL_TABLE);
             return;
         }
     }
-    if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
+
+    /*ASSIGNMENT STMT: SIMPLE STMT*/
+    else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
         int type = TYPE_UNDEFINED;
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
         type = getTypeAST(node->left_child,SYMBOL_TABLE);
         if(type != node->right_child->type){
-            printf("ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n");
+            printf("LINE %d: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n",node->TREENODEDATA->terminal->lineNo);
         }
-        else{
-            node->left_child->type = type;
-        }
+        traversal(node->list_addr_syn,SYMBOL_TABLE);
+        return;
     }
-    // if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n",node->TREENODEDATA->terminal->lexemedata->intData);
-    // else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n",node->TREENODEDATA->terminal->lexemedata->floatData);
-    // else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    // else printf("%s\n",node->TREENODEDATA->terminal->lexemedata->data);
-    // printf("PRINTING LEFT CHILD\n");
-    traversal(node->left_child,SYMBOL_TABLE);
-    // printf("PRINTING RIGHT CHILD\n");
-    traversal(node->right_child,SYMBOL_TABLE);
-    if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
-        int type = TYPE_UNDEFINED;
-        typeExtractionExpr(node->right_child,SYMBOL_TABLE);
-        type = getTypeAST(node->left_child,SYMBOL_TABLE);
-        // printf("%d\n",type);
-        if(type != node->right_child->type){
-            printf("ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n");
-        }
-        else{
-            node->left_child->type = type;
-        }
+
+    /*GET VALUE: IO STMT*/
+    else if(node->TREENODEDATA->terminal->token == GET_VALUE_KEYWORD){
+        TREENODE ID = node->left_child;
+        SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,ID);
+        if(row == NULL) printf("LINE %d: VARIABLE NOT DECLARED\n\n",node->TREENODEDATA->terminal->lineNo);
+        else if(row->isDynamic != -1) printf("LINE %d: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
+        traversal(node->list_addr_syn,SYMBOL_TABLE);
+        return;
     }
-    traversal(node->list_addr_syn,SYMBOL_TABLE);
-    // printf("THIS NODE ENDED\n");
+
+    /*PRINT FUNCTION: IO STMT */
+    else if(node->TREENODEDATA->terminal->token == PRINT_FUNCTION){
+        getTypeAST(node->left_child,SYMBOL_TABLE);
+        traversal(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+    
+    // ISME KUCH NHI JANA CHAHIYE
+    else{
+        printf("*****ERROR*****");
+        printASTNODE(node);
+        traversal(node->left_child,SYMBOL_TABLE);
+        traversal(node->right_child,SYMBOL_TABLE);
+        traversal(node->list_addr_syn,SYMBOL_TABLE);
+    }
+    
 }

@@ -43,7 +43,7 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
-            printf("VARIABLE ALREADY DEFINED %s\n",var->TREENODEDATA->terminal->lexemedata->data);
+            printf("LINE %d: VARIABLE ALREADY DEFINED %s\n",var->TREENODEDATA->terminal->lineNo, var->TREENODEDATA->terminal->lexemedata->data);
             return;
         }
         str = str->next;
@@ -58,6 +58,7 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
     row->INPUTPARAMSHEAD = NULL;
     row->OUTPUTPARAMSHEAD = NULL;
     row->next = NULL;
+    row->isDynamic = -1; 
     if(var->isArray == 1){
         row->isDynamic = 0; 
         ARRRANGE aR = malloc(sizeof(struct arrRange));
@@ -87,7 +88,6 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
     }
 
     if(SYMBOL_TABLE->TABLE[index] == NULL){
-
         SYMBOL_TABLE->TABLE[index] = row;
 
     }
@@ -127,7 +127,7 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
     }
     else{
         if(str->INPUTPARAMSHEAD != NULL){
-            printf("THIS MODULE HAS ALREADY BEEN DEFINED\n");
+            printf("LINE %d: THIS MODULE HAS ALREADY BEEN DEFINED\n",func->TREENODEDATA->terminal->lineNo);
             return NULL;
         }
         else{
@@ -243,7 +243,6 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
     // printf("INPUT ME YE HAI NHI\n\n");
     if(func->OUTPUTPARAMSHEAD == NULL){ 
         if(SYMBOL_TABLE->parent == NULL) return NULL;
-        printf("PARENT ME LENE JA RHA HAI\n\n");
         return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
     }
     str = func->OUTPUTPARAMSHEAD;
@@ -254,7 +253,6 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         str = str->next;
     }
     if(SYMBOL_TABLE->parent == NULL) return NULL;
-    printf("PARENT ME LENE JA RHA HAI\n\n");
     return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
 }
 
@@ -296,9 +294,8 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
     IP->OUTPUTPARAMSHEAD = NULL;
     IP->next = NULL;
     IP->range = NULL;
+    IP->isDynamic = -1;
     TREENODE range = var->left_child->right_child;
-    printf("ARRAY %s getting stored in INPUT TABLE\n\n",IP->id->lexemedata->data);
-    printf("%s\n",var->left_child->TREENODEDATA->terminal->lexemedata->data);
     if(range != NULL){
         IP->isDynamic = 0;
         ARRRANGE aR = malloc(sizeof(struct arrRange));
@@ -322,11 +319,10 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
                 IP->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
             }
             if(IP->range->left > IP->range->right){
-                printf("LEFT RANGE MUST BE SMALLER THAN RIGHT RANGE\n\n");
+                printf("LINE %d: LEFT RANGE MUST BE SMALLER THAN RIGHT RANGE\n\n",var->TREENODEDATA->terminal->lineNo);
             }
         }
     }
-    printf("INPUT PARAMS LIST KA VAR ASSIGNED\n\n");
     return IP;
 }
 
@@ -338,6 +334,7 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
     OP->INPUTPARAMSHEAD = NULL;
     OP->OUTPUTPARAMSHEAD = NULL;
     OP->next = NULL;
+    OP->isDynamic = -1;
     if(var->isArray == 1){
         ARRRANGE aR = malloc(sizeof(struct arrRange));
         OP->range = aR;
