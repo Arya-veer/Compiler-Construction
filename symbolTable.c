@@ -8,6 +8,7 @@ int FOR_ROW = 60;
 int WHILE_ROW = 61; 
 int SWITCH_ROW = 62; 
 int CASE_ROW = 63; 
+int FOR_VAR = 64;
 int OFFSETS[] = {4,4,1};
 
 
@@ -23,7 +24,7 @@ void printLinkedListST(SYMBOLTABLEROW row){
 }
 
 void printTable(SYMBOLTABLE SYMBOL_TABLE){
-    for(int i = 0;i<(SYMTABSIZE+5);i++){
+    for(int i = 0;i<(SYMTABSIZE+10);i++){
         printf("\n%d: ",i);
         printLinkedListST(SYMBOL_TABLE->TABLE[i]);
     }
@@ -33,7 +34,7 @@ void printTable(SYMBOLTABLE SYMBOL_TABLE){
 void printSymbolTable(SYMBOLTABLEROW func){
     // printf("%ld\n\n",SYMBOLTABLE);
     printf("\n\nPRINTING SYMBOL TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
-    for(int i = 0;i<(SYMTABSIZE+5);i++){
+    for(int i = 0;i<(SYMTABSIZE+10);i++){
         printf("\n%d: ",i);
         printLinkedListST(func->SYMBOLTABLE->TABLE[i]);
     }
@@ -48,8 +49,8 @@ void printSymbolTable(SYMBOLTABLEROW func){
 
 
 SYMBOLTABLE initializeSymbolTable(char* name){
-    SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc((SYMTABSIZE+5)*sizeof(SYMBOLTABLEROW));
-    for(int i = 0;i<(SYMTABSIZE+5);i++){
+    SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc((SYMTABSIZE+10)*sizeof(SYMBOLTABLEROW));
+    for(int i = 0;i<(SYMTABSIZE+10);i++){
         // SYMBOLTABLEROW str = malloc(sizeof(struct SymTabRowNode));
         TABLE[i] = NULL;
         // TABLE[i] = NULL;
@@ -75,14 +76,14 @@ int hashCodeSymbolTable(char* str){
 }
 
 
-void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE range){
+SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE range){
     
     int index = hashCodeSymbolTable(var->TREENODEDATA->terminal->lexemedata->data);
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
             printf("LINE %d: VARIABLE ALREADY DEFINED %s\n",var->TREENODEDATA->terminal->lineNo, var->TREENODEDATA->terminal->lexemedata->data);
-            return;
+            return NULL;
         }
         str = str->next;
     }
@@ -137,7 +138,7 @@ void StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TREENODE rang
         }
         str->next = row;
     }
-
+    return row;
 }
 
 SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){

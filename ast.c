@@ -5,7 +5,7 @@
 #include "ast.h"
 
 
-
+/*PRINTS AST NODE*/
 void printASTNODE(TREENODE node){
     if(node == NULL) printf("NODE IS NULL\n\n");
     if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n\n\n",node->TREENODEDATA->terminal->lexemedata->intData);
@@ -14,13 +14,13 @@ void printASTNODE(TREENODE node){
     else printf("%s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data);
 }
 
-
+/*INSERT AT BEGIN OF LINKED LIST*/
 TREENODE insertAtBegin(TREENODE toPut,TREENODE nextList){
     toPut -> list_addr_syn = nextList;
     return toPut;
 }
 
-
+/*MAKE NODE*/
 TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
     assign->left_child = left;
     assign->right_child = right;
@@ -29,7 +29,7 @@ TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
 
 
 /*
-* AST CREATION *
+                                                                * AST CREATION *
 */
 
 void applyRule(TREENODE parent){
@@ -1193,11 +1193,11 @@ void applyRule(TREENODE parent){
 }
 
 
-
 /*
-*TYPE EXTRACTION*
+                                                                *TYPE EXTRACTION*
 */
 
+/*GIVES TYPE OF ANY NODE*/
 int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return TYPE_UNDEFINED;
     if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
@@ -1241,7 +1241,7 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 }
 
 
-
+/*CHECKS INPUT PARAM LIST IN CUNTION CALL*/
 void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
 
     SYMBOLTABLEROW formalParam = row->INPUTPARAMSHEAD;
@@ -1269,7 +1269,7 @@ void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
     }
 }
 
-
+/*CHECKS OUTPUT PARAM LIST IN FUNCTION CALL*/
 void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
     SYMBOLTABLEROW formalParam = row->OUTPUTPARAMSHEAD;
     TREENODE actualParam = node->left_child;
@@ -1298,6 +1298,36 @@ void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
 
 
 
+int checkForLoop(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
+    if(SYMBOL_TABLE == NULL){
+        return 0;
+    }
+    // printASTNODE(node);
+    if(SYMBOL_TABLE->TABLE[64]!=NULL){
+        if(strcmp(SYMBOL_TABLE->TABLE[64]->id->lexemedata->data,node->TREENODEDATA->terminal->lexemedata->data) == 0){
+            printf("LINE %d: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN\n",node->TREENODEDATA->terminal->lineNo);
+            return 1;
+        }
+    }
+    return checkForLoop(node,SYMBOL_TABLE->parent);
+} 
+
+
+/*CHECK FOR OUTPUT PARAM NOT GETTING DECLARED AGAIN*/
+int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
+    SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
+            printf("LINE %d: OUTPUT PARAM CAN NOT BE DECLARED AGAIN\n\n",node->TREENODEDATA->terminal->lineNo);
+            return 1;
+        }
+        outputNode = outputNode->next;
+    }
+    return checkForLoop(node,SYMBOL_TABLE);
+}
+
+
+/*EXTRACTS TYPE FROM A DATA TYPE NODE*/
 void typeExtractionDT(TREENODE dataType_node){
     if(dataType_node->TREENODEDATA->terminal->token == INTEGER_TYPE){
         dataType_node->type = TYPE_INTEGER;
@@ -1325,13 +1355,18 @@ void typeExtractionDT(TREENODE dataType_node){
     }
 }
 
-
+/*EXTRACTS TYPE OUT OF ALL DECLARED VARIABLES*/
 void typeExtractionDeclare(TREENODE declare_node,SYMBOLTABLE SYMBOL_TABLE){
     typeExtractionDT(declare_node->right_child);
     declare_node->type = declare_node->right_child->type;
     declare_node->isArray = declare_node->right_child->isArray;
     TREENODE idlist_node = declare_node->left_child;
     while(idlist_node!=NULL){
+        int declared = checkDeclarationCondition(idlist_node,SYMBOL_TABLE);
+        if(declared){ 
+            idlist_node = idlist_node->list_addr_syn;
+            continue;
+        }
         idlist_node->type = declare_node->type;
         idlist_node->isArray = declare_node->isArray;
         StoreVarIntoSymbolTable(SYMBOL_TABLE,idlist_node,declare_node->right_child->right_child);
@@ -1340,7 +1375,7 @@ void typeExtractionDeclare(TREENODE declare_node,SYMBOLTABLE SYMBOL_TABLE){
     return;
 }
 
-
+/*EXTRACTS TYPE FROM ALL INPUT PARAMS*/
 SYMBOLTABLEROW typeExtractionIPList(TREENODE input_plist_node){
     TREENODE idNode = input_plist_node;
     SYMBOLTABLEROW IPNODE = NULL;
@@ -1366,7 +1401,7 @@ SYMBOLTABLEROW typeExtractionIPList(TREENODE input_plist_node){
 
 }
 
-
+/*EXTRACTS TYPE FROM ALL OUTPUT PARAMS*/
 SYMBOLTABLEROW typeExtractionOPList(TREENODE output_plist_node){
 
     TREENODE idNode = output_plist_node;
@@ -1389,7 +1424,7 @@ SYMBOLTABLEROW typeExtractionOPList(TREENODE output_plist_node){
     return head;
 }
 
-
+/*EXTRACTS TYPE FROM AN EXPRESSION*/
 TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 
     if(expression_node == NULL) return TYPE_ERROR;
@@ -1503,10 +1538,10 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 
 
 /*
-*AST TRAVERSAL*
+                                                                *AST TRAVERSAL*
 */
 
-
+/*FIRST TIME TRAVERSAL*/
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
@@ -1564,7 +1599,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreForIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("for");
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
+        SYMBOLTABLEROW FORID = StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
+        row->SYMBOLTABLE->TABLE[64] = FORID;
         traversal(node->right_child,row->SYMBOLTABLE);
         // printSymbolTable(row);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
@@ -1648,6 +1684,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 
     /*ASSIGNMENT STMT: SIMPLE STMT*/
     else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
+        checkForLoop(node->left_child,SYMBOL_TABLE);
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
         // printASTNODE(node->right_child);
         SYMBOLTABLEROW rightRow = NULL;

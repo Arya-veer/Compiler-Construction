@@ -10,89 +10,241 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 moduleDeclarations
 otherModules
+
+
+LINE IS 5
+
 var_demo
 
 
-declare
 
 
-:=
-
-
-get_value
-
+LINE IS 9
 
 declare
 
 
+
+
+LINE IS 10
+
+:=
+
+
+
+
+LINE IS 11
+
 get_value
 
 
+
+
+LINE IS 12
+
+declare
+
+
+
+
+LINE IS 13
+
+get_value
+
+
+
+
+LINE IS 14
+
 :=
 
 
+
+
+LINE IS 15
+
 :=
 
 
+q
+
+
+r
+
+
+p
+
+
+
+
+LINE IS 16
+
 :=
 
+
+a
+
+
+x
+
+
+
+
+LINE IS 17
 
 :=
 
 
 LINE 17: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 17: VARIABLE NOT DEFINED IN SCOPE
+v
+
 
 TYPE ERROR OCCURED AT LINE 17
 LINE 17: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 18
+
 :=
 
+
+a
+
+
+b
+
+
+
+
+LINE IS 19
 
 declare
 
 
+
+
+LINE IS 20
+
 :=
 
 
+
+
+LINE IS 21
+
 :=
 
+
+a
+
+
+
+
+LINE IS 22
 
 declare
 
 
 LINE 22: VARIABLE ALREADY DEFINED b
+
+
+LINE IS 23
+
 :=
 
 
+value
+
+
+q
+
+
+r
+
+
+
+
+LINE IS 24
+
 :=
 
+
+w
+
+
+
+
+LINE IS 28
 
 compute
 
 
+
+
+LINE IS 32
+
 declare
 
 
+
+
+LINE IS 33
+
 declare
 
+
+
+
+LINE IS 34
 
 :=
 
+
+abc_1
+
+
+
+
+LINE IS 35
 
 declare
 
 
 LINE 35: VARIABLE ALREADY DEFINED abc_1
+
+
+LINE IS 36
+
 :=
+
+
+a
+
+
+b
+
+
+c
+
+
+pqr_2
 
 
 LINE 36: TYPE ERROR OCCURED
 LINE 36: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 37
+
 declare
 
+
+
+
+LINE IS 38
 
 :=
 
@@ -101,74 +253,188 @@ LINE 38: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 38: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 38: VARIABLE NOT DEFINED IN SCOPE
+p
+
 
 LINE 38: TYPE ERROR OCCURED
-LINE 38: VARIABLE NOT DEFINED IN SCOPE
+res_2_b
+
 
 LINE 38: TYPE ERROR OCCURED
 LINE 38: TYPE ERROR OCCURED
 LINE 38: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 39
+
 declare
 
 
+
+
+LINE IS 40
+
+:=
+
+
+a
+
+
+b
+
+
+c
+
+
+a
+
+
+s
+
+
+
+
+LINE IS 41
+
 :=
 
 
+abc_1
+
+
+pqr_2
+
+
+n
+
+
+
+
+LINE IS 42
+
 :=
 
 
-:=
+a
+
+
+b
+
+
+m
 
 
 LINE 42: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 42: VARIABLE NOT DEFINED IN SCOPE
+res_2_b
+
 
 TYPE ERROR OCCURED AT LINE 42
 TYPE ERROR OCCURED AT LINE 42
 LINE 42: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 43
+
 :=
 
 
-LINE 43: VARIABLE NOT DEFINED IN SCOPE
+c
+
+
+b
+
+
+b
+
+
+s
+
 
 LINE 43: VARIABLE NOT DEFINED IN SCOPE
+
+a
+
+
+d
+
 
 TYPE ERROR OCCURED AT LINE 43
 TYPE ERROR OCCURED AT LINE 43
 TYPE ERROR OCCURED AT LINE 43
 LINE 43: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 44
+
 declare
 
 
 LINE 44: VARIABLE ALREADY DEFINED new
+
+
+LINE IS 45
+
 :=
 
+
+a
+
+
+b
+
+
+
+
+LINE IS 46
 
 print
 
 
 driverModule
+
+
+LINE IS 50
+
 driver
 
 
+
+
+LINE IS 52
+
 declare
 
+
+
+
+LINE IS 53
 
 get_value
 
 
 LINE 53: VARIABLE NOT DECLARED
 
+
+
+LINE IS 54
+
 declare
 
 
+
+
+LINE IS 55
+
 declare
 
+
+
+
+LINE IS 56
 
 compute
 
@@ -179,8 +445,16 @@ LINE 56: NUMBER OF ACTUAL PARAMS IS LESS THAN NUMBER OF FORMAL PARAMS
 LINE 56: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 3
+
+
+LINE IS 57
+
 print
 
+
+
+
+LINE IS 58
 
 declare
 

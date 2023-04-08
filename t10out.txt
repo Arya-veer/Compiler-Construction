@@ -87,11 +87,17 @@ LINE IS 23
 :=
 
 
+k
+
+
 
 
 LINE IS 25
 
 :=
+
+
+p
 
 
 
@@ -115,6 +121,13 @@ LINE IS 29
 :=
 
 
+LINE 29: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+n
+
+
+m
+
+
 
 
 LINE IS 32
@@ -122,11 +135,26 @@ LINE IS 32
 :=
 
 
+m
+
+
 
 
 LINE IS 36
 
 :=
+
+
+x
+
+
+m
+
+
+u
+
+
+n
 
 
 
@@ -180,12 +208,21 @@ LINE IS 52
 :=
 
 
+k
+
+
 LINE 54: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR
 
 
 LINE IS 62
 
 :=
+
+
+m
+
+
+n
 
 
 
@@ -225,11 +262,21 @@ LINE IS 79
 :=
 
 
+x
+
+
+k
+
+
 
 
 LINE IS 80
 
 :=
+
+
+LINE 80: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+k
 
 
 driverModule
@@ -282,11 +329,23 @@ LINE IS 92
 :=
 
 
+a
+
+
+b
+
+
 
 
 LINE IS 94
 
 :=
+
+
+a
+
+
+b
 
 
 
@@ -296,11 +355,23 @@ LINE IS 96
 :=
 
 
+a
+
+
+b
+
+
 
 
 LINE IS 98
 
 :=
+
+
+a
+
+
+b
 
 
 LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH

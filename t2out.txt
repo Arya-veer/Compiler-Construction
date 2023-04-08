@@ -45,6 +45,9 @@ LINE IS 12
 :=
 
 
+m
+
+
 
 
 LINE IS 13
@@ -61,9 +64,16 @@ LINE IS 14
 :=
 
 
-LINE 14: VARIABLE NOT DEFINED IN SCOPE
+a
+
+
+b
+
 
 LINE 14: VARIABLE NOT DEFINED IN SCOPE
+
+h
+
 
 LINE 14: TYPE ERROR OCCURED
 LINE 14: TYPE ERROR OCCURED
@@ -72,6 +82,12 @@ LINE 14: TYPE ERROR OCCURED
 LINE IS 15
 
 :=
+
+
+a
+
+
+b
 
 
 
@@ -89,11 +105,23 @@ LINE IS 17
 :=
 
 
+b
+
+
 
 
 LINE IS 18
 
 :=
+
+
+a
+
+
+b
+
+
+b
 
 
 
@@ -179,6 +207,12 @@ LINE IS 35
 :=
 
 
+c
+
+
+y
+
+
 
 
 LINE IS 36
@@ -186,11 +220,20 @@ LINE IS 36
 :=
 
 
+a
+
+
+b
+
+
 
 
 LINE IS 37
 
 :=
+
+
+B
 
 
 
@@ -208,6 +251,12 @@ LINE IS 39
 :=
 
 
+A
+
+
+C
+
+
 
 
 LINE IS 40
@@ -215,9 +264,19 @@ LINE IS 40
 :=
 
 
-LINE 40: VARIABLE NOT DEFINED IN SCOPE
+c
+
+
+x
+
 
 LINE 40: VARIABLE NOT DEFINED IN SCOPE
+
+E
+
+
+y
+
 
 TYPE ERROR OCCURED AT LINE 40
 TYPE ERROR OCCURED AT LINE 40

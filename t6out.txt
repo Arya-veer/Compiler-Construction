@@ -54,6 +54,18 @@ LINE IS 18
 :=
 
 
+length
+
+
+q
+
+
+g
+
+
+h
+
+
 
 
 LINE IS 19
@@ -66,6 +78,9 @@ declare
 LINE IS 20
 
 :=
+
+
+q
 
 
 
@@ -82,11 +97,20 @@ LINE IS 22
 :=
 
 
+weight
+
+
+a
+
+
 
 
 LINE IS 23
 
 :=
+
+
+f
 
 
 
@@ -131,6 +155,9 @@ LINE IS 34
 :=
 
 
+m
+
+
 
 
 LINE IS 35
@@ -154,6 +181,17 @@ LINE IS 37
 :=
 
 
+m
+
+
+LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
+
+p
+
+
+LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
+
+LINE 37: TYPE ERROR OCCURED
 LINE 37:CAN NOT ASSIGN VALUE TO AN ARRAY
 
 
@@ -170,6 +208,15 @@ LINE IS 39
 :=
 
 
+a
+
+
+b
+
+
+h
+
+
 
 
 LINE IS 40
@@ -182,6 +229,15 @@ declare
 LINE IS 41
 
 while
+
+
+x
+
+
+m
+
+
+k
 
 
 
@@ -237,11 +293,20 @@ LINE IS 49
 
 ARRAY INDEX OUT OF BOUNDS IN LINE 49
 
+u
+
+
+m
+
+
 
 
 LINE IS 50
 
 :=
+
+
+b
 
 
 LINE 50: TYPE ERROR OCCURED
@@ -270,6 +335,21 @@ LINE IS 54
 :=
 
 
+p
+
+
+LINE 54: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
+
+b
+
+
+LINE 54: TYPE ERROR OCCURED
+a
+
+
+LINE 54: TYPE ERROR OCCURED
+LINE 54: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
 
 
 LINE IS 55
@@ -277,11 +357,23 @@ LINE IS 55
 :=
 
 
+b
+
+
 
 
 LINE IS 56
 
 :=
+
+
+a
+
+
+b
+
+
+b
 
 
 
@@ -438,7 +530,16 @@ LINE IS 86
 :=
 
 
+k
+
+
+y
+
+
 LINE 86: TYPE ERROR OCCURED
+x
+
+
 LINE 86: TYPE ERROR OCCURED
 LINE 86: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
@@ -463,11 +564,26 @@ LINE IS 89
 :=
 
 
+c
+
+
+y
+
+
 
 
 LINE IS 90
 
 :=
+
+
+c
+
+
+p
+
+
+u
 
 
 
@@ -522,6 +638,9 @@ LINE IS 98
 :=
 
 
+k
+
+
 
 
 LINE IS 99
@@ -547,6 +666,15 @@ LINE IS 102
 :=
 
 
+u
+
+
+y
+
+
+c
+
+
 
 
 LINE IS 103
@@ -569,6 +697,15 @@ LINE IS 105
 :=
 
 
+k
+
+
+k
+
+
+u
+
+
 LINE 105: TYPE ERROR OCCURED
 LINE 105: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
@@ -586,11 +723,21 @@ LINE IS 107
 :=
 
 
+LINE 107: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+int1
+
+
 
 
 LINE IS 109
 
 :=
+
+
+D
+
+
+D
 
 
 
@@ -611,6 +758,21 @@ LINE IS 113
 :=
 
 
+u
+
+
+v
+
+
+x
+
+
+u
+
+
+v
+
+
 LINE 113: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 
@@ -620,6 +782,12 @@ LINE IS 115
 :=
 
 
+c
+
+
+y
+
+
 
 
 LINE IS 116
@@ -627,11 +795,20 @@ LINE IS 116
 :=
 
 
+a
+
+
+b
+
+
 
 
 LINE IS 117
 
 :=
+
+
+B
 
 
 
@@ -642,6 +819,15 @@ LINE IS 118
 
 
 ARRAY INDEX OUT OF BOUNDS IN LINE 118
+
+C
+
+
+A
+
+
+A
+
 
 
 
@@ -772,6 +958,21 @@ LINE IS 141
 :=
 
 
+q
+
+
+r
+
+
+p
+
+
+a
+
+
+value
+
+
 LINE 141: TYPE ERROR OCCURED
 LINE 141: TYPE ERROR OCCURED
 LINE 141: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
@@ -783,6 +984,9 @@ LINE IS 142
 :=
 
 
+q
+
+
 TYPE ERROR OCCURED AT LINE 142
 LINE 142: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
@@ -791,6 +995,12 @@ LINE 142: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 LINE IS 143
 
 :=
+
+
+a
+
+
+b
 
 
 
@@ -807,6 +1017,9 @@ LINE IS 145
 :=
 
 
+B
+
+
 
 
 LINE IS 146
@@ -814,7 +1027,13 @@ LINE IS 146
 :=
 
 
+a
+
+
 ARRAY INDEX OUT OF BOUNDS IN LINE 146
+
+C
+
 
 
 
@@ -830,6 +1049,15 @@ LINE IS 148
 :=
 
 
+value
+
+
+q
+
+
+r
+
+
 LINE 148:CAN NOT ASSIGN VALUE TO AN ARRAY
 
 
@@ -837,6 +1065,9 @@ LINE 148:CAN NOT ASSIGN VALUE TO AN ARRAY
 LINE IS 149
 
 :=
+
+
+w
 
 
 
