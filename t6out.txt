@@ -57,13 +57,7 @@ LINE IS 18
 length
 
 
-q
-
-
 g
-
-
-h
 
 
 
@@ -186,9 +180,6 @@ m
 
 LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
-p
-
-
 LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
 LINE 37: TYPE ERROR OCCURED
@@ -211,12 +202,6 @@ LINE IS 39
 a
 
 
-b
-
-
-h
-
-
 
 
 LINE IS 40
@@ -232,9 +217,6 @@ while
 
 
 x
-
-
-m
 
 
 k
@@ -296,9 +278,6 @@ ARRAY INDEX OUT OF BOUNDS IN LINE 49
 u
 
 
-m
-
-
 
 
 LINE IS 50
@@ -340,9 +319,6 @@ p
 
 LINE 54: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
-b
-
-
 LINE 54: TYPE ERROR OCCURED
 a
 
@@ -368,9 +344,6 @@ LINE IS 56
 
 
 a
-
-
-b
 
 
 b
@@ -533,9 +506,6 @@ LINE IS 86
 k
 
 
-y
-
-
 LINE 86: TYPE ERROR OCCURED
 x
 
@@ -578,9 +548,6 @@ LINE IS 90
 
 
 c
-
-
-p
 
 
 u
@@ -669,12 +636,6 @@ LINE IS 102
 u
 
 
-y
-
-
-c
-
-
 
 
 LINE IS 103
@@ -701,9 +662,6 @@ k
 
 
 k
-
-
-u
 
 
 LINE 105: TYPE ERROR OCCURED
@@ -737,9 +695,6 @@ LINE IS 109
 D
 
 
-D
-
-
 
 
 LINE IS 110
@@ -761,16 +716,7 @@ LINE IS 113
 u
 
 
-v
-
-
 x
-
-
-u
-
-
-v
 
 
 LINE 113: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
@@ -785,9 +731,6 @@ LINE IS 115
 c
 
 
-y
-
-
 
 
 LINE IS 116
@@ -796,9 +739,6 @@ LINE IS 116
 
 
 a
-
-
-b
 
 
 
@@ -821,9 +761,6 @@ LINE IS 118
 ARRAY INDEX OUT OF BOUNDS IN LINE 118
 
 C
-
-
-A
 
 
 A
@@ -961,16 +898,10 @@ LINE IS 141
 q
 
 
-r
-
-
 p
 
 
 a
-
-
-value
 
 
 LINE 141: TYPE ERROR OCCURED
@@ -984,10 +915,7 @@ LINE IS 142
 :=
 
 
-q
-
-
-TYPE ERROR OCCURED AT LINE 142
+LINE 142: TYPE ERROR OCCURED
 LINE 142: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 
@@ -998,9 +926,6 @@ LINE IS 143
 
 
 a
-
-
-b
 
 
 
@@ -1017,9 +942,6 @@ LINE IS 145
 :=
 
 
-B
-
-
 
 
 LINE IS 146
@@ -1031,9 +953,6 @@ a
 
 
 ARRAY INDEX OUT OF BOUNDS IN LINE 146
-
-C
-
 
 
 
@@ -1050,12 +969,6 @@ LINE IS 148
 
 
 value
-
-
-q
-
-
-r
 
 
 LINE 148:CAN NOT ASSIGN VALUE TO AN ARRAY

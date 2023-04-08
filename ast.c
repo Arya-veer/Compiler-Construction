@@ -1329,7 +1329,7 @@ int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 void outputParamCheck(){
     SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
     while(outputNode!=NULL){
-        if(outputNode->isDynamic == 0){
+        if(outputNode->OUTPUTPARAMSHEAD == NULL){
             printf("LINE %d,OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",outputNode->id->lineNo,outputNode->id->lexemedata->data);
         }
         outputNode = outputNode->next;
@@ -1341,7 +1341,7 @@ void outputParamAssignment(TREENODE node){
     SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
     while(outputNode!=NULL){
         if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
-            outputNode->isDynamic +=1;
+            outputNode->OUTPUTPARAMSHEAD = outputNode;
             return;
         }
         outputNode = outputNode->next;
@@ -1477,7 +1477,6 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
             leftType = getTypeAST(expression_node->left_child,SYMBOL_TABLE);
         }
         if(expression_node->right_child != NULL && expression_node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
-            printASTNODE(expression_node->right_child);
             SYMBOLTABLEROW rightRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->right_child);
             if(rightRow != NULL && rightRow->isDynamic != -1 && expression_node->right_child->right_child == NULL){
                 printf("LINE %d: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo);
@@ -1541,7 +1540,8 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
                 return expression_node->type = TYPE_BOOLEAN;
             }
             else{
-                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+
+                printf("LINE %d: TYPE ERROR OCCURED\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
@@ -1550,7 +1550,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
                 return expression_node->type = TYPE_BOOLEAN;
             }
             else{
-                printf("TYPE ERROR OCCURED AT LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+                printf("LINE %d: TYPE ERROR OCCURED\n",expression_node->TREENODEDATA->terminal->lineNo);
                 return expression_node->type = TYPE_ERROR;
             }
         }
@@ -1698,8 +1698,13 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             printf("LINE %d: RECURSION IS NOT ALLOWED\n\n",node->TREENODEDATA->terminal->lineNo);
         }
         else{
-            checkInputList(node, row, SYMBOL_TABLE);
-            checkOutputList(node, row, SYMBOL_TABLE);
+            if(row->INPUTPARAMSHEAD == NULL){
+                row->isDynamic = 1;
+            }
+            else{
+                checkInputList(node, row, SYMBOL_TABLE);
+                checkOutputList(node, row, SYMBOL_TABLE);
+            }
             traversal(node->list_addr_syn,SYMBOL_TABLE);
             return;
         }

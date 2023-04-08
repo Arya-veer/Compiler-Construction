@@ -159,6 +159,7 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         row->INPUTPARAMSHEAD = NULL;
         row->OUTPUTPARAMSHEAD = NULL;
         row->next = NULL;
+        row->isDynamic = 0;
         // printf("RETURNING ROW\n");
         SYMBOL_TABLE->TABLE[index] = row;
 
@@ -167,11 +168,14 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
     else{
         if(str->INPUTPARAMSHEAD != NULL){
             printf("LINE %d: THIS MODULE HAS ALREADY BEEN DEFINED\n",func->TREENODEDATA->terminal->lineNo);
-            return NULL;
         }
         else{
-            return str;
+            if(str->isDynamic == 0){
+                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n",str->id->lineNo);
+            }
+
         }
+        return str;
     }
 
 
@@ -370,6 +374,6 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
     OP->INPUTPARAMSHEAD = NULL;
     OP->OUTPUTPARAMSHEAD = NULL;
     OP->next = NULL;
-    OP->isDynamic = 0;
+    OP->isDynamic = -1;
     return OP;
 }

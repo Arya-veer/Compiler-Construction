@@ -97,9 +97,6 @@ LINE IS 25
 :=
 
 
-p
-
-
 
 
 LINE IS 26
@@ -125,9 +122,6 @@ LINE 29: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
 n
 
 
-m
-
-
 
 
 LINE IS 32
@@ -148,13 +142,7 @@ LINE IS 36
 x
 
 
-m
-
-
 u
-
-
-n
 
 
 
@@ -222,9 +210,6 @@ LINE IS 62
 m
 
 
-n
-
-
 
 
 LINE IS 63
@@ -263,9 +248,6 @@ LINE IS 79
 
 
 x
-
-
-k
 
 
 
@@ -332,9 +314,6 @@ LINE IS 92
 a
 
 
-b
-
-
 
 
 LINE IS 94
@@ -343,9 +322,6 @@ LINE IS 94
 
 
 a
-
-
-b
 
 
 
@@ -358,9 +334,6 @@ LINE IS 96
 a
 
 
-b
-
-
 
 
 LINE IS 98
@@ -369,9 +342,6 @@ LINE IS 98
 
 
 a
-
-
-b
 
 
 LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
