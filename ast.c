@@ -1400,9 +1400,44 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
     else{
         typeExtractionExpr(expression_node->left_child,SYMBOL_TABLE);
         typeExtractionExpr(expression_node->right_child,SYMBOL_TABLE);
-        int leftType = getTypeAST(expression_node->left_child,SYMBOL_TABLE);
-        int rightType = getTypeAST(expression_node->right_child,SYMBOL_TABLE);
+        int leftType; 
+        int rightType;
+        if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+            printASTNODE(expression_node->left_child);
+            SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->left_child);
+            if(leftRow != NULL && leftRow->isDynamic != -1 && expression_node->left_child->right_child == NULL){
+                printf("LINE %d: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo);
+                leftType = TYPE_ERROR;
+            }
+            else if(leftRow == NULL){
+                leftType = TYPE_ERROR;
+            }
+            else{
+                leftType = leftRow->type;
+            }
+        }
+        else{
+            leftType = getTypeAST(expression_node->left_child,SYMBOL_TABLE);
+        }
+        if(expression_node->right_child != NULL && expression_node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+            printASTNODE(expression_node->right_child);
+            SYMBOLTABLEROW rightRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->right_child);
+            if(rightRow != NULL && rightRow->isDynamic != -1 && expression_node->right_child->right_child == NULL){
+                printf("LINE %d: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo);
+                rightType = TYPE_ERROR;
+            }
+            else if(rightRow == NULL){
+                rightType = TYPE_ERROR;
+            }
+            else{
+                rightType = rightRow->type;
+            }
+        }
+        else{
+            rightType = getTypeAST(expression_node->right_child,SYMBOL_TABLE);
+        }
         if((expression_node->TREENODEDATA->terminal->token == MUL_OPERATOR)){
+            
             if(leftType == TYPE_INTEGER && rightType == TYPE_INTEGER){
                 return expression_node->type = TYPE_INTEGER;
             }

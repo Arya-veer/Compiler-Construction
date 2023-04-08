@@ -273,7 +273,7 @@ SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
 }
 
 SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
-    if(SYMBOL_TABLE == NULL || SYMBOL_TABLE->parent == NULL) return NULL;
+    if(SYMBOL_TABLE == NULL || SYMBOL_TABLE->parent == NULL || var == NULL) return NULL;
     SYMBOLTABLEROW func = GetFuncFromName(SYMBOL_TABLE->parent,SYMBOL_TABLE->name);
     int index;
     SYMBOLTABLEROW str;
