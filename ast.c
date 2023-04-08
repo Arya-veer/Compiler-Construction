@@ -1326,6 +1326,7 @@ int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     return checkForLoop(node,SYMBOL_TABLE);
 }
 
+
 void outputParamCheck(){
     SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
     while(outputNode!=NULL){
@@ -1682,7 +1683,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             traversal(node->right_child->left_child,row->SYMBOLTABLE);
         }
         else if(t == TYPE_BOOLEAN && node->right_child != NULL){
-            printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->TREENODEDATA->terminal->lineNo);
+            printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->right_child->TREENODEDATA->terminal->lineNo);
         }
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
