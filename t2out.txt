@@ -1,0 +1,165 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+moduleDeclarations
+otherModules
+var_demo_array
+
+
+declare
+
+
+get_value
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+LINE 14: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 14: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 14: TYPE ERROR OCCURED
+LINE 14: TYPE ERROR OCCURED
+LINE 14: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+declare
+
+
+LINE 16: VARIABLE ALREADY DEFINED b
+:=
+
+
+:=
+
+
+print
+
+
+f1
+
+
+declare
+
+
+get_value
+
+
+declare
+
+
+get_value
+
+
+LINE 30: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+declare
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+LINE 34: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 34: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+:=
+
+
+:=
+
+
+declare
+
+
+LINE 38: VARIABLE ALREADY DEFINED A
+:=
+
+
+:=
+
+
+LINE 40: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 40: VARIABLE NOT DEFINED IN SCOPE
+
+TYPE ERROR OCCURED AT LINE 40
+TYPE ERROR OCCURED AT LINE 40
+LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+driverModule
+driver
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+declare
+
+
+:=
+
+
+get_value
+
+
+LINE 53: VARIABLE NOT DECLARED
+
+declare
+
+
+var_demo_array
+
+
+var_demo_array
+
+
+LINE 56: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
+:=
+
+
+declare
+
+
+LINE 58: VARIABLE ALREADY DEFINED B
+otherModules
+Enter your option: 

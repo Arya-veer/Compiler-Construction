@@ -1,0 +1,313 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+moduleDeclarations
+otherModules
+var_demo_array
+
+
+declare
+
+
+get_value
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+while
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 22
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 22
+
+:=
+
+
+LINE 23: TYPE ERROR OCCURED
+LINE 23: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+:=
+
+
+:=
+
+
+print
+
+
+f1
+
+
+declare
+
+
+declare
+
+
+get_value
+
+
+get_value
+
+
+declare
+
+
+get_value
+
+
+LINE 41: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+declare
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+for
+
+
+:=
+
+
+LINE 48: TYPE ERROR OCCURED
+LINE 48: TYPE ERROR OCCURED
+LINE 48: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+declare
+
+
+:=
+
+
+:=
+
+
+k
+
+
+10
+
+
+*****ERROR*****10
+
+
+declare
+
+
+declare
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 58
+
+:=
+
+
+:=
+
+
+20
+
+
+*****ERROR*****20
+
+
+:=
+
+
+get_value
+
+
+:=
+
+
+LINE 64: TYPE ERROR OCCURED
+LINE 64: ONLY ARRAYS CAN HAVE AN INDEX
+LINE 64: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+default
+
+
+*****ERROR*****default
+
+
+:=
+
+
+:=
+
+
+LINE 69: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+:=
+
+
+:=
+
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 75
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 75
+
+:=
+
+
+driverModule
+driver
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+declare
+
+
+:=
+
+
+get_value
+
+
+declare
+
+
+var_demo_array
+
+
+var_demo_array
+
+
+declare
+
+
+:=
+
+
+LINE 93: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+get_value
+
+
+declare
+
+
+get_value
+
+
+:=
+
+
+:=
+
+
+LINE 98: TYPE ERROR OCCURED
+LINE 98: TYPE ERROR OCCURED
+LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+TYPE ERROR OCCURED AT LINE 99
+LINE 99: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 103
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 103
+
+declare
+
+
+:=
+
+
+LINE 105: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+:=
+
+
+:=
+
+
+otherModules
+Enter your option: 

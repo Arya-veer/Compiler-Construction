@@ -1518,6 +1518,10 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     /*OTHER MODULES*/
     else if(node->left_child!=NULL && node->left_child->TREENODEDATA->terminal->token == TAKES_KEYWORD){
         SYMBOLTABLEROW row = StoreFuncIntoSymbolTable(SYMBOL_TABLE,node);
+        if(row == NULL){ 
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
         currFunc = row;
         row->SYMBOLTABLE = initializeSymbolTable(row->id->lexemedata->data);
         row->INPUTPARAMSHEAD = typeExtractionIPList(node->left_child->left_child);

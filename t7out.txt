@@ -1,0 +1,384 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+moduleDeclarations
+function1
+
+
+function2
+
+
+function4
+
+
+otherModules
+var_demo_array
+
+
+declare
+
+
+get_value
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+function2
+
+
+LINE 24: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+:=
+
+
+:=
+
+
+:=
+
+
+declare
+
+
+:=
+
+
+declare
+
+
+while
+
+
+declare
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+function1
+
+
+LINE 37: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+LINE 37: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 38
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 38
+
+:=
+
+
+LINE 39: TYPE ERROR OCCURED
+LINE 39: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+declare
+
+
+function1
+
+
+LINE 41: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+LINE 41: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
+
+:=
+
+
+:=
+
+
+:=
+
+
+function1
+
+
+LINE 46: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+LINE 46: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
+
+print
+
+
+function2
+
+
+declare
+
+
+:=
+
+
+f1
+
+
+declare
+
+
+declare
+
+
+declare
+
+
+declare
+
+
+get_value
+
+
+get_value
+
+
+declare
+
+
+declare
+
+
+get_value
+
+
+LINE 70: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+function2
+
+
+declare
+
+
+:=
+
+
+var_demo_array
+
+
+:=
+
+
+function1
+
+
+LINE 76: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+LINE 76: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
+
+:=
+
+
+var_demo_array
+
+
+for
+
+
+:=
+
+
+LINE 83: TYPE ERROR OCCURED
+LINE 83: TYPE ERROR OCCURED
+LINE 83: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+declare
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+function1
+
+
+LINE 88: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
+
+LINE 88: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
+
+:=
+
+
+LINE 89: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+function3
+
+
+LINE 92: FUNCTION NOT DEFINEDfunction3
+
+
+:=
+
+
+function4
+
+
+:=
+
+
+driverModule
+driver
+
+
+declare
+
+
+declare
+
+
+:=
+
+
+declare
+
+
+function4
+
+
+:=
+
+
+get_value
+
+
+declare
+
+
+var_demo_array
+
+
+var_demo_array
+
+
+declare
+
+
+:=
+
+
+LINE 128: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+get_value
+
+
+declare
+
+
+get_value
+
+
+:=
+
+
+:=
+
+
+LINE 133: TYPE ERROR OCCURED
+LINE 133: TYPE ERROR OCCURED
+LINE 133: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+TYPE ERROR OCCURED AT LINE 134
+LINE 134: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+declare
+
+
+:=
+
+
+:=
+
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 138
+
+ARRAY INDEX OUT OF BOUNDS IN LINE 138
+
+declare
+
+
+:=
+
+
+LINE 140: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+:=
+
+
+:=
+
+
+:=
+
+
+otherModules
+function1
+
+
+declare
+
+
+declare
+
+
+get_value
+
+
+LINE 152: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+:=
+
+
+:=
+
+
+declare
+
+
+:=
+
+
+get_value
+
+
+:=
+
+
+:=
+
+
+Enter your option: 
