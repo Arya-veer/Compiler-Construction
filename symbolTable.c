@@ -10,6 +10,43 @@ int SWITCH_ROW = 62;
 int CASE_ROW = 63; 
 int OFFSETS[] = {4,4,1};
 
+
+
+
+void printLinkedListST(SYMBOLTABLEROW row){
+    if(row == NULL) return;
+    if(row->id->token == IDENTIFIER_TOKEN)printf("%s %d ",row->id->lexemedata->data,row->type);
+    else if(row->id->token == NUM_TOKEN)printf("%d %d ",row->id->lexemedata->intData,row->type);
+    if(row->isDynamic == -1) printf("0\n");
+    else printf("1\n");
+    printLinkedListST(row->next);
+}
+
+void printTable(SYMBOLTABLE SYMBOL_TABLE){
+    for(int i = 0;i<(SYMTABSIZE+5);i++){
+        printf("\n%d: ",i);
+        printLinkedListST(SYMBOL_TABLE->TABLE[i]);
+    }
+    printf("\n\n\n");
+}
+
+void printSymbolTable(SYMBOLTABLEROW func){
+    // printf("%ld\n\n",SYMBOLTABLE);
+    printf("\n\nPRINTING SYMBOL TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
+    for(int i = 0;i<(SYMTABSIZE+5);i++){
+        printf("\n%d: ",i);
+        printLinkedListST(func->SYMBOLTABLE->TABLE[i]);
+    }
+    printf("\n\nENDING PRINTING\n\n");
+    if(func->INPUTPARAMSHEAD == NULL) return;
+    printf("\n\nPRINTING INPUT TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
+    printLinkedListST(func->INPUTPARAMSHEAD);
+    if(func->OUTPUTPARAMSHEAD == NULL) return;
+    printf("\n\nPRINTING OUTPUT TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
+    printLinkedListST(func->OUTPUTPARAMSHEAD);
+}
+
+
 SYMBOLTABLE initializeSymbolTable(char* name){
     SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc((SYMTABSIZE+5)*sizeof(SYMBOLTABLEROW));
     for(int i = 0;i<(SYMTABSIZE+5);i++){
@@ -241,7 +278,6 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
     int index;
     SYMBOLTABLEROW str;
     index = hashCodeSymbolTable(var->TREENODEDATA->terminal->lexemedata->data);
-    // printSymbolTable(SYMBOL_TABLE);
     str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
@@ -249,9 +285,10 @@ SYMBOLTABLEROW GetVarFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE var){
         }
         str = str->next;
     }
-    // printf("DECLARE YE HUA NHI\n\n");
     if(func == NULL || func->INPUTPARAMSHEAD == NULL){ 
         if(SYMBOL_TABLE->parent == NULL) return NULL;
+        // printf("PARENT ME LENE JA RHA HU\n\n");
+        // printTable(SYMBOL_TABLE->parent);
         return GetVarFromSymbolTable(SYMBOL_TABLE->parent,var);
     }
     str = func->INPUTPARAMSHEAD;
@@ -282,31 +319,6 @@ SYMBOLTABLEROW GetFuncFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE, TREENODE func){
     return GetFuncFromName(SYMBOL_TABLE,func->TREENODEDATA->terminal->lexemedata->data);
 }
 
-
-void printLinkedListST(SYMBOLTABLEROW row){
-    if(row == NULL) return;
-    if(row->id->token == IDENTIFIER_TOKEN)printf("%s %d ",row->id->lexemedata->data,row->type);
-    else if(row->id->token == NUM_TOKEN)printf("%d %d ",row->id->lexemedata->intData,row->type);
-    if(row->isDynamic == -1) printf("0\n");
-    else printf("1\n");
-    printLinkedListST(row->next);
-}
-
-void printSymbolTable(SYMBOLTABLEROW func){
-    // printf("%ld\n\n",SYMBOLTABLE);
-    printf("\n\nPRINTING SYMBOL TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
-    for(int i = 0;i<(SYMTABSIZE+5);i++){
-        printf("\n%d: ",i);
-        printLinkedListST(func->SYMBOLTABLE->TABLE[i]);
-    }
-    printf("\n\nENDING PRINTING\n\n");
-    if(func->INPUTPARAMSHEAD == NULL) return;
-    printf("\n\nPRINTING INPUT TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
-    printLinkedListST(func->INPUTPARAMSHEAD);
-    if(func->OUTPUTPARAMSHEAD == NULL) return;
-    printf("\n\nPRINTING OUTPUT TABLE FOR FUNCTION %s\n\n",func->id->lexemedata->data);
-    printLinkedListST(func->OUTPUTPARAMSHEAD);
-}
 
 SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
     IP = malloc(sizeof(struct SymTabRowNode));

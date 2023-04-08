@@ -1200,7 +1200,7 @@ void applyRule(TREENODE parent){
 
 int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return TYPE_UNDEFINED;
-    if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+    if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
         SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
         if(row==NULL){
             printf("LINE %d: VARIABLE NOT DEFINED IN SCOPE\n\n",node->TREENODEDATA->terminal->lineNo);
@@ -1475,6 +1475,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
+    printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
     printASTNODE(node);
 
     /*MODULE DECLARATION*/
@@ -1526,7 +1527,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->TREENODEDATA->terminal->token == FOR_KEYWORD){
         node -> left_child -> type = TYPE_INTEGER;
         SYMBOLTABLEROW row = StoreForIntoSymbolTable(SYMBOL_TABLE,node);
-        row->SYMBOLTABLE = initializeSymbolTable("FOR");
+        row->SYMBOLTABLE = initializeSymbolTable("for");
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
         traversal(node->right_child,row->SYMBOLTABLE);
@@ -1555,7 +1556,11 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreSwitchIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("SWITCH");
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        int t = getTypeAST(node,SYMBOL_TABLE);
+        SYMBOLTABLEROW x = GetVarFromSymbolTable(SYMBOL_TABLE,node);
+        int t = x->type;
+        if(x->isDynamic != -1){
+            printf("LINE %d, ARRAY VARIABLE CAN NOT BE PART OF SWITCH STMT",node->TREENODEDATA->terminal->lineNo);
+        }
         if(t == TYPE_REAL){
             printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
             traversal(node->list_addr_syn,SYMBOL_TABLE);
@@ -1571,7 +1576,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             else{
                 SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
                 case_node->SYMBOLTABLE = initializeSymbolTable("CASE");
-                case_node->SYMBOLTABLE->parent = SYMBOL_TABLE;
+                case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
                 traversal(caseVal->left_child,case_node->SYMBOLTABLE);
             }
             caseVal = caseVal->list_addr_syn;
@@ -1581,8 +1586,6 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         else if(t == TYPE_INTEGER && node->right_child != NULL){
             traversal(node->right_child->left_child,row->SYMBOLTABLE);
-            traversal(node->list_addr_syn,SYMBOL_TABLE);
-            return;
         }
         else if(t == TYPE_BOOLEAN && node->right_child != NULL){
             printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->TREENODEDATA->terminal->lineNo);
@@ -1610,11 +1613,46 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 
     /*ASSIGNMENT STMT: SIMPLE STMT*/
     else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
-        int type = TYPE_UNDEFINED;
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
-        type = getTypeAST(node->left_child,SYMBOL_TABLE);
-        if(type != node->right_child->type){
-            printf("LINE %d: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n",node->TREENODEDATA->terminal->lineNo);
+        // printASTNODE(node->right_child);
+        SYMBOLTABLEROW rightRow = NULL;
+        
+        SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,node->left_child);
+        if(leftRow == NULL){
+            printf("LINE %d: VARIABLE ON LEFT IS NOT DEFINED\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
+        }
+        else{
+            node->left_child->type = leftRow->type;
+            if(node->left_child->right_child == NULL){
+                if(leftRow->isDynamic != -1){
+                    if(node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+                        rightRow = GetVarFromSymbolTable(SYMBOL_TABLE,node->right_child);
+                        if(rightRow == NULL){
+                            printf("LINE %d, VARIABLE NOT DEFINED\n\n",node->right_child->TREENODEDATA->terminal->lineNo);
+                        }
+                    }
+                    if(node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && rightRow != NULL && rightRow->isDynamic != -1){
+                        if(leftRow->isDynamic == 0 && rightRow->isDynamic == 0){
+                            if(leftRow->range->left == rightRow->range->left && leftRow->range->right == rightRow->range->right)printf("ARRAY ASSIGNED\n\n");
+                            else printf("LINE %d: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH\n\n",node->right_child->TREENODEDATA->terminal->lineNo);
+                        }
+                    }
+                    else{
+                        printf("LINE %d:CAN NOT ASSIGN VALUE TO AN ARRAY\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
+                    }
+                }
+                else{
+                    if(node->left_child->type != node->right_child->type){
+                        printf("LINE %d: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH\n\n",node->TREENODEDATA->terminal->lineNo);
+                    }
+                }
+            }
+            else{
+                int type = typeExtractionExpr(node->left_child->right_child,SYMBOL_TABLE);
+                if(type != TYPE_INTEGER){
+                    printf("LINE %d: ARRAY INDEX MUST BE AN INTEGER VALUE\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
+                }
+            }
         }
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
@@ -1625,7 +1663,6 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         TREENODE ID = node->left_child;
         SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,ID);
         if(row == NULL) printf("LINE %d: VARIABLE NOT DECLARED\n\n",node->TREENODEDATA->terminal->lineNo);
-        else if(row->isDynamic != -1) printf("LINE %d: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }

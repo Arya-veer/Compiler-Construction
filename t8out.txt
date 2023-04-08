@@ -9,71 +9,165 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
 moduleDeclarations
+
+
+LINE IS 13
+
 function1
 
 
+
+
+LINE IS 14
+
 function2
 
+
+
+
+LINE IS 15
 
 function4
 
 
 otherModules
+
+
+LINE IS 17
+
 var_demo_array
 
 
+
+
+LINE IS 21
+
 declare
 
+
+
+
+LINE IS 22
 
 get_value
 
 
+
+
+LINE IS 23
+
 declare
 
 
+
+
+LINE IS 24
+
 declare
 
+
+
+
+LINE IS 25
 
 :=
 
+
+
+
+LINE IS 26
 
 function2
 
 
 LINE 26: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
-:=
 
 
-:=
-
+LINE IS 27
 
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 28
+
+:=
+
+
+
+
+LINE IS 29
+
+:=
+
+
+LINE 29:CAN NOT ASSIGN VALUE TO AN ARRAY
+
+
+
+LINE IS 30
 
 declare
 
 
+
+
+LINE IS 31
+
 :=
 
 
+
+
+LINE IS 32
+
 declare
 
+
+
+
+LINE IS 33
 
 while
 
 
-declare
 
 
-declare
-
+LINE IS 35
 
 declare
 
+
+
+
+LINE IS 36
+
+declare
+
+
+
+
+LINE IS 37
+
+declare
+
+
+
+
+LINE IS 38
 
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 39
 
 function1
 
@@ -82,12 +176,18 @@ LINE 39: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
 LINE 39: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
 
+
+
+LINE IS 40
+
 :=
 
 
 ARRAY INDEX OUT OF BOUNDS IN LINE 40
 
-ARRAY INDEX OUT OF BOUNDS IN LINE 40
+
+
+LINE IS 41
 
 :=
 
@@ -95,8 +195,16 @@ ARRAY INDEX OUT OF BOUNDS IN LINE 40
 LINE 41: TYPE ERROR OCCURED
 LINE 41: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 42
+
 declare
 
+
+
+
+LINE IS 43
 
 function1
 
@@ -105,14 +213,30 @@ LINE 43: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
 LINE 43: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
 
-:=
 
 
-:=
-
+LINE IS 45
 
 :=
 
+
+
+
+LINE IS 46
+
+:=
+
+
+
+
+LINE IS 47
+
+:=
+
+
+
+
+LINE IS 48
 
 function1
 
@@ -121,66 +245,148 @@ LINE 48: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
 LINE 48: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
 
+
+
+LINE IS 49
+
 print
 
+
+
+
+LINE IS 52
 
 function2
 
 
+
+
+LINE IS 55
+
 declare
 
+
+
+
+LINE IS 56
 
 function2
 
 
 LINE 56: RECURSION IS NOT ALLOWED
 
+
+
+LINE IS 61
+
 f1
 
 
-declare
 
 
-declare
-
+LINE IS 65
 
 declare
 
 
+
+
+LINE IS 66
+
 declare
 
+
+
+
+LINE IS 67
+
+declare
+
+
+
+
+LINE IS 68
+
+declare
+
+
+
+
+LINE IS 69
 
 get_value
 
 
-get_value
 
 
-declare
-
-
-declare
-
+LINE IS 70
 
 get_value
 
 
-LINE 73: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+
+LINE IS 71
+
+declare
+
+
+
+
+LINE IS 72
+
+declare
+
+
+
+
+LINE IS 73
+
+get_value
+
+
+
+
+LINE IS 74
 
 function2
 
 
+
+
+LINE IS 75
+
 declare
 
 
+
+
+LINE IS 76
+
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 77
 
 var_demo_array
 
 
+
+
+LINE IS 78
+
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 79
 
 function1
 
@@ -189,14 +395,32 @@ LINE 79: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
 LINE 79: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
 
+
+
+LINE IS 80
+
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 83
 
 var_demo_array
 
 
+
+
+LINE IS 84
+
 for
 
+
+
+
+LINE IS 86
 
 :=
 
@@ -205,17 +429,37 @@ LINE 86: TYPE ERROR OCCURED
 LINE 86: TYPE ERROR OCCURED
 LINE 86: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 87
+
 declare
 
 
+
+
+LINE IS 88
+
 declare
 
+
+
+
+LINE IS 89
 
 :=
 
 
+
+
+LINE IS 90
+
 :=
 
+
+
+
+LINE IS 91
 
 function1
 
@@ -224,86 +468,190 @@ LINE 91: NUMBER OF ACTUAL PARAMS IS MORE THAN NUMBER OF FORMAL PARAMS
 
 LINE 91: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS
 
+
+
+LINE IS 92
+
 :=
 
 
 LINE 92: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 94
+
 :=
 
+
+
+
+LINE IS 95
 
 function3
 
 
-LINE 95: FUNCTION NOT DEFINEDfunction3
+LINE 95: FUNCTION NOT DEFINED
 
+LINE IS 104
+
+function3
+
+
+
+
+LINE IS 108
 
 :=
 
+
+
+
+LINE IS 111
 
 function4
 
 
+
+
+LINE IS 115
+
 :=
 
+
+
+
+LINE IS 118
 
 function3
 
 
 LINE 118: THIS MODULE HAS ALREADY BEEN DEFINED
 driverModule
+
+
+LINE IS 126
+
 driver
 
 
+
+
+LINE IS 128
+
 declare
 
 
+
+
+LINE IS 129
+
 declare
 
+
+
+
+LINE IS 130
 
 :=
 
 
+
+
+LINE IS 131
+
 declare
 
+
+
+
+LINE IS 132
 
 function4
 
 
+
+
+LINE IS 133
+
 :=
 
+
+
+
+LINE IS 134
 
 get_value
 
 
+
+
+LINE IS 135
+
 declare
 
+
+
+
+LINE IS 136
 
 var_demo_array
 
 
+
+
+LINE IS 137
+
 var_demo_array
 
 
+
+
+LINE IS 138
+
 declare
 
+
+
+
+LINE IS 139
 
 :=
 
 
 LINE 139: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 140
+
 get_value
 
+
+
+
+LINE IS 141
 
 declare
 
 
+
+
+LINE IS 142
+
 get_value
 
 
+
+
+LINE IS 143
+
 :=
 
+
+
+
+LINE IS 144
 
 :=
 
@@ -312,82 +660,172 @@ LINE 144: TYPE ERROR OCCURED
 LINE 144: TYPE ERROR OCCURED
 LINE 144: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 145
+
 :=
 
 
 TYPE ERROR OCCURED AT LINE 145
 LINE 145: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 146
+
 :=
 
+
+
+
+LINE IS 147
 
 declare
 
 
+
+
+LINE IS 148
+
 :=
 
+
+
+
+LINE IS 149
 
 :=
 
 
 ARRAY INDEX OUT OF BOUNDS IN LINE 149
 
-ARRAY INDEX OUT OF BOUNDS IN LINE 149
+
+
+LINE IS 150
 
 declare
 
 
-:=
 
 
-LINE 151: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
-
-:=
-
+LINE IS 151
 
 :=
 
 
+LINE 151:CAN NOT ASSIGN VALUE TO AN ARRAY
+
+
+
+LINE IS 152
+
 :=
 
+
+
+
+LINE IS 153
+
+:=
+
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 154
+
+:=
+
+
+LINE 154: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
 
 otherModules
+
+
+LINE IS 157
+
 function1
 
 
+
+
+LINE IS 161
+
 declare
 
 
+
+
+LINE IS 162
+
 declare
 
+
+
+
+LINE IS 163
 
 get_value
 
 
-LINE 163: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+
+LINE IS 164
 
 :=
 
 
+ARRAY ASSIGNED
+
+
+
+LINE IS 165
+
 :=
 
+
+
+
+LINE IS 166
 
 declare
 
 
+
+
+LINE IS 167
+
 declare
 
 
+
+
+LINE IS 168
+
 :=
 
+
+
+
+LINE IS 169
 
 get_value
 
+
+
+
+LINE IS 170
 
 function1
 
 
 LINE 170: RECURSION IS NOT ALLOWED
+
+
+
+LINE IS 175
 
 function1
 

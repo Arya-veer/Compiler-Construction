@@ -10,134 +10,295 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 moduleDeclarations
 otherModules
+
+
+LINE IS 8
+
 switch_var_demo1
 
 
-declare
 
 
-declare
-
+LINE IS 13
 
 declare
 
+
+
+
+LINE IS 14
+
+declare
+
+
+
+
+LINE IS 15
+
+declare
+
+
+
+
+LINE IS 16
 
 get_value
 
+
+
+
+LINE IS 17
 
 k
 
 
-LINE 17: ONLY ARRAYS CAN HAVE AN INDEX
-declare
 
 
-declare
-
+LINE IS 19
 
 declare
 
 
+
+
+LINE IS 20
+
 declare
 
+
+
+
+LINE IS 21
+
+declare
+
+
+
+
+LINE IS 22
+
+declare
+
+
+
+
+LINE IS 23
 
 :=
 
 
+
+
+LINE IS 25
+
 :=
 
+
+
+
+LINE IS 26
 
 get_value
 
 
+
+
+LINE IS 27
+
 for
 
 
-:=
 
 
-:=
-
+LINE IS 29
 
 :=
 
+
+
+
+LINE IS 32
+
+:=
+
+
+
+
+LINE IS 36
+
+:=
+
+
+
+
+LINE IS 38
 
 p
 
 
-LINE 38: ONLY ARRAYS CAN HAVE AN INDEX
 LINE 38: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE
+
+
+
+LINE IS 46
 
 h
 
 
-LINE 46: ONLY ARRAYS CAN HAVE AN INDEX
-declare
 
 
-declare
-
+LINE IS 48
 
 declare
 
 
+
+
+LINE IS 49
+
 declare
 
+
+
+
+LINE IS 50
+
+declare
+
+
+
+
+LINE IS 51
+
+declare
+
+
+
+
+LINE IS 52
 
 :=
 
 
 LINE 54: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR
+
+
+LINE IS 62
+
 :=
 
+
+
+
+LINE IS 63
 
 print
 
 
 LINE 46: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION
 
+
+
+LINE IS 71
+
 for_loop_demo
 
+
+
+
+LINE IS 76
 
 declare
 
 
+
+
+LINE IS 77
+
 for
 
 
+
+
+LINE IS 79
+
 :=
 
+
+
+
+LINE IS 80
 
 :=
 
 
 driverModule
+
+
+LINE IS 84
+
 driver
 
 
-declare
 
 
-declare
-
+LINE IS 86
 
 declare
 
+
+
+
+LINE IS 87
+
+declare
+
+
+
+
+LINE IS 88
+
+declare
+
+
+
+
+LINE IS 89
 
 for_loop_demo
 
 
+
+
+LINE IS 90
+
 a
 
 
-:=
 
 
-:=
-
+LINE IS 92
 
 :=
 
+
+
+
+LINE IS 94
+
+:=
+
+
+
+
+LINE IS 96
+
+:=
+
+
+
+
+LINE IS 98
 
 :=
 
