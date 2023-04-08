@@ -370,31 +370,6 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
     OP->INPUTPARAMSHEAD = NULL;
     OP->OUTPUTPARAMSHEAD = NULL;
     OP->next = NULL;
-    OP->isDynamic = -1;
-    if(var->isArray == 1){
-        ARRRANGE aR = malloc(sizeof(struct arrRange));
-        OP->range = aR;
-        TREENODE range = var->left_child->right_child;
-        if(range->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN || range->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
-            OP->range = NULL;
-        }
-        else{
-            if(range->left_child->left_child == NULL || range->left_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
-                OP->range->left = range->left_child->TREENODEDATA->terminal->lexemedata->intData;
-            }
-            else{
-                OP->range->left = -1*range->left_child->TREENODEDATA->terminal->lexemedata->intData;
-            }
-            if(range->right_child->left_child == NULL || range->right_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
-                OP->range->right = range->right_child->TREENODEDATA->terminal->lexemedata->intData;
-            }
-            else{
-                OP->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
-            }
-        }
-    }
-    else{
-        OP->range = NULL;
-    }
+    OP->isDynamic = 0;
     return OP;
 }

@@ -1326,6 +1326,28 @@ int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     return checkForLoop(node,SYMBOL_TABLE);
 }
 
+void outputParamCheck(){
+    SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(outputNode->isDynamic == 0){
+            printf("LINE %d,OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",outputNode->id->lineNo,outputNode->id->lexemedata->data);
+        }
+        outputNode = outputNode->next;
+    }
+}
+
+
+void outputParamAssignment(TREENODE node){
+    SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
+            outputNode->isDynamic +=1;
+            return;
+        }
+        outputNode = outputNode->next;
+    }
+}
+
 
 /*EXTRACTS TYPE FROM A DATA TYPE NODE*/
 void typeExtractionDT(TREENODE dataType_node){
@@ -1581,6 +1603,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->name = row->id->lexemedata->data;
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         traversal(node->right_child,row->SYMBOLTABLE);
+        outputParamCheck();
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
 
@@ -1685,6 +1708,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     /*ASSIGNMENT STMT: SIMPLE STMT*/
     else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
         checkForLoop(node->left_child,SYMBOL_TABLE);
+        outputParamAssignment(node->left_child);
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
         // printASTNODE(node->right_child);
         SYMBOLTABLEROW rightRow = NULL;
