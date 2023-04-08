@@ -10,23 +10,53 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 moduleDeclarations
 otherModules
+
+
+LINE IS 5
+
 var_demo_array
 
 
+
+
+LINE IS 9
+
 declare
 
+
+
+
+LINE IS 10
 
 get_value
 
 
+
+
+LINE IS 11
+
 declare
 
 
+
+
+LINE IS 12
+
 :=
 
 
+
+
+LINE IS 13
+
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 14
 
 :=
 
@@ -37,72 +67,150 @@ LINE 14: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 14: TYPE ERROR OCCURED
 LINE 14: TYPE ERROR OCCURED
-LINE 14: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+LINE IS 15
 
 :=
 
+
+
+
+LINE IS 16
 
 declare
 
 
 LINE 16: VARIABLE ALREADY DEFINED b
+
+
+LINE IS 17
+
 :=
 
 
+
+
+LINE IS 18
+
 :=
 
+
+
+
+LINE IS 19
 
 print
 
 
+
+
+LINE IS 23
+
 f1
 
 
+
+
+LINE IS 27
+
 declare
 
+
+
+
+LINE IS 28
 
 get_value
 
 
+
+
+LINE IS 29
+
 declare
 
+
+
+
+LINE IS 30
 
 get_value
 
 
-LINE 30: WE CAN NOT GET VALUE IN AN ARRAY VARIABLE
+
+
+LINE IS 31
 
 declare
 
 
-:=
 
 
-:=
-
+LINE IS 32
 
 :=
 
 
-LINE 34: VARIABLE NOT DEFINED IN SCOPE
+ARRAY ASSIGNED
 
-LINE 34: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+LINE IS 33
+
+:=
+
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 34
 
 :=
 
 
+LINE 34: VARIABLE ON LEFT IS NOT DEFINED
+
+
+
+LINE IS 35
+
 :=
 
 
+
+
+LINE IS 36
+
 :=
 
+
+
+
+LINE IS 37
+
+:=
+
+
+
+
+LINE IS 38
 
 declare
 
 
 LINE 38: VARIABLE ALREADY DEFINED A
+
+
+LINE IS 39
+
 :=
 
+
+
+
+LINE IS 40
 
 :=
 
@@ -115,38 +223,82 @@ TYPE ERROR OCCURED AT LINE 40
 TYPE ERROR OCCURED AT LINE 40
 LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 41
+
 :=
 
 
 driverModule
+
+
+LINE IS 46
+
 driver
 
 
+
+
+LINE IS 48
+
 declare
 
 
+
+
+LINE IS 49
+
 declare
 
+
+
+
+LINE IS 50
 
 :=
 
 
+
+
+LINE IS 51
+
 declare
 
 
+
+
+LINE IS 52
+
 :=
 
+
+
+
+LINE IS 53
 
 get_value
 
 
 LINE 53: VARIABLE NOT DECLARED
 
+
+
+LINE IS 54
+
 declare
 
 
+
+
+LINE IS 55
+
 var_demo_array
 
+
+
+
+LINE IS 56
 
 var_demo_array
 
@@ -154,8 +306,18 @@ var_demo_array
 LINE 56: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
+
+
+LINE IS 57
+
 :=
 
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 58
 
 declare
 
