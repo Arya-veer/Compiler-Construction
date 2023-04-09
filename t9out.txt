@@ -8,16 +8,324 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+
+
+LINE IS 15
+
+function1
+
+
+
+
+LINE IS 16
+
+function2
+
+
+
+
+LINE IS 17
+
+function4
+
+
+
+
+LINE IS 18
+
+switch_int_default
+
+
+
+
+LINE IS 21
+
+switch_var_demo1
+
+
+
+
+LINE IS 26
+
+declare
+
+
+
+
+LINE IS 27
+
+declare
+
+
+
+
+LINE IS 28
+
+declare
+
+
+
+
+LINE IS 29
+
+get_value
+
+
+
+
+LINE IS 30
+
+k
+
+
+
+
+LINE IS 32
+
+declare
+
+
+
+
+LINE IS 33
+
+declare
+
+
+
+
+LINE IS 34
+
+declare
+
+
+
+
+LINE IS 35
+
+declare
+
+
+
+
+LINE IS 36
+
+:=
+
+
 LINE 38: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR
+
+
+LINE IS 38
+
+:=
+
+
+
+
+LINE IS 40
+
+:=
+
+
+
+
+LINE IS 44
+
+:=
+
+
+
+
+LINE IS 45
+
+switch_int_default
+
+
+
+
+LINE IS 46
+
+p
+
+
 LINE 46: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE
+
+
+
+LINE IS 48
+
+:=
+
 
 LINE 48: TYPE ERROR OCCURED
 LINE 48: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 54
+
+h
+
+
+
+
+LINE IS 56
+
+declare
+
+
+
+
+LINE IS 57
+
+declare
+
+
+
+
+LINE IS 58
+
+declare
+
+
+
+
+LINE IS 59
+
+declare
+
+
+
+
+LINE IS 60
+
+:=
+
+
+
+
+LINE IS 62
+
+:=
+
+
+
+
+LINE IS 63
+
+print
+
+
 LINE 65: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION
 
+
+
+LINE IS 71
+
+for_loop_demo
+
+
+
+
+LINE IS 76
+
+declare
+
+
+
+
+LINE IS 77
+
+for
+
+
+
+
+LINE IS 79
+
+:=
+
+
+
+
+LINE IS 80
+
+:=
+
+
 LINE 80: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+
+
+LINE IS 84
+
+var_demo_array
+
+
+
+
+LINE IS 88
+
+declare
+
+
+
+
+LINE IS 89
+
+get_value
+
+
+
+
+LINE IS 90
+
+declare
+
+
+
+
+LINE IS 91
+
+declare
+
+
+
+
+LINE IS 92
+
+:=
+
+
+
+
+LINE IS 93
+
+function2
+
+
+
+
+LINE IS 94
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 95
+
+:=
+
+
+
+
+LINE IS 96
+
+:=
+
 
 LINE 96: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -26,12 +334,110 @@ LINE 96: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 LINE 96: TYPE ERROR OCCURED
 LINE 96:CAN NOT ASSIGN VALUE TO AN ARRAY
 
+
+
+LINE IS 97
+
+declare
+
+
+
+
+LINE IS 98
+
+:=
+
+
+
+
+LINE IS 99
+
+declare
+
+
+
+
+LINE IS 100
+
+while
+
+
+
+
+LINE IS 102
+
+declare
+
+
+
+
+LINE IS 103
+
+declare
+
+
+
+
+LINE IS 104
+
+declare
+
+
+
+
+LINE IS 105
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 106
+
+function1
+
+
+
+
+LINE IS 107
+
+:=
+
 
 LINE 107: ARRAY INDEX OUT OF BOUNDS 
 
+
+
+LINE IS 108
+
+:=
+
+
 LINE 108: TYPE ERROR OCCURED
 LINE 108: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 109
+
+declare
+
+
+
+
+LINE IS 110
+
+function1
+
+
+
+
+LINE IS 112
+
+:=
+
 
 LINE 112: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -39,74 +445,860 @@ LINE 112: TYPE ERROR OCCURED
 LINE 112: TYPE ERROR OCCURED
 LINE 112: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 113
+
+:=
+
+
+
+
+LINE IS 114
+
+:=
+
+
+
+
+LINE IS 115
+
+function1
+
+
+
+
+LINE IS 116
+
+print
+
+
 LINE 86,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
+
+
+
+LINE IS 119
+
+function2
+
+
+
+
+LINE IS 122
+
+declare
+
+
+
+
+LINE IS 123
+
+function2
+
 
 LINE 123: RECURSION IS NOT ALLOWED
 
-ARRAY ASSIGNED
+
+
+LINE IS 124
+
+:=
+
+
+
+
+LINE IS 128
+
+f1
+
+
+
+
+LINE IS 132
+
+declare
+
+
+
+
+LINE IS 133
+
+declare
+
+
+
+
+LINE IS 134
+
+declare
+
+
+
+
+LINE IS 135
+
+declare
+
+
+
+
+LINE IS 136
+
+get_value
+
+
+
+
+LINE IS 137
+
+get_value
+
+
+
+
+LINE IS 138
+
+declare
+
+
+
+
+LINE IS 139
+
+declare
+
+
+
+
+LINE IS 140
+
+get_value
+
+
+
+
+LINE IS 141
+
+function2
+
+
+
+
+LINE IS 142
+
+declare
+
+
+
+
+LINE IS 143
+
+:=
+
 
 ARRAY ASSIGNED
 
+
+
+LINE IS 144
+
+var_demo_array
+
+
+
+
+LINE IS 145
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 146
+
+function1
+
+
+
+
+LINE IS 147
+
+:=
+
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 150
+
+var_demo_array
+
+
+
+
+LINE IS 151
+
+for
+
+
+
+
+LINE IS 153
+
+:=
+
 
 LINE 153: TYPE ERROR OCCURED
 LINE 153: TYPE ERROR OCCURED
 LINE 153: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 154
+
+declare
+
+
+
+
+LINE IS 155
+
+declare
+
+
+
+
+LINE IS 156
+
+:=
+
+
+
+
+LINE IS 157
+
+:=
+
+
+
+
+LINE IS 158
+
+function1
+
+
+
+
+LINE IS 159
+
+k
+
+
+
+
+LINE IS 161
+
+declare
+
+
+
+
+LINE IS 162
+
+declare
+
+
+
+
+LINE IS 163
+
+declare
+
+
+
+
+LINE IS 164
+
+declare
+
+
+
+
+LINE IS 165
+
+:=
+
+
+LINE 165: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 166
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 167
+
+:=
+
 
 LINE 167:CAN NOT ASSIGN VALUE TO AN ARRAY
 
+
+
+LINE IS 169
+
+:=
+
+
 LINE 169:CAN NOT ASSIGN VALUE TO AN ARRAY
 
+
+
+LINE IS 170
+
+function1
+
+
+
+
+LINE IS 171
+
+get_value
+
+
 LINE 171: VARIABLE NOT DECLARED
+
+
+
+LINE IS 172
+
+:=
+
 
 LINE 172: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 172: TYPE ERROR OCCURED
 LINE 172: TYPE ERROR OCCURED
 LINE 172: TYPE ERROR OCCURED
+
+
+LINE IS 174
+
+:=
+
+
 LINE 174: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 174: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 174: TYPE ERROR OCCURED
+
+
+LINE IS 175
+
+function1
+
+
+
+
+LINE IS 178
+
+:=
+
+
 LINE 178: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 180
+
+:=
+
+
+
+
+LINE IS 181
+
+function3
+
 
 LINE 181: FUNCTION NOT DEFINED
 
+
+
+LINE IS 182
+
+:=
+
+
+
+
+LINE IS 183
+
+:=
+
+
+
+
+LINE IS 184
+
+:=
+
+
 LINE 184: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 185
+
+:=
+
 
 LINE 130,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
 
+
+
+LINE IS 190
+
+function3
+
+
+
+
+LINE IS 194
+
+:=
+
+
+
+
+LINE IS 197
+
+function4
+
+
 LINE 17: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED
+
+
+
+LINE IS 201
+
+:=
+
+
+
+
+LINE IS 204
+
+function3
+
 
 LINE 204: FUNCTION OVERLOADING IS NOT ALLOWED
 
+
+
+LINE IS 212
+
+driver
+
+
+
+
+LINE IS 214
+
+declare
+
+
+
+
+LINE IS 215
+
+declare
+
+
+
+
+LINE IS 216
+
+:=
+
+
+
+
+LINE IS 217
+
+declare
+
+
+
+
+LINE IS 218
+
+function4
+
+
+
+
+LINE IS 219
+
+:=
+
+
+
+
+LINE IS 220
+
+get_value
+
+
+
+
+LINE IS 221
+
+declare
+
+
+
+
+LINE IS 222
+
+var_demo_array
+
+
+
+
+LINE IS 223
+
+var_demo_array
+
+
+
+
+LINE IS 224
+
+declare
+
+
+
+
+LINE IS 225
+
+:=
+
+
 LINE 225: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 226
+
+get_value
+
+
+
+
+LINE IS 227
+
+declare
+
+
+
+
+LINE IS 228
+
+get_value
+
+
+
+
+LINE IS 229
+
+:=
+
+
+
+
+LINE IS 230
+
+:=
+
 
 LINE 230: TYPE ERROR OCCURED
 LINE 230: TYPE ERROR OCCURED
 LINE 230: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 231
+
+:=
+
+
 LINE 231: TYPE ERROR OCCURED
 LINE 231: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 232
+
+:=
+
+
+
+
+LINE IS 233
+
+declare
+
+
+
+
+LINE IS 234
+
+:=
+
+
+
+
+LINE IS 235
+
+:=
+
+
 LINE 235: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 236
+
+declare
+
+
+
+
+LINE IS 237
+
+:=
+
 
 LINE 237:CAN NOT ASSIGN VALUE TO AN ARRAY
 
+
+
+LINE IS 238
+
+:=
+
+
+
+
+LINE IS 239
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 240
+
+:=
+
 
 LINE 240: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
 
+
+
+LINE IS 243
+
+function1
+
+
+
+
+LINE IS 247
+
+declare
+
+
+
+
+LINE IS 248
+
+declare
+
+
+
+
+LINE IS 249
+
+get_value
+
+
+
+
+LINE IS 250
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 251
+
+:=
+
+
+
+
+LINE IS 252
+
+declare
+
+
+
+
+LINE IS 253
+
+declare
+
+
+
+
+LINE IS 254
+
+:=
+
+
+
+
+LINE IS 255
+
+get_value
+
+
+
+
+LINE IS 256
+
+function1
+
 
 LINE 256: RECURSION IS NOT ALLOWED
 
+
+
+LINE IS 257
+
+:=
+
+
+
+
+LINE IS 258
+
+:=
+
+
 LINE 245,OUTPUT PARAM R3 IS NOT ASSIGNED ANY VALUE
 
+
+
+LINE IS 261
+
+function1
+
+
 LINE 261: FUNCTION OVERLOADING IS NOT ALLOWED
+
+
+
+LINE IS 269
+
+switch_int_default
+
+
+
+
+LINE IS 272
+
+declare
+
+
+
+
+LINE IS 273
+
+declare
+
+
+
+
+LINE IS 274
+
+declare
+
+
+
+
+LINE IS 275
+
+:=
+
+
+
+
+LINE IS 276
+
+for_loop_demo
+
+
+
+
+LINE IS 277
+
+a
+
+
+
+
+LINE IS 279
+
+:=
+
+
+
+
+LINE IS 281
+
+:=
+
+
+
+
+LINE IS 283
+
+:=
+
+
+
+
+LINE IS 285
+
+:=
+
 
 LINE 285: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 

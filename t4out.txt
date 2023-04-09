@@ -8,23 +8,270 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+
+
+LINE IS 5
+
+var_demo_array
+
+
+
+
+LINE IS 9
+
+declare
+
+
+
+
+LINE IS 10
+
+get_value
+
+
+
+
+LINE IS 11
+
+declare
+
+
+
+
+LINE IS 12
+
+:=
+
+
+
+
+LINE IS 13
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 14
+
+:=
+
+
+
+
+LINE IS 15
+
+:=
+
 
 LINE 15: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 15: TYPE ERROR OCCURED
 LINE 15: TYPE ERROR OCCURED
+
+
+LINE IS 16
+
+while
+
+
+
+
+LINE IS 18
+
+declare
+
+
+
+
+LINE IS 19
+
+declare
+
+
+
+
+LINE IS 20
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 21
+
+:=
+
 
 LINE 21: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 21: TYPE ERROR OCCURED
+
+
+LINE IS 22
+
+:=
+
+
+
+
+LINE IS 24
+
+:=
+
+
+
+
+LINE IS 25
+
+declare
+
+
 LINE 25: VARIABLE ALREADY DEFINED b
-ARRAY ASSIGNED
+
+
+LINE IS 26
+
+:=
+
+
+
+
+LINE IS 27
+
+:=
+
+
+
+
+LINE IS 28
+
+print
+
+
+
+
+LINE IS 32
+
+f1
+
+
+
+
+LINE IS 36
+
+declare
+
+
+
+
+LINE IS 37
+
+declare
+
+
+
+
+LINE IS 38
+
+get_value
+
+
+
+
+LINE IS 39
+
+get_value
+
+
+
+
+LINE IS 40
+
+declare
+
+
+
+
+LINE IS 41
+
+get_value
+
+
+
+
+LINE IS 42
+
+declare
+
+
+
+
+LINE IS 43
+
+:=
+
 
 ARRAY ASSIGNED
+
+
+
+LINE IS 44
+
+:=
+
+
+ARRAY ASSIGNED
+
+
+
+LINE IS 45
+
+:=
+
+
+LINE 45: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 45: VARIABLE ON LEFT IS NOT DEFINED
+
+
+
+LINE IS 46
+
+for
+
+
+
+
+LINE IS 48
+
+:=
+
+
+
+
+LINE IS 49
+
+declare
+
+
+
+
+LINE IS 50
+
+:=
+
+
+
+
+LINE IS 51
+
+:=
+
 
 LINE 51: VARIABLE NOT DEFINED IN SCOPE
 
@@ -33,7 +280,56 @@ LINE 51: TYPE ERROR OCCURED
 LINE 51: TYPE ERROR OCCURED
 LINE 51: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 52
+
+k
+
+
+
+
+LINE IS 54
+
+declare
+
+
+
+
+LINE IS 55
+
+declare
+
+
+
+
+LINE IS 56
+
+declare
+
+
+
+
+LINE IS 57
+
+:=
+
+
+
+
+LINE IS 58
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 59
+
+:=
+
 
 LINE 59: VARIABLE NOT DEFINED IN SCOPE
 
@@ -41,28 +337,226 @@ LINE 59, VARIABLE NOT DEFINED
 
 LINE 59:CAN NOT ASSIGN VALUE TO AN ARRAY
 
+
+
+LINE IS 61
+
+declare
+
+
+
+
+LINE IS 62
+
+:=
+
+
+
+
+LINE IS 63
+
+declare
+
+
 LINE 63: VARIABLE ALREADY DEFINED B
+
+
+LINE IS 64
+
+declare
+
+
+
+
+LINE IS 65
+
+get_value
+
+
+
+
+LINE IS 66
+
+:=
+
+
 LINE 66: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 68
+
+:=
+
 
 LINE 68: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 68: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 68: TYPE ERROR OCCURED
+LINE 68: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 71
+
+:=
+
+
+
+
+LINE IS 72
+
+:=
+
+
 LINE 72: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+
+
+LINE IS 74
+
+:=
+
+
+
+
+LINE IS 75
+
+:=
+
+
+
+
+LINE IS 76
+
+:=
+
+
+
+
+LINE IS 77
+
+declare
+
+
 LINE 77: VARIABLE ALREADY DEFINED A
+
+
+LINE IS 78
+
+:=
+
+
+
+
+LINE IS 79
+
+:=
+
+
 LINE 79: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 79: TYPE ERROR OCCURED
 LINE 79: TYPE ERROR OCCURED
 LINE 79: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 80
+
+:=
+
+
+
+
+LINE IS 85
+
+driver
+
+
+
+
+LINE IS 87
+
+declare
+
+
+
+
+LINE IS 88
+
+declare
+
+
+
+
+LINE IS 89
+
+:=
+
+
+
+
+LINE IS 90
+
+declare
+
+
+
+
+LINE IS 91
+
+:=
+
+
+
+
+LINE IS 92
+
+get_value
+
+
 LINE 92: VARIABLE NOT DECLARED
+
+
+
+LINE IS 93
+
+declare
+
+
+
+
+LINE IS 94
+
+var_demo_array
+
+
+
+
+LINE IS 95
+
+var_demo_array
+
 
 LINE 95: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 95: TYPE DID NOT MATCH FOR PARAM NUMBER 2
+
+
+LINE IS 96
+
+:=
+
+
 ARRAY ASSIGNED
+
+
+
+LINE IS 97
+
+declare
+
 
 LINE 97: VARIABLE ALREADY DEFINED B
 

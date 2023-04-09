@@ -1202,11 +1202,14 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return TYPE_UNDEFINED;
     if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
         SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
+        
         if(row==NULL){
             printf("LINE %d: VARIABLE NOT DEFINED IN SCOPE\n\n",node->TREENODEDATA->terminal->lineNo);
             return TYPE_UNDEFINED;
         }
         else{
+            if(row->isDynamic == -1) node->isArray = 0;
+            else node->isArray = 1;
             node->type = row->type;
             TREENODE sign_node = node->left_child;
             
@@ -1567,8 +1570,8 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
-    // printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
-    // printASTNODE(node);
+    printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
+    printASTNODE(node);
 
     /*MODULE DECLARATION*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
@@ -1718,7 +1721,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         typeExtractionExpr(node->right_child,SYMBOL_TABLE);
         // printASTNODE(node->right_child);
         SYMBOLTABLEROW rightRow = NULL;
-        
+        int leftType = getTypeAST(node->left_child,SYMBOL_TABLE);
         SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,node->left_child);
         if(leftRow == NULL){
             printf("LINE %d: VARIABLE ON LEFT IS NOT DEFINED\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
