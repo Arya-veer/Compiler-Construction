@@ -1787,8 +1787,8 @@ TYPE typeExtractionWhileExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE,S
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
-    printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
-    printASTNODE(node);
+    // printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
+    // printASTNODE(node);
 
     /*MODULE DECLARATION*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
@@ -1920,6 +1920,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
         if(row==NULL){
+            printf("LINE %d: FUNCTION NOT DEFINED\n\n",node->TREENODEDATA->terminal->lineNo);
             traversal(node->list_addr_syn,SYMBOL_TABLE);
             return;
         }
@@ -1931,6 +1932,10 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         else{
             if(row->INPUTPARAMSHEAD == NULL){
                 row->isDynamic = 1;
+            }
+            else{
+                checkInputList(node, row, SYMBOL_TABLE);
+                checkOutputList(node, row, SYMBOL_TABLE);
             }
             traversal(node->list_addr_syn,SYMBOL_TABLE);
             return;

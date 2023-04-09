@@ -106,7 +106,7 @@ int main(int argc, char* argv[]){
                 //     traversal(root->addr,GLOBAL_SYMBOL_TABLE);
                 //     root = root->next;
                 // }
-                printTable(GLOBAL_SYMBOL_TABLE);
+                // printTable(GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n");
                 traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
                 // while(root!=NULL){
