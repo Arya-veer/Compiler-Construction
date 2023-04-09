@@ -8,352 +8,114 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
-moduleDeclarations
-otherModules
-
-
-LINE IS 5
-
-var_demo_array
-
-
-
-
-LINE IS 9
-
-declare
-
-
-
-
-LINE IS 10
-
-get_value
-
-
-
-
-LINE IS 11
-
-declare
-
-
-
-
-LINE IS 12
-
-:=
-
-
-m
-
-
-
-
-LINE IS 13
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 14
-
-:=
-
-
-a
-
 
 LINE 14: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 14: TYPE ERROR OCCURED
 LINE 14: TYPE ERROR OCCURED
-
-
-LINE IS 15
-
-:=
-
-
-a
-
-
-
-
-LINE IS 16
-
-declare
-
-
 LINE 16: VARIABLE ALREADY DEFINED b
-
-
-LINE IS 17
-
-:=
-
-
-b
-
-
-
-
-LINE IS 18
-
-:=
-
-
-a
-
-
-b
-
-
-
-
-LINE IS 19
-
-print
-
-
-
-
-LINE IS 23
-
-f1
-
-
-
-
-LINE IS 27
-
-declare
-
-
-
-
-LINE IS 28
-
-get_value
-
-
-
-
-LINE IS 29
-
-declare
-
-
-
-
-LINE IS 30
-
-get_value
-
-
-
-
-LINE IS 31
-
-declare
-
-
-
-
-LINE IS 32
-
-:=
-
-
 ARRAY ASSIGNED
 
-
-
-LINE IS 33
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 34
-
-:=
-
 
 LINE 34: VARIABLE ON LEFT IS NOT DEFINED
 
-
-
-LINE IS 35
-
-:=
-
-
-c
-
-
-
-
-LINE IS 36
-
-:=
-
-
-a
-
-
-
-
-LINE IS 37
-
-:=
-
-
-B
-
-
-
-
-LINE IS 38
-
-declare
-
-
 LINE 38: VARIABLE ALREADY DEFINED A
-
-
-LINE IS 39
-
-:=
-
-
-A
-
-
-
-
-LINE IS 40
-
-:=
-
-
-c
-
-
 LINE 40: VARIABLE NOT DEFINED IN SCOPE
-
-E
-
 
 LINE 40: TYPE ERROR OCCURED
 LINE 40: TYPE ERROR OCCURED
 LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 41
-
-:=
-
-
-driverModule
-
-
-LINE IS 46
-
-driver
-
-
-
-
-LINE IS 48
-
-declare
-
-
-
-
-LINE IS 49
-
-declare
-
-
-
-
-LINE IS 50
-
-:=
-
-
-
-
-LINE IS 51
-
-declare
-
-
-
-
-LINE IS 52
-
-:=
-
-
-
-
-LINE IS 53
-
-get_value
-
-
 LINE 53: VARIABLE NOT DECLARED
 
+LINE 56: VARIABLE NOT DEFINED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
+ARRAY ASSIGNED
+
+LINE 58: VARIABLE ALREADY DEFINED B
 
 
-LINE IS 54
-
-declare
-
-
-
-
-LINE IS 55
-
-var_demo_array
-
-
-
-
-LINE IS 56
-
-var_demo_array
-
+					TRAVERSAL 1 ENDED 
 
 LINE 56: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
 
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: f1 -1 1
 
-LINE IS 57
+18: 
+19: 
+20: var_demo_array -1 1
 
-:=
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: 1
+
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
 
 
-ARRAY ASSIGNED
-
-
-
-LINE IS 58
-
-declare
-
-
-LINE 58: VARIABLE ALREADY DEFINED B
-otherModules
 Enter your option: 

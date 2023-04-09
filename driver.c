@@ -97,16 +97,21 @@ int main(int argc, char* argv[]){
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
                 applyRule(root);
                 root = root->child->child;
+                TREENODE program_node = root;
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module");
                 GST = GLOBAL_SYMBOL_TABLE;
                 while(root!=NULL){
-                    printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
-                    // if(root->TREENODEDATA->nonterminal == driverModule) traversal()
-                    // if(root->addr != NULL) printf("%d\n\n\n\n",root->addr->TREENODEDATA->terminal->token);
+                    // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
                     traversal(root->addr,GLOBAL_SYMBOL_TABLE);
                     root = root->next;
                 }
-                // printSymbolTable(GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n");
+                root = program_node;
+                while(root!=NULL){
+                    traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                    root = root->next;
+                }
+                printTable(GST);
                 break;
             }
             case 4:{

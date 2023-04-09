@@ -8,106 +8,7 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
-moduleDeclarations
-
-
-LINE IS 13
-
-function1
-
-
-
-
-LINE IS 14
-
-function2
-
-
-
-
-LINE IS 15
-
-function4
-
-
-otherModules
-
-
-LINE IS 17
-
-var_demo_array
-
-
-
-
-LINE IS 21
-
-declare
-
-
-
-
-LINE IS 22
-
-get_value
-
-
-
-
-LINE IS 23
-
-declare
-
-
-
-
-LINE IS 24
-
-declare
-
-
-
-
-LINE IS 25
-
-:=
-
-
-m
-
-
-
-
-LINE IS 26
-
-function2
-
-
-
-
-LINE IS 27
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 28
-
-:=
-
-
-
-
-LINE IS 29
-
-:=
-
-
-m
-
 
 LINE 29: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -116,822 +17,63 @@ LINE 29: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 LINE 29: TYPE ERROR OCCURED
 LINE 29:CAN NOT ASSIGN VALUE TO AN ARRAY
 
-
-
-LINE IS 30
-
-declare
-
-
-
-
-LINE IS 31
-
-:=
-
-
-a
-
-
-
-
-LINE IS 32
-
-declare
-
-
-
-
-LINE IS 33
-
-while
-
-
-x
-
-
-k
-
-
-
-
-LINE IS 35
-
-declare
-
-
-
-
-LINE IS 36
-
-declare
-
-
-
-
-LINE IS 37
-
-declare
-
-
-
-
-LINE IS 38
-
-:=
-
-
 ARRAY ASSIGNED
 
-
-
-LINE IS 39
-
-function1
-
-
-
-
-LINE IS 40
-
-:=
-
-
-ARRAY INDEX OUT OF BOUNDS IN LINE 40
-
-u
-
-
-
-
-LINE IS 41
-
-:=
-
-
-b
-
+LINE 40: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 41: TYPE ERROR OCCURED
 LINE 41: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 42
-
-declare
-
-
-
-
-LINE IS 43
-
-function1
-
-
-
-
-LINE IS 45
-
-:=
-
-
-p
-
-
 LINE 45: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
 LINE 45: TYPE ERROR OCCURED
-a
-
-
 LINE 45: TYPE ERROR OCCURED
 LINE 45: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 46
-
-:=
-
-
-b
-
-
-
-
-LINE IS 47
-
-:=
-
-
-a
-
-
-b
-
-
-
-
-LINE IS 48
-
-function1
-
-
-
-
-LINE IS 49
-
-print
-
-
 LINE 19,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
-
-
-
-LINE IS 52
-
-function2
-
-
-
-
-LINE IS 55
-
-declare
-
-
-
-
-LINE IS 56
-
-function2
-
 
 LINE 56: RECURSION IS NOT ALLOWED
 
-
-
-LINE IS 61
-
-f1
-
-
-
-
-LINE IS 65
-
-declare
-
-
-
-
-LINE IS 66
-
-declare
-
-
-
-
-LINE IS 67
-
-declare
-
-
-
-
-LINE IS 68
-
-declare
-
-
-
-
-LINE IS 69
-
-get_value
-
-
-
-
-LINE IS 70
-
-get_value
-
-
-
-
-LINE IS 71
-
-declare
-
-
-
-
-LINE IS 72
-
-declare
-
-
-
-
-LINE IS 73
-
-get_value
-
-
-
-
-LINE IS 74
-
-function2
-
-
-
-
-LINE IS 75
-
-declare
-
-
-
-
-LINE IS 76
-
-:=
-
+ARRAY ASSIGNED
 
 ARRAY ASSIGNED
 
-
-
-LINE IS 77
-
-var_demo_array
-
-
-
-
-LINE IS 78
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 79
-
-function1
-
-
-
-
-LINE IS 80
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 83
-
-var_demo_array
-
-
-
-
-LINE IS 84
-
-for
-
-
-
-
-LINE IS 86
-
-:=
-
-
-k
-
 
 LINE 86: TYPE ERROR OCCURED
-x
-
-
 LINE 86: TYPE ERROR OCCURED
 LINE 86: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 87
-
-declare
-
-
-
-
-LINE IS 88
-
-declare
-
-
-
-
-LINE IS 89
-
-:=
-
-
-c
-
-
-y
-
-
-
-
-LINE IS 90
-
-:=
-
-
-c
-
-
-u
-
-
-
-
-LINE IS 91
-
-function1
-
-
-
-
-LINE IS 92
-
-:=
-
-
-u
-
-
-x
-
-
 LINE 92: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+LINE 95: FUNCTION NOT DEFINED
 
-
-LINE IS 94
-
-:=
-
-
-c
-
-
-
-
-LINE IS 95
-
-function3
-
-
-LINE 95: FUNCTION NOT DEFINEDLINE 63,OUTPUT PARAM m IS NOT ASSIGNED ANY VALUE
+LINE 63,OUTPUT PARAM m IS NOT ASSIGNED ANY VALUE
 
 LINE 63,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
 
-
-
-LINE IS 104
-
-function3
-
-
-
-
-LINE IS 108
-
-:=
-
-
-a
-
-
-
-
-LINE IS 111
-
-function4
-
-
 LINE 15: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED
 
-
-LINE IS 115
-
-:=
-
-
-a
-
-
-
-
-LINE IS 118
-
-function3
-
-
-LINE 118: THIS MODULE HAS ALREADY BEEN DEFINED
-
-
-LINE IS 122
-
-:=
-
-
-
-
-LINE IS 123
-
-:=
-
-
-a
-
-
-driverModule
-
-
-LINE IS 126
-
-driver
-
-
-
-
-LINE IS 128
-
-declare
-
-
-
-
-LINE IS 129
-
-declare
-
-
-
-
-LINE IS 130
-
-:=
-
-
-
-
-LINE IS 131
-
-declare
-
-
-
-
-LINE IS 132
-
-function4
-
-
-
-
-LINE IS 133
-
-:=
-
-
-
-
-LINE IS 134
-
-get_value
-
-
-
-
-LINE IS 135
-
-declare
-
-
-
-
-LINE IS 136
-
-var_demo_array
-
-
-
-
-LINE IS 137
-
-var_demo_array
-
-
-
-
-LINE IS 138
-
-declare
-
-
-
-
-LINE IS 139
-
-:=
-
+LINE 118: FUNCTION OVERLOADING IS NOT ALLOWED
 
 LINE 139: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
-
-
-
-LINE IS 140
-
-get_value
-
-
-
-
-LINE IS 141
-
-declare
-
-
-
-
-LINE IS 142
-
-get_value
-
-
-
-
-LINE IS 143
-
-:=
-
-
-
-
-LINE IS 144
-
-:=
-
-
-q
-
-
-p
-
-
-a
-
 
 LINE 144: TYPE ERROR OCCURED
 LINE 144: TYPE ERROR OCCURED
 LINE 144: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 145
-
-:=
-
-
 LINE 145: TYPE ERROR OCCURED
 LINE 145: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 146
-
-:=
-
-
-a
-
-
-
-
-LINE IS 147
-
-declare
-
-
-
-
-LINE IS 148
-
-:=
-
-
-
-
-LINE IS 149
-
-:=
-
-
-a
-
-
-ARRAY INDEX OUT OF BOUNDS IN LINE 149
-
-
-
-LINE IS 150
-
-declare
-
-
-
-
-LINE IS 151
-
-:=
-
-
-value
-
+LINE 149: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 151:CAN NOT ASSIGN VALUE TO AN ARRAY
 
-
-
-LINE IS 152
-
-:=
-
-
-w
-
-
-
-
-LINE IS 153
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 154
-
-:=
-
 
 LINE 154: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
 
-otherModules
-
-
-LINE IS 157
-
-function1
-
-
-
-
-LINE IS 161
-
-declare
-
-
-
-
-LINE IS 162
-
-declare
-
-
-
-
-LINE IS 163
-
-get_value
-
-
-
-
-LINE IS 164
-
-:=
-
-
 ARRAY ASSIGNED
-
-
-
-LINE IS 165
-
-:=
-
-
-length
-
-
-g
-
-
-
-
-LINE IS 166
-
-declare
-
-
-
-
-LINE IS 167
-
-declare
-
-
-
-
-LINE IS 168
-
-:=
-
-
-q
-
-
-
-
-LINE IS 169
-
-get_value
-
-
-
-
-LINE IS 170
-
-function1
-
 
 LINE 170: RECURSION IS NOT ALLOWED
 
@@ -941,29 +83,94 @@ LINE 159,OUTPUT PARAM R3 IS NOT ASSIGNED ANY VALUE
 
 LINE 159,OUTPUT PARAM R4 IS NOT ASSIGNED ANY VALUE
 
-
-
-LINE IS 175
-
-function1
-
-
-LINE 175: THIS MODULE HAS ALREADY BEEN DEFINED
-
-
-LINE IS 179
-
-:=
-
-
-e
+LINE 175: FUNCTION OVERLOADING IS NOT ALLOWED
 
 
 
+					TRAVERSAL 1 ENDED 
 
-LINE IS 180
+LINE 43: TYPE DID NOT MATCH FOR PARAM NUMBER 4
+LINE 48: TYPE DID NOT MATCH FOR PARAM NUMBER 1
+LINE 91: VARIABLE NOT DEFINED IN SCOPE
 
-:=
+LINE 91: TYPE DID NOT MATCH FOR PARAM NUMBER 4
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: function1 -1 1
+
+13: function2 -1 1
+
+14: function3 -1 1
+
+15: function4 -1 1
+
+16: 
+17: f1 -1 1
+
+18: 
+19: 
+20: var_demo_array -1 1
+
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: 1
+
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
 
 
 Enter your option: 

@@ -1216,7 +1216,7 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
                     typeExtractionExpr(node->right_child,SYMBOL_TABLE);
                     if(node->right_child->type != TYPE_INTEGER)printf("LINE %d: ARRAY INDEX SHOULD BE AN INTEGER\n",node->TREENODEDATA->terminal->lineNo);
                     else{
-                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)&&(row->range->left > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right < node->right_child->TREENODEDATA->terminal->lexemedata->intData))printf("ARRAY INDEX OUT OF BOUNDS IN LINE %d\n\n",node->TREENODEDATA->terminal->lineNo);
+                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)&&(row->range->left > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right < node->right_child->TREENODEDATA->terminal->lexemedata->intData))printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
                     }
                 }
             }
@@ -1327,7 +1327,7 @@ int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 }
 
 
-void outputParamCheck(){
+void outputParamCheck(TREENODE node){
     SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
     while(outputNode!=NULL){
         if(outputNode->OUTPUTPARAMSHEAD == NULL){
@@ -1461,7 +1461,6 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
         int leftType; 
         int rightType;
         if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
-            printASTNODE(expression_node->left_child);
             SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->left_child);
             if(leftRow != NULL && leftRow->isDynamic != -1 && expression_node->left_child->right_child == NULL){
                 printf("LINE %d: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo);
@@ -1568,8 +1567,8 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     if(node == NULL) return;
     
-    printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
-    printASTNODE(node);
+    // printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
+    // printASTNODE(node);
 
     /*MODULE DECLARATION*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
@@ -1590,6 +1589,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 
     /*OTHER MODULES*/
     else if(node->left_child!=NULL && node->left_child->TREENODEDATA->terminal->token == TAKES_KEYWORD){
+
         SYMBOLTABLEROW row = StoreFuncIntoSymbolTable(SYMBOL_TABLE,node);
         if(row == NULL){ 
             traversal(node->list_addr_syn,SYMBOL_TABLE);
@@ -1604,7 +1604,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->name = row->id->lexemedata->data;
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         traversal(node->right_child,row->SYMBOLTABLE);
-        outputParamCheck();
+        outputParamCheck(node);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
 
@@ -1658,22 +1658,18 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         if(t == TYPE_REAL){
             printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
-            traversal(node->list_addr_syn,SYMBOL_TABLE);
-            return;
         }
         TREENODE caseVal = node->left_child;
 
         while(caseVal!=NULL){
             caseVal->type = getTypeAST(caseVal,SYMBOL_TABLE);
-            if(caseVal->type != t){
+            if(t != TYPE_REAL && caseVal->type != t){
                 printf("LINE %d: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n",caseVal->TREENODEDATA->terminal->lineNo);
             }
-            else{
-                SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
-                case_node->SYMBOLTABLE = initializeSymbolTable("CASE");
-                case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
-                traversal(caseVal->left_child,case_node->SYMBOLTABLE);
-            }
+            SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
+            case_node->SYMBOLTABLE = initializeSymbolTable("CASE");
+            case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
+            traversal(caseVal->left_child,case_node->SYMBOLTABLE);
             caseVal = caseVal->list_addr_syn;
         }
         if(t == TYPE_INTEGER && node->right_child == NULL){
@@ -1693,7 +1689,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
         if(row==NULL){
-            printf("LINE %d: FUNCTION NOT DEFINED",node->TREENODEDATA->terminal->lineNo);
+            printf("LINE %d: FUNCTION NOT DEFINED\n\n",node->TREENODEDATA->terminal->lineNo);
         }
         else if(row == currFunc){
             printf("LINE %d: RECURSION IS NOT ALLOWED\n\n",node->TREENODEDATA->terminal->lineNo);
@@ -1783,6 +1779,121 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         traversal(node->left_child,SYMBOL_TABLE);
         traversal(node->right_child,SYMBOL_TABLE);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
+    }
+    
+}
+
+
+void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
+    if(node == NULL) return;
+    
+    // printf("\n\nLINE IS %d\n\n",node->TREENODEDATA->terminal->lineNo);
+    // printASTNODE(node);
+
+    /*MODULE DECLARATION*/
+    if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*DRIVER MODULE*/
+    else if(node->TREENODEDATA->terminal->token == DRIVER_KEYWORD){
+        SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
+        currFunc = row;
+        traversalForDeclaredFuncs(node->left_child,row->SYMBOLTABLE);
+        return;
+    }
+
+    /*OTHER MODULES*/
+    else if(node->left_child!=NULL && node->left_child->TREENODEDATA->terminal->token == TAKES_KEYWORD){
+        SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
+        currFunc = row;
+        traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+
+    }
+
+    /*DECLARE STMT*/
+    else if(node->TREENODEDATA->terminal->token == DECLARE_KEYWORD){
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*FOR LOOP: ITERATIVE STMT*/
+    else if(node->TREENODEDATA->terminal->token == FOR_KEYWORD){
+        SYMBOLTABLEROW row = GetForFromSymbolTable(SYMBOL_TABLE,node);
+        traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*WHILE LOOP ITERATIVE STMT*/
+    else if(node->TREENODEDATA->terminal->token == WHILE_KEYWORD){
+        SYMBOLTABLEROW row = GetWhileFromSymbolTable(SYMBOL_TABLE,node);
+        typeExtractionExpr(node->left_child,row->SYMBOLTABLE);
+        traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*CONDITIONAL STMT*/
+    else if(node->parent!=NULL && node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
+        SYMBOLTABLEROW row = GetSwitchFromSymbolTable(SYMBOL_TABLE,node);
+        TREENODE caseVal = node->left_child;
+
+        while(caseVal!=NULL){
+            SYMBOLTABLEROW case_node = GetCaseFromSymbolTable(row->SYMBOLTABLE,caseVal);
+            traversalForDeclaredFuncs(caseVal->left_child,case_node->SYMBOLTABLE);
+            caseVal = caseVal->list_addr_syn;
+        }
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*MODULE REUSE STMT: SIMPLE STMT*/
+    else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
+        SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
+        if(row == NULL){
+            traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
+        if(row->INPUTPARAMSHEAD == NULL){
+            printf("LINE %d: FUNCTION WAS ONLY DECLARED, NEVER DEFINED\n\n",row->id->lineNo);
+        }
+        else{
+            checkInputList(node, row, SYMBOL_TABLE);
+            checkOutputList(node, row, SYMBOL_TABLE);
+        }
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*ASSIGNMENT STMT: SIMPLE STMT*/
+    else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*GET VALUE: IO STMT*/
+    else if(node->TREENODEDATA->terminal->token == GET_VALUE_KEYWORD){
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+
+    /*PRINT FUNCTION: IO STMT */
+    else if(node->TREENODEDATA->terminal->token == PRINT_FUNCTION){
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        return;
+    }
+    
+    // ISME KUCH NHI JANA CHAHIYE
+    else{
+        printf("*****ERROR*****");
+        printASTNODE(node);
+        traversalForDeclaredFuncs(node->left_child,SYMBOL_TABLE);
+        traversalForDeclaredFuncs(node->right_child,SYMBOL_TABLE);
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
     }
     
 }

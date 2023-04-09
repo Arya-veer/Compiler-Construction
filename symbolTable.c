@@ -143,6 +143,7 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
 
 SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
     int index = hashCodeSymbolTable(func->TREENODEDATA->terminal->lexemedata->data);
+
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,func->TREENODEDATA->terminal->lexemedata->data) == 0){
@@ -161,17 +162,25 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         row->next = NULL;
         row->isDynamic = 0;
         // printf("RETURNING ROW\n");
-        SYMBOL_TABLE->TABLE[index] = row;
+        str = SYMBOL_TABLE->TABLE[index];
+        if(str == NULL) SYMBOL_TABLE->TABLE[index] = row;
+        else{
+            while(str->next != NULL){
+                str = str->next;
+            }
+            str->next = row;
+        }
 
         return row;
     }
     else{
         if(str->INPUTPARAMSHEAD != NULL){
-            printf("LINE %d: THIS MODULE HAS ALREADY BEEN DEFINED\n",func->TREENODEDATA->terminal->lineNo);
+            printf("LINE %d: FUNCTION OVERLOADING IS NOT ALLOWED\n\n",func->TREENODEDATA->terminal->lineNo);
+            return NULL;
         }
         else{
             if(str->isDynamic == 0){
-                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n",str->id->lineNo);
+                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n\n",str->id->lineNo);
             }
 
         }
@@ -202,6 +211,22 @@ SYMBOLTABLEROW StoreForIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE FOR){
     return row;
 }
 
+SYMBOLTABLEROW GetForFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE FOR){
+    int index = FOR_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+
+    while(str!=NULL){
+        if(str->id == FOR->TREENODEDATA->terminal){
+            return str;
+        }
+        str = str->next;
+    }
+    printf("YE WALA FOR NHI MILA\n\n");
+    return NULL;
+}
+
+
+
 SYMBOLTABLEROW StoreWhileIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE WHILE){
     int index = WHILE_ROW;
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
@@ -221,6 +246,21 @@ SYMBOLTABLEROW StoreWhileIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE WHILE
     }
 
     return row;
+}
+
+
+SYMBOLTABLEROW GetWhileFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE WHILE){
+    int index = WHILE_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+
+    while(str!=NULL){
+        if(str->id == WHILE->TREENODEDATA->terminal){
+            return str;
+        }
+        str = str->next;
+    }
+    printf("YE WALA WHILE NHI MILA\n\n");
+    return NULL;
 }
 
 SYMBOLTABLEROW StoreSwitchIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWITCH){
@@ -244,6 +284,20 @@ SYMBOLTABLEROW StoreSwitchIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWIT
     return row;
 }
 
+SYMBOLTABLEROW GetSwitchFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWITCH){
+    int index = SWITCH_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+
+    while(str!=NULL){
+        if(str->id == SWITCH->TREENODEDATA->terminal){
+            return str;
+        }
+        str = str->next;
+    }
+    printf("YE WALA SWITCH NHI MILA\n\n");
+    return NULL;
+}
+
 SYMBOLTABLEROW StoreCaseIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE){
     int index = CASE_ROW;
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
@@ -265,6 +319,20 @@ SYMBOLTABLEROW StoreCaseIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE){
     return row;
 }
 
+SYMBOLTABLEROW GetCaseFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE){
+    int index = CASE_ROW;
+    SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
+    while(str!=NULL){
+        if(str->id == CASE->TREENODEDATA->terminal){
+            return str;
+        }
+        str = str->next;
+    }
+    printf("YE WALA CASE NHI MILA\n\n");
+    return NULL;
+}
+
+
 SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
     int index = hashCodeSymbolTable(func);
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
@@ -274,6 +342,8 @@ SYMBOLTABLEROW GetFuncFromName(SYMBOLTABLE SYMBOL_TABLE, char* func){
         }
         str = str->next;
     }
+    // printTable(SYMBOL_TABLE);
+    // printf("NAHI MILA FUNCTION\n\n");
     return NULL;
 }
 
