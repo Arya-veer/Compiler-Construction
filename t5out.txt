@@ -9,63 +9,6 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
 
-
-LINE IS 5
-
-var_demo_array
-
-
-
-
-LINE IS 9
-
-declare
-
-
-
-
-LINE IS 10
-
-get_value
-
-
-
-
-LINE IS 11
-
-declare
-
-
-
-
-LINE IS 12
-
-:=
-
-
-
-
-LINE IS 13
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 14
-
-:=
-
-
-
-
-LINE IS 15
-
-:=
-
-
 LINE 15: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
 LINE 15: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
@@ -73,68 +16,14 @@ LINE 15: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 LINE 15: TYPE ERROR OCCURED
 LINE 15:CAN NOT ASSIGN VALUE TO AN ARRAY
 
-
-
-LINE IS 16
-
-:=
-
-
-
-
-LINE IS 17
-
-while
-
-
-
-
-LINE IS 19
-
-declare
-
-
-
-
-LINE IS 20
-
-declare
-
-
-
-
-LINE IS 21
-
-:=
-
-
 LINE 21: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
 
-
-
-LINE IS 22
-
-:=
-
-
 LINE 22: ARRAY INDEX OUT OF BOUNDS 
-
-
-
-LINE IS 23
-
-:=
-
 
 LINE 23: TYPE ERROR OCCURED
 LINE 23: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 25
-
-:=
-
+LINE 17: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE
 
 LINE 25: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -144,240 +33,19 @@ LINE 25: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 
 
-LINE IS 26
-
-:=
-
-
-
-
-LINE IS 27
-
-:=
-
-
-
-
-LINE IS 28
-
-print
-
-
-
-
-LINE IS 32
-
-f1
-
-
-
-
-LINE IS 36
-
-declare
-
-
-
-
-LINE IS 37
-
-declare
-
-
-
-
-LINE IS 38
-
-get_value
-
-
-
-
-LINE IS 39
-
-get_value
-
-
-
-
-LINE IS 40
-
-declare
-
-
-
-
-LINE IS 41
-
-get_value
-
-
-
-
-LINE IS 42
-
-declare
-
-
-
-
-LINE IS 43
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 44
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 45
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 46
-
-for
-
-
-
-
-LINE IS 48
-
-:=
-
 
 LINE 48: TYPE ERROR OCCURED
 LINE 48: TYPE ERROR OCCURED
 LINE 48: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 49
-
-declare
-
-
-
-
-LINE IS 50
-
-:=
-
-
-
-
-LINE IS 51
-
-:=
-
-
-
-
-LINE IS 52
-
-k
-
-
-
-
-LINE IS 54
-
-declare
-
-
-
-
-LINE IS 55
-
-declare
-
-
-
-
-LINE IS 56
-
-declare
-
-
-
-
-LINE IS 57
-
-declare
-
-
-
-
-LINE IS 58
-
-:=
-
-
 LINE 58: ARRAY INDEX OUT OF BOUNDS 
-
-
-
-LINE IS 59
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 60
-
-:=
 
 
 LINE 60:CAN NOT ASSIGN VALUE TO AN ARRAY
 
-
-
-LINE IS 62
-
-:=
-
-
-
-
-LINE IS 63
-
-get_value
-
-
 LINE 63: VARIABLE NOT DECLARED
 
-
-
-LINE IS 64
-
-:=
-
-
 LINE 64: TYPE ERROR OCCURED
-
-
-LINE IS 66
-
-:=
-
-
 LINE 66: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 66: VARIABLE NOT DEFINED IN SCOPE
@@ -387,254 +55,22 @@ LINE 66: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 66: VARIABLE ON LEFT IS NOT DEFINED
 
-
-
-LINE IS 69
-
-:=
-
-
 LINE 69: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
-
-
-
-LINE IS 71
-
-:=
-
-
-
-
-LINE IS 72
-
-:=
-
-
-
-
-LINE IS 74
-
-:=
-
-
-
-
-LINE IS 75
-
-:=
-
 
 LINE 75: ARRAY INDEX OUT OF BOUNDS 
 
-
-
-LINE IS 76
-
-:=
-
-
-
-
-LINE IS 81
-
-driver
-
-
-
-
-LINE IS 83
-
-declare
-
-
-
-
-LINE IS 84
-
-declare
-
-
-
-
-LINE IS 85
-
-:=
-
-
-
-
-LINE IS 86
-
-declare
-
-
-
-
-LINE IS 87
-
-:=
-
-
-
-
-LINE IS 88
-
-get_value
-
-
-
-
-LINE IS 89
-
-declare
-
-
-
-
-LINE IS 90
-
-var_demo_array
-
-
-
-
-LINE IS 91
-
-var_demo_array
-
-
-
-
-LINE IS 92
-
-declare
-
-
-
-
-LINE IS 93
-
-:=
-
-
 LINE 93: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
-
-
-
-LINE IS 94
-
-get_value
-
-
-
-
-LINE IS 95
-
-declare
-
-
-
-
-LINE IS 96
-
-get_value
-
-
-
-
-LINE IS 97
-
-:=
-
-
-
-
-LINE IS 98
-
-:=
-
 
 LINE 98: TYPE ERROR OCCURED
 LINE 98: TYPE ERROR OCCURED
 LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 99
-
-:=
-
-
 LINE 99: TYPE ERROR OCCURED
 LINE 99: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-
-
-LINE IS 100
-
-:=
-
-
-
-
-LINE IS 101
-
-declare
-
-
-
-
-LINE IS 102
-
-:=
-
-
-
-
-LINE IS 103
-
-:=
-
-
 LINE 103: ARRAY INDEX OUT OF BOUNDS 
 
-
-
-LINE IS 104
-
-declare
-
-
-
-
-LINE IS 105
-
-:=
-
-
 LINE 105:CAN NOT ASSIGN VALUE TO AN ARRAY
-
-
-
-LINE IS 106
-
-:=
-
-
-
-
-LINE IS 107
-
-:=
-
-
-ARRAY ASSIGNED
-
-
-
-LINE IS 108
-
-:=
 
 
 LINE 108: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH

@@ -9,6 +9,7 @@ int WHILE_ROW = 61;
 int SWITCH_ROW = 62; 
 int CASE_ROW = 63; 
 int FOR_VAR = 64;
+int WHILE_VAR = 65;
 int OFFSETS[] = {4,4,1};
 
 
@@ -47,6 +48,20 @@ void printSymbolTable(SYMBOLTABLEROW func){
     printLinkedListST(func->OUTPUTPARAMSHEAD);
 }
 
+
+SYMBOLTABLEROW copy(SYMBOLTABLEROW old_row){
+    SYMBOLTABLEROW new_row = malloc(sizeof(struct SymTabRowNode));
+    new_row->id = old_row->id;
+    new_row->INPUTPARAMSHEAD = old_row->INPUTPARAMSHEAD;
+    new_row->isDynamic = old_row->isDynamic;
+    new_row->next = NULL;
+    new_row->offset = old_row->offset;
+    new_row->OUTPUTPARAMSHEAD = old_row->OUTPUTPARAMSHEAD;
+    new_row->range = old_row->range;
+    new_row->SYMBOLTABLE = old_row->SYMBOLTABLE;
+    new_row->type = old_row->type;
+    return new_row;
+}
 
 SYMBOLTABLE initializeSymbolTable(char* name){
     SYMBOLTABLEROW* TABLE = (SYMBOLTABLEROW*) malloc((SYMTABSIZE+10)*sizeof(SYMBOLTABLEROW));
@@ -87,10 +102,14 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
         }
         str = str->next;
     }
+
     SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
+
     row->id = var->TREENODEDATA->terminal;
     row->offset = SYMBOL_TABLE->currOffset;
+
     SYMBOL_TABLE->currOffset += OFFSETS[var->type];
+
     row->type = var->type;
     row->range = NULL;
     row->SYMBOLTABLE = NULL;
