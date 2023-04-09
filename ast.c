@@ -1690,9 +1690,13 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
         if(row==NULL){
             printf("LINE %d: FUNCTION NOT DEFINED\n\n",node->TREENODEDATA->terminal->lineNo);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
         }
         else if(row == currFunc){
             printf("LINE %d: RECURSION IS NOT ALLOWED\n\n",node->TREENODEDATA->terminal->lineNo);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
         }
         else{
             if(row->INPUTPARAMSHEAD == NULL){

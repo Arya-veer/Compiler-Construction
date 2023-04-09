@@ -12,6 +12,7 @@
 #include "parser.h"
 #include "ast.h"
 #include "parserDef.h"
+#include "intermediateCodeGen.h"
 // #include "./removeComments.c"
 
 typedef char* Arguments;
@@ -111,7 +112,8 @@ int main(int argc, char* argv[]){
                     traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
                     root = root->next;
                 }
-                printTable(GST);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n");
+                // QR = initializeQuadruple();
                 break;
             }
             case 4:{
