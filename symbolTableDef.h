@@ -33,6 +33,8 @@ struct SymbolTable{
     char* name;
     SYMBOLTABLE next;
     SYMBOLTABLE parent;
+    int first;
+    int last;
 };
 
 #endif

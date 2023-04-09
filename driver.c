@@ -97,23 +97,26 @@ int main(int argc, char* argv[]){
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
                 applyRule(root);
-                root = root->child->child;
-                TREENODE program_node = root;
-                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module");
+                // root = root->child->child;
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
-                while(root!=NULL){
-                    // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
-                    traversal(root->addr,GLOBAL_SYMBOL_TABLE);
-                    root = root->next;
-                }
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                // while(root!=NULL){
+                //     // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
+                //     traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                //     root = root->next;
+                // }
+                printTable(GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n");
-                root = program_node;
-                while(root!=NULL){
-                    traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
-                    root = root->next;
-                }
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                // while(root!=NULL){
+                //     traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                //     root = root->next;
+                // }
                 printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n");
                 // QR = initializeQuadruple();
+                printFullTable(GST);
+                
                 break;
             }
             case 4:{
@@ -123,7 +126,7 @@ int main(int argc, char* argv[]){
                 TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
                 applyRule(root);
                 root = root->child->child;
-                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module");
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 while(root!=NULL){
                     // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);

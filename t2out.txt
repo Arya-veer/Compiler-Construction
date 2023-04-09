@@ -9,31 +9,386 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
 
+
+LINE IS 5
+
+var_demo_array
+
+
+
+
+LINE IS 9
+
+declare
+
+
+
+
+LINE IS 10
+
+get_value
+
+
+
+
+LINE IS 11
+
+declare
+
+
+
+
+LINE IS 12
+
+:=
+
+
+
+
+LINE IS 13
+
+:=
+
+
+
+
+
+LINE IS 14
+
+:=
+
+
 LINE 14: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 14: TYPE ERROR OCCURED
 LINE 14: TYPE ERROR OCCURED
+
+
+LINE IS 15
+
+:=
+
+
+
+
+LINE IS 16
+
+declare
+
+
 LINE 16: VARIABLE ALREADY DEFINED b
+
+
+LINE IS 17
+
+:=
+
+
+
+
+LINE IS 18
+
+:=
+
+
+
+
+LINE IS 19
+
+print
+
+
+
+
+LINE IS 23
+
+f1
+
+
+
+
+LINE IS 27
+
+declare
+
+
+
+
+LINE IS 28
+
+get_value
+
+
+
+
+LINE IS 29
+
+declare
+
+
+
+
+LINE IS 30
+
+get_value
+
+
+
+
+LINE IS 31
+
+declare
+
+
+
+
+LINE IS 32
+
+:=
+
+
+
+
+
+LINE IS 33
+
+:=
+
+
+
+
+
+LINE IS 34
+
+:=
 
 
 LINE 34: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 34: VARIABLE ON LEFT IS NOT DEFINED
 
+
+
+LINE IS 35
+
+:=
+
+
+
+
+LINE IS 36
+
+:=
+
+
+
+
+LINE IS 37
+
+:=
+
+
+
+
+LINE IS 38
+
+declare
+
+
 LINE 38: VARIABLE ALREADY DEFINED A
+
+
+LINE IS 39
+
+:=
+
+
+
+
+LINE IS 40
+
+:=
+
+
 LINE 40: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 40: TYPE ERROR OCCURED
 LINE 40: TYPE ERROR OCCURED
 LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 41
+
+:=
+
+
+
+
+LINE IS 46
+
+driver
+
+
+
+
+LINE IS 48
+
+declare
+
+
+
+
+LINE IS 49
+
+declare
+
+
+
+
+LINE IS 50
+
+:=
+
+
+
+
+LINE IS 51
+
+declare
+
+
+
+
+LINE IS 52
+
+:=
+
+
+
+
+LINE IS 53
+
+get_value
+
+
 LINE 53: VARIABLE NOT DECLARED
 
-LINE 56: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
+
+LINE IS 54
+
+declare
+
+
+
+
+LINE IS 55
+
+var_demo_array
+
+
+
+
+LINE IS 56
+
+var_demo_array
+
+
+
+
+LINE IS 57
+
+:=
+
+
+
+
+
+LINE IS 58
+
+declare
+
 
 LINE 58: VARIABLE ALREADY DEFINED B
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: f1 -1 0 
+
+
+18: 
+19: 
+20: var_demo_array -1 0 
+
+
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: driver -1 0 
+
+
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
+
+
 
 
 					TRAVERSAL 1 ENDED 
@@ -44,5 +399,53 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
 
 
 					TRAVERSAL 2 ENDED 
+
+a		f1		[23-46]		integer		yes		static		[10-30]		40		0		0		
+
+b		f1		[23-46]		integer		yes		static		[10-30]		40		0		0		
+
+c		f1		[23-46]		real		no		**		**		4		0		0		
+
+m		f1		[23-46]		boolean		no		**		**		1		0		0		
+
+n		f1		[23-46]		integer		no		**		**		2		0		0		
+
+x		f1		[23-46]		real		no		**		**		4		0		1		
+
+y		f1		[23-46]		real		no		**		**		4		4		1		
+
+A		f1		[23-46]		integer		yes		static		[4-10]		12		8		1		
+
+B		f1		[23-46]		integer		yes		static		[4-10]		12		10		1		
+
+C		f1		[23-46]		integer		yes		static		[10-30]		40		12		1		
+
+x		var_demo_array		[5-23]		integer		no		**		**		2		0		0		
+
+m		var_demo_array		[5-23]		integer		yes		static		[2-20]		36		0		0		
+
+p		var_demo_array		[5-23]		real		no		**		**		4		0		0		
+
+n		var_demo_array		[5-23]		integer		no		**		**		2		0		0		
+
+k		var_demo_array		[5-23]		boolean		no		**		**		1		0		0		
+
+a		var_demo_array		[5-23]		integer		no		**		**		2		0		1		
+
+b		var_demo_array		[5-23]		integer		no		**		**		2		2		1		
+
+p		var_demo_array		[5-23]		integer		yes		static		[2-20]		36		4		1		
+
+A		driver		[46-10000]		integer		no		**		**		2		2		1		
+
+B		driver		[46-10000]		integer		yes		static		[2-20]		36		9		1		
+
+C		driver		[46-10000]		integer		yes		static		[2-20]		36		11		1		
+
+v_1_2_3		driver		[46-10000]		integer		no		**		**		2		0		1		
+
+u1		driver		[46-10000]		boolean		no		**		**		1		4		1		
+
+p		driver		[46-10000]		real		no		**		**		4		5		1		
 
 Enter your option: 

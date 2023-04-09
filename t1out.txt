@@ -8,15 +8,190 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+
+
+LINE IS 5
+
+var_demo
+
+
+
+
+LINE IS 9
+
+declare
+
+
+
+
+LINE IS 10
+
+:=
+
+
+
+
+LINE IS 11
+
+get_value
+
+
+
+
+LINE IS 12
+
+declare
+
+
+
+
+LINE IS 13
+
+get_value
+
+
+
+
+LINE IS 14
+
+:=
+
+
+
+
+LINE IS 15
+
+:=
+
+
+
+
+LINE IS 16
+
+:=
+
+
+
+
+LINE IS 17
+
+:=
+
+
 LINE 17: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 17: TYPE ERROR OCCURED
 LINE 17: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 18
+
+:=
+
+
+
+
+LINE IS 19
+
+declare
+
+
+
+
+LINE IS 20
+
+:=
+
+
+
+
+LINE IS 21
+
+:=
+
+
+
+
+LINE IS 22
+
+declare
+
+
 LINE 22: VARIABLE ALREADY DEFINED b
+
+
+LINE IS 23
+
+:=
+
+
+
+
+LINE IS 24
+
+:=
+
+
+
+
+LINE IS 28
+
+compute
+
+
+
+
+LINE IS 32
+
+declare
+
+
+
+
+LINE IS 33
+
+declare
+
+
+
+
+LINE IS 34
+
+:=
+
+
+
+
+LINE IS 35
+
+declare
+
+
 LINE 35: VARIABLE ALREADY DEFINED abc_1
+
+
+LINE IS 36
+
+:=
+
+
 LINE 36: TYPE ERROR OCCURED
 LINE 36: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 37
+
+declare
+
+
+
+
+LINE IS 38
+
+:=
+
 
 LINE 38: VARIABLE NOT DEFINED IN SCOPE
 
@@ -27,11 +202,46 @@ LINE 38: TYPE ERROR OCCURED
 LINE 38: TYPE ERROR OCCURED
 LINE 38: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 39
+
+declare
+
+
+
+
+LINE IS 40
+
+:=
+
+
+
+
+LINE IS 41
+
+:=
+
+
+
+
+LINE IS 42
+
+:=
+
+
 LINE 42: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 42: TYPE ERROR OCCURED
 LINE 42: TYPE ERROR OCCURED
 LINE 42: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 43
+
+:=
+
 
 LINE 43: VARIABLE NOT DEFINED IN SCOPE
 
@@ -40,16 +250,165 @@ LINE 43: TYPE ERROR OCCURED
 LINE 43: TYPE ERROR OCCURED
 LINE 43: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 44
+
+declare
+
+
 LINE 44: VARIABLE ALREADY DEFINED new
+
+
+LINE IS 45
+
+:=
+
+
+
+
+LINE IS 46
+
+print
+
+
+
+
+LINE IS 50
+
+driver
+
+
+
+
+LINE IS 52
+
+declare
+
+
+
+
+LINE IS 53
+
+get_value
+
+
 LINE 53: VARIABLE NOT DECLARED
 
-LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 3
-LINE 56: NUMBER OF ACTUAL PARAMS IS LESS THAN NUMBER OF FORMAL PARAMS
 
-LINE 56: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 3
+LINE IS 54
+
+declare
+
+
+
+
+LINE IS 55
+
+declare
+
+
+
+
+LINE IS 56
+
+compute
+
+
+
+
+LINE IS 57
+
+print
+
+
+
+
+LINE IS 58
+
+declare
+
+
 LINE 58: VARIABLE ALREADY DEFINED u1
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: 
+19: 
+20: 
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: driver -1 0 
+
+
+45: 
+46: 
+47: var_demo -1 0 
+
+
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: compute -1 0 
+
+
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
+
+
 
 
 					TRAVERSAL 1 ENDED 
@@ -63,5 +422,67 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 3
 
 
 					TRAVERSAL 2 ENDED 
+
+v_1_2_3		driver		[50-10000]		integer		no		**		**		2		0		1		
+
+result_		driver		[50-10000]		integer		no		**		**		2		2		1		
+
+u1		driver		[50-10000]		boolean		no		**		**		1		8		1		
+
+v7		driver		[50-10000]		integer		no		**		**		2		4		1		
+
+v9		driver		[50-10000]		integer		no		**		**		2		6		1		
+
+x		var_demo		[5-28]		integer		no		**		**		2		0		0		
+
+w		var_demo		[5-28]		boolean		no		**		**		1		0		0		
+
+p		var_demo		[5-28]		real		no		**		**		4		0		0		
+
+m		var_demo		[5-28]		integer		no		**		**		2		0		0		
+
+n		var_demo		[5-28]		integer		no		**		**		2		0		0		
+
+u		var_demo		[5-28]		boolean		no		**		**		1		0		0		
+
+w		var_demo		[5-28]		integer		no		**		**		2		16		1		
+
+value		var_demo		[5-28]		real		no		**		**		4		4		1		
+
+a		var_demo		[5-28]		integer		no		**		**		2		0		1		
+
+b		var_demo		[5-28]		integer		no		**		**		2		2		1		
+
+c		var_demo		[5-28]		real		no		**		**		4		18		1		
+
+q		var_demo		[5-28]		real		no		**		**		4		8		1		
+
+r		var_demo		[5-28]		real		no		**		**		4		12		1		
+
+a		compute		[28-50]		integer		no		**		**		2		0		0		
+
+b		compute		[28-50]		integer		no		**		**		2		0		0		
+
+s		compute		[28-50]		real		no		**		**		4		0		0		
+
+c		compute		[28-50]		integer		no		**		**		2		0		0		
+
+res_1		compute		[28-50]		boolean		no		**		**		1		0		0		
+
+res_2_a		compute		[28-50]		integer		no		**		**		2		0		0		
+
+res_2__b		compute		[28-50]		real		no		**		**		4		0		0		
+
+abc_1		compute		[28-50]		integer		no		**		**		2		1		1		
+
+pqr_2		compute		[28-50]		integer		no		**		**		2		3		1		
+
+m		compute		[28-50]		boolean		no		**		**		1		7		1		
+
+n		compute		[28-50]		boolean		no		**		**		1		8		1		
+
+new		compute		[28-50]		boolean		no		**		**		1		0		1		
+
+s		compute		[28-50]		integer		no		**		**		2		5		1		
 
 Enter your option: 

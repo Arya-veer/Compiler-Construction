@@ -8,18 +8,228 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+
+
+LINE IS 8
+
+switch_var_demo1
+
+
+
+
+LINE IS 13
+
+declare
+
+
+
+
+LINE IS 14
+
+declare
+
+
+
+
+LINE IS 15
+
+declare
+
+
+
+
+LINE IS 16
+
+get_value
+
+
+
+
+LINE IS 17
+
+k
+
+
+
+
+LINE IS 19
+
+declare
+
+
+
+
+LINE IS 20
+
+declare
+
+
+
+
+LINE IS 21
+
+declare
+
+
+
+
+LINE IS 22
+
+declare
+
+
+
+
+LINE IS 23
+
+:=
+
+
+
+
+LINE IS 25
+
+:=
+
+
+
+
+LINE IS 26
+
+get_value
+
+
+
+
+LINE IS 27
+
+for
+
+
+
+
+LINE IS 29
+
+:=
+
+
 LINE 29: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+
+
+LINE IS 32
+
+:=
+
+
+
+
+LINE IS 36
+
+:=
+
+
+
+
+LINE IS 38
+
+p
+
+
 LINE 38: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE
+
+
+
+LINE IS 40
+
+:=
+
 
 LINE 40: TYPE ERROR OCCURED
 LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 46
+
+h
+
+
+
+
+LINE IS 48
+
+declare
+
+
+
+
+LINE IS 49
+
+declare
+
+
+
+
+LINE IS 50
+
+declare
+
+
+
+
+LINE IS 51
+
+declare
+
+
+
+
+LINE IS 52
+
+:=
+
+
 LINE 54: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR
+
+
+LINE IS 54
+
+:=
+
+
 LINE 54: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 54: VARIABLE ON LEFT IS NOT DEFINED
 
+
+
+LINE IS 55
+
+get_value
+
+
 LINE 55: VARIABLE NOT DECLARED
+
+
+
+LINE IS 56
+
+for
+
+
+
+
+LINE IS 58
+
+:=
+
+
+
+
+LINE IS 60
+
+:=
+
 
 LINE 60: VARIABLE NOT DEFINED IN SCOPE
 
@@ -29,12 +239,209 @@ LINE 60: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 60: VARIABLE ON LEFT IS NOT DEFINED
 
+
+
+LINE IS 62
+
+:=
+
+
+
+
+LINE IS 63
+
+print
+
+
 LINE 65: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION
 
+
+
+LINE IS 71
+
+for_loop_demo
+
+
+
+
+LINE IS 76
+
+declare
+
+
+
+
+LINE IS 77
+
+for
+
+
+
+
+LINE IS 79
+
+:=
+
+
+
+
+LINE IS 80
+
+:=
+
+
 LINE 80: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
+
+
+LINE IS 84
+
+driver
+
+
+
+
+LINE IS 86
+
+declare
+
+
+
+
+LINE IS 87
+
+declare
+
+
+
+
+LINE IS 88
+
+declare
+
+
+
+
+LINE IS 89
+
+for_loop_demo
+
+
+
+
+LINE IS 90
+
+a
+
+
+
+
+LINE IS 92
+
+:=
+
+
+
+
+LINE IS 94
+
+:=
+
+
+
+
+LINE IS 96
+
+:=
+
+
+
+
+LINE IS 98
+
+:=
+
+
 LINE 98: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 LINE 90: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: 
+15: 
+16: 
+17: 
+18: 
+19: 
+20: 
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: for_loop_demo -1 0 
+
+
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: driver -1 0 
+
+
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: 
+58: switch_var_demo1 -1 0 
+
+
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
+
+
 
 
 					TRAVERSAL 1 ENDED 
@@ -42,5 +449,43 @@ LINE 90: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER
 
 
 					TRAVERSAL 2 ENDED 
+
+x		for_loop_demo		[71-84]		integer		no		**		**		2		0		0		
+
+y		for_loop_demo		[71-84]		real		no		**		**		4		0		0		
+
+z		for_loop_demo		[71-84]		boolean		no		**		**		1		0		0		
+
+u		for_loop_demo		[71-84]		integer		no		**		**		2		0		0		
+
+k		for_loop_demo		[71-84]		integer		no		**		**		2		0		1		
+
+k		for_loop_demo		[71-84]		integer		no		**		**		2		0		2		
+
+a		driver		[84-10000]		integer		no		**		**		2		0		1		
+
+b		driver		[84-10000]		integer		no		**		**		2		2		1		
+
+c		driver		[84-10000]		real		no		**		**		4		4		1		
+
+d		driver		[84-10000]		boolean		no		**		**		1		8		1		
+
+x		switch_var_demo1		[8-71]		integer		no		**		**		2		0		0		
+
+y		switch_var_demo1		[8-71]		real		no		**		**		4		0		0		
+
+z		switch_var_demo1		[8-71]		boolean		no		**		**		1		0		0		
+
+u		switch_var_demo1		[8-71]		integer		no		**		**		2		0		0		
+
+h		switch_var_demo1		[8-71]		boolean		no		**		**		1		6		1		
+
+k		switch_var_demo1		[8-71]		integer		no		**		**		2		4		1		
+
+m		switch_var_demo1		[8-71]		integer		no		**		**		2		0		1		
+
+n		switch_var_demo1		[8-71]		integer		no		**		**		2		2		1		
+
+p		switch_var_demo1		[8-71]		real		no		**		**		4		7		1		
 
 Enter your option: 

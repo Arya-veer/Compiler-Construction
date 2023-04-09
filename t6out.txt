@@ -10,6 +10,146 @@ GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
 
+LINE IS 10
+
+function1
+
+
+
+
+LINE IS 14
+
+declare
+
+
+
+
+LINE IS 15
+
+declare
+
+
+
+
+LINE IS 16
+
+get_value
+
+
+
+
+LINE IS 17
+
+:=
+
+
+
+
+
+LINE IS 18
+
+:=
+
+
+
+
+LINE IS 19
+
+declare
+
+
+
+
+LINE IS 20
+
+:=
+
+
+
+
+LINE IS 21
+
+get_value
+
+
+
+
+LINE IS 22
+
+:=
+
+
+
+
+LINE IS 23
+
+:=
+
+
+
+
+LINE IS 26
+
+var_demo_array
+
+
+
+
+LINE IS 30
+
+declare
+
+
+
+
+LINE IS 31
+
+get_value
+
+
+
+
+LINE IS 32
+
+declare
+
+
+
+
+LINE IS 33
+
+declare
+
+
+
+
+LINE IS 34
+
+:=
+
+
+
+
+LINE IS 35
+
+:=
+
+
+
+
+
+LINE IS 36
+
+:=
+
+
+
+
+LINE IS 37
+
+:=
+
+
 LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
 LINE 37: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
@@ -18,14 +158,117 @@ LINE 37: TYPE ERROR OCCURED
 LINE 37:CAN NOT ASSIGN VALUE TO AN ARRAY
 
 
+
+LINE IS 38
+
+declare
+
+
+
+
+LINE IS 39
+
+:=
+
+
+
+
+LINE IS 40
+
+declare
+
+
+
+
+LINE IS 41
+
+while
+
+
+
+
+LINE IS 43
+
+declare
+
+
+
+
+LINE IS 44
+
+declare
+
+
+
+
+LINE IS 45
+
+declare
+
+
+
+
+LINE IS 46
+
+declare
+
+
+
+
+LINE IS 47
+
+:=
+
+
+
+
+
+LINE IS 48
+
+function1
+
+
+
+
+LINE IS 49
+
+:=
+
+
 LINE 49: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 50
+
+:=
+
 
 LINE 50: TYPE ERROR OCCURED
 LINE 50: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-LINE 52: TYPE DID NOT MATCH FOR PARAM NUMBER 4
-LINE 52: TYPE DID NOT MATCH FOR PARAM NUMBER 3
+
+
+LINE IS 51
+
+declare
+
+
+
+
+LINE IS 52
+
+function1
+
+
 LINE 41: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE
+
+
+
+LINE IS 54
+
+:=
+
 
 LINE 54: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -33,50 +276,660 @@ LINE 54: TYPE ERROR OCCURED
 LINE 54: TYPE ERROR OCCURED
 LINE 54: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-LINE 57: TYPE DID NOT MATCH FOR PARAM NUMBER 1
 
+
+LINE IS 55
+
+:=
+
+
+
+
+LINE IS 56
+
+:=
+
+
+
+
+LINE IS 57
+
+function1
+
+
+
+
+LINE IS 58
+
+print
+
+
+
+
+LINE IS 62
+
+f1
+
+
+
+
+LINE IS 66
+
+declare
+
+
+
+
+LINE IS 67
+
+declare
+
+
+
+
+LINE IS 68
+
+declare
+
+
+
+
+LINE IS 69
+
+declare
+
+
+
+
+LINE IS 70
+
+get_value
+
+
+
+
+LINE IS 71
+
+get_value
+
+
+
+
+LINE IS 72
+
+declare
+
+
+
+
+LINE IS 73
+
+declare
+
+
+
+
+LINE IS 74
+
+get_value
+
+
+
+
+LINE IS 75
+
+declare
+
+
+
+
+LINE IS 76
+
+:=
+
+
+
+
+
+LINE IS 77
+
+var_demo_array
+
+
+
+
+LINE IS 78
+
+:=
+
+
+
+
+
+LINE IS 79
+
+function1
+
+
+
+
+LINE IS 80
+
+:=
+
+
+
+
+
+LINE IS 83
+
+var_demo_array
+
+
+
+
+LINE IS 84
+
+for
+
+
+
+
+LINE IS 86
+
+:=
 
 
 LINE 86: TYPE ERROR OCCURED
 LINE 86: TYPE ERROR OCCURED
 LINE 86: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
-LINE 91: VARIABLE NOT DEFINED IN SCOPE
 
-LINE 91: TYPE DID NOT MATCH FOR PARAM NUMBER 4
+
+LINE IS 87
+
+declare
+
+
+
+
+LINE IS 88
+
+declare
+
+
+
+
+LINE IS 89
+
+:=
+
+
+
+
+LINE IS 90
+
+:=
+
+
+
+
+LINE IS 91
+
+function1
+
+
+
+
+LINE IS 92
+
+k
+
+
+
+
+LINE IS 94
+
+declare
+
+
+
+
+LINE IS 95
+
+declare
+
+
+
+
+LINE IS 96
+
+declare
+
+
+
+
+LINE IS 97
+
+declare
+
+
+
+
+LINE IS 98
+
+:=
+
+
 LINE 98: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 99
+
+:=
+
+
+
+
+
+LINE IS 100
+
+:=
 
 
 LINE 100:CAN NOT ASSIGN VALUE TO AN ARRAY
 
-LINE 103: TYPE DID NOT MATCH FOR PARAM NUMBER 3
+
+
+LINE IS 102
+
+:=
+
+
+
+
+LINE IS 103
+
+function1
+
+
+
+
+LINE IS 104
+
+get_value
+
+
+
+
+LINE IS 105
+
+:=
+
+
 LINE 105: TYPE ERROR OCCURED
 LINE 105: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 106
+
+:=
+
+
+
+
+LINE IS 107
+
+:=
+
+
 LINE 107: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN
-LINE 110: TYPE DID NOT MATCH FOR PARAM NUMBER 1
-LINE 110: TYPE DID NOT MATCH FOR PARAM NUMBER 2
-LINE 110: NUMBER OF ACTUAL RETURN PARAMS IS LESS THAN NUMBER OF FORMAL RETURN PARAMS
+
+
+LINE IS 109
+
+:=
+
+
+
+
+LINE IS 110
+
+function1
+
+
+
+
+LINE IS 113
+
+:=
+
 
 LINE 113: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 115
+
+:=
+
+
+
+
+LINE IS 116
+
+:=
+
+
+
+
+LINE IS 117
+
+:=
+
+
+
+
+LINE IS 118
+
+:=
+
+
 LINE 118: ARRAY INDEX OUT OF BOUNDS 
 
+
+
+LINE IS 119
+
+:=
+
+
+
+
+LINE IS 124
+
+driver
+
+
+
+
+LINE IS 126
+
+declare
+
+
+
+
+LINE IS 127
+
+declare
+
+
+
+
+LINE IS 128
+
+:=
+
+
+
+
+LINE IS 129
+
+declare
+
+
+
+
+LINE IS 130
+
+:=
+
+
+
+
+LINE IS 131
+
+get_value
+
+
+
+
+LINE IS 132
+
+declare
+
+
+
+
+LINE IS 133
+
+var_demo_array
+
+
+
+
+LINE IS 134
+
+var_demo_array
+
+
+
+
+LINE IS 135
+
+declare
+
+
+
+
+LINE IS 136
+
+:=
+
+
 LINE 136: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+
+
+LINE IS 137
+
+get_value
+
+
+
+
+LINE IS 138
+
+declare
+
+
+
+
+LINE IS 139
+
+get_value
+
+
+
+
+LINE IS 140
+
+:=
+
+
+
+
+LINE IS 141
+
+:=
+
 
 LINE 141: TYPE ERROR OCCURED
 LINE 141: TYPE ERROR OCCURED
 LINE 141: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 142
+
+:=
+
+
 LINE 142: TYPE ERROR OCCURED
 LINE 142: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
+
+
+LINE IS 143
+
+:=
+
+
+
+
+LINE IS 144
+
+declare
+
+
+
+
+LINE IS 145
+
+:=
+
+
+
+
+LINE IS 146
+
+:=
+
+
 LINE 146: ARRAY INDEX OUT OF BOUNDS 
+
+
+
+LINE IS 147
+
+declare
+
+
+
+
+LINE IS 148
+
+:=
+
 
 LINE 148:CAN NOT ASSIGN VALUE TO AN ARRAY
 
 
+
+LINE IS 149
+
+:=
+
+
+
+
+LINE IS 150
+
+:=
+
+
+
+
+
+LINE IS 151
+
+:=
+
+
 LINE 151: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
+
+
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+11: 
+12: function1 -1 0 
+
+
+13: 
+14: 
+15: 
+16: 
+17: f1 -1 0 
+
+
+18: 
+19: 
+20: var_demo_array -1 0 
+
+
+21: 
+22: 
+23: 
+24: 
+25: 
+26: 
+27: 
+28: 
+29: 
+30: 
+31: 
+32: 
+33: 
+34: 
+35: 
+36: 
+37: 
+38: 
+39: 
+40: 
+41: 
+42: 
+43: 
+44: driver -1 0 
+
+
+45: 
+46: 
+47: 
+48: 
+49: 
+50: 
+51: 
+52: 
+53: 
+54: 
+55: 
+56: 
+57: 
+58: 
+59: 
+60: 
+61: 
+62: 
+63: 
+64: 
+65: 
+66: 
+67: 
+68: 
+
 
 
 
@@ -92,5 +945,147 @@ LINE 103: TYPE DID NOT MATCH FOR PARAM NUMBER 3
 
 
 					TRAVERSAL 2 ENDED 
+
+data		function1		[10-26]		boolean		yes		static		[100-150]		50		0		0		
+
+weight		function1		[10-26]		real		no		**		**		4		0		0		
+
+length		function1		[10-26]		integer		no		**		**		2		0		0		
+
+b		function1		[10-26]		real		yes		static		[35-50]		60		0		0		
+
+q		function1		[10-26]		integer		no		**		**		2		0		0		
+
+R1		function1		[10-26]		real		no		**		**		4		0		0		
+
+R2		function1		[10-26]		integer		no		**		**		2		0		0		
+
+R3		function1		[10-26]		boolean		no		**		**		1		0		0		
+
+R4		function1		[10-26]		integer		no		**		**		2		0		0		
+
+a		function1		[10-26]		real		no		**		**		4		6		1		
+
+e		function1		[10-26]		integer		no		**		**		2		0		1		
+
+f		function1		[10-26]		integer		no		**		**		2		2		1		
+
+g		function1		[10-26]		boolean		yes		static		[100-150]		50		4		1		
+
+h		function1		[10-26]		boolean		yes		static		[100-150]		50		5		1		
+
+a		f1		[62-124]		integer		yes		static		[10-30]		40		0		0		
+
+b		f1		[62-124]		integer		yes		static		[10-30]		40		0		0		
+
+c		f1		[62-124]		real		no		**		**		4		0		0		
+
+m		f1		[62-124]		boolean		no		**		**		1		0		0		
+
+n		f1		[62-124]		integer		no		**		**		2		0		0		
+
+x		f1		[62-124]		real		no		**		**		4		0		1		
+
+y		f1		[62-124]		real		no		**		**		4		4		1		
+
+A		f1		[62-124]		integer		yes		static		[4-10]		12		20		1		
+
+B		f1		[62-124]		integer		yes		static		[4-10]		12		22		1		
+
+C		f1		[62-124]		integer		yes		static		[10-30]		40		34		1		
+
+D		f1		[62-124]		integer		yes		static		[10-30]		40		32		1		
+
+E		f1		[62-124]		integer		yes		static		[2-20]		36		16		1		
+
+var4		f1		[62-124]		boolean		yes		static		[100-150]		50		19		1		
+
+k		f1		[62-124]		integer		no		**		**		2		12		1		
+
+v2		f1		[62-124]		integer		no		**		**		2		14		1		
+
+p		f1		[62-124]		real		no		**		**		4		8		1		
+
+Var1		f1		[62-124]		real		yes		static		[35-50]		60		24		1		
+
+Var2		f1		[62-124]		real		yes		static		[35-50]		60		28		1		
+
+Var3		f1		[62-124]		boolean		yes		static		[100-150]		50		18		1		
+
+v		f1		[62-124]		real		no		**		**		4		6		2		
+
+int1		f1		[62-124]		integer		no		**		**		2		10		2		
+
+k		f1		[62-124]		integer		no		**		**		2		0		2		
+
+u		f1		[62-124]		real		no		**		**		4		2		2		
+
+x		var_demo_array		[26-62]		integer		no		**		**		2		151587081		0		
+
+m		var_demo_array		[26-62]		integer		yes		static		[2-20]		36		0		0		
+
+p		var_demo_array		[26-62]		real		no		**		**		4		0		0		
+
+n		var_demo_array		[26-62]		integer		no		**		**		2		0		0		
+
+k		var_demo_array		[26-62]		boolean		no		**		**		1		0		0		
+
+b4		var_demo_array		[26-62]		boolean		yes		static		[100-150]		50		6		1		
+
+b7		var_demo_array		[26-62]		real		yes		static		[35-50]		60		17		1		
+
+a		var_demo_array		[26-62]		integer		no		**		**		2		0		1		
+
+b		var_demo_array		[26-62]		integer		no		**		**		2		2		1		
+
+h		var_demo_array		[26-62]		integer		no		**		**		2		4		1		
+
+v1		var_demo_array		[26-62]		real		no		**		**		4		9		1		
+
+v2		var_demo_array		[26-62]		real		no		**		**		4		13		1		
+
+p		var_demo_array		[26-62]		integer		yes		static		[2-20]		36		7		1		
+
+b5		var_demo_array		[26-62]		real		yes		static		[35-50]		60		7		2		
+
+b6		var_demo_array		[26-62]		real		yes		static		[35-50]		60		11		2		
+
+bool1		var_demo_array		[26-62]		boolean		no		**		**		1		4		2		
+
+b		var_demo_array		[26-62]		integer		yes		static		[2-20]		36		5		2		
+
+v3		var_demo_array		[26-62]		integer		no		**		**		2		15		2		
+
+p		var_demo_array		[26-62]		integer		no		**		**		2		0		2		
+
+u		var_demo_array		[26-62]		integer		no		**		**		2		2		2		
+
+w		driver		[124-10000]		integer		no		**		**		2		30		1		
+
+A		driver		[124-10000]		integer		no		**		**		2		2		1		
+
+B		driver		[124-10000]		integer		yes		static		[2-20]		36		10		1		
+
+C		driver		[124-10000]		integer		yes		static		[2-20]		36		12		1		
+
+value		driver		[124-10000]		real		no		**		**		4		18		1		
+
+D		driver		[124-10000]		integer		yes		static		[20-40]		40		32		1		
+
+v_1_2_3		driver		[124-10000]		integer		no		**		**		2		0		1		
+
+a		driver		[124-10000]		integer		no		**		**		2		14		1		
+
+b		driver		[124-10000]		integer		no		**		**		2		16		1		
+
+u1		driver		[124-10000]		boolean		no		**		**		1		4		1		
+
+k		driver		[124-10000]		boolean		no		**		**		1		5		1		
+
+p		driver		[124-10000]		real		no		**		**		4		6		1		
+
+q		driver		[124-10000]		real		no		**		**		4		22		1		
+
+r		driver		[124-10000]		real		no		**		**		4		26		1		
 
 Enter your option: 
