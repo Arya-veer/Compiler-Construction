@@ -461,7 +461,7 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
             }
             IP->offset = OFFSET;
             OFFSET += OFFSETS[var->type]*(IP->range->right-IP->range->left + 1) + 1;
-            printf("%d\n",OFFSET);
+            // printf("%d\n",OFFSET);
         }
     }
     else{

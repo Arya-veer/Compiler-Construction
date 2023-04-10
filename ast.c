@@ -1273,6 +1273,87 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 }
 
 
+
+int checkForLoop(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
+    if(SYMBOL_TABLE == NULL || SYMBOL_TABLE->parent == NULL){
+        return 0;
+    }
+    // printASTNODE(node);
+    if(SYMBOL_TABLE->TABLE[64]!=NULL){
+        if(strcmp(SYMBOL_TABLE->TABLE[64]->id->lexemedata->data,node->TREENODEDATA->terminal->lexemedata->data) == 0){
+            printf("LINE %d: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN\n",node->TREENODEDATA->terminal->lineNo);
+            return 1;
+        }
+    }
+    
+    return checkForLoop(node,SYMBOL_TABLE->parent);
+} 
+
+
+
+/*CHECK FOR OUTPUT PARAM NOT GETTING DECLARED AGAIN*/
+int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
+    SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
+            printf("LINE %d: OUTPUT PARAM CAN NOT BE DECLARED AGAIN\n\n",node->TREENODEDATA->terminal->lineNo);
+            return 1;
+        }
+        outputNode = outputNode->next;
+    }
+    return checkForLoop(node,SYMBOL_TABLE);
+}
+
+
+void outputParamCheck(TREENODE node,SYMBOLTABLEROW function){
+    SYMBOLTABLEROW outputNode = function->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(outputNode->OUTPUTPARAMSHEAD == NULL){
+            printf("LINE %d,OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",function->SYMBOLTABLE->last - 1,outputNode->id->lexemedata->data);
+        }
+        outputNode = outputNode->next;
+    }
+}
+
+
+void outputParamAssignment(TREENODE node,SYMBOLTABLEROW function){
+    SYMBOLTABLEROW outputNode = function->OUTPUTPARAMSHEAD;
+    while(outputNode!=NULL){
+        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
+            outputNode->OUTPUTPARAMSHEAD = outputNode;
+            return;
+        }
+        outputNode = outputNode->next;
+    }
+
+}
+
+
+void outputParamWhileAssignment(SYMBOLTABLE ST,TREENODE node){
+    if(ST == NULL || ST->parent == NULL) return;
+    // printf("%s\n\n",ST->name);
+    if(strcmp(ST->name,"while") == 0){
+        // printf("HEMLO\n\n");
+        SYMBOLTABLEROW outputNode = ST->TABLE[65];
+        while(outputNode!=NULL){
+            // printASTNODE(node);
+            // printf("%s\n\n",outputNode->id->lexemedata->data);
+            if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
+                // printf("******\n\n");
+                // printASTNODE(node);
+                // printf("******\n\n");
+
+                ST->TABLE[65] = NULL; 
+                return;
+            }
+            outputNode = outputNode->next;
+        }
+    }
+    outputParamWhileAssignment(ST->parent,node);
+
+}
+
+
 /*CHECKS INPUT PARAM LIST IN CUNTION CALL*/
 void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
 
@@ -1321,6 +1402,8 @@ void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
             return;
         }
         else if(actualParam != NULL && formalParam == NULL){
+            outputParamAssignment(actualParam,row);
+            outputParamWhileAssignment(SYMBOL_TABLE,actualParam);
             printf("LINE %d: NUMBER OF ACTUAL RETURN PARAMS IS MORE THAN NUMBER OF FORMAL RETURN PARAMS\n\n",node->TREENODEDATA->terminal->lineNo);
             return;
         }
@@ -1332,81 +1415,16 @@ void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         if(actualParam->type != formalParam->type){
             printf("LINE %d: TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",node->TREENODEDATA->terminal->lineNo, count);
         }
+        else{
+            outputParamAssignment(actualParam,row);
+            outputParamWhileAssignment(SYMBOL_TABLE,actualParam);
+        }
         actualParam = actualParam->list_addr_syn;
         formalParam = formalParam->next;
     }
 }
 
 
-
-int checkForLoop(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
-    if(SYMBOL_TABLE == NULL || SYMBOL_TABLE->parent == NULL){
-        return 0;
-    }
-    // printASTNODE(node);
-    if(SYMBOL_TABLE->TABLE[64]!=NULL){
-        if(strcmp(SYMBOL_TABLE->TABLE[64]->id->lexemedata->data,node->TREENODEDATA->terminal->lexemedata->data) == 0){
-            printf("LINE %d: FOR LOOP VARIABLE CAN NOT BE DECLARED OR ASSIGNED AGAIN\n",node->TREENODEDATA->terminal->lineNo);
-            return 1;
-        }
-    }
-    
-    return checkForLoop(node,SYMBOL_TABLE->parent);
-} 
-
-
-/*CHECK FOR OUTPUT PARAM NOT GETTING DECLARED AGAIN*/
-int checkDeclarationCondition(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
-    SYMBOLTABLEROW outputNode = currFunc->OUTPUTPARAMSHEAD;
-    while(outputNode!=NULL){
-        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
-            printf("LINE %d: OUTPUT PARAM CAN NOT BE DECLARED AGAIN\n\n",node->TREENODEDATA->terminal->lineNo);
-            return 1;
-        }
-        outputNode = outputNode->next;
-    }
-    return checkForLoop(node,SYMBOL_TABLE);
-}
-
-
-void outputParamCheck(TREENODE node,SYMBOLTABLEROW function){
-    SYMBOLTABLEROW outputNode = function->OUTPUTPARAMSHEAD;
-    while(outputNode!=NULL){
-        if(outputNode->OUTPUTPARAMSHEAD == NULL){
-            printf("LINE %d,OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",outputNode->id->lineNo,outputNode->id->lexemedata->data);
-        }
-        outputNode = outputNode->next;
-    }
-}
-
-
-void outputParamAssignment(TREENODE node,SYMBOLTABLEROW function){
-    SYMBOLTABLEROW outputNode = function->OUTPUTPARAMSHEAD;
-    while(outputNode!=NULL){
-        if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
-            outputNode->OUTPUTPARAMSHEAD = outputNode;
-            return;
-        }
-        outputNode = outputNode->next;
-    }
-
-}
-
-void outputParamWhileAssignment(SYMBOLTABLE ST,TREENODE node){
-    if(ST == NULL || ST->parent == NULL) return;
-    if(strcmp(ST->name,"while") == 0){
-        SYMBOLTABLEROW outputNode = ST->parent->TABLE[65];
-        while(outputNode!=NULL){
-            if(strcmp(node->TREENODEDATA->terminal->lexemedata->data,outputNode->id->lexemedata->data) == 0){ 
-                ST->parent->TABLE[65] = NULL; 
-                break;
-            }
-            outputNode = outputNode->next;
-        }
-    }
-    outputParamWhileAssignment(ST->parent,node);
-
-}
 
 /*EXTRACTS TYPE FROM A DATA TYPE NODE*/
 void typeExtractionDT(TREENODE dataType_node){
@@ -1624,7 +1642,7 @@ int getTypeASTWhile(TREENODE node,SYMBOLTABLE SYMBOL_TABLE,SYMBOLTABLEROW while_
     if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->type == TYPE_UNDEFINED){
         SYMBOLTABLEROW row = GetVarFromSymbolTable(SYMBOL_TABLE,node);
         SYMBOLTABLEROW op = while_row->SYMBOLTABLE->TABLE[65];
-        
+        // printf("%s\n______________\n",while_row->id->lexemedata->data);
         if(row==NULL){
             printf("LINE %d: VARIABLE NOT DEFINED IN SCOPE\n\n",node->TREENODEDATA->terminal->lineNo);
             return TYPE_UNDEFINED;
@@ -1640,6 +1658,7 @@ int getTypeASTWhile(TREENODE node,SYMBOLTABLE SYMBOL_TABLE,SYMBOLTABLEROW while_
                 }
                 op->next = copy(row);
             }
+
             if(row->isDynamic == -1) node->isArray = 0;
             else node->isArray = 1;
             node->type = row->type;
@@ -1681,6 +1700,7 @@ TYPE typeExtractionWhileExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE,S
 
     if(expression_node == NULL) return TYPE_ERROR;
     int type_var = getTypeASTWhile(expression_node,SYMBOL_TABLE,while_row);
+    // printf("WHILE ME LEKE AAYA HU\n\n");
     if(type_var != -1){
         return expression_node->type = type_var;
     }
@@ -1837,7 +1857,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
         getStartEnd(node,row->SYMBOLTABLE);
         traversal(node->right_child,row->SYMBOLTABLE);
-        outputParamCheck(node,row);
+        // outputParamCheck(node,row);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
 
@@ -1877,9 +1897,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         traversal(node->right_child,row->SYMBOLTABLE);
         // printSymbolTable(row);
-        if(row->SYMBOLTABLE->TABLE[65] != NULL){
-            printf("LINE %d: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE\n\n",node->TREENODEDATA->terminal->lineNo);
-        }
+        
         traversal(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -1942,6 +1960,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         else{
             if(row->INPUTPARAMSHEAD == NULL){
+                // printASTNODE(node);
                 row->isDynamic = 1;
             }
             else{
@@ -2048,6 +2067,7 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
         currFunc = row;
         traversalForDeclaredFuncs(node->left_child,row->SYMBOLTABLE);
+        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
@@ -2056,6 +2076,7 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
         currFunc = row;
         traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
+        outputParamCheck(node,row);
         traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
         return;
 
@@ -2080,6 +2101,9 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = GetWhileFromSymbolTable(SYMBOL_TABLE,node);
         typeExtractionExpr(node->left_child,row->SYMBOLTABLE);
         traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
+        if(row->SYMBOLTABLE->TABLE[65] != NULL){
+            printf("LINE %d: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE\n\n",row->SYMBOLTABLE->last-1);
+        }
         traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -2088,12 +2112,17 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->parent!=NULL && node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
         SYMBOLTABLEROW row = GetSwitchFromSymbolTable(SYMBOL_TABLE,node);
         TREENODE caseVal = node->left_child;
-
+        if(row->type == TYPE_REAL){
+            traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+            return;
+        }
         while(caseVal!=NULL){
             SYMBOLTABLEROW case_node = GetCaseFromSymbolTable(row->SYMBOLTABLE,caseVal);
+            if(case_node == NULL) break;
             traversalForDeclaredFuncs(caseVal->left_child,case_node->SYMBOLTABLE);
             caseVal = caseVal->list_addr_syn;
         }
+        if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN &&node->right_child !=NULL) traversalForDeclaredFuncs(node->right_child->left_child,SYMBOL_TABLE);
         traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -2110,6 +2139,8 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             printf("LINE %d: FUNCTION %s WAS ONLY DECLARED, NEVER DEFINED\n\n",row->id->lineNo,row->id->lexemedata->data);
         }
         else{
+            // printASTNODE(node);
+
             checkInputList(node, row, SYMBOL_TABLE);
             checkOutputList(node, row, SYMBOL_TABLE);
         }
