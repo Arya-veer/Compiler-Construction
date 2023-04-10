@@ -8,12 +8,15 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+41
 
 LINE 14: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 14: TYPE ERROR OCCURED
 LINE 14: TYPE ERROR OCCURED
 LINE 16: VARIABLE ALREADY DEFINED b
+134
+177
 
 
 LINE 34: VARIABLE NOT DEFINED IN SCOPE
@@ -45,52 +48,52 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM NUMBER 2
 
 					TRAVERSAL 2 ENDED 
 
-a		f1		[23-46]		integer		yes		static		[10-30]		40		0		0		
+a		f1		[23-46]		integer		yes		static		[10-30]		43		91		0		
 
-b		f1		[23-46]		integer		yes		static		[10-30]		40		0		0		
+b		f1		[23-46]		integer		yes		static		[10-30]		43		134		0		
 
-c		f1		[23-46]		real		no		**		**		4		0		0		
+c		f1		[23-46]		real		no		**		**		4		177		0		
 
-m		f1		[23-46]		boolean		no		**		**		1		0		0		
+m		f1		[23-46]		boolean		no		**		**		1		181		0		
 
-n		f1		[23-46]		integer		no		**		**		2		0		0		
+n		f1		[23-46]		integer		no		**		**		2		182		0		
 
-x		f1		[23-46]		real		no		**		**		4		0		1		
+x		f1		[23-46]		real		no		**		**		4		184		1		
 
-y		f1		[23-46]		real		no		**		**		4		4		1		
+y		f1		[23-46]		real		no		**		**		4		188		1		
 
-A		f1		[23-46]		integer		yes		static		[4-10]		12		8		1		
+A		f1		[23-46]		integer		yes		static		[4-10]		15		192		1		
 
-B		f1		[23-46]		integer		yes		static		[4-10]		12		10		1		
+B		f1		[23-46]		integer		yes		static		[4-10]		15		207		1		
 
-C		f1		[23-46]		integer		yes		static		[10-30]		40		12		1		
+C		f1		[23-46]		integer		yes		static		[10-30]		43		222		1		
 
 x		var_demo_array		[5-23]		integer		no		**		**		2		0		0		
 
-m		var_demo_array		[5-23]		integer		yes		static		[2-20]		36		0		0		
+m		var_demo_array		[5-23]		integer		yes		static		[2-20]		39		2		0		
 
-p		var_demo_array		[5-23]		real		no		**		**		4		0		0		
+p		var_demo_array		[5-23]		real		no		**		**		4		41		0		
 
-n		var_demo_array		[5-23]		integer		no		**		**		2		0		0		
+n		var_demo_array		[5-23]		integer		no		**		**		2		45		0		
 
-k		var_demo_array		[5-23]		boolean		no		**		**		1		0		0		
+k		var_demo_array		[5-23]		boolean		no		**		**		1		47		0		
 
-a		var_demo_array		[5-23]		integer		no		**		**		2		0		1		
+a		var_demo_array		[5-23]		integer		no		**		**		2		48		1		
 
-b		var_demo_array		[5-23]		integer		no		**		**		2		2		1		
+b		var_demo_array		[5-23]		integer		no		**		**		2		50		1		
 
-p		var_demo_array		[5-23]		integer		yes		static		[2-20]		36		4		1		
+p		var_demo_array		[5-23]		integer		yes		static		[2-20]		39		52		1		
 
-A		driver		[46-10000]		integer		no		**		**		2		2		1		
+A		driver		[46-10000]		integer		no		**		**		2		267		1		
 
-B		driver		[46-10000]		integer		yes		static		[2-20]		36		9		1		
+B		driver		[46-10000]		integer		yes		static		[2-20]		39		274		1		
 
-C		driver		[46-10000]		integer		yes		static		[2-20]		36		11		1		
+C		driver		[46-10000]		integer		yes		static		[2-20]		39		313		1		
 
-v_1_2_3		driver		[46-10000]		integer		no		**		**		2		0		1		
+v_1_2_3		driver		[46-10000]		integer		no		**		**		2		265		1		
 
-u1		driver		[46-10000]		boolean		no		**		**		1		4		1		
+u1		driver		[46-10000]		boolean		no		**		**		1		269		1		
 
-p		driver		[46-10000]		real		no		**		**		4		5		1		
+p		driver		[46-10000]		real		no		**		**		4		270		1		
 
 Enter your option: 

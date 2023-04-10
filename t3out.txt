@@ -94,84 +94,90 @@ LINE 95: TYPE DID NOT MATCH FOR PARAM NUMBER 3
 
 					TRAVERSAL 2 ENDED 
 
-v_1_2_3		driver		[89-10000]		integer		no		**		**		2		0		1		
+v_1_2_3		driver		[89-10000]		integer		no		**		**		2		93		1		
 
-result_		driver		[89-10000]		integer		no		**		**		2		2		1		
+result_		driver		[89-10000]		integer		no		**		**		2		95		1		
 
-u1		driver		[89-10000]		boolean		no		**		**		1		8		1		
+u1		driver		[89-10000]		boolean		no		**		**		1		101		1		
 
-v7		driver		[89-10000]		integer		no		**		**		2		4		1		
+v7		driver		[89-10000]		integer		no		**		**		2		97		1		
 
-v9		driver		[89-10000]		integer		no		**		**		2		6		1		
+v9		driver		[89-10000]		integer		no		**		**		2		99		1		
 
 x		var_demo		[6-43]		integer		no		**		**		2		0		0		
 
-w		var_demo		[6-43]		boolean		no		**		**		1		0		0		
+w		var_demo		[6-43]		boolean		no		**		**		1		2		0		
 
-p		var_demo		[6-43]		real		no		**		**		4		0		0		
+p		var_demo		[6-43]		real		no		**		**		4		3		0		
 
-m		var_demo		[6-43]		integer		no		**		**		2		0		0		
+m		var_demo		[6-43]		integer		no		**		**		2		7		0		
 
-n		var_demo		[6-43]		integer		no		**		**		2		0		0		
+n		var_demo		[6-43]		integer		no		**		**		2		9		0		
 
-u		var_demo		[6-43]		boolean		no		**		**		1		0		0		
+u		var_demo		[6-43]		boolean		no		**		**		1		11		0		
 
-w		var_demo		[6-43]		integer		no		**		**		2		16		1		
+w		var_demo		[6-43]		integer		no		**		**		2		35		1		
 
-value		var_demo		[6-43]		real		no		**		**		4		4		1		
+value		var_demo		[6-43]		real		no		**		**		4		16		1		
 
-a		var_demo		[6-43]		integer		no		**		**		2		0		1		
+a		var_demo		[6-43]		integer		no		**		**		2		12		1		
 
-b		var_demo		[6-43]		integer		no		**		**		2		2		1		
+b		var_demo		[6-43]		integer		no		**		**		2		14		1		
 
-c		var_demo		[6-43]		real		no		**		**		4		18		1		
+c		var_demo		[6-43]		real		no		**		**		4		37		1		
 
-q		var_demo		[6-43]		real		no		**		**		4		8		1		
+q		var_demo		[6-43]		real		no		**		**		4		20		1		
 
-r		var_demo		[6-43]		real		no		**		**		4		12		1		
+r		var_demo		[6-43]		real		no		**		**		4		24		1		
 
-a		var_demo		[6-43]		integer		no		**		**		2		0		2		
+a		var_demo		[6-43]		integer		no		**		**		2		28		2		
 
-b		var_demo		[6-43]		integer		no		**		**		2		2		2		
+b		var_demo		[6-43]		integer		no		**		**		2		30		2		
 
-q		var_demo		[6-43]		integer		no		**		**		2		4		2		
+q		var_demo		[6-43]		integer		no		**		**		2		32		2		
 
-r		var_demo		[6-43]		boolean		no		**		**		1		6		2		
+r		var_demo		[6-43]		boolean		no		**		**		1		34		2		
 
-a		compute		[43-89]		integer		no		**		**		2		0		0		
+a		compute		[43-89]		integer		no		**		**		2		41		0		
 
-b		compute		[43-89]		integer		no		**		**		2		0		0		
+b		compute		[43-89]		integer		no		**		**		2		43		0		
 
-s		compute		[43-89]		real		no		**		**		4		0		0		
+s		compute		[43-89]		real		no		**		**		4		45		0		
 
-c		compute		[43-89]		integer		no		**		**		2		0		0		
+c		compute		[43-89]		integer		no		**		**		2		49		0		
 
-res_1		compute		[43-89]		boolean		no		**		**		1		0		0		
+res_1		compute		[43-89]		boolean		no		**		**		1		51		0		
 
-res_2_a		compute		[43-89]		integer		no		**		**		2		0		0		
+res_2_a		compute		[43-89]		integer		no		**		**		2		52		0		
 
-res_2_b		compute		[43-89]		real		no		**		**		4		0		0		
+res_2_b		compute		[43-89]		real		no		**		**		4		54		0		
 
-abc_1		compute		[43-89]		integer		no		**		**		2		1		1		
+abc_1		compute		[43-89]		integer		no		**		**		2		59		1		
 
-pqr_2		compute		[43-89]		integer		no		**		**		2		3		1		
+pqr_2		compute		[43-89]		integer		no		**		**		2		61		1		
 
-q4		compute		[43-89]		real		no		**		**		4		7		1		
+q4		compute		[43-89]		real		no		**		**		4		65		1		
 
-q5		compute		[43-89]		real		no		**		**		4		11		1		
+q5		compute		[43-89]		real		no		**		**		4		69		1		
 
-m		compute		[43-89]		boolean		no		**		**		1		15		1		
+m		compute		[43-89]		boolean		no		**		**		1		73		1		
 
-n		compute		[43-89]		boolean		no		**		**		1		16		1		
+n		compute		[43-89]		boolean		no		**		**		1		74		1		
 
-new		compute		[43-89]		boolean		no		**		**		1		0		1		
+new		compute		[43-89]		boolean		no		**		**		1		58		1		
 
-s		compute		[43-89]		integer		no		**		**		2		5		1		
+s		compute		[43-89]		integer		no		**		**		2		63		1		
 
-abc_1		compute		[43-89]		integer		no		**		**		2		4		2		
+abc_1		compute		[43-89]		integer		no		**		**		2		79		2		
 
-w1		compute		[43-89]		integer		no		**		**		2		0		2		
+w1		compute		[43-89]		integer		no		**		**		2		75		2		
 
-w2		compute		[43-89]		integer		no		**		**		2		2		2		
+w2		compute		[43-89]		integer		no		**		**		2		77		2		
+
+k		compute		[43-89]		real		no		**		**		4		89		3		
+
+w1		compute		[43-89]		real		no		**		**		4		81		3		
+
+s		compute		[43-89]		real		no		**		**		4		85		3		
 
 Enter your option: 

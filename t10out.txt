@@ -43,42 +43,62 @@ LINE 90: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER
 
 					TRAVERSAL 2 ENDED 
 
-x		for_loop_demo		[71-84]		integer		no		**		**		2		0		0		
+x		for_loop_demo		[71-84]		integer		no		**		**		2		192		0		
 
-y		for_loop_demo		[71-84]		real		no		**		**		4		0		0		
+y		for_loop_demo		[71-84]		real		no		**		**		4		194		0		
 
-z		for_loop_demo		[71-84]		boolean		no		**		**		1		0		0		
+z		for_loop_demo		[71-84]		boolean		no		**		**		1		198		0		
 
-u		for_loop_demo		[71-84]		integer		no		**		**		2		0		0		
+u		for_loop_demo		[71-84]		integer		no		**		**		2		199		0		
 
-k		for_loop_demo		[71-84]		integer		no		**		**		2		0		1		
+k		for_loop_demo		[71-84]		integer		no		**		**		2		201		1		
 
-k		for_loop_demo		[71-84]		integer		no		**		**		2		0		2		
+k		for_loop_demo		[71-84]		integer		no		**		**		2		203		2		
 
-a		driver		[84-10000]		integer		no		**		**		2		0		1		
+a		driver		[84-10000]		integer		no		**		**		2		205		1		
 
-b		driver		[84-10000]		integer		no		**		**		2		2		1		
+b		driver		[84-10000]		integer		no		**		**		2		207		1		
 
-c		driver		[84-10000]		real		no		**		**		4		4		1		
+c		driver		[84-10000]		real		no		**		**		4		209		1		
 
-d		driver		[84-10000]		boolean		no		**		**		1		8		1		
+d		driver		[84-10000]		boolean		no		**		**		1		213		1		
 
 x		switch_var_demo1		[8-71]		integer		no		**		**		2		0		0		
 
-y		switch_var_demo1		[8-71]		real		no		**		**		4		0		0		
+y		switch_var_demo1		[8-71]		real		no		**		**		4		2		0		
 
-z		switch_var_demo1		[8-71]		boolean		no		**		**		1		0		0		
+z		switch_var_demo1		[8-71]		boolean		no		**		**		1		6		0		
 
-u		switch_var_demo1		[8-71]		integer		no		**		**		2		0		0		
+u		switch_var_demo1		[8-71]		integer		no		**		**		2		7		0		
 
-h		switch_var_demo1		[8-71]		boolean		no		**		**		1		6		1		
+h		switch_var_demo1		[8-71]		boolean		no		**		**		1		15		1		
 
-k		switch_var_demo1		[8-71]		integer		no		**		**		2		4		1		
+k		switch_var_demo1		[8-71]		integer		no		**		**		2		13		1		
 
-m		switch_var_demo1		[8-71]		integer		no		**		**		2		0		1		
+m		switch_var_demo1		[8-71]		integer		no		**		**		2		9		1		
 
-n		switch_var_demo1		[8-71]		integer		no		**		**		2		2		1		
+n		switch_var_demo1		[8-71]		integer		no		**		**		2		11		1		
 
-p		switch_var_demo1		[8-71]		real		no		**		**		4		7		1		
+p		switch_var_demo1		[8-71]		real		no		**		**		4		16		1		
+
+A		switch_var_demo1		[8-71]		real		no		**		**		4		20		2		
+
+B		switch_var_demo1		[8-71]		integer		yes		static		[-10-30]		83		26		2		
+
+E		switch_var_demo1		[8-71]		integer		yes		static		[4-10]		15		109		2		
+
+Q		switch_var_demo1		[8-71]		integer		no		**		**		2		24		2		
+
+m		switch_var_demo1		[8-71]		integer		no		**		**		2		124		3		
+
+A		switch_var_demo1		[8-71]		real		no		**		**		4		126		2		
+
+B		switch_var_demo1		[8-71]		integer		yes		static		[10-30]		43		132		2		
+
+E		switch_var_demo1		[8-71]		integer		yes		static		[4-10]		15		175		2		
+
+Q		switch_var_demo1		[8-71]		integer		no		**		**		2		130		2		
+
+m		switch_var_demo1		[8-71]		integer		no		**		**		2		190		3		
 
 Enter your option: 

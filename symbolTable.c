@@ -11,6 +11,7 @@ int CASE_ROW = 63;
 int FOR_VAR = 64;
 int WHILE_VAR = 65;
 int OFFSETS[] = {2,4,1};
+int OFFSET = 0;
 
 
 
@@ -73,11 +74,12 @@ SYMBOLTABLE initializeSymbolTable(char* name,int first,int last){
     }
     SYMBOLTABLE st = malloc(sizeof(struct SymbolTable));
     st->TABLE = TABLE;
-    st->currOffset = 0;
+    st->currOffset = OFFSET;
     st->name = name;
     st->parent = NULL;
     st->first = first;
     st->last = last;
+    st->offset = OFFSET;
     return st;
 }
 
@@ -109,9 +111,8 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
     SYMBOLTABLEROW row = malloc(sizeof(struct SymTabRowNode));
 
     row->id = var->TREENODEDATA->terminal;
-    row->offset = SYMBOL_TABLE->currOffset;
 
-    SYMBOL_TABLE->currOffset += OFFSETS[var->type];
+
 
     row->type = var->type;
     row->range = NULL;
@@ -142,9 +143,13 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
             else{
                 row->range->right = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
             }
+            row->offset = OFFSET;
+            OFFSET += OFFSETS[var->type]*(row->range->right-row->range->left + 1) + 1;
         }
     }
     else{
+            row->offset = OFFSET;
+            OFFSET += OFFSETS[var->type];
         row->range = NULL;
     }
 
@@ -183,6 +188,7 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         row->OUTPUTPARAMSHEAD = NULL;
         row->next = NULL;
         row->isDynamic = 0;
+
         // printf("RETURNING ROW\n");
         str = SYMBOL_TABLE->TABLE[index];
         if(str == NULL) SYMBOL_TABLE->TABLE[index] = row;
@@ -199,6 +205,12 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         if(str->INPUTPARAMSHEAD != NULL){
             printf("LINE %d: FUNCTION %s OVERLOADING IS NOT ALLOWED\n\n",func->TREENODEDATA->terminal->lineNo,func->TREENODEDATA->terminal->lexemedata->data);
             return NULL;
+        }
+        else{
+            if(str->isDynamic == 0){
+                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n\n",str->id->lineNo);
+            }
+
         }
         return str;
     }
@@ -447,7 +459,14 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
             if(IP->range->left > IP->range->right){
                 printf("LINE %d: LEFT RANGE MUST BE SMALLER THAN RIGHT RANGE\n\n",var->TREENODEDATA->terminal->lineNo);
             }
+            IP->offset = OFFSET;
+            OFFSET += OFFSETS[var->type]*(IP->range->right-IP->range->left + 1) + 1;
+            printf("%d\n",OFFSET);
         }
+    }
+    else{
+        IP->offset = OFFSET;
+        OFFSET += OFFSETS[var->type];
     }
     return IP;
 }
@@ -461,6 +480,8 @@ SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var){
     OP->OUTPUTPARAMSHEAD = NULL;
     OP->next = NULL;
     OP->isDynamic = -1;
+    OP->offset = OFFSET;
+    OFFSET += OFFSETS[var->type];
     return OP;
 }
 
@@ -489,7 +510,7 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
         printf("yes\t\t");
         printf("static\t\t");
         printf("[%d-%d]\t\t",row->range->left,row->range->right);
-        printf("%d\t\t",OFFSETS[row->type]*(row->range->right-row->range->left));
+        printf("%d\t\t",1 + OFFSETS[row->type]*(1 + row->range->right-row->range->left));
     }
     else{
         printf("yes\t\t");
@@ -508,6 +529,9 @@ void printLinkedList(SYMBOLTABLEROW function,SYMBOLTABLEROW head,int level){
     printLinkedList(function,head->next,level);
 }
 
+void printLinkedFunctions(SYMBOLTABLEROW function,SYMBOLTABLEROW scope_row,int level){
+
+}
 
 void printFunctionTable(SYMBOLTABLEROW function,SYMBOLTABLEROW scope_row,int level){
     if(scope_row == NULL || scope_row->SYMBOLTABLE == NULL || scope_row->SYMBOLTABLE->TABLE == NULL) return;
@@ -520,9 +544,31 @@ void printFunctionTable(SYMBOLTABLEROW function,SYMBOLTABLEROW scope_row,int lev
     for(int i = 0;i<SYMTABSIZE;i++){
         printLinkedList(function,scope_row->SYMBOLTABLE->TABLE[i],level);
     }
-    printFunctionTable(function,scope_row->SYMBOLTABLE->TABLE[FOR_ROW],level+1);
-    printFunctionTable(function,scope_row->SYMBOLTABLE->TABLE[WHILE_ROW],level+1);
-    printFunctionTable(function,scope_row->SYMBOLTABLE->TABLE[SWITCH_ROW],level+1);
+    if(scope_row->SYMBOLTABLE->TABLE[FOR_ROW] != NULL){
+        SYMBOLTABLEROW row = scope_row->SYMBOLTABLE->TABLE[FOR_ROW];
+        while(row!=NULL){
+            printFunctionTable(function,row,level+1);
+            row = row->next;
+        }
+    }
+    if(scope_row->SYMBOLTABLE->TABLE[WHILE_ROW] != NULL){
+        SYMBOLTABLEROW row = scope_row->SYMBOLTABLE->TABLE[WHILE_ROW];
+        while(row!=NULL){
+            printFunctionTable(function,row,level+1);
+            row = row->next;
+        }
+    }
+    if(scope_row->SYMBOLTABLE->TABLE[SWITCH_ROW] != NULL){
+        SYMBOLTABLEROW row = scope_row->SYMBOLTABLE->TABLE[SWITCH_ROW];
+        while(row!=NULL){
+            SYMBOLTABLEROW caseRow = row->SYMBOLTABLE->TABLE[CASE_ROW];
+            while(caseRow != NULL){
+                printFunctionTable(function,caseRow,level+1);
+                caseRow = caseRow->next;
+            }
+            row = row->next;
+        }
+    }
 }
 
 void printFullTable(SYMBOLTABLE ST){

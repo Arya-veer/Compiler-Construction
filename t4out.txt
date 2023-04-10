@@ -8,6 +8,7 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+41
 
 LINE 15: VARIABLE NOT DEFINED IN SCOPE
 
@@ -20,6 +21,8 @@ LINE 21: TYPE ERROR OCCURED
 LINE 16: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE
 
 LINE 25: VARIABLE ALREADY DEFINED b
+175
+218
 
 
 LINE 45: VARIABLE NOT DEFINED IN SCOPE
@@ -76,64 +79,76 @@ LINE 95: TYPE DID NOT MATCH FOR PARAM NUMBER 2
 
 					TRAVERSAL 2 ENDED 
 
-a		f1		[32-85]		integer		yes		static		[10-30]		40		0		0		
+a		f1		[32-85]		integer		yes		static		[10-30]		43		132		0		
 
-b		f1		[32-85]		integer		yes		static		[10-30]		40		0		0		
+b		f1		[32-85]		integer		yes		static		[10-30]		43		175		0		
 
-c		f1		[32-85]		real		no		**		**		4		0		0		
+c		f1		[32-85]		real		no		**		**		4		218		0		
 
-m		f1		[32-85]		boolean		no		**		**		1		0		0		
+m		f1		[32-85]		boolean		no		**		**		1		222		0		
 
-n		f1		[32-85]		integer		no		**		**		2		0		0		
+n		f1		[32-85]		integer		no		**		**		2		223		0		
 
-x		f1		[32-85]		real		no		**		**		4		0		1		
+x		f1		[32-85]		real		no		**		**		4		225		1		
 
-y		f1		[32-85]		real		no		**		**		4		4		1		
+y		f1		[32-85]		real		no		**		**		4		229		1		
 
-A		f1		[32-85]		integer		yes		static		[4-10]		12		10		1		
+A		f1		[32-85]		integer		yes		static		[4-10]		15		235		1		
 
-B		f1		[32-85]		integer		yes		static		[4-10]		12		12		1		
+B		f1		[32-85]		integer		yes		static		[4-10]		15		250		1		
 
-C		f1		[32-85]		integer		yes		static		[10-30]		40		14		1		
+C		f1		[32-85]		integer		yes		static		[10-30]		43		265		1		
 
-k		f1		[32-85]		integer		no		**		**		2		8		1		
+k		f1		[32-85]		integer		no		**		**		2		233		1		
 
-v		f1		[32-85]		real		no		**		**		4		6		2		
+v		f1		[32-85]		real		no		**		**		4		314		2		
 
-k		f1		[32-85]		integer		no		**		**		2		0		2		
+k		f1		[32-85]		integer		no		**		**		2		308		2		
 
-u		f1		[32-85]		real		no		**		**		4		2		2		
+u		f1		[32-85]		real		no		**		**		4		310		2		
+
+A		f1		[32-85]		real		no		**		**		4		318		3		
+
+B		f1		[32-85]		integer		yes		static		[10-30]		43		322		3		
+
+E		f1		[32-85]		integer		yes		static		[4-10]		15		365		3		
+
+A		f1		[32-85]		real		yes		static		[-11-10]		89		469		3		
+
+B		f1		[32-85]		real		yes		static		[-11-10]		89		380		3		
+
+Q		f1		[32-85]		integer		no		**		**		2		558		3		
 
 x		var_demo_array		[5-32]		integer		no		**		**		2		0		0		
 
-m		var_demo_array		[5-32]		integer		yes		static		[2-20]		36		0		0		
+m		var_demo_array		[5-32]		integer		yes		static		[2-20]		39		2		0		
 
-p		var_demo_array		[5-32]		real		no		**		**		4		0		0		
+p		var_demo_array		[5-32]		real		no		**		**		4		41		0		
 
-n		var_demo_array		[5-32]		integer		no		**		**		2		0		0		
+n		var_demo_array		[5-32]		integer		no		**		**		2		45		0		
 
-k		var_demo_array		[5-32]		boolean		no		**		**		1		0		0		
+k		var_demo_array		[5-32]		boolean		no		**		**		1		47		0		
 
-a		var_demo_array		[5-32]		integer		no		**		**		2		0		1		
+a		var_demo_array		[5-32]		integer		no		**		**		2		48		1		
 
-b		var_demo_array		[5-32]		integer		no		**		**		2		2		1		
+b		var_demo_array		[5-32]		integer		no		**		**		2		50		1		
 
-p		var_demo_array		[5-32]		integer		yes		static		[2-20]		36		4		1		
+p		var_demo_array		[5-32]		integer		yes		static		[2-20]		39		52		1		
 
-b		var_demo_array		[5-32]		integer		yes		static		[2-20]		36		2		2		
+b		var_demo_array		[5-32]		integer		yes		static		[2-20]		39		93		2		
 
-p		var_demo_array		[5-32]		integer		no		**		**		2		0		2		
+p		var_demo_array		[5-32]		integer		no		**		**		2		91		2		
 
-A		driver		[85-10000]		integer		no		**		**		2		2		1		
+A		driver		[85-10000]		integer		no		**		**		2		562		1		
 
-B		driver		[85-10000]		integer		yes		static		[2-20]		36		9		1		
+B		driver		[85-10000]		integer		yes		static		[2-20]		39		569		1		
 
-C		driver		[85-10000]		integer		yes		static		[2-20]		36		11		1		
+C		driver		[85-10000]		integer		yes		static		[2-20]		39		608		1		
 
-v_1_2_3		driver		[85-10000]		integer		no		**		**		2		0		1		
+v_1_2_3		driver		[85-10000]		integer		no		**		**		2		560		1		
 
-u1		driver		[85-10000]		boolean		no		**		**		1		4		1		
+u1		driver		[85-10000]		boolean		no		**		**		1		564		1		
 
-p		driver		[85-10000]		real		no		**		**		4		5		1		
+p		driver		[85-10000]		real		no		**		**		4		565		1		
 
 Enter your option: 

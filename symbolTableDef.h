@@ -29,6 +29,7 @@ struct SymTabRowNode{
 
 struct SymbolTable{
     SYMBOLTABLEROW* TABLE;
+    int offset;
     int currOffset;
     char* name;
     SYMBOLTABLE next;

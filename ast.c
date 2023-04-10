@@ -1296,6 +1296,15 @@ void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         if(actualParam->type != formalParam->type){
             printf("LINE %d: TYPE DID NOT MATCH FOR PARAM NUMBER %d\n",node->TREENODEDATA->terminal->lineNo, count);
         }
+        else if(actualParam->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
+            SYMBOLTABLEROW str1 = GetVarFromSymbolTable(SYMBOL_TABLE,actualParam);
+            if(str1->isDynamic == 0 && formalParam->isDynamic == 0){
+                if((str1->range->right - str1->range->left) != (formalParam->range->right - formalParam->range->left)){
+                    printf("LINE %d: TYPE DID NOT MATCH FOR ARRAY PARAM NUMBER %d\n",node->TREENODEDATA->terminal->lineNo, count);
+                }
+            }
+
+        }
         actualParam = actualParam->list_addr_syn;
         formalParam = formalParam->next;
     }
@@ -1888,6 +1897,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         if(t == TYPE_REAL){
             printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
         }
         TREENODE caseVal = node->left_child;
 

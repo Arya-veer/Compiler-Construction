@@ -8,6 +8,7 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
+41
 
 LINE 27: ARRAY VARIABLE CAN NOT BE USED FOR THIS OPERATOR
 
@@ -32,9 +33,12 @@ LINE 43: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
 LINE 17,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
 
+442
+485
 
 
 
+LINE 80: TYPE DID NOT MATCH FOR ARRAY PARAM NUMBER 2
 LINE 83: TYPE ERROR OCCURED
 LINE 83: TYPE ERROR OCCURED
 LINE 83: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
@@ -46,6 +50,8 @@ LINE 92: FUNCTION NOT DEFINED
 LINE 95: ARRAY INDEX OUT OF BOUNDS 
 
 LINE 60,OUTPUT PARAM n IS NOT ASSIGNED ANY VALUE
+
+LINE 13: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED
 
 LINE 128: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
 
@@ -63,6 +69,8 @@ LINE 140:CAN NOT ASSIGN VALUE TO AN ARRAY
 
 LINE 143: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH
 
+1126
+1197
 
 LINE 148,OUTPUT PARAM R3 IS NOT ASSIGNED ANY VALUE
 
@@ -72,6 +80,7 @@ LINE 148,OUTPUT PARAM R3 IS NOT ASSIGNED ANY VALUE
 
 LINE 41: TYPE DID NOT MATCH FOR PARAM NUMBER 4
 LINE 46: TYPE DID NOT MATCH FOR PARAM NUMBER 1
+LINE 80: TYPE DID NOT MATCH FOR ARRAY PARAM NUMBER 2
 LINE 88: VARIABLE NOT DEFINED IN SCOPE
 
 LINE 88: TYPE DID NOT MATCH FOR PARAM NUMBER 4
@@ -79,164 +88,164 @@ LINE 88: TYPE DID NOT MATCH FOR PARAM NUMBER 4
 
 					TRAVERSAL 2 ENDED 
 
-data		function1		[146-10000]		boolean		yes		static		[100-150]		50		0		0		
+data		function1		[146-10000]		boolean		yes		static		[100-150]		52		1074		0		
 
-weight		function1		[146-10000]		real		no		**		**		4		0		0		
+weight		function1		[146-10000]		real		no		**		**		4		1126		0		
 
-length		function1		[146-10000]		integer		no		**		**		2		0		0		
+length		function1		[146-10000]		integer		no		**		**		2		1130		0		
 
-b		function1		[146-10000]		real		yes		static		[35-50]		60		0		0		
+b		function1		[146-10000]		real		yes		static		[35-50]		65		1132		0		
 
-q		function1		[146-10000]		integer		no		**		**		2		0		0		
+q		function1		[146-10000]		integer		no		**		**		2		1197		0		
 
-R1		function1		[146-10000]		real		no		**		**		4		0		0		
+R1		function1		[146-10000]		real		no		**		**		4		1199		0		
 
-R2		function1		[146-10000]		integer		no		**		**		2		0		0		
+R2		function1		[146-10000]		integer		no		**		**		2		1203		0		
 
-R3		function1		[146-10000]		boolean		no		**		**		1		0		0		
+R3		function1		[146-10000]		boolean		no		**		**		1		1205		0		
 
-R4		function1		[146-10000]		integer		no		**		**		2		0		0		
+R4		function1		[146-10000]		integer		no		**		**		2		1206		0		
 
-a		function1		[146-10000]		real		no		**		**		4		6		1		
+a		function1		[146-10000]		real		no		**		**		4		1316		1		
 
-e		function1		[146-10000]		integer		no		**		**		2		0		1		
+e		function1		[146-10000]		integer		no		**		**		2		1208		1		
 
-f		function1		[146-10000]		integer		no		**		**		2		2		1		
+f		function1		[146-10000]		integer		no		**		**		2		1210		1		
 
-g		function1		[146-10000]		boolean		yes		static		[100-150]		50		4		1		
+g		function1		[146-10000]		boolean		yes		static		[100-150]		52		1212		1		
 
-h		function1		[146-10000]		boolean		yes		static		[100-150]		50		5		1		
+h		function1		[146-10000]		boolean		yes		static		[100-150]		52		1264		1		
 
-x		function2		[50-58]		integer		no		**		**		2		0		0		
+x		function2		[50-58]		integer		no		**		**		2		393		0		
 
-y		function2		[50-58]		integer		no		**		**		2		0		0		
+y		function2		[50-58]		integer		no		**		**		2		395		0		
 
-temp		function2		[50-58]		integer		no		**		**		2		0		1		
+temp		function2		[50-58]		integer		no		**		**		2		397		1		
 
-a		function3		[101-108]		real		no		**		**		4		0		0		
+a		function3		[101-108]		real		no		**		**		4		909		0		
 
-b		function3		[101-108]		real		no		**		**		4		0		0		
+b		function3		[101-108]		real		no		**		**		4		913		0		
 
-c		function3		[101-108]		real		no		**		**		4		0		0		
+c		function3		[101-108]		real		no		**		**		4		917		0		
 
-a		function4		[108-115]		boolean		no		**		**		1		0		0		
+a		function4		[108-115]		boolean		no		**		**		1		921		0		
 
-b		function4		[108-115]		boolean		no		**		**		1		0		0		
+b		function4		[108-115]		boolean		no		**		**		1		922		0		
 
-c		function4		[108-115]		boolean		no		**		**		1		0		0		
+c		function4		[108-115]		boolean		no		**		**		1		923		0		
 
-a		f1		[58-101]		integer		yes		static		[10-30]		40		0		0		
+a		f1		[58-101]		integer		yes		static		[10-30]		43		399		0		
 
-b		f1		[58-101]		integer		yes		static		[10-30]		40		0		0		
+b		f1		[58-101]		integer		yes		static		[10-30]		43		442		0		
 
-c		f1		[58-101]		real		no		**		**		4		0		0		
+c		f1		[58-101]		real		no		**		**		4		485		0		
 
-m		f1		[58-101]		boolean		no		**		**		1		0		0		
+m		f1		[58-101]		boolean		no		**		**		1		489		0		
 
-n		f1		[58-101]		integer		no		**		**		2		0		0		
+n		f1		[58-101]		integer		no		**		**		2		490		0		
 
-x		f1		[58-101]		real		no		**		**		4		0		1		
+x		f1		[58-101]		real		no		**		**		4		492		1		
 
-y		f1		[58-101]		real		no		**		**		4		4		1		
+y		f1		[58-101]		real		no		**		**		4		496		1		
 
-A		f1		[58-101]		integer		yes		static		[4-10]		12		20		1		
+A		f1		[58-101]		integer		yes		static		[4-10]		15		651		1		
 
-B		f1		[58-101]		integer		yes		static		[4-10]		12		22		1		
+B		f1		[58-101]		integer		yes		static		[4-10]		15		666		1		
 
-C		f1		[58-101]		integer		yes		static		[10-30]		40		34		1		
+C		f1		[58-101]		integer		yes		static		[10-30]		43		854		1		
 
-D		f1		[58-101]		integer		yes		static		[10-30]		40		32		1		
+D		f1		[58-101]		integer		yes		static		[10-30]		43		811		1		
 
-E		f1		[58-101]		integer		yes		static		[2-20]		36		16		1		
+E		f1		[58-101]		integer		yes		static		[2-20]		39		508		1		
 
-var4		f1		[58-101]		boolean		yes		static		[100-150]		50		19		1		
+var4		f1		[58-101]		boolean		yes		static		[100-150]		52		599		1		
 
-k		f1		[58-101]		integer		no		**		**		2		12		1		
+k		f1		[58-101]		integer		no		**		**		2		504		1		
 
-p		f1		[58-101]		real		no		**		**		4		8		1		
+p		f1		[58-101]		real		no		**		**		4		500		1		
 
-y1		f1		[58-101]		integer		no		**		**		2		14		1		
+y1		f1		[58-101]		integer		no		**		**		2		506		1		
 
-Var1		f1		[58-101]		real		yes		static		[35-50]		60		24		1		
+Var1		f1		[58-101]		real		yes		static		[35-50]		65		681		1		
 
-Var2		f1		[58-101]		real		yes		static		[35-50]		60		28		1		
+Var2		f1		[58-101]		real		yes		static		[35-50]		65		746		1		
 
-Var3		f1		[58-101]		boolean		yes		static		[100-150]		50		18		1		
+Var3		f1		[58-101]		boolean		yes		static		[100-150]		52		547		1		
 
-v		f1		[58-101]		real		no		**		**		4		6		2		
+v		f1		[58-101]		real		no		**		**		4		903		2		
 
-int1		f1		[58-101]		integer		no		**		**		2		10		2		
+int1		f1		[58-101]		integer		no		**		**		2		907		2		
 
-k		f1		[58-101]		integer		no		**		**		2		0		2		
+k		f1		[58-101]		integer		no		**		**		2		897		2		
 
-u		f1		[58-101]		real		no		**		**		4		2		2		
+u		f1		[58-101]		real		no		**		**		4		899		2		
 
 x		var_demo_array		[15-50]		integer		no		**		**		2		0		0		
 
-m		var_demo_array		[15-50]		integer		yes		static		[2-20]		36		0		0		
+m		var_demo_array		[15-50]		integer		yes		static		[2-20]		39		2		0		
 
-p		var_demo_array		[15-50]		real		no		**		**		4		0		0		
+p		var_demo_array		[15-50]		real		no		**		**		4		41		0		
 
-n		var_demo_array		[15-50]		integer		no		**		**		2		0		0		
+n		var_demo_array		[15-50]		integer		no		**		**		2		45		0		
 
-k		var_demo_array		[15-50]		boolean		no		**		**		1		0		0		
+k		var_demo_array		[15-50]		boolean		no		**		**		1		47		0		
 
-b4		var_demo_array		[15-50]		boolean		yes		static		[100-150]		50		6		1		
+b4		var_demo_array		[15-50]		boolean		yes		static		[100-150]		52		54		1		
 
-b7		var_demo_array		[15-50]		real		yes		static		[35-50]		60		17		1		
+b7		var_demo_array		[15-50]		real		yes		static		[35-50]		65		153		1		
 
-a		var_demo_array		[15-50]		integer		no		**		**		2		0		1		
+a		var_demo_array		[15-50]		integer		no		**		**		2		48		1		
 
-b		var_demo_array		[15-50]		integer		no		**		**		2		2		1		
+b		var_demo_array		[15-50]		integer		no		**		**		2		50		1		
 
-h		var_demo_array		[15-50]		integer		no		**		**		2		4		1		
+h		var_demo_array		[15-50]		integer		no		**		**		2		52		1		
 
-v1		var_demo_array		[15-50]		real		no		**		**		4		9		1		
+v1		var_demo_array		[15-50]		real		no		**		**		4		145		1		
 
-v2		var_demo_array		[15-50]		real		no		**		**		4		13		1		
+v2		var_demo_array		[15-50]		real		no		**		**		4		149		1		
 
-p		var_demo_array		[15-50]		integer		yes		static		[2-20]		36		7		1		
+p		var_demo_array		[15-50]		integer		yes		static		[2-20]		39		106		1		
 
-b5		var_demo_array		[15-50]		real		yes		static		[35-50]		60		6		2		
+b5		var_demo_array		[15-50]		real		yes		static		[35-50]		65		261		2		
 
-b6		var_demo_array		[15-50]		real		yes		static		[35-50]		60		10		2		
+b6		var_demo_array		[15-50]		real		yes		static		[35-50]		65		326		2		
 
-b		var_demo_array		[15-50]		integer		yes		static		[2-20]		36		4		2		
+b		var_demo_array		[15-50]		integer		yes		static		[2-20]		39		222		2		
 
-v3		var_demo_array		[15-50]		integer		no		**		**		2		14		2		
+v3		var_demo_array		[15-50]		integer		no		**		**		2		391		2		
 
-p		var_demo_array		[15-50]		integer		no		**		**		2		0		2		
+p		var_demo_array		[15-50]		integer		no		**		**		2		218		2		
 
-u		var_demo_array		[15-50]		integer		no		**		**		2		2		2		
+u		var_demo_array		[15-50]		integer		no		**		**		2		220		2		
 
-w		driver		[115-146]		integer		no		**		**		2		31		1		
+w		driver		[115-146]		integer		no		**		**		2		1029		1		
 
-A		driver		[115-146]		integer		no		**		**		2		2		1		
+A		driver		[115-146]		integer		no		**		**		2		926		1		
 
-B		driver		[115-146]		integer		yes		static		[2-20]		36		11		1		
+B		driver		[115-146]		integer		yes		static		[2-20]		39		935		1		
 
-C		driver		[115-146]		integer		yes		static		[2-20]		36		13		1		
+C		driver		[115-146]		integer		yes		static		[2-20]		39		974		1		
 
-value		driver		[115-146]		real		no		**		**		4		19		1		
+value		driver		[115-146]		real		no		**		**		4		1017		1		
 
-D		driver		[115-146]		integer		yes		static		[20-40]		40		33		1		
+D		driver		[115-146]		integer		yes		static		[20-40]		43		1031		1		
 
-v_1_2_3		driver		[115-146]		integer		no		**		**		2		0		1		
+v_1_2_3		driver		[115-146]		integer		no		**		**		2		924		1		
 
-a		driver		[115-146]		integer		no		**		**		2		15		1		
+a		driver		[115-146]		integer		no		**		**		2		1013		1		
 
-b		driver		[115-146]		integer		no		**		**		2		17		1		
+b		driver		[115-146]		integer		no		**		**		2		1015		1		
 
-u1		driver		[115-146]		boolean		no		**		**		1		4		1		
+u1		driver		[115-146]		boolean		no		**		**		1		928		1		
 
-u2		driver		[115-146]		boolean		no		**		**		1		5		1		
+u2		driver		[115-146]		boolean		no		**		**		1		929		1		
 
-k		driver		[115-146]		boolean		no		**		**		1		6		1		
+k		driver		[115-146]		boolean		no		**		**		1		930		1		
 
-p		driver		[115-146]		real		no		**		**		4		7		1		
+p		driver		[115-146]		real		no		**		**		4		931		1		
 
-q		driver		[115-146]		real		no		**		**		4		23		1		
+q		driver		[115-146]		real		no		**		**		4		1021		1		
 
-r		driver		[115-146]		real		no		**		**		4		27		1		
+r		driver		[115-146]		real		no		**		**		4		1025		1		
 
 Enter your option: 
