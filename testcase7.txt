@@ -1,0 +1,16 @@
+<<<driver program>>>
+start
+Arr[a[b[a*b-c]]] = 90;
+v[true] := false;
+
+print(
+    a
+);
+range:= 25..-90;
+for i in range of 25 .. . .. -09()
+switch(y)
+start
+break;
+end
+for i in range of 25 .. . .. -09()
+end
