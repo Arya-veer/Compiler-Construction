@@ -101,21 +101,15 @@ int main(int argc, char* argv[]){
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);
-                // while(root!=NULL){
-                //     // printf("%s\n",NONTERMINALS_STRINGS[root->TREENODEDATA->nonterminal]);
-                //     traversal(root->addr,GLOBAL_SYMBOL_TABLE);
-                //     root = root->next;
-                // }
-                // printTable(GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n");
                 traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
-                // while(root!=NULL){
-                //     traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
-                //     root = root->next;
-                // }
                 printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n");
-                // QR = initializeQuadruple();
-                printFullTable(GST);
+                QR = initializeQuadruple();
+                printf("STARTING INTERMEDIATE CODE GENERATION\n\n");
+                traversalForCodeGeneration(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("PRINTING QUADRUPLE\n\n");
+                printQuadRuple();
+                // printFullTable(GST);
                 
                 break;
             }

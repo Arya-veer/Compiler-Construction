@@ -1,42 +1,25 @@
+<<module for_loop_demo>>
+takes input [x: integer, y: real, z:boolean];
+returns [u: integer];
+start
+
+	declare k: integer;
+	for(k in -12..70)
+	start
+		u:= x+k;
+	end
+end
+
 <<<driver program>>>
 start
 	declare a:integer;
-	declare b:boolean;
-	declare A:array[-1..+10] of integer;
-	for(i in -1..10)
-	start
-		switch(b)
-		start
-			case true: a:=1;
-			break;
-			case false: a:=2;
-			break;
-		end
-		a:=a + A[i];
-		for(j in -1..10)
-			start
-				A[j] := A[i];
-			end
-		switch(b)
-		start
-			case true: a:=1;
-			break;
-			case false: a:=2;
-			break;
-		end
-		for(j in -1..10)
-			start
-				A[j] := A[i];
-			end
-		for(j in -1..10)
-			start
-				A[j] := A[i];
-			end
-	end
-	while(a < A[5])
-		start
-			declare a,b:integer;
-			a:=A[1];
-		end
+	declare b: integer;
+	declare B: array[10..30] of integer;
+	b:=10;
+	a := b*2+4;
+	B[15] := a+B[20]+B[a+b-3];
+	b := B[20];
+	[a] := use module for_loop_demo with parameters 10,10.2,true;
+	print(a);
 end
 

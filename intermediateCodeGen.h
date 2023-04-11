@@ -4,4 +4,6 @@
 
 QUADRUPLE QR;
 QUADRUPLE initializeQuadruple();
+void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE);
+void printQuadRuple();
 #endif
