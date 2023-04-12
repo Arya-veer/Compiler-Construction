@@ -4,7 +4,12 @@
 start
 	declare a:integer;
 	declare b: integer;
-	b:=10;
+	b:=7;
 	a:=b;
+	declare c:integer;
+	c:=a+b;
+	print(a);
+	print(b);
+	print(c);
 end
 

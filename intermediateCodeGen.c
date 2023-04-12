@@ -78,7 +78,6 @@ QUADRUPLEROW getRowFromQuadruple(){
     QUADRUPLE q = QR;
     QUADRUPLEROW top = q->top;
     q->top = top->below;
-    printf("KON HAI\n\n");
     return top;
 }
 
