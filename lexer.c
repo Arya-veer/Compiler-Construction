@@ -346,7 +346,6 @@ LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
                 break;
             case 19:
                 incrementForward(TB);
-                printf("%d\n\n",lineCount);
                 skipComment(TB,toPrint);
                 state=0;
                 break;

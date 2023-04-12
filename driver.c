@@ -32,43 +32,21 @@ Arguments* argparse(int argc, char* argv[]){
     return arglist;
 }
 
-short removeComments(char* srcName, char* distName){
-    // if(argc < 3) return 0;
-    FILE* src = fopen(srcName,"r");
-    FILE* dist = fopen(distName,"w");
-
-    short shouldPrint = 1;
-
-    short oldChar = getc(src);
-    short newChar = getc(src);
-
-    while(oldChar != EOF){
-        if(oldChar == '*' && newChar == '*') {
-            shouldPrint = !shouldPrint;
-            oldChar = getc(src);
-            newChar = getc(src);
-        }
-        if(shouldPrint) putc(oldChar, dist);
-        oldChar = newChar;
-        newChar = getc(src);
-    }
-    return 0;
-}
 
 int main(int argc, char* argv[]){
     int option = -1;
-    printf("            FIRST AND FOLLOW SETS AUTOMATED         \n");
-    printf("            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         \n");
-    printf("            MODULES WORK WITH ALL GIVEN TEST CASES\n");
+    // printf("            FIRST AND FOLLOW SETS AUTOMATED         \n");
+    // printf("            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         \n");
+    // printf("            MODULES WORK WITH ALL GIVEN TEST CASES\n");
 
 
     char* grammarFile = "grammar.txt";
     char* inputFile = argv[1];
     char* outputFile = argv[2];
-    if(argc != 4){ printf("4 arguments expected, %d received\n",argc); return 0;}
+    if(argc != 3){ printf("3 arguments expected, %d received\n",argc); return 0;}
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
-    int SIZE = atoi(argv[3]);
+    int SIZE = 1024;
     while(option){
         switch (option)
         {
@@ -77,11 +55,6 @@ int main(int argc, char* argv[]){
                 break;
 
             case 1:
-                removeComments(argv[1], "/dev/stdout");
-                printf("\n");
-                break;
-
-            case 2:
                 printf("2\n");
                 TwinBuffer* TB = initializeTwinBuffer(inputFile, SIZE);
                 LEXEME* lex = simulateDFA(TB,1);
@@ -92,39 +65,155 @@ int main(int argc, char* argv[]){
                 cleanTwinBuffer(TB);
                 break;
 
-            case 3:{
+            case 2:{
                 inputFile = argv[1];
                 outputFile = argv[2];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
+                TREENODE root = parser(grammarFile,inputFile,SIZE,1);
+                break;
+            }
+            case 3:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
                 applyRule(root);
-                // root = root->child->child;
-                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
-                GST = GLOBAL_SYMBOL_TABLE;
-                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
-                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n");
-                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
-                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n");
-                printFullTable(GST);
-                QR = initializeQuadruple();
-                
-                printf("STARTING INTERMEDIATE CODE GENERATION\n\n");
-                traversalForCodeGeneration(root->addr,GLOBAL_SYMBOL_TABLE);
-                printf("PRINTING QUADRUPLE\n\n");
-                printQuadRuple();
-                printf("PRINTING QUADRUPLE\n\n");
-
-                printQuadRuple();
-                printf("STARTING CODE GENERATION\n\n");
-                CodeGeneration();
-                
+                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING AST IN LEFT TO RIGHT & PREORDER \n\n\n\n");
+                printAST(root->addr);
                 break;
             }
             case 4:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
+                applyRule(root);
+                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING AST IN LEFT TO RIGHT & PREORDER \n\n\n\n");
+                printAST(root->addr);
+                printf("PRINTING WAS SUCCESSFUL, EXITING THE CODE\n\n\n\n\n");
+                break;
+            }
+            case 5:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                printFullTable(GST);
+                break;
+            }
+            case 6:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING ACTIVATION RECORD SIZES \n\n\n\n");
+                printFunctions(GST);
+                break;
+            }
+            case 7:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING ACTIVATION RECORD SIZES \n\n\n\n");
+                printArrayTable(GST);
+                break;
+            }
+            case 8:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                if(root == NULL){
+                    break;
+                }
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                break;
+            }
+            case 100:{
+                start_time = clock();
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                end_time = clock();
+                total_CPU_time = (end_time - start_time);
+                printf("Clock Ticks = %lf\n",total_CPU_time);
+                total_CPU_time_in_seconds = (double) total_CPU_time / CLOCKS_PER_SEC;
+                printf("The code took %lf seconds.\n\n", total_CPU_time_in_seconds);
+                break;
+            }
+            case 9:{
+                inputFile = argv[1];
+                printf("RUNNING PARSER\n");
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                applyRule(root);
+                SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
+                GST = GLOBAL_SYMBOL_TABLE;
+                traversal(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
+                traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                // QR = initializeQuadruple();
+                
+                // printf("STARTING INTERMEDIATE CODE GENERATION\n\n");
+                // traversalForCodeGeneration(root->addr,GLOBAL_SYMBOL_TABLE);
+                // printf("PRINTING QUADRUPLE\n\n");
+                // printQuadRuple();
+                // printf("PRINTING QUADRUPLE\n\n");
+
+                // printQuadRuple();
+                // printf("STARTING CODE GENERATION\n\n");
+                // CodeGeneration();
+                break;
+            }
+            case 400:{
                 start_time = clock();
                 // the code process
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile, outputFile,SIZE);
+                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
                 applyRule(root);
                 root = root->child->child;
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);

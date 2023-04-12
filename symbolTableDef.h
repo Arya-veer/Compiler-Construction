@@ -1,3 +1,10 @@
+//                         GROUP - 30
+// ID:  2020A7PS0094P                     Name:  Arya Veer Singh Chauhan
+// ID:  2020A7PS0049P                     Name:  Madhav Madhusoodanan
+// ID:  2020A7PS0016P                     Name:  Ruchika Sarkar
+// ID:  2020A7PS0984P                     Name:  Utsav Goel
+// ID:  2020A7PS0102P                     Name:  Hardik Jain
+
 #ifndef SYMTABDEF_H
 #define SYMTABDEF_H
 
@@ -8,8 +15,10 @@ typedef struct SymTabRowNode* SYMBOLTABLEROW;
 typedef struct arrRange* ARRRANGE;
 
 struct arrRange{
-    int left;
-    int right;
+    TREENODE left;
+    TREENODE right;
+    char* leftSign;
+    char* rightSign;
 };
 
 
@@ -29,7 +38,6 @@ struct SymTabRowNode{
 
 struct SymbolTable{
     SYMBOLTABLEROW* TABLE;
-    int offset;
     int currOffset;
     char* name;
     SYMBOLTABLE next;

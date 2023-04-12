@@ -1,3 +1,10 @@
+//                         GROUP - 30
+// ID:  2020A7PS0094P                     Name:  Arya Veer Singh Chauhan
+// ID:  2020A7PS0049P                     Name:  Madhav Madhusoodanan
+// ID:  2020A7PS0016P                     Name:  Ruchika Sarkar
+// ID:  2020A7PS0984P                     Name:  Utsav Goel
+// ID:  2020A7PS0102P                     Name:  Hardik Jain
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -734,9 +741,9 @@ void CodeGeneration(){
 
         case 26: //lessthan
         {
-        fprintf(file, "mov eax, [var1]\n");     ; move the value of var1 into eax
-        fprintf(file, "cmp eax, [var2]\n");     ; compare eax with the value of var2
-        jl less_than 
+        // fprintf(file, "mov eax, [var1]\n");     ; move the value of var1 into eax
+        // fprintf(file, "cmp eax, [var2]\n");     ; compare eax with the value of var2
+        // jl less_than 
             break;
         }
         case 27:

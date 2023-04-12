@@ -1,8 +1,15 @@
+//                         GROUP - 30
+// ID:  2020A7PS0094P                     Name:  Arya Veer Singh Chauhan
+// ID:  2020A7PS0049P                     Name:  Madhav Madhusoodanan
+// ID:  2020A7PS0016P                     Name:  Ruchika Sarkar
+// ID:  2020A7PS0984P                     Name:  Utsav Goel
+// ID:  2020A7PS0102P                     Name:  Hardik Jain
+
 #ifndef SYMTAB_H
 #define SYMTAB_H
 #include "symbolTableDef.h"
 
-int getWidth(SYMBOLTABLEROW str);
+int getWidth(SYMBOLTABLEROW str,int isParam);
 SYMBOLTABLE initializeSymbolTable(char* name,int first,int last);
 SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var);
 SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var);
@@ -22,6 +29,7 @@ SYMBOLTABLEROW GetSwitchFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE SWITCH
 SYMBOLTABLEROW GetCaseFromSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE);
 SYMBOLTABLEROW copy(SYMBOLTABLEROW old_row);
 void printFullTable(SYMBOLTABLE ST);
-
+void printFunctions(SYMBOLTABLE ST);
+void printArrayTable(SYMBOLTABLE ST);
 
 #endif
