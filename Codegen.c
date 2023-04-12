@@ -100,7 +100,7 @@
 // {
 //     // A IS FOR START RANGE
 //     // ECX IS FOR TOTAL RANGE
-//     // 
+//     //
 //     fprintf(file, "MOV EAX, [origin + %d]\n", GetVarFromSymbolTable(table, A)->offset);
 //     fprintf(file, "MOV ECX, [origin + %d]\n", GetVarFromSymbolTable(table, B)->offset);
 //     fprintf(file, "MOV [origin + %d], EAX\n", GetVarFromSymbolTable(table, C)->offset);
@@ -287,7 +287,8 @@
 //     fprinf(file, "END");
 // }
 
-void CodeGeneration(){
+void CodeGeneration()
+{
     FILE *file = fopen("finalCode.asm", "w");
     if (file == NULL)
     {
@@ -295,20 +296,18 @@ void CodeGeneration(){
         return;
     }
 
-    fprintf(file,"global main\n");
-    fprintf(file,"extern printf\n\n");
+    fprintf(file, "global main\n");
+    fprintf(file, "extern printf\n\n");
 
     fprintf(file, "section .data\n");
-    fprintf(file,"\t\torigin db 10\n\n");
+    fprintf(file, "\t\torigin db 10\n\n");
 
-    fprintf(file,"section .text\n");
-    
+    fprintf(file, "section .text\n");
 
     int for_label = 0;
     int while_label = 0;
     int case_label = 0;
     int switch_label = 0;
-
 
     while (1)
     {
@@ -423,7 +422,7 @@ void CodeGeneration(){
                     fprintf(file, "MOV AX,0\n");
                     fprintf(file, "MOV AX , [origin + %d]\n", ip->offset);
                 }
-                printf("%d\n",ip->offset);
+                printf("%d\n", ip->offset);
                 if (size == 1)
                 {
                     fprintf(file, "MOV AL,0\n");
@@ -438,34 +437,38 @@ void CodeGeneration(){
             break;
         }
 
-        case 8:{
-            SYMBOLTABLEROW ip = GetVarFromSymbolTable(table,qr->left);
-            if(ip->isDynamic == -1){
-                fprintf(file, "mov ebx, 0\n");
-                fprintf(file, "mov ecx, %d\n", ip->offset);
-                fprintf(file, "mov edx, %d\n", getWidth(ip));
-                fprintf(file, "mov eax, 3\n");
-                fprintf(file, "int 0x80");
-        }
+        case 8:
+        { // getr_value
+            //     SYMBOLTABLEROW ip = GetVarFromSymbolTable(table,qr->left);
+            //     if(ip->isDynamic == -1){
+            //         fprintf(file, "mov ebx, 0\n");
+            //         fprintf(file, "mov ecx, %d\n", ip->offset);
+            //         fprintf(file, "mov edx, %d\n", getWidth(ip));
+            //         fprintf(file, "mov eax, 3\n");
+            //         fprintf(file, "int 0x80");
+            // }
 
             break;
         }
 
-        case 9:
-        { 
-        SYMBOLTABLEROW ip = GetVarFromSymbolTable(table,qr->left);
-        if(ip->isDynamic == -1){
-            if(ip->type == TYPE_INTEGER){
-                    fprintf(file,"mov rdi,integer_printf_format\n\n");
-                    fprintf(file,"mov rsi,[origin + %d]\n\n",ip->offset);
-                    fprintf(file,"xor rax,rax\n\n");
-                    fprintf(file,"call printf WRT ..plt\n\n");
+        case 9: // print
+        {
+            SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
+            if (ip->isDynamic == -1)
+            {
+                if (ip->type == TYPE_INTEGER)
+                {
+                    fprintf(file, "mov rdi,integer_printf_format\n\n");
+                    fprintf(file, "mov rsi,[origin + %d]\n\n", ip->offset);
+                    fprintf(file, "xor rax,rax\n\n");
+                    fprintf(file, "call printf WRT ..plt\n\n");
                     // fprintf(file,"mov rax,60\nsyscall\n");
+                }
+                else
+                {
+                    printf("fkdslg\n\n");
+                }
             }
-            else{
-                printf("fkdslg\n\n");
-            }
-        }
 
             break;
         }
@@ -574,73 +577,74 @@ void CodeGeneration(){
 
         case 19:
         { // while_start
-        // fprintf(file, "MOV EAX, [origin + %d]\n", GetVarFromSymbolTable(table, A)->offset);
-        // fprintf(file, "CMP EAX, 0\n");
-        // fprintf(file, "JNZ WHILE_LABEL_END%d", while_index);
-        // fprintf(file, "WHILE_LABEL_%d:\n", while_index);
-        // break;
+            fprintf(file, "MOV EAX, [origin + %d]\n", GetVarFromSymbolTable(table, A)->offset);
+            fprintf(file, "CMP EAX, 0\n");
+            fprintf(file, "JNZ WHILE_LABEL_END%d", while_index);
+            fprintf(file, "WHILE_LABEL_%d:\n", while_index);
+            break;
         }
 
         case 20:
         { // while_end
-        // fprintf(file, "JUMP WHILE_LABEL_%d", while_index);
-        // fprintf(file, "WHILE_LABEL_END%d:\n", while_index++);
-        // break;
+            fprintf(file, "JUMP WHILE_LABEL_%d", while_index);
+            fprintf(file, "WHILE_LABEL_END%d:\n", while_index++);
+            break;
         }
 
         case 21:
         { // assign
-            SYMBOLTABLEROW a = GetVarFromSymbolTable(qr->ST,qr->left);
-            if(a->isDynamic == -1){
-                if(a->type == TYPE_BOOLEAN){
-                    if(qr->op1->TREENODEDATA->terminal->token == TRUE_BOOL){
-                        fprintf(file,"MOV AL, '1'\n");
-                        fprintf(file,"MOV [origin + %d] , AL\n",a->offset);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(qr->ST, qr->left);
+            if (a->isDynamic == -1)
+            {
+                if (a->type == TYPE_BOOLEAN)
+                {
+                    if (qr->op1->TREENODEDATA->terminal->token == TRUE_BOOL)
+                    {
+                        fprintf(file, "MOV AL, '1'\n");
+                        fprintf(file, "MOV [origin + %d] , AL\n", a->offset);
                     }
-                    else if(qr->op1->TREENODEDATA->terminal->token == FALSE_BOOL){
-                        fprintf(file,"MOV AL, '0'\n");
-                        fprintf(file,"MOV [origin + %d] , AL\n",a->offset);
+                    else if (qr->op1->TREENODEDATA->terminal->token == FALSE_BOOL)
+                    {
+                        fprintf(file, "MOV AL, '0'\n");
+                        fprintf(file, "MOV [origin + %d] , AL\n", a->offset);
                     }
-                    else{
-                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST,qr->op1);
-                        fprintf(file,"MOV AL, [origin + %d]\n",b->offset);
-                        fprintf(file,"MOV [origin + %d] ,AL\n",a->offset);
+                    else
+                    {
+                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+                        fprintf(file, "MOV AL, [origin + %d]\n", b->offset);
+                        fprintf(file, "MOV [origin + %d] ,AL\n", a->offset);
                     }
-                    
-
                 }
-                else if(a->type == TYPE_INTEGER){
-                    if(qr->op1->TREENODEDATA->terminal->token == NUM_TOKEN){
-                        fprintf(file,"MOV AX, %d\n",qr->op1->TREENODEDATA->terminal->lexemedata->intData);
-                        fprintf(file,"MOV [origin + %d], AX\n",a->offset);
+                else if (a->type == TYPE_INTEGER)
+                {
+                    if (qr->op1->TREENODEDATA->terminal->token == NUM_TOKEN)
+                    {
+                        fprintf(file, "MOV AX, %d\n", qr->op1->TREENODEDATA->terminal->lexemedata->intData);
+                        fprintf(file, "MOV [origin + %d], AX\n", a->offset);
                     }
-                    else{
-                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST,qr->op1);
-                        fprintf(file,"MOV AX, [origin + %d]\n",b->offset);
-                        fprintf(file,"MOV [origin + %d], AX\n",a->offset);
+                    else
+                    {
+                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+                        fprintf(file, "MOV AX, [origin + %d]\n", b->offset);
+                        fprintf(file, "MOV [origin + %d], AX\n", a->offset);
                     }
-                    
-
                 }
-                else if(a->type == TYPE_REAL){
-                    if(qr->op1->TREENODEDATA->terminal->token == RNUM_TOKEN){
-                        fprintf(file,"MOV EAX, %f\n",qr->op1->TREENODEDATA->terminal->lexemedata->floatData);
-                        fprintf(file,"MOV [origin + %d], EAX\n",a->offset);
+                else if (a->type == TYPE_REAL)
+                {
+                    if (qr->op1->TREENODEDATA->terminal->token == RNUM_TOKEN)
+                    {
+                        fprintf(file, "MOV EAX, %f\n", qr->op1->TREENODEDATA->terminal->lexemedata->floatData);
+                        fprintf(file, "MOV [origin + %d], EAX\n", a->offset);
                     }
-                    else{
-                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST,qr->op1);
-                        fprintf(file,"MOV EAX, [origin + %d]\n",b->offset);
-                        fprintf(file,"MOV [origin + %d] , EAX\n",a->offset);
+                    else
+                    {
+                        SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+                        fprintf(file, "MOV EAX, [origin + %d]\n", b->offset);
+                        fprintf(file, "MOV [origin + %d] , EAX\n", a->offset);
                     }
-
                 }
-                
-            }
-            else{
-                printf("ARRAY AAYA HAI\n\n\n");
             }
             break;
-            
         }
 
         case 22:
@@ -648,7 +652,7 @@ void CodeGeneration(){
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
-            printf("%d\n",C->offset);
+            printf("%d\n", C->offset);
 
             if (C->type == TYPE_REAL)
             {
@@ -659,8 +663,8 @@ void CodeGeneration(){
             else
             {
                 fprintf(file, "MOV AX, [origin + %d]\n", A->offset);
-                fprintf(file,  "ADD AX, [origin + %d]\n", B->offset);
-                fprintf(file,  "MOV [origin + %d] , AX\n", C->offset);
+                fprintf(file, "ADD AX, [origin + %d]\n", B->offset);
+                fprintf(file, "MOV [origin + %d] , AX\n", C->offset);
             }
             break;
         }
@@ -683,7 +687,7 @@ void CodeGeneration(){
                 fprintf(file, "SUB AX, [origin + %d]\n", B->offset);
                 fprintf(file, "MOV [origin + %d] , AX\n", C->offset);
             }
-            
+
             break;
         }
 
@@ -703,7 +707,7 @@ void CodeGeneration(){
             }
             else
             {
-            fprintf(file, "MOV AX,[origin + %d]\n", A->offset);
+                fprintf(file, "MOV AX,[origin + %d]\n", A->offset);
                 fprintf(file, "MOV BX,[origin + %d]\n", B->offset);
                 fprintf(file, "MUL BX\n");
                 fprintf(file, "MOV [origin + %d], AX\n", C->offset);
@@ -732,37 +736,211 @@ void CodeGeneration(){
             break;
         }
 
-        case 26: //lessthan
-        {
-        fprintf(file, "mov eax, [var1]\n");     ; move the value of var1 into eax
-        fprintf(file, "cmp eax, [var2]\n");     ; compare eax with the value of var2
-        jl less_than 
-            break;
-        }
-        case 27:
+        case 26: // unary_minus
         {
             break;
         }
-        case 28:
+
+        case 27: // array_access
         {
             break;
         }
-        case 29:
+
+        case 28: // array_assignment
+        {
+            // SYMBOLTABLEROW a = GetVarFromSymbolTable(qr->ST,qr->left);
+            // // fprintf(file, "Label%d , mov ecx , %d", case_label, numberofelementsinarray);
+            // fprintf(file, " DEC ECX ");
+
+            // if (a->isDynamic == -1)
+            // {
+            //     if (a->type == TYPE_BOOLEAN)
+            //     {
+            //         if (qr->op1->TREENODEDATA->terminal->token == TRUE_BOOL)
+            //         {
+            //             fprintf(file, "MOV AL, '1'\n");
+            //             fprintf(file, "MOV [origin + %d] , AL\n", a->offset);
+            //         }
+            //         else if (qr->op1->TREENODEDATA->terminal->token == FALSE_BOOL)
+            //         {
+            //             fprintf(file, "MOV AL, '0'\n");
+            //             fprintf(file, "MOV [origin + %d] , AL\n", a->offset);
+            //         }
+            //         else
+            //         {
+            //             SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+            //             fprintf(file, "MOV AL, [origin + %d]\n", b->offset);
+            //             fprintf(file, "MOV [origin + %d] ,AL\n", a->offset);
+            //         }
+            //     }
+            //     else if (a->type == TYPE_INTEGER)
+            //     {
+            //         if (qr->op1->TREENODEDATA->terminal->token == NUM_TOKEN)
+            //         {
+            //             fprintf(file, "MOV AX, %d\n", qr->op1->TREENODEDATA->terminal->lexemedata->intData);
+            //             fprintf(file, "MOV [origin + %d + %d - ECX*2], AX\n", a->offset , width);
+            //         }
+            //         else
+            //         {
+            //             SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+            //             fprintf(file, "MOV AX, [origin + %d]\n", b->offset);
+            //             fprintf(file, "MOV [origin + %d], AX\n", a->offset);
+            //         }
+            //     }
+            //     else if (a->type == TYPE_REAL)
+            //     {
+            //         if (qr->op1->TREENODEDATA->terminal->token == RNUM_TOKEN)
+            //         {
+            //             fprintf(file, "MOV EAX, %f\n", qr->op1->TREENODEDATA->terminal->lexemedata->floatData);
+            //             fprintf(file, "MOV [origin + %d], EAX\n", a->offset);
+            //         }
+            //         else
+            //         {
+            //             SYMBOLTABLEROW b = GetVarFromSymbolTable(qr->ST, qr->op1);
+            //             fprintf(file, "MOV EAX, [origin + %d]\n", b->offset);
+            //             fprintf(file, "MOV [origin + %d] , EAX\n", a->offset);
+            //         }
+            //     }
+            // }
+
+            // fprintf(file, "CMP ECX, 0");
+            // fprintf(file, "JNZ Label%d", case_label);
+
+            break;
+        }
+
+        case 29: // driver module end
         {
             fprintf(file, "MOV EAX, 1\nXOR EBX, EBX\nINT 0x80\n");
-                fprintf(file, "section .data\n");
-                fprintf(file,"\t\tinteger_printf_format: db \"%%d\" ,10,0\n");
-                fprintf(file,"\t\treal_printf_format: db \"%%f\" ,25,0\n");
+            fprintf(file, "section .data\n");
+            fprintf(file, "\t\tinteger_printf_format: db \"%%d\" ,10,0\n");
+            fprintf(file, "\t\treal_printf_format: db \"%%f\" ,25,0\n");
             return;
             break;
         }
-        case 30:
+
+        case 30: // lessthan
         {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "jl bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+        }
+
+        case 31: // lessthanequalto
+        {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "jle bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+        }
+
+        case 32: // greaterthan
+        {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "jg bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+        }
+
+        case 33: // greaterthanequal
+        {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "jge bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+            break;
+        }
+
+        case 34: // equal
+        {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "je bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+        }
+
+        case 35: // lessthan
+        {
+            SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "mov eax, [origin + %d]\n", a->offset);
+            fprintf(file, "mov ebx, [origin + %d]\n", b->offset);
+            fprintf(file, "cmp eax, ebx\n");
+            fprintf(file, "mov [origin+%d], eax", c->offset);
+            fprintf(file, "jne bool_%d", bool_count);
+            fprintf(file, "mov [origin + %d] , ebx", c->offset);
+            fprintf(file, "bool_%d", bool_count);
+            break;
+        }
+
+        case 36: // and
+        {
+            SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "MOV EAX, [origin + %d]\n", A->offset);
+            fprintf(file, "AND EAX, [origin + %d]\n", B->offset);
+            fprintf(file, "MOV [origin + %d] , EAX\n", C->offset);
+            break;
+        }
+
+        case 37: // or
+        {
+            SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
+            SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
+            SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
+
+            fprintf(file, "MOV EAX, [origin + %d]\n", A->offset);
+            fprintf(file, "OR EAX, [origin + %d]\n", B->offset);
+            fprintf(file, "MOV [origin + %d] , EAX\n", C->offset);
             break;
         }
         }
     }
 
-        // fprintf(file, "MOV EAX 1\n\nXOR EBX EBX\n\nINT 0x80\n\n");
+    // fprintf(file, "MOV EAX 1\n\nXOR EBX EBX\n\nINT 0x80\n\n");
 }
-
