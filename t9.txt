@@ -171,7 +171,8 @@ start
 				 get_value(Q);
 				 E[7]:= k+12 - Q*10+u;        **ERROR: Type mismatch error**    
 				 break;
-			default: E[9]:= B[15]+Q;	      **not an error**	
+			default: declare Q:integer;
+					E[9]:= B[15]+Q;	      **not an error**	
 				 [A, Q]:=use module function1 with parameters Var3, c, k, Var1, int1; **ERROR: Number of output parametters does not match with that of formal parameters**       
 				 break;			 	
 		end

@@ -1,0 +1,1087 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+MAKE NODE
+
+declare
+
+
+x
+
+
+integer
+
+
+MAKE NODE
+
+get_value
+
+
+x
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+declare
+
+
+k
+
+
+boolean
+
+
+MAKE NODE
+
+:=
+
+
+h
+
+
+false
+
+
+MAKE NODE
+
+x
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+h
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+compute_expr
+
+
+z
+
+
+x
+
+
+MAKE NODE
+
+x
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+x
+
+
+NODE IS NULL
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+z
+
+
+NODE IS NULL
+
+MAKE NODE
+
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+k
+
+
+NODE IS NULL
+
+MAKE NODE
+
+driver
+
+
+declare
+
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+integer
+
+
+NODE IS NULL
+
+MAKE NODE
+
+b
+
+
+integer
+
+
+NODE IS NULL
+
+MAKE NODE
+
+c
+
+
+boolean
+
+
+NODE IS NULL
+
+MAKE NODE
+
+v
+
+
+boolean
+
+
+NODE IS NULL
+
+MAKE NODE
+
+u
+
+
+integer
+
+
+NODE IS NULL
+
+MAKE NODE
+
+takes
+
+
+a
+
+
+u
+
+
+MAKE NODE
+
+declare
+
+
+p
+
+
+integer
+
+
+MAKE NODE
+
+declare
+
+
+m
+
+
+boolean
+
+
+MAKE NODE
+
+get_value
+
+
+d
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+q
+
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+a
+
+
+b
+
+
+MAKE NODE
+
+d
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+d
+
+
+2
+
+
+MAKE NODE
+
++
+
+
+*
+
+
+*
+
+
+MAKE NODE
+
+3
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+-
+
+
++
+
+
+3
+
+
+MAKE NODE
+
+:=
+
+
+p
+
+
+-
+
+
+MAKE NODE
+
+c
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+<=
+
+
+a
+
+
+b
+
+
+MAKE NODE
+
+AND
+
+
+c
+
+
+<=
+
+
+MAKE NODE
+
+:=
+
+
+m
+
+
+AND
+
+
+MAKE NODE
+
+p
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+q
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
++
+
+
+p
+
+
+q
+
+
+MAKE NODE
+
+:=
+
+
+u
+
+
++
+
+
+MAKE NODE
+
+m
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+p
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+q
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+<=
+
+
+p
+
+
+q
+
+
+MAKE NODE
+
+OR
+
+
+m
+
+
+<=
+
+
+MAKE NODE
+
+:=
+
+
+v
+
+
+OR
+
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+a
+
+
+NODE IS NULL
+
+MAKE NODE
+
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+b
+
+
+NODE IS NULL
+
+MAKE NODE
+
+c
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+c
+
+
+NODE IS NULL
+
+MAKE NODE
+
+d
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+d
+
+
+NODE IS NULL
+
+MAKE NODE
+
+p
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+p
+
+
+NODE IS NULL
+
+MAKE NODE
+
+q
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+q
+
+
+NODE IS NULL
+
+MAKE NODE
+
+u
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+u
+
+
+NODE IS NULL
+
+MAKE NODE
+
+v
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+v
+
+
+NODE IS NULL
+
+MAKE NODE
+
+compute_expr
+
+
+takes
+
+
+declare
+
+
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+					TRAVERSAL 2 ENDED 
+
+a		compute_expr		[8-30]		integer		no		**		**		2		0		0		
+
+b		compute_expr		[8-30]		integer		no		**		**		2		2		0		
+
+c		compute_expr		[8-30]		boolean		no		**		**		1		4		0		
+
+u		compute_expr		[8-30]		integer		no		**		**		2		5		0		
+
+v		compute_expr		[8-30]		boolean		no		**		**		1		7		0		
+
+d		compute_expr		[8-30]		integer		no		**		**		2		12		1		
+
+m		compute_expr		[8-30]		boolean		no		**		**		1		14		1		
+
+p		compute_expr		[8-30]		integer		no		**		**		2		8		1		
+
+q		compute_expr		[8-30]		integer		no		**		**		2		10		1		
+
+x		driver		[30-10000]		integer		no		**		**		2		15		1		
+
+y		driver		[30-10000]		integer		no		**		**		2		17		1		
+
+z		driver		[30-10000]		integer		no		**		**		2		19		1		
+
+h		driver		[30-10000]		boolean		no		**		**		1		22		1		
+
+k		driver		[30-10000]		boolean		no		**		**		1		21		1		
+
+STARTING INTERMEDIATE CODE GENERATION
+
+*****************
+-
+
+
++
+
+
+3
+
+
+_________________
+*****************
++
+
+
+*
+
+
+*
+
+
+_________________
+*****************
+*
+
+
+a
+
+
+b
+
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+*
+
+
+d
+
+
+2
+
+
+_________________
+*****************
+d
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+3
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+AND
+
+
+c
+
+
+<=
+
+
+_________________
+*****************
+c
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+<=
+
+
+a
+
+
+b
+
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
++
+
+
+p
+
+
+q
+
+
+_________________
+*****************
+p
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+q
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+OR
+
+
+m
+
+
+<=
+
+
+_________________
+*****************
+m
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+<=
+
+
+p
+
+
+q
+
+
+_________________
+*****************
+p
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+q
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+false
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+PRINTING QUADRUPLE
+
+2  compute_expr  NULL  NULL  
+
+3  c  NULL  NULL  
+
+3  b  NULL  NULL  
+
+3  a  NULL  NULL  
+
+7  p  NULL  NULL  
+
+7  q  NULL  NULL  
+
+7  d  NULL  NULL  
+
+7  m  NULL  NULL  
+
+8  d  NULL  NULL  
+
+8  q  NULL  NULL  
+
+24  t0  a  b  
+
+24  t1  d  2  
+
+22  t2  t0  t1  
+
+23  t3  t2  3  
+
+21  p  t3  NULL  
+
+31  t4  a  b  
+
+36  t5  c  t4  
+
+21  m  t5  NULL  
+
+22  t6  p  q  
+
+21  u  t6  NULL  
+
+31  t7  p  q  
+
+37  t8  m  t7  
+
+21  v  t8  NULL  
+
+9  a  NULL  NULL  
+
+9  b  NULL  NULL  
+
+9  c  NULL  NULL  
+
+9  d  NULL  NULL  
+
+9  p  NULL  NULL  
+
+9  q  NULL  NULL  
+
+9  u  NULL  NULL  
+
+9  v  NULL  NULL  
+
+4  u  NULL  NULL  
+
+4  v  NULL  NULL  
+
+6  compute_expr  NULL  NULL  
+
+1  driver  NULL  NULL  
+
+7  x  NULL  NULL  
+
+7  y  NULL  NULL  
+
+7  z  NULL  NULL  
+
+8  x  NULL  NULL  
+
+8  y  NULL  NULL  
+
+7  k  NULL  NULL  
+
+7  h  NULL  NULL  
+
+21  h  false  NULL  
+
+10  x  NULL  NULL  
+
+10  y  NULL  NULL  
+
+10  h  NULL  NULL  
+
+5  compute_expr  NULL  NULL  
+
+11  k  NULL  NULL  
+
+11  z  NULL  NULL  
+
+9  x  NULL  NULL  
+
+9  y  NULL  NULL  
+
+9  z  NULL  NULL  
+
+9  k  NULL  NULL  
+
+29  NULL  NULL  NULL  
+
+Enter your option: 

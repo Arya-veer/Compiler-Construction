@@ -1,0 +1,137 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+					TRAVERSAL 2 ENDED 
+
+x		driver		[7-10000]		integer		no		**		**		2		8		1		
+
+y		driver		[7-10000]		integer		no		**		**		2		10		1		
+
+z		driver		[7-10000]		integer		no		**		**		2		12		1		
+
+A		driver		[7-10000]		integer		yes		static		[6-10]		11		14		1		
+
+B		driver		[7-10000]		integer		yes		static		[6-10]		11		25		1		
+
+C		driver		[7-10000]		integer		yes		static		[6-10]		11		36		1		
+
+k		driver		[7-10000]		integer		no		**		**		2		6		1		
+
+m		driver		[7-10000]		integer		no		**		**		2		0		1		
+
+n		driver		[7-10000]		integer		no		**		**		2		2		1		
+
+p		driver		[7-10000]		integer		no		**		**		2		4		1		
+
+k		driver		[7-10000]		integer		no		**		**		2		47		2		
+
+STARTING INTERMEDIATE CODE GENERATION
+
+m
+
+
+A
+
+
+A
+
+
+B
+
+
+A
+
+
+B
+
+
+A
+
+
+B
+
+
+PRINTING QUADRUPLE
+
+1  driver  NULL  NULL  
+
+7  m  NULL  NULL  
+
+7  n  NULL  NULL  
+
+7  p  NULL  NULL  
+
+7  k  NULL  NULL  
+
+7  x  NULL  NULL  
+
+7  y  NULL  NULL  
+
+7  z  NULL  NULL  
+
+7  A  NULL  NULL  
+
+7  B  NULL  NULL  
+
+7  C  NULL  NULL  
+
+8  A  NULL  NULL  
+
+8  B  NULL  NULL  
+
+21  p  7  NULL  
+
+12  k  NULL  NULL  
+
+8  m  NULL  NULL  
+
+8  n  NULL  NULL  
+
+27  t0  A  m  
+
+27  t1  B  n  
+
+22  t2  t0  t1  
+
+21  x  t2  NULL  
+
+27  t3  A  p  
+
+27  t4  B  n  
+
+22  t5  t3  t4  
+
+21  y  t5  NULL  
+
+27  t6  A  m  
+
+27  t7  B  p  
+
+22  t8  t6  t7  
+
+21  z  t8  NULL  
+
+9  x  NULL  NULL  
+
+9  y  NULL  NULL  
+
+9  z  NULL  NULL  
+
+13  NULL  NULL  NULL  
+
+29  NULL  NULL  NULL  
+
+Enter your option: 

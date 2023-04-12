@@ -2,6 +2,7 @@
 #define SYMTAB_H
 #include "symbolTableDef.h"
 
+int getWidth(SYMBOLTABLEROW str);
 SYMBOLTABLE initializeSymbolTable(char* name,int first,int last);
 SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var);
 SYMBOLTABLEROW StoreVarAsOutputParam(SYMBOLTABLEROW OP,TREENODE var);

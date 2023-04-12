@@ -8,7 +8,7 @@
 /*PRINTS AST NODE*/
 void printASTNODE(TREENODE node){
     if(node == NULL) printf("NODE IS NULL\n\n");
-    if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n\n\n",node->TREENODEDATA->terminal->lexemedata->intData);
+    else if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d\n\n\n",node->TREENODEDATA->terminal->lexemedata->intData);
     else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f\n\n\n",node->TREENODEDATA->terminal->lexemedata->floatData);
     else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data);
     else printf("%s\n\n\n",node->TREENODEDATA->terminal->lexemedata->data);
@@ -38,8 +38,12 @@ TREENODE insertAtLast(TREENODE toPut,TREENODE prevList){
 
 /*MAKE NODE*/
 TREENODE makeNode(TREENODE assign,TREENODE left,TREENODE right){
+    // printf("MAKE NODE\n\n");
     assign->left_child = left;
     assign->right_child = right;
+    // printASTNODE(assign);
+    // printASTNODE(left);
+    // printASTNODE(right);
     return assign;
 }
 
@@ -129,6 +133,7 @@ void applyRule(TREENODE parent){
             TREENODE moduleDef_node = getChildNonTerminal(moduleDef,parent);
             applyRule(moduleDef_node);
             TREENODE DRIVER = getChildTerminal(DRIVER_KEYWORD,parent);
+            DRIVER->isArray = moduleDef_node->isArray;
             driverModule_node->addr = makeNode(DRIVER,moduleDef_node->addr,NULL);
             free(getChildTerminal(DRIVERENDDEF_OPERATOR,driverModule_node));
             free(getChildTerminal(PROGRAM_KEYWORD,driverModule_node));
@@ -147,6 +152,7 @@ void applyRule(TREENODE parent){
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,module_node);
             TREENODE moduleDef_node = getChildNonTerminal(moduleDef,module_node);
             applyRule(moduleDef_node);
+            TAKES->isArray = moduleDef_node->isArray;
             module_node->addr = makeNode(ID,temp,moduleDef_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,module_node));
             free(getChildTerminal(SQBC_TOKEN,module_node));
@@ -340,8 +346,11 @@ void applyRule(TREENODE parent){
         case 30:{
             TREENODE moduleDef_node = parent;
             TREENODE statements_node = getChildNonTerminal(statements,parent);
+            TREENODE END = getChildTerminal(END_KEYWORD,moduleDef_node);
+
             applyRule(statements_node);
             moduleDef_node->addr = statements_node->addr;
+            moduleDef_node->isArray = END->TREENODEDATA->terminal->lineNo;
             // printf("BAMCHE SE LEKE AA GYA\n");
             free(getChildTerminal(END_KEYWORD,moduleDef_node));
             free(getChildTerminal(START_KEYWORD,moduleDef_node));
@@ -351,6 +360,7 @@ void applyRule(TREENODE parent){
         case 31:{
             TREENODE statements_node = parent;
             TREENODE statement_node = getChildNonTerminal(statement,parent);
+            statement_node->isArray = statement_node->isArray;
             applyRule(statement_node);
             TREENODE statements_node1 = getChildNonTerminal(statements,parent);
             applyRule(statements_node1);
@@ -933,7 +943,7 @@ void applyRule(TREENODE parent){
             TREENODE arithmeticExprWArr_node = parent;
             TREENODE termWArr_node = getChildNonTerminal(termWArr,parent);
             applyRule(termWArr_node);
-            arithmeticExprWArr_node->addr = termWArr_node->addr;
+            arithmeticExprWArr_node->addr = termWArr_node->addr_syn;
             TREENODE leftFactored_arithmeticExprWArr_node = getChildNonTerminal(leftFactored_arithmeticExprWArr,parent);
             leftFactored_arithmeticExprWArr_node->addr_inh = arithmeticExprWArr_node->addr;
             applyRule(leftFactored_arithmeticExprWArr_node);
@@ -1088,11 +1098,13 @@ void applyRule(TREENODE parent){
         case 119:{
             TREENODE conditionalStmt_node = parent;
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
+            TREENODE END = getChildTerminal(END_KEYWORD,conditionalStmt_node);
             TREENODE caseStmt_node = getChildNonTerminal(caseStmt,parent);
             applyRule(caseStmt_node);
             TREENODE dfault_node = getChildNonTerminal(dfault,parent);
             applyRule(dfault_node);
             conditionalStmt_node->addr = makeNode(ID,caseStmt_node->addr,dfault_node->addr);
+            conditionalStmt_node->isArray = getChildTerminal(END_KEYWORD,conditionalStmt_node)->TREENODEDATA->terminal->lineNo;
             free(getChildTerminal(END_KEYWORD,conditionalStmt_node));
             free(getChildTerminal(START_KEYWORD,conditionalStmt_node));
             free(getChildTerminal(BC_TOKEN,conditionalStmt_node));
@@ -1106,11 +1118,11 @@ void applyRule(TREENODE parent){
             applyRule(value_node);
             TREENODE statements_node = getChildNonTerminal(statements,parent);
             applyRule(statements_node);
-            caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,NULL);//*CHECK THIS*
+            caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,getChildTerminal(BREAK_KEYWORD,caseStmt_node));//*CHECK THIS*
             TREENODE leftFactored_caseStmt_node = getChildNonTerminal(leftFactored_caseStmt,parent);
             applyRule(leftFactored_caseStmt_node);
             free(getChildTerminal(SEMICOL_OPERATOR,caseStmt_node));
-            free(getChildTerminal(BREAK_KEYWORD,caseStmt_node));
+            // free(getChildTerminal(BREAK_KEYWORD,caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,caseStmt_node));
             caseStmt_node->list_addr_syn = insertAtBegin(caseStmt_node->addr,leftFactored_caseStmt_node->list_addr_syn);
@@ -1122,11 +1134,11 @@ void applyRule(TREENODE parent){
             applyRule(value_node);
             TREENODE statements_node = getChildNonTerminal(statements,parent);
             applyRule(statements_node);
-            leftFactored_caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,NULL);//*CHECK THIS*
+            leftFactored_caseStmt_node->addr = makeNode(value_node->addr,statements_node->addr,getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt_node));//*CHECK THIS*
             TREENODE leftFactored_caseStmt_node1 = getChildNonTerminal(leftFactored_caseStmt,parent);
             applyRule(leftFactored_caseStmt_node1);
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_caseStmt_node));
-            free(getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt_node));
+            // free(getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,leftFactored_caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,leftFactored_caseStmt_node));
             leftFactored_caseStmt_node->list_addr_syn = insertAtBegin(leftFactored_caseStmt_node->addr,leftFactored_caseStmt_node1->list_addr_syn);
@@ -1170,7 +1182,10 @@ void applyRule(TREENODE parent){
         }
         case 127:{
             TREENODE iterativeStmt_node = parent;
+            TREENODE END = getChildTerminal(END_KEYWORD,iterativeStmt_node);
             TREENODE FOR = getChildTerminal(FOR_KEYWORD,iterativeStmt_node);
+            FOR->isArray = END->TREENODEDATA->terminal->lineNo;
+            printf("FOR: %d\n\n\n",FOR->isArray);
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             TREENODE* NUM = getDualTerminal(NUM_TOKEN,parent);
             TREENODE* sign_node = getDualNonTerminal(sign,parent);
@@ -1201,6 +1216,8 @@ void applyRule(TREENODE parent){
             applyRule(arithmeticBooleanExpr_node);
             TREENODE statements_node = getChildNonTerminal(statements,parent);
             applyRule(statements_node);
+            TREENODE END = getChildTerminal(END_KEYWORD,iterativeStmt_node);
+            WHILE->isArray = END->TREENODEDATA->terminal->lineNo;
             iterativeStmt_node->addr = makeNode(WHILE,arithmeticBooleanExpr_node->addr_syn,statements_node->addr);
             free(getChildTerminal(END_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(START_KEYWORD,iterativeStmt_node));
@@ -1216,15 +1233,15 @@ void applyRule(TREENODE parent){
                                                                 *TYPE EXTRACTION*
 */
 
-void getStartEnd(TREENODE node,SYMBOLTABLE ST){
-    ST->first = node->TREENODEDATA->terminal->lineNo;
-    if(node->list_addr_syn != NULL){
-        ST->last = node->list_addr_syn->TREENODEDATA->terminal->lineNo;
-    }
-    else{
-        ST->last = ST->parent->last;
-    }
-}
+// void getStartEnd(TREENODE node,SYMBOLTABLE ST){
+//     ST->first = node->TREENODEDATA->terminal->lineNo;
+//     if(node->list_addr_syn != NULL){
+//         ST->last = node->list_addr_syn->TREENODEDATA->terminal->lineNo;
+//     }
+//     else{
+//         ST->last = ST->parent->last;
+//     }
+// }
 
 /*GIVES TYPE OF ANY NODE*/
 int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
@@ -1243,7 +1260,7 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             TREENODE sign_node = node->left_child;
             
             if(node->right_child != NULL){ 
-                if(row->range == NULL)printf("LINE %d: ONLY ARRAYS CAN HAVE AN INDEX\n",node->TREENODEDATA->terminal->lineNo);
+                if(row->isDynamic == -1)printf("LINE %d: ONLY ARRAYS CAN HAVE AN INDEX\n",node->TREENODEDATA->terminal->lineNo);
                 else{
                     typeExtractionExpr(node->right_child,SYMBOL_TABLE);
                     if(node->right_child->type != TYPE_INTEGER)printf("LINE %d: ARRAY INDEX SHOULD BE AN INTEGER\n",node->TREENODEDATA->terminal->lineNo);
@@ -1832,7 +1849,10 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         currFunc = row;
         row->SYMBOLTABLE = initializeSymbolTable("driver",node->TREENODEDATA->terminal->lineNo,0);
         row->SYMBOLTABLE -> parent = SYMBOL_TABLE;
-        getStartEnd(node,row->SYMBOLTABLE);
+        row->SYMBOLTABLE->last = node->isArray;
+        row->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
+        printf("%d\n",node->isArray);
+        // getStartEnd(node,row->SYMBOLTABLE);
         traversal(node->left_child,row->SYMBOLTABLE);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
 
@@ -1855,7 +1875,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         row->SYMBOLTABLE->name = row->id->lexemedata->data;
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        getStartEnd(node,row->SYMBOLTABLE);
+        row->SYMBOLTABLE->last = node->left_child->isArray;
+        row->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
+        // getStartEnd(node,row->SYMBOLTABLE);
         traversal(node->right_child,row->SYMBOLTABLE);
         // outputParamCheck(node,row);
         traversal(node->list_addr_syn,SYMBOL_TABLE);
@@ -1876,7 +1898,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreForIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("for",node->TREENODEDATA->terminal->lineNo,node->isArray);
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        getStartEnd(node,row->SYMBOLTABLE);
+        row->SYMBOLTABLE->last = node->isArray;
+        row->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
+        // getStartEnd(node,row->SYMBOLTABLE);
         SYMBOLTABLEROW FORID = StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
         row->SYMBOLTABLE->TABLE[64] = FORID;
         traversal(node->right_child,row->SYMBOLTABLE);
@@ -1890,7 +1914,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreWhileIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("while",node->TREENODEDATA->terminal->lineNo,node->isArray);
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        getStartEnd(node,row->SYMBOLTABLE);
+        row->SYMBOLTABLE->last = node->isArray;
+        // getStartEnd(node,row->SYMBOLTABLE);
         typeExtractionWhileExpr(node->left_child,SYMBOL_TABLE,row);
         if(node->left_child->type != TYPE_BOOLEAN){
             printf("LINE %d: WHILE LOOP EXPRESSION MUST BE BOOLEAN\n\n",node->TREENODEDATA->terminal->lineNo);
@@ -1907,7 +1932,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         SYMBOLTABLEROW row = StoreSwitchIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("switch",node->TREENODEDATA->terminal->lineNo,node->isArray);
         row->SYMBOLTABLE->parent = SYMBOL_TABLE;
-        getStartEnd(node,row->SYMBOLTABLE);
+        // getStartEnd(node,row->SYMBOLTABLE);
+        row->SYMBOLTABLE->last = node->parent->isArray;
         SYMBOLTABLEROW x = GetVarFromSymbolTable(SYMBOL_TABLE,node);
         int t = x->type;
         if(x->isDynamic != -1){
@@ -1928,7 +1954,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
             case_node->SYMBOLTABLE = initializeSymbolTable("case",node->TREENODEDATA->terminal->lineNo,node->isArray);
             case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
-            getStartEnd(node,case_node->SYMBOLTABLE);
+            case_node->SYMBOLTABLE->last = caseVal->right_child->TREENODEDATA->terminal->lineNo;
+            printASTNODE(caseVal->right_child);
+            // getStartEnd(node,case_node->SYMBOLTABLE);
             traversal(caseVal->left_child,case_node->SYMBOLTABLE);
             caseVal = caseVal->list_addr_syn;
         }
@@ -1936,6 +1964,10 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             printf("LINE %d: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",node->TREENODEDATA->terminal->lineNo);
         }
         else if(t == TYPE_INTEGER && node->right_child != NULL){
+            SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
+            case_node->SYMBOLTABLE = initializeSymbolTable("case",node->TREENODEDATA->terminal->lineNo,node->isArray);
+            case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
+            case_node->SYMBOLTABLE->last = caseVal->right_child->TREENODEDATA->terminal->lineNo;
             traversal(node->right_child->left_child,row->SYMBOLTABLE);
         }
         else if(t == TYPE_BOOLEAN && node->right_child != NULL){
@@ -2102,7 +2134,7 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         typeExtractionExpr(node->left_child,row->SYMBOLTABLE);
         traversalForDeclaredFuncs(node->right_child,row->SYMBOLTABLE);
         if(row->SYMBOLTABLE->TABLE[65] != NULL){
-            printf("LINE %d: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE\n\n",row->SYMBOLTABLE->last-1);
+            printf("LINE [%d-%d]: WHILE LOOP VARIABLE MUST BE ASSIGED VALUE ATLEAST ONCE\n\n",row->SYMBOLTABLE->first,row->SYMBOLTABLE->last);
         }
         traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
         return;

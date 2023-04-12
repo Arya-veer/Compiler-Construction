@@ -33,6 +33,14 @@ typedef enum{
     ARRAY_ACCESS,
     ARRAY_ASSIGNMENT,
     DRIVER_MODULE_END,
+    LESS_THAN,
+    LESS_THAN_EQUAL,
+    GREATER_THAN,
+    GREATER_THAN_EQUAL,
+    EQUAL,
+    NOT_EQUAL,
+    AND,
+    OR
 } OPERATOR;
 
 typedef struct Quadruple* QUADRUPLE; 
@@ -47,6 +55,7 @@ struct QuadrupleRow{
     QUADRUPLEROW below;
     SYMBOLTABLEROW currFunc;
     SYMBOLTABLE ST;
+    int data;
 };
 
 struct Quadruple{

@@ -1,0 +1,85 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+					TRAVERSAL 2 ENDED 
+
+A		driver		[7-10000]		integer		yes		static		[6-10]		11		4		1		
+
+B		driver		[7-10000]		integer		yes		static		[6-10]		11		15		1		
+
+C		driver		[7-10000]		integer		yes		static		[6-10]		11		26		1		
+
+temp		driver		[7-10000]		integer		no		**		**		2		2		1		
+
+m		driver		[7-10000]		integer		no		**		**		2		0		1		
+
+m		driver		[7-10000]		integer		no		**		**		2		37		2		
+
+STARTING INTERMEDIATE CODE GENERATION
+
+m
+
+
+A
+
+
+A
+
+
+B
+
+
+PRINTING QUADRUPLE
+
+1  driver  NULL  NULL  
+
+7  m  NULL  NULL  
+
+7  temp  NULL  NULL  
+
+7  A  NULL  NULL  
+
+7  B  NULL  NULL  
+
+7  C  NULL  NULL  
+
+8  A  NULL  NULL  
+
+8  B  NULL  NULL  
+
+12  m  NULL  NULL  
+
+27  t0  A  m  
+
+27  t1  B  m  
+
+22  t2  t0  t1  
+
+21  temp  t2  NULL  
+
+9  temp  NULL  NULL  
+
+27  t3  C  m  
+
+21  t3  temp  NULL  
+
+13  NULL  NULL  NULL  
+
+9  C  NULL  NULL  
+
+29  NULL  NULL  NULL  
+
+Enter your option: 

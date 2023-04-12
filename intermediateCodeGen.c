@@ -4,6 +4,11 @@
 #include "intermediateCodeGen.h"
 
 int TEMP_NUM = 0;
+int FOR_COUNT = 0;
+int WHILE_COUNT = 0;
+int CASE_COUNT = 0;
+int SWITCH_COUNT = 0;
+int DEFAULT_COUNT = 0;
 
 TREENODE getTemp(TREENODE node){
     TREENODE temp;
@@ -35,7 +40,7 @@ QUADRUPLE initializeQuadruple(){
     return q;
 }
 
-QUADRUPLEROW initializeQuadrupleRow(OPERATOR operator,TREENODE left,TREENODE op1,TREENODE op2,SYMBOLTABLEROW func,SYMBOLTABLE ST){
+QUADRUPLEROW initializeQuadrupleRow(OPERATOR operator,TREENODE left,TREENODE op1,TREENODE op2,SYMBOLTABLEROW func,SYMBOLTABLE ST,int data){
     QUADRUPLEROW qr = malloc(sizeof(struct QuadrupleRow));
     qr->below = NULL;
     qr->left = left;
@@ -44,6 +49,7 @@ QUADRUPLEROW initializeQuadrupleRow(OPERATOR operator,TREENODE left,TREENODE op1
     qr->op2 = op2;
     qr->ST = ST;
     qr->currFunc = func;
+    qr->data = data;
     return qr;
 }
 
@@ -54,10 +60,10 @@ void printQuadRupleRow(QUADRUPLEROW qr){
     printNODE(qr->op2);
 }
 
-QUADRUPLE insertRow(OPERATOR operator,TREENODE left,TREENODE op1,TREENODE op2,SYMBOLTABLEROW func,SYMBOLTABLE ST){
+QUADRUPLE insertRow(OPERATOR operator,TREENODE left,TREENODE op1,TREENODE op2,SYMBOLTABLEROW func,SYMBOLTABLE ST,int data){
     QUADRUPLE q = QR;
 
-    QUADRUPLEROW qr = initializeQuadrupleRow( operator, left, op1, op2,func,ST);
+    QUADRUPLEROW qr = initializeQuadrupleRow( operator, left, op1, op2,func,ST,data);
     if(q->top == NULL){
         q->top = qr;
         q->curr = qr;
@@ -68,7 +74,13 @@ QUADRUPLE insertRow(OPERATOR operator,TREENODE left,TREENODE op1,TREENODE op2,SY
     return q;
 }
 
-
+QUADRUPLEROW getRowFromQuadruple(){
+    QUADRUPLE q = QR;
+    QUADRUPLEROW top = q->top;
+    q->top = top->below;
+    printf("KON HAI\n\n");
+    return top;
+}
 
 void printQuadRuple(){
     QUADRUPLE q = QR;
@@ -82,37 +94,42 @@ void printQuadRuple(){
 
 void passParam(TREENODE param,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(param == NULL) return;
-    insertRow(PASS_PARAM,param,NULL,NULL,func,ST);
+    insertRow(PASS_PARAM,param,NULL,NULL,func,ST,-1);
     passParam(param->list_addr_syn,func,ST);
 }
 
 void getReturn(TREENODE param,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(param == NULL) return;
     getReturn(param->list_addr_syn,func,ST);
-    insertRow(GET_RETURN,param,NULL,NULL,func,ST);
+    insertRow(GET_RETURN,param,NULL,NULL,func,ST,-1);
 }
 
 void addDeclareVars(TREENODE var,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(var == NULL) return;
-    insertRow(DECLARE_VARIABLE,var,NULL,NULL,func,ST);
+    insertRow(DECLARE_VARIABLE,var,NULL,NULL,func,ST,-1);
     addDeclareVars(var->list_addr_syn,func,ST);
 }
 
 void addInputParams(TREENODE input_node,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(input_node == NULL) return;
     addInputParams(input_node->list_addr_syn,func,ST);
-    insertRow(FORMAL_INPUT_PARAMS,input_node,NULL,NULL,func,ST);
+    insertRow(FORMAL_INPUT_PARAMS,input_node,NULL,NULL,func,ST,-1);
 }
 
 void addOutputParams(TREENODE output_node,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(output_node == NULL) return;
-    insertRow(FORMAL_OUTPUT_PARAMS,output_node,NULL,NULL,func,ST);
+    insertRow(FORMAL_OUTPUT_PARAMS,output_node,NULL,NULL,func,ST,-1);
     addOutputParams(output_node->list_addr_syn,func,ST);
 }
 
 
 TREENODE expressionGenerator(TREENODE expression_node,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(expression_node == NULL) return NULL;
+    printf("*****************\n");
+    printASTNODE(expression_node);
+    printASTNODE(expression_node->left_child);
+    printASTNODE(expression_node->right_child);
+    printf("_________________\n");
     TREENODE left = expressionGenerator(expression_node->left_child,func,ST);
     TREENODE right = expressionGenerator(expression_node->right_child,func,ST);
 
@@ -121,65 +138,102 @@ TREENODE expressionGenerator(TREENODE expression_node,SYMBOLTABLEROW func,SYMBOL
         TREENODE temp = getTemp(expression_node);
         StoreVarIntoSymbolTable(ST,temp,NULL);
         
-        insertRow(ADDITION,temp,left,right,currFunc,ST);
+        insertRow(ADDITION,temp,left,right,currFunc,ST,-1);
         return temp;
     }
     else if(expression_node->TREENODEDATA->terminal->token == MINUS_OPERATOR){
         if(left == NULL && right == NULL) return NULL;
         TREENODE temp = getTemp(expression_node);
         StoreVarIntoSymbolTable(ST,temp,NULL);
-        insertRow(SUBTRACTION,temp,left,right,currFunc,ST);
+        insertRow(SUBTRACTION,temp,left,right,currFunc,ST,-1);
         return temp;
     }
     else if(expression_node->TREENODEDATA->terminal->token == MUL_OPERATOR){
         TREENODE temp = getTemp(expression_node);
         StoreVarIntoSymbolTable(ST,temp,NULL);
-        insertRow(MULTIPLICATION,temp,left,right,currFunc,ST);
+        insertRow(MULTIPLICATION,temp,left,right,currFunc,ST,-1);
         return temp;
     }
     else if(expression_node->TREENODEDATA->terminal->token == DIV_OPERATOR){
         TREENODE temp = getTemp(expression_node);
         StoreVarIntoSymbolTable(ST,temp,NULL);
-        insertRow(DIVISION,temp,left,right,currFunc,ST);
+        insertRow(DIVISION,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == LT_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(LESS_THAN,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == LE_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(LESS_THAN_EQUAL,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == GT_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(GREATER_THAN,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == GE_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(GREATER_THAN_EQUAL,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == EQ_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(EQUAL,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == NE_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(NOT_EQUAL,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == AND_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(AND,temp,left,right,currFunc,ST,-1);
+        return temp;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == OR_OPERATOR){
+        TREENODE temp = getTemp(expression_node);
+        StoreVarIntoSymbolTable(ST,temp,NULL);
+        insertRow(OR,temp,left,right,currFunc,ST,-1);
         return temp;
     }
     else if(expression_node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
-        if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == MINUS_OPERATOR){
+        SYMBOLTABLEROW row = GetVarFromSymbolTable(ST,expression_node);
+        if(row->isDynamic != -1){
+            printf("LINE %d\n",expression_node->TREENODEDATA->terminal->lineNo);
+            printASTNODE(expression_node);
+            printASTNODE(expression_node->right_child);
+
+            TREENODE temp1 = getTemp(expression_node);
+            StoreVarIntoSymbolTable(ST,temp1,NULL);
+            if(row->isDynamic == 1){
+                // TYPE CHECK KRNA HAI
+            }
+            insertRow(ARRAY_ACCESS,temp1,expression_node,right,currFunc,ST,-1);
+            return temp1;
+        }
+        else if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == MINUS_OPERATOR){
             TREENODE temp = getTemp(expression_node);
             StoreVarIntoSymbolTable(ST,temp,NULL);
-            SYMBOLTABLEROW row = GetVarFromSymbolTable(ST,expression_node);
-            if(row->isDynamic == -1){
-                insertRow(UNARY_MINUS,temp,expression_node,NULL,currFunc,ST);
-                return temp;
-            }
-            else if(row->isDynamic == 0){
-                TREENODE temp1 = getTemp(expression_node);
-                StoreVarIntoSymbolTable(ST,temp1,NULL);
-                insertRow(ARRAY_ACCESS,temp1,expression_node,right,currFunc,ST);
-                insertRow(UNARY_MINUS,temp,temp1,NULL,currFunc,ST);
-            }
-            else{
-                /*YE BAAD ME KRNA HAI*/
-            }
+            insertRow(UNARY_MINUS,temp,expression_node,NULL,currFunc,ST,-1);
             return temp;
             
         }
-        SYMBOLTABLEROW row = GetVarFromSymbolTable(ST,expression_node);
-        TREENODE temp = expression_node;
-        if(row->isDynamic == -1){
-            return temp;
-        }
-        else if(row->isDynamic == 0){
-            printASTNODE(expression_node);
-            TREENODE temp1 = getTemp(expression_node);
-            StoreVarIntoSymbolTable(ST,temp1,NULL);
-            insertRow(ARRAY_ACCESS,temp1,expression_node,right,currFunc,ST);
-            return temp1;
-        }
-        else{
+
+        
             /*YE BAAD ME KRNA HAI*/
-        }
-        return temp;
+        return expression_node;
 
     }
 
@@ -189,7 +243,19 @@ TREENODE expressionGenerator(TREENODE expression_node,SYMBOLTABLEROW func,SYMBOL
     else if(expression_node->TREENODEDATA->terminal->token == RNUM_TOKEN){
         return expression_node;
     }
-
+    else if(expression_node->TREENODEDATA->terminal->token == TRUE_BOOL){
+        return expression_node;
+    }
+    else if(expression_node->TREENODEDATA->terminal->token == FALSE_BOOL){
+        return expression_node;
+    }
+    else{
+        printf("*****ERROR IN EXPRESSION*****");
+        printASTNODE(expression_node);
+        traversalForCodeGeneration(expression_node->left_child,ST);
+        traversalForCodeGeneration(expression_node->right_child,ST);
+        traversalForCodeGeneration(expression_node->list_addr_syn,ST);   
+    }
 }
 
 
@@ -201,38 +267,37 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
 
     /*MODULE DECLARATIONS*/
     if(node->parent != NULL && node->parent->TREENODEDATA->nonterminal == moduleDeclaration){
-        insertRow(MODULE_DECLARATION,node,NULL,NULL,currFunc,SYMBOL_TABLE);
+        insertRow(MODULE_DECLARATION,node,NULL,NULL,currFunc,SYMBOL_TABLE,-1);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
     /*DRIVER MODULE*/
     else if(node->TREENODEDATA->terminal->token == DRIVER_KEYWORD){
-        insertRow(DRIVER_MODULE,node,NULL,NULL,currFunc,SYMBOL_TABLE);
+        insertRow(DRIVER_MODULE,node,NULL,NULL,currFunc,SYMBOL_TABLE,-1);
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
         currFunc = row; 
         traversalForCodeGeneration(node->left_child,row->SYMBOLTABLE);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
-
+        insertRow(DRIVER_MODULE_END,NULL,NULL,NULL,NULL,NULL,-1);
         return;
     }
 
     /*OTHER MODULES*/
     else if(node->left_child!=NULL && node->left_child->TREENODEDATA->terminal->token == TAKES_KEYWORD){
-        insertRow(MODULE_DEFINITION, node , NULL , NULL, currFunc,SYMBOL_TABLE);
+        insertRow(MODULE_DEFINITION, node , NULL , NULL, currFunc,SYMBOL_TABLE,-1);
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(SYMBOL_TABLE,node);
         currFunc = row;
-        addInputParams(node->left_child->left_child, currFunc,SYMBOL_TABLE);
+        addInputParams(node->left_child->left_child, currFunc,row->SYMBOLTABLE);
         traversalForCodeGeneration(node->right_child,row->SYMBOLTABLE);
-        addOutputParams(node->left_child->right_child, currFunc,SYMBOL_TABLE);
-        insertRow(MODULE_END, node , NULL , NULL, currFunc,SYMBOL_TABLE);
+        addOutputParams(node->left_child->right_child, currFunc,row->SYMBOLTABLE);
+        insertRow(MODULE_END, node , NULL , NULL, currFunc,SYMBOL_TABLE,-1);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
     /*DECLARE STMT*/
     else if(node->TREENODEDATA->terminal->token == DECLARE_KEYWORD){
-        
         addDeclareVars(node->left_child, currFunc,SYMBOL_TABLE);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
@@ -247,20 +312,22 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         if(node->left_child->right_child->left_child != NULL && node->left_child->right_child->left_child->TREENODEDATA->terminal->token == MINUS_OPERATOR){
             node->left_child->right_child->TREENODEDATA->terminal->lexemedata->intData*=-1;
         }
-        insertRow(FOR_LOOP,node->left_child,node->left_child->left_child,node->left_child->right_child, currFunc,SYMBOL_TABLE);
+        int for_label = FOR_COUNT++;
+        insertRow(FOR_LOOP,node->left_child,NULL,NULL, currFunc,row->SYMBOLTABLE,for_label);
         traversalForCodeGeneration(node->right_child,row->SYMBOLTABLE);
-        insertRow(FOR_LOOP_END,NULL,NULL,NULL, currFunc,SYMBOL_TABLE);
+        insertRow(FOR_LOOP_END,NULL,NULL,NULL, currFunc,SYMBOL_TABLE,for_label);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
     /*WHILE LOOP ITERATIVE STMT*/
     else if(node->TREENODEDATA->terminal->token == WHILE_KEYWORD){
-        // SYMBOLTABLEROW row = StoreWhileIntoSymbolTable(SYMBOL_TABLE,node);
-        // whileExprExtraction(node->left_child,SYMBOL_TABLE);
-        // insertRow(WHILE_START,NULL,NULL,NULL,currFunc,SYMBOL_TABLE);
-        // traversalForCodeGeneration(node->right_child,row->SYMBOLTABLE);
-        // insertRow(WHILE_END,NULL,NULL,NULL,currFunc,SYMBOL_TABLE);
+        SYMBOLTABLEROW row = GetWhileFromSymbolTable(SYMBOL_TABLE,node);
+        TREENODE left = expressionGenerator(node->left_child,currFunc,SYMBOL_TABLE);
+        int while_label = WHILE_COUNT++;
+        insertRow(WHILE_START,left,NULL,NULL,currFunc,SYMBOL_TABLE,while_label);
+        traversalForCodeGeneration(node->right_child,row->SYMBOLTABLE);
+        insertRow(WHILE_END,left,NULL,NULL,currFunc,SYMBOL_TABLE,while_label);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -268,20 +335,22 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     /*CONDITIONAL STMT*/
     else if(node->parent!=NULL && node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
         SYMBOLTABLEROW row = GetSwitchFromSymbolTable(SYMBOL_TABLE,node);
-        insertRow(SWITCH_START,node,NULL,NULL,currFunc,SYMBOL_TABLE);
+        int switch_label = SWITCH_COUNT++;
+        insertRow(SWITCH_START,node,NULL,NULL,currFunc,SYMBOL_TABLE,switch_label);
         TREENODE caseVal = node->left_child;
         while(caseVal!=NULL){
-            insertRow(CASE_START,caseVal,NULL,NULL,currFunc,SYMBOL_TABLE);
+            int case_label = CASE_COUNT;
+            insertRow(CASE_START,caseVal,NULL,NULL,currFunc,SYMBOL_TABLE,case_label);
             SYMBOLTABLEROW case_node = GetCaseFromSymbolTable(row->SYMBOLTABLE,caseVal);
             traversalForCodeGeneration(caseVal->left_child,case_node->SYMBOLTABLE);
-            insertRow(CASE_BREAK,NULL,NULL,NULL,currFunc,SYMBOL_TABLE);
+            insertRow(CASE_BREAK,NULL,NULL,NULL,currFunc,SYMBOL_TABLE,case_label);
             caseVal = caseVal->list_addr_syn;
         }
         if(node->right_child !=NULL){
-            insertRow(DEFAULT_START,NULL,NULL,NULL,currFunc,SYMBOL_TABLE);
+            insertRow(DEFAULT_START,NULL,NULL,NULL,currFunc,SYMBOL_TABLE,DEFAULT_COUNT++);
             traversalForCodeGeneration(node->right_child->left_child,SYMBOL_TABLE);
         }
-        insertRow(SWITCH_END,node,NULL,NULL,currFunc,SYMBOL_TABLE);
+        insertRow(SWITCH_END,node,NULL,NULL,currFunc,SYMBOL_TABLE,switch_label);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
@@ -289,9 +358,9 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     /*MODULE REUSE STMT: SIMPLE STMT*/
     else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
         passParam(node->right_child, currFunc,SYMBOL_TABLE);
-        insertRow(MODULE_REUSE,node,NULL,NULL, currFunc,SYMBOL_TABLE);
+        insertRow(MODULE_REUSE,node,NULL,NULL, currFunc,SYMBOL_TABLE,-1);
         getReturn(node->left_child, currFunc,SYMBOL_TABLE);
-        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
@@ -299,19 +368,19 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->TREENODEDATA->terminal->token == ASSIGNOP_OPERATOR){
         SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,node->left_child);
         if(leftRow->isDynamic != -1 && node->left_child->right_child == NULL){
-            insertRow(ARRAY_ASSIGNMENT,node->left_child,node->right_child,NULL,currFunc,SYMBOL_TABLE);
+            insertRow(ARRAY_ASSIGNMENT,node->left_child,node->right_child,NULL,currFunc,SYMBOL_TABLE,-1);
         }
         else if(leftRow->isDynamic != -1 && node->left_child->right_child != NULL){
             TREENODE temp1 = expressionGenerator(node->left_child->right_child,currFunc,SYMBOL_TABLE);
             TREENODE temp = getTemp(node);
             StoreVarIntoSymbolTable(SYMBOL_TABLE,temp,NULL);
-            insertRow(ARRAY_ACCESS,temp,node->left_child,temp1,currFunc,SYMBOL_TABLE);
+            insertRow(ARRAY_ACCESS,temp,node->left_child,temp1,currFunc,SYMBOL_TABLE,-1);
             TREENODE right = expressionGenerator(node->right_child,currFunc,SYMBOL_TABLE);
-            insertRow(ASSIGN,temp,right,NULL,currFunc,SYMBOL_TABLE);
+            insertRow(ASSIGN,temp,right,NULL,currFunc,SYMBOL_TABLE,-1);
         }
         else{
             TREENODE right = expressionGenerator(node->right_child,currFunc,SYMBOL_TABLE);
-            insertRow(ASSIGN,node->left_child,right,NULL,currFunc,SYMBOL_TABLE);
+            insertRow(ASSIGN,node->left_child,right,NULL,currFunc,SYMBOL_TABLE,-1);
         }
         // insertRow(ASSIGN,node->left_child,)
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
@@ -321,15 +390,15 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     /*GET VALUE: IO STMT*/
     else if(node->TREENODEDATA->terminal->token == GET_VALUE_KEYWORD){
         TREENODE ID = node->left_child;
-        insertRow(GET_VALUE,ID,NULL,NULL, currFunc,SYMBOL_TABLE);
-        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        insertRow(GET_VALUE,ID,NULL,NULL, currFunc,SYMBOL_TABLE,-1);
+        traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
 
     /*PRINT FUNCTION: IO STMT */
     else if(node->TREENODEDATA->terminal->token == PRINT_FUNCTION){
-        insertRow(PRINT_VALUE,node->left_child,NULL,NULL, currFunc,SYMBOL_TABLE);
-        traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
+        insertRow(PRINT_VALUE,node->left_child,NULL,NULL, currFunc,SYMBOL_TABLE,-1);
+        traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
         return;
     }
     

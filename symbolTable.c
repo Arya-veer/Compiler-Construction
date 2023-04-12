@@ -15,6 +15,15 @@ int OFFSET = 0;
 
 
 
+int getWidth(SYMBOLTABLEROW str){
+    int width;
+    width = OFFSETS[str->type];
+    if(str->isDynamic == 0){
+        width = width*(str->range->right - str->range->left + 1) + 1;
+    }
+    return width;
+}
+
 
 void printLinkedListST(SYMBOLTABLEROW row){
     if(row == NULL) return;
@@ -523,10 +532,10 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
     printf("\n\n");
 }
 
-void printLinkedList(SYMBOLTABLEROW function,SYMBOLTABLEROW head,int level){
+void printLinkedList(SYMBOLTABLEROW function,SYMBOLTABLEROW head,int level,SYMBOLTABLEROW scopeRow){
     if(head == NULL) return;
-    printRowSymbolTable(function,function->SYMBOLTABLE,head,level);
-    printLinkedList(function,head->next,level);
+    printRowSymbolTable(function,scopeRow->SYMBOLTABLE,head,level);
+    printLinkedList(function,head->next,level,scopeRow);
 }
 
 void printLinkedFunctions(SYMBOLTABLEROW function,SYMBOLTABLEROW scope_row,int level){
@@ -537,12 +546,12 @@ void printFunctionTable(SYMBOLTABLEROW function,SYMBOLTABLEROW scope_row,int lev
     if(scope_row == NULL || scope_row->SYMBOLTABLE == NULL || scope_row->SYMBOLTABLE->TABLE == NULL) return;
     if(function == NULL) return;
     if(scope_row->INPUTPARAMSHEAD != NULL){
-        printLinkedList(function,function->INPUTPARAMSHEAD,0);
-        printLinkedList(function,function->OUTPUTPARAMSHEAD,0);
+        printLinkedList(function,function->INPUTPARAMSHEAD,0,scope_row);
+        printLinkedList(function,function->OUTPUTPARAMSHEAD,0,scope_row);
     }
     // if(scope_row->INPUTPARAMSHEAD == NULL && level == 1) return;
     for(int i = 0;i<SYMTABSIZE;i++){
-        printLinkedList(function,scope_row->SYMBOLTABLE->TABLE[i],level);
+        printLinkedList(function,scope_row->SYMBOLTABLE->TABLE[i],level,scope_row);
     }
     if(scope_row->SYMBOLTABLE->TABLE[FOR_ROW] != NULL){
         SYMBOLTABLEROW row = scope_row->SYMBOLTABLE->TABLE[FOR_ROW];

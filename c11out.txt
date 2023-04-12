@@ -1,0 +1,1837 @@
+            FIRST AND FOLLOW SETS AUTOMATED         
+            BOTH LEXICAL AND SYNTAX ANALYSIS MODULE IMPLEMENTED         
+            MODULES WORK WITH ALL GIVEN TEST CASES
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+MAKE NODE
+
+declare
+
+
+x
+
+
+integer
+
+
+MAKE NODE
+
+declare
+
+
+a
+
+
+integer
+
+
+MAKE NODE
+
+declare
+
+
+u
+
+
+boolean
+
+
+MAKE NODE
+
+10
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+15
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+..
+
+
+10
+
+
+15
+
+
+MAKE NODE
+
+array
+
+
+integer
+
+
+..
+
+
+MAKE NODE
+
+declare
+
+
+A
+
+
+array
+
+
+MAKE NODE
+
+:=
+
+
+u
+
+
+true
+
+
+MAKE NODE
+
+get_value
+
+
+a
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+b
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+d
+
+
+NODE IS NULL
+
+MAKE NODE
+
+3
+
+
+-
+
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+..
+
+
+3
+
+
+a
+
+
+MAKE NODE
+
+array
+
+
+integer
+
+
+..
+
+
+MAKE NODE
+
+declare
+
+
+B
+
+
+array
+
+
+MAKE NODE
+
+b
+
+
+-
+
+
+NODE IS NULL
+
+MAKE NODE
+
+d
+
+
++
+
+
+NODE IS NULL
+
+MAKE NODE
+
+..
+
+
+b
+
+
+d
+
+
+MAKE NODE
+
+array
+
+
+integer
+
+
+..
+
+
+MAKE NODE
+
+declare
+
+
+C
+
+
+array
+
+
+MAKE NODE
+
+get_value
+
+
+x
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+A
+
+
+NODE IS NULL
+
+MAKE NODE
+
+A
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+A
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+B
+
+
+NODE IS NULL
+
+MAKE NODE
+
+B
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+B
+
+
+NODE IS NULL
+
+MAKE NODE
+
+get_value
+
+
+C
+
+
+NODE IS NULL
+
+MAKE NODE
+
+C
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+C
+
+
+NODE IS NULL
+
+MAKE NODE
+
+5
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+5
+
+
+2
+
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
++
+
+
+*
+
+
+a
+
+
+MAKE NODE
+
+A
+
+
+NODE IS NULL
+
++
+
+
+MAKE NODE
+
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+12
+
+
+b
+
+
+MAKE NODE
+
+d
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+-
+
+
+*
+
+
+d
+
+
+MAKE NODE
+
+3
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+3
+
+
+a
+
+
+MAKE NODE
+
+-
+
+
+-
+
+
+*
+
+
+MAKE NODE
+
+B
+
+
+NODE IS NULL
+
+-
+
+
+MAKE NODE
+
++
+
+
+A
+
+
+B
+
+
+MAKE NODE
+
+:=
+
+
+y
+
+
++
+
+
+MAKE NODE
+
+x
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+0
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+C
+
+
+NODE IS NULL
+
+0
+
+
+MAKE NODE
+
+*
+
+
+y
+
+
+C
+
+
+MAKE NODE
+
++
+
+
+x
+
+
+*
+
+
+MAKE NODE
+
+5
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+5
+
+
+a
+
+
+MAKE NODE
+
+7
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+-
+
+
+*
+
+
+7
+
+
+MAKE NODE
+
+C
+
+
+NODE IS NULL
+
+-
+
+
+MAKE NODE
+
+-
+
+
++
+
+
+C
+
+
+MAKE NODE
+
+-
+
+
+-
+
+
+NODE IS NULL
+
+MAKE NODE
+
+:=
+
+
+z
+
+
+-
+
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+z
+
+
+NODE IS NULL
+
+MAKE NODE
+
+10
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+15
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+k
+
+
+10
+
+
+15
+
+
+MAKE NODE
+
+declare
+
+
+A
+
+
+integer
+
+
+MAKE NODE
+
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+:=
+
+
+A
+
+
+12
+
+
+MAKE NODE
+
+A
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+-
+
+
+k
+
+
+12
+
+
+MAKE NODE
+
+B
+
+
+NODE IS NULL
+
+-
+
+
+MAKE NODE
+
++
+
+
+A
+
+
+B
+
+
+MAKE NODE
+
+:=
+
+
+z
+
+
++
+
+
+MAKE NODE
+
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+k
+
+
+2
+
+
+MAKE NODE
+
+25
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+-
+
+
+*
+
+
+25
+
+
+MAKE NODE
+
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+*
+
+
+a
+
+
+2
+
+
+MAKE NODE
+
++
+
+
+-
+
+
+*
+
+
+MAKE NODE
+
+C
+
+
+NODE IS NULL
+
++
+
+
+MAKE NODE
+
+-
+
+
+z
+
+
+C
+
+
+MAKE NODE
+
+:=
+
+
+y
+
+
+-
+
+
+MAKE NODE
+
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+k
+
+
+NODE IS NULL
+
+MAKE NODE
+
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+z
+
+
+NODE IS NULL
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+for
+
+
+k
+
+
+declare
+
+
+MAKE NODE
+
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+y
+
+
+NODE IS NULL
+
+MAKE NODE
+
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+z
+
+
+NODE IS NULL
+
+MAKE NODE
+
+A
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+MAKE NODE
+
+print
+
+
+A
+
+
+NODE IS NULL
+
+MAKE NODE
+
+driver
+
+
+declare
+
+
+NODE IS NULL
+
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+					TRAVERSAL 2 ENDED 
+
+v		driver		[7-10000]		boolean		no		**		**		1		17		1		
+
+x		driver		[7-10000]		integer		no		**		**		2		0		1		
+
+y		driver		[7-10000]		integer		no		**		**		2		2		1		
+
+z		driver		[7-10000]		integer		no		**		**		2		4		1		
+
+A		driver		[7-10000]		integer		yes		static		[10-15]		13		18		1		
+
+B		driver		[7-10000]		integer		yes		dynamic		**		**		0		1		
+
+C		driver		[7-10000]		integer		yes		dynamic		**		**		0		1		
+
+a		driver		[7-10000]		integer		no		**		**		2		8		1		
+
+b		driver		[7-10000]		integer		no		**		**		2		10		1		
+
+c		driver		[7-10000]		integer		no		**		**		2		12		1		
+
+d		driver		[7-10000]		integer		no		**		**		2		14		1		
+
+k		driver		[7-10000]		integer		no		**		**		2		6		1		
+
+u		driver		[7-10000]		boolean		no		**		**		1		16		1		
+
+A		driver		[7-10000]		integer		no		**		**		2		33		2		
+
+k		driver		[7-10000]		integer		no		**		**		2		31		2		
+
+STARTING INTERMEDIATE CODE GENERATION
+
+*****************
+true
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
++
+
+
+A
+
+
+B
+
+
+_________________
+*****************
+A
+
+
+NODE IS NULL
+
++
+
+
+_________________
+*****************
++
+
+
+*
+
+
+a
+
+
+_________________
+*****************
+*
+
+
+5
+
+
+2
+
+
+_________________
+*****************
+5
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 27
+A
+
+
++
+
+
+*****************
+B
+
+
+NODE IS NULL
+
+-
+
+
+_________________
+*****************
+-
+
+
+-
+
+
+*
+
+
+_________________
+*****************
+-
+
+
+*
+
+
+d
+
+
+_________________
+*****************
+*
+
+
+12
+
+
+b
+
+
+_________________
+*****************
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+b
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+d
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+*
+
+
+3
+
+
+a
+
+
+_________________
+*****************
+3
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 27
+B
+
+
+-
+
+
+*****************
+-
+
+
+-
+
+
+NODE IS NULL
+
+_________________
+*****************
+-
+
+
++
+
+
+C
+
+
+_________________
+*****************
++
+
+
+x
+
+
+*
+
+
+_________________
+*****************
+x
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+*
+
+
+y
+
+
+C
+
+
+_________________
+*****************
+y
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+C
+
+
+NODE IS NULL
+
+0
+
+
+_________________
+*****************
+0
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 28
+C
+
+
+0
+
+
+*****************
+C
+
+
+NODE IS NULL
+
+-
+
+
+_________________
+*****************
+-
+
+
+*
+
+
+7
+
+
+_________________
+*****************
+*
+
+
+5
+
+
+a
+
+
+_________________
+*****************
+5
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+7
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 28
+C
+
+
+-
+
+
+*****************
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
++
+
+
+A
+
+
+B
+
+
+_________________
+*****************
+A
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+B
+
+
+NODE IS NULL
+
+-
+
+
+_________________
+*****************
+-
+
+
+k
+
+
+12
+
+
+_________________
+*****************
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+12
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 35
+B
+
+
+-
+
+
+*****************
+-
+
+
+z
+
+
+C
+
+
+_________________
+*****************
+z
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+C
+
+
+NODE IS NULL
+
++
+
+
+_________________
+*****************
++
+
+
+-
+
+
+*
+
+
+_________________
+*****************
+-
+
+
+*
+
+
+25
+
+
+_________________
+*****************
+*
+
+
+k
+
+
+2
+
+
+_________________
+*****************
+k
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+25
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+*
+
+
+a
+
+
+2
+
+
+_________________
+*****************
+a
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+*****************
+2
+
+
+NODE IS NULL
+
+NODE IS NULL
+
+_________________
+LINE 36
+C
+
+
++
+
+
+PRINTING QUADRUPLE
+
+1  driver  NULL  NULL  
+
+7  x  NULL  NULL  
+
+7  y  NULL  NULL  
+
+7  z  NULL  NULL  
+
+7  k  NULL  NULL  
+
+7  a  NULL  NULL  
+
+7  b  NULL  NULL  
+
+7  c  NULL  NULL  
+
+7  d  NULL  NULL  
+
+7  u  NULL  NULL  
+
+7  v  NULL  NULL  
+
+7  A  NULL  NULL  
+
+21  u  true  NULL  
+
+8  a  NULL  NULL  
+
+8  b  NULL  NULL  
+
+8  d  NULL  NULL  
+
+7  B  NULL  NULL  
+
+7  C  NULL  NULL  
+
+8  x  NULL  NULL  
+
+8  y  NULL  NULL  
+
+8  A  NULL  NULL  
+
+9  A  NULL  NULL  
+
+8  B  NULL  NULL  
+
+9  B  NULL  NULL  
+
+8  C  NULL  NULL  
+
+9  C  NULL  NULL  
+
+24  t0  5  2  
+
+22  t1  t0  a  
+
+27  t2  A  t1  
+
+24  t3  12  b  
+
+23  t4  t3  d  
+
+24  t5  3  a  
+
+23  t6  t4  t5  
+
+27  t7  B  t6  
+
+22  t8  t2  t7  
+
+21  y  t8  NULL  
+
+27  t9  C  0  
+
+24  t10  y  t9  
+
+22  t11  x  t10  
+
+24  t12  5  a  
+
+23  t13  t12  7  
+
+27  t14  C  t13  
+
+23  t15  t11  t14  
+
+23  t16  t15  NULL  
+
+21  z  t16  NULL  
+
+9  y  NULL  NULL  
+
+9  z  NULL  NULL  
+
+12  k  NULL  NULL  
+
+7  A  NULL  NULL  
+
+21  A  12  NULL  
+
+23  t17  k  12  
+
+27  t18  B  t17  
+
+22  t19  A  t18  
+
+21  z  t19  NULL  
+
+24  t20  k  2  
+
+23  t21  t20  25  
+
+24  t22  a  2  
+
+22  t23  t21  t22  
+
+27  t24  C  t23  
+
+23  t25  z  t24  
+
+21  y  t25  NULL  
+
+9  k  NULL  NULL  
+
+9  z  NULL  NULL  
+
+9  y  NULL  NULL  
+
+13  NULL  NULL  NULL  
+
+9  y  NULL  NULL  
+
+9  z  NULL  NULL  
+
+9  A  NULL  NULL  
+
+29  NULL  NULL  NULL  
+
+Enter your option: 
