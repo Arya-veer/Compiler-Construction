@@ -26,15 +26,18 @@ all: driver.c
 	gcc -c ast.c -o build/ast.o
 
 		#INTERMEDIATE CODE part
-	gcc -c intermediateCodeGen.c -o build/intermediateCodeGen.o
+	# gcc -c intermediateCodeGen.c -o build/intermediateCodeGen.o
 
 		#CODE GENERATION PART
-	gcc -c Codegen.c -o build/Codegen.o
+	# gcc -c Codegen.c -o build/Codegen.o
 	
 		# Final compilation step
 		# Note: Please specify all the object files generated before 'driver.c'
-	gcc build/*.o driver.c -o stage1exe
+
+	#RUN USING ./compiler <testcase> <asmFile>
+
+	gcc build/*.o driver.c -o compiler
 
 clean:
 	rm -rf build/
-	rm -f stage1exe
+	rm -f compiler

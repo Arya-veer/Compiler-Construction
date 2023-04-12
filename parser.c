@@ -15,6 +15,8 @@
 
 int error = 0;
 
+int PT_SIZE = 0;
+
 /*LINKED LIST CODE*/
 
 LINKEDLIST createLinkedList(){
@@ -199,10 +201,12 @@ LISTNODE* addRules(char* fname){
 
 TREENODE createRootNode(LISTNODE ln){
     TREENODE root = (TREENODE) malloc(sizeof(struct TreeNode));
+    PT_SIZE+=sizeof(struct TreeNode);
     root->child = NULL;
     root->next = NULL;
     root->isTerminal = 0;
     root->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE +=sizeof(union TreeNodeData);
     root->parent = NULL;
     if(ln->isTerminal == 0){
         root->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
@@ -212,13 +216,14 @@ TREENODE createRootNode(LISTNODE ln){
 
 TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     TREENODE childHead = (TREENODE) malloc(sizeof(struct TreeNode));
-
+    PT_SIZE+=sizeof(struct TreeNode);
     tn->child = childHead;
     childHead->next = NULL;
     childHead->child = NULL;
     childHead->ruleNum = ln->ruleNum;
     childHead->isTerminal = ln->isTerminal;
     childHead->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE+=sizeof(union TreeNodeData);
     childHead->parent = tn;
     childHead->addr = NULL;
     childHead->addr_inh = NULL;
@@ -231,7 +236,9 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     }
     else{
         childHead->TREENODEDATA->terminal = malloc(sizeof(LEXEME));
+        PT_SIZE+=sizeof(LEXEME);
         childHead->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
+        PT_SIZE += sizeof(union lexemeData);
 
     }
     return childHead;
@@ -239,6 +246,7 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
 
 TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     TREENODE nextNode = (TREENODE) malloc(sizeof(struct TreeNode));
+    PT_SIZE += sizeof(struct TreeNode);
     tn->next = nextNode;
     nextNode->next = NULL;
     nextNode->child = NULL;
@@ -251,6 +259,7 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     nextNode->isArray = 0;
     nextNode->type = -1;
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE += sizeof(union TreeNodeData);
     nextNode->parent = tn->parent;
     if(ln->isTerminal == 0){
         nextNode->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
@@ -258,61 +267,80 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     else{
         nextNode->TREENODEDATA->terminal = (LEXEME*) malloc(sizeof(LEXEME));
         nextNode->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
+        PT_SIZE = PT_SIZE + sizeof(LEXEME) + sizeof(union lexemeData);
     }
     return nextNode;
 }
 
-void inorderTraversal(TREENODE tn, short goNext, FILE* outputFile){
+void treeNodePrint(TREENODE node){
+    if(node == NULL) printf("NODE IS NULL\n\n");
+    else if(node->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d  ",node->TREENODEDATA->terminal->lexemedata->intData);
+    else if(node->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("%f  ",node->TREENODEDATA->terminal->lexemedata->floatData);
+    else if(node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s  ",node->TREENODEDATA->terminal->lexemedata->data);
+    else printf("%s  ",node->TREENODEDATA->terminal->lexemedata->data);
+}
+
+void inorderTraversal(TREENODE tn, short goNext){
     if(tn == NULL) return;
-    inorderTraversal(tn->child,0, outputFile);
+    inorderTraversal(tn->child,0);
     if(tn->isTerminal == 1){
         // printf("T\n");
         if(tn->TREENODEDATA->terminal != NULL){ 
             if(tn->TREENODEDATA->terminal->token == EOF_TOKEN) return;
-            if(tn->TREENODEDATA->terminal->token != NUM_TOKEN || tn->TREENODEDATA->terminal->token != RNUM_TOKEN || tn->TREENODEDATA->terminal->token != IDENTIFIER_TOKEN)fprintf(outputFile, "       %s     ",TOKENS_STRING[tn->TREENODEDATA->terminal->token]);
-            else if(tn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) fprintf(outputFile, "       %s     ",tn->TREENODEDATA->terminal->lexemedata->data);
-            else if(tn->TREENODEDATA->terminal->token == RNUM_TOKEN) fprintf(outputFile, "       %f     ",tn->TREENODEDATA->terminal->lexemedata->floatData);
-            else if(tn->TREENODEDATA->terminal->token == NUM_TOKEN) fprintf(outputFile, "       %d     ",tn->TREENODEDATA->terminal->lexemedata->intData);
-            fprintf(outputFile, "       %d     ",tn->TREENODEDATA->terminal->lineNo);
-            fprintf(outputFile, "       %s     ",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
+            treeNodePrint(tn);
+            printf( "       %d     ",tn->TREENODEDATA->terminal->lineNo);
+            printf( "       %s     ",TERMINALS_STRINGS[tn->TREENODEDATA->terminal->token]);
             if(tn->TREENODEDATA->terminal->token == NUM_TOKEN){
-                fprintf(outputFile, "       %d     ",tn->TREENODEDATA->terminal->lexemedata->intData);
+                printf( "       %d     ",tn->TREENODEDATA->terminal->lexemedata->intData);
             }
             else if(tn->TREENODEDATA->terminal->token == RNUM_TOKEN){
-                fprintf(outputFile, "       %lf     ",tn->TREENODEDATA->terminal->lexemedata->floatData);
+                printf( "       %lf     ",tn->TREENODEDATA->terminal->lexemedata->floatData);
             }
-            if(tn->parent) fprintf(outputFile, "%s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
-            else fprintf(outputFile, "%s    ","ROOT");
-            fprintf(outputFile,"YES\n\n");
+            if(tn->parent) printf( "%s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
+            else printf( "%s    ","ROOT");
+            printf("YES\n\n");
         }
-        else fprintf(outputFile,"Some Terminal Node with Error\n");
+        else printf("Some Terminal Node with Error\n");
     }
     else if(tn->isTerminal == 0){
-        // fprintf(outputFile,"NT\n");
-        fprintf(outputFile, "       ----------     ");
-        fprintf(outputFile, "       %s     ",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
-        if(tn->parent) fprintf(outputFile, "        %s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
-        else fprintf(outputFile, "      %s\t      ","ROOT");
-        fprintf(outputFile,"NO\n\n");
+        // printf("NT\n");
+        printf( "       ----------     ");
+        printf( "       %s     ",NONTERMINALS_STRINGS[tn->TREENODEDATA->nonterminal]);
+        if(tn->parent) printf( "        %s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
+        else printf( "      %s\t      ","ROOT");
+        printf("NO\n\n");
     }
     else{
-        fprintf(outputFile,"       epsilon     epsilon");
-        if(tn->parent) fprintf(outputFile, "        %s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
-        else fprintf(outputFile, "      %s\t      ","ROOT");
-        fprintf(outputFile,"YES\n\n");
+        printf("       epsilon     epsilon");
+        if(tn->parent) printf( "        %s      ",NONTERMINALS_STRINGS[tn->parent->TREENODEDATA->nonterminal]);
+        else printf( "      %s\t      ","ROOT");
+        printf("YES\n\n");
     }
     if(tn->child != NULL){
         // printf("GOING RIGHT OF CHILD\n");
-        inorderTraversal(tn->child->next,1, outputFile);
+        inorderTraversal(tn->child->next,1);
         // printf("GOING LEFT TO CHILD\n");
     }
     if(goNext == 1){
-        inorderTraversal(tn->next, 1, outputFile);
+        inorderTraversal(tn->next, 1);
     }
     
 }
 
-
+int countParseTreeNodes(TREENODE tn, short goNext){
+    int sum = 0;
+    if(tn == NULL) return 0 ;
+    sum += countParseTreeNodes(tn->child,0);
+    sum +=1;
+    if(tn->child != NULL){
+        sum+=countParseTreeNodes(tn->child->next,1);
+    }
+    if(goNext == 1){
+        sum+=countParseTreeNodes(tn->next, 1);
+    }
+    return sum;
+    
+}
 
 
 /*STACK ADT LOGIC*/
@@ -671,6 +699,7 @@ void populateParseTable(LISTNODE* RULES){
 
 LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffer* TB){
 
+
     printf("\n \x1B[1m\033[31m PARSING ERROR At line %d, ",lex->lineNo);
     error = 1;
     if(type == 1){
@@ -710,12 +739,14 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
 
 }
 
-
+int getSizePT(){
+    return PT_SIZE;
+}
 
 
 /*PARSER CODE*/
 
-TREENODE parser(char* grammarFile,char* inputFile, char* outputFile, int size){
+TREENODE parser(char* grammarFile,char* inputFile, int size){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
     // printRules(129,RULES);
@@ -782,31 +813,19 @@ TREENODE parser(char* grammarFile,char* inputFile, char* outputFile, int size){
                 lex = errorHandling(st,lex,2,stNode,TB);
             }
         }
-        // printf("HHHH\n\n");
-
-        // if(tn->isTerminal == 1){
-        //     printf("%d\n",tn->TREENODEDATA->terminal->token);
-        //     printf("%s\n",TOKENS_STRING[tn->TREENODEDATA->terminal->token]);
-        // }
         free(stNode);
-        // if(tn->isTerminal == 1 && tn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",tn->TREENODEDATA->terminal->lexemedata->data);
-
-        // printf("%d\n",tn->isTerminal);
-        // if(tn->isTerminal == 1 && tn->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN)printf("%s\n",tn->TREENODEDATA->terminal->lexemedata->data);
     }
-    // lex = simulateDFA(TB,0);
+
     if(lex->token != EOF_TOKEN) errorHandling(st,lex,4,stNode,TB);
-    else if(error!=1) printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
+    if(error!=1){ 
+        printf("\nGIVEN SOURCE CODE IS SYNTACTICALLY CORRECT\n\n\n");
+    }
+    else{
+        return NULL;
+    }
     fclose(TB->fp);
-    // printf("\nPRINTING PARSE TREE in %s\n\n\n",outputFile);
-    // FILE* output = fopen(outputFile, "w");
-    // inorderTraversal(root,0, output);
-    // // printf("gkfsmgkdflg");
-    // // printf("gjngjnskgnkdsfn");
     free(RULES);
-    // fclose(output);
     cleanTwinBuffer(TB);
-    // printf("HELLO\n");
     return root;
 }
 
