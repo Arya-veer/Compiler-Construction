@@ -15,6 +15,8 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE);
 void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE);
 void printASTNODE(TREENODE node);
 void printAST(TREENODE root);
+int countAstNodes(TREENODE root);
+int getSizeAST();
 SYMBOLTABLE GST;
 SYMBOLTABLEROW currFunc;
 #endif

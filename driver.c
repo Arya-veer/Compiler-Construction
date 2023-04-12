@@ -69,16 +69,14 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 outputFile = argv[2];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,1);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
+                inorderTraversal(root,0);
                 break;
             }
             case 3:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
-                if(root == NULL){
-                    break;
-                }
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 applyRule(root);
                 printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING AST IN LEFT TO RIGHT & PREORDER \n\n\n\n");
                 printAST(root->addr);
@@ -87,20 +85,22 @@ int main(int argc, char* argv[]){
             case 4:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
-                if(root == NULL){
-                    break;
-                }
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
+                int pt = countParseTreeNodes(root,0);
+                int pt_size = getSizePT();
+                printf("NUMBER OF PARSE TREE NODES ARE: %d\t\t AND TOTAL MEMORY ALLOCATED IS %d BYTES\n\n",pt,pt_size);
                 applyRule(root);
-                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING AST IN LEFT TO RIGHT & PREORDER \n\n\n\n");
-                printAST(root->addr);
-                printf("PRINTING WAS SUCCESSFUL, EXITING THE CODE\n\n\n\n\n");
+                int ast = pt - getSizeAST();
+                int ast_size = pt_size*ast/pt;
+
+                printf("NUMBER OF AST NODES ARE: %d\t\t AND TOTAL MEMORY ALLOCATED IS %d BYTES\n\n",ast,ast_size);
+                printf("COMPRESSION PERCENTAGE = %d %%\n\n",100*(pt-ast)/pt);
                 break;
             }
             case 5:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 if(root == NULL){
                     break;
                 }
@@ -117,7 +117,7 @@ int main(int argc, char* argv[]){
             case 6:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 if(root == NULL){
                     break;
                 }
@@ -135,7 +135,7 @@ int main(int argc, char* argv[]){
             case 7:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 if(root == NULL){
                     break;
                 }
@@ -153,7 +153,7 @@ int main(int argc, char* argv[]){
             case 8:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 if(root == NULL){
                     break;
                 }
@@ -170,7 +170,7 @@ int main(int argc, char* argv[]){
                 start_time = clock();
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 applyRule(root);
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
@@ -188,7 +188,7 @@ int main(int argc, char* argv[]){
             case 9:{
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 applyRule(root);
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
@@ -213,7 +213,7 @@ int main(int argc, char* argv[]){
                 start_time = clock();
                 // the code process
                 printf("RUNNING PARSER\n");
-                TREENODE root = parser(grammarFile,inputFile,SIZE,0);
+                TREENODE root = parser(grammarFile,inputFile,SIZE);
                 applyRule(root);
                 root = root->child->child;
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);

@@ -15,6 +15,8 @@
 
 int error = 0;
 
+int PT_SIZE = 0;
+
 /*LINKED LIST CODE*/
 
 LINKEDLIST createLinkedList(){
@@ -199,10 +201,12 @@ LISTNODE* addRules(char* fname){
 
 TREENODE createRootNode(LISTNODE ln){
     TREENODE root = (TREENODE) malloc(sizeof(struct TreeNode));
+    PT_SIZE+=sizeof(struct TreeNode);
     root->child = NULL;
     root->next = NULL;
     root->isTerminal = 0;
     root->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE +=sizeof(union TreeNodeData);
     root->parent = NULL;
     if(ln->isTerminal == 0){
         root->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
@@ -212,13 +216,14 @@ TREENODE createRootNode(LISTNODE ln){
 
 TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     TREENODE childHead = (TREENODE) malloc(sizeof(struct TreeNode));
-
+    PT_SIZE+=sizeof(struct TreeNode);
     tn->child = childHead;
     childHead->next = NULL;
     childHead->child = NULL;
     childHead->ruleNum = ln->ruleNum;
     childHead->isTerminal = ln->isTerminal;
     childHead->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE+=sizeof(union TreeNodeData);
     childHead->parent = tn;
     childHead->addr = NULL;
     childHead->addr_inh = NULL;
@@ -231,7 +236,9 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
     }
     else{
         childHead->TREENODEDATA->terminal = malloc(sizeof(LEXEME));
+        PT_SIZE+=sizeof(LEXEME);
         childHead->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
+        PT_SIZE += sizeof(union lexemeData);
 
     }
     return childHead;
@@ -239,6 +246,7 @@ TREENODE insertChildTree(TREENODE tn, LISTNODE ln){
 
 TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     TREENODE nextNode = (TREENODE) malloc(sizeof(struct TreeNode));
+    PT_SIZE += sizeof(struct TreeNode);
     tn->next = nextNode;
     nextNode->next = NULL;
     nextNode->child = NULL;
@@ -251,6 +259,7 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     nextNode->isArray = 0;
     nextNode->type = -1;
     nextNode->TREENODEDATA = (union TreeNodeData*) malloc(sizeof(union TreeNodeData));
+    PT_SIZE += sizeof(union TreeNodeData);
     nextNode->parent = tn->parent;
     if(ln->isTerminal == 0){
         nextNode->TREENODEDATA->nonterminal = ln->NODETYPE->nonterminal;
@@ -258,6 +267,7 @@ TREENODE insertNextTree(TREENODE tn, LISTNODE ln){
     else{
         nextNode->TREENODEDATA->terminal = (LEXEME*) malloc(sizeof(LEXEME));
         nextNode->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
+        PT_SIZE = PT_SIZE + sizeof(LEXEME) + sizeof(union lexemeData);
     }
     return nextNode;
 }
@@ -317,7 +327,20 @@ void inorderTraversal(TREENODE tn, short goNext){
     
 }
 
-
+int countParseTreeNodes(TREENODE tn, short goNext){
+    int sum = 0;
+    if(tn == NULL) return 0 ;
+    sum += countParseTreeNodes(tn->child,0);
+    sum +=1;
+    if(tn->child != NULL){
+        sum+=countParseTreeNodes(tn->child->next,1);
+    }
+    if(goNext == 1){
+        sum+=countParseTreeNodes(tn->next, 1);
+    }
+    return sum;
+    
+}
 
 
 /*STACK ADT LOGIC*/
@@ -716,12 +739,14 @@ LEXEME* errorHandling(STACK st,LEXEME* lex,short type,STACKNODE stNode,TwinBuffe
 
 }
 
-
+int getSizePT(){
+    return PT_SIZE;
+}
 
 
 /*PARSER CODE*/
 
-TREENODE parser(char* grammarFile,char* inputFile, int size,int toPrint){
+TREENODE parser(char* grammarFile,char* inputFile, int size){
     short int line = 0;
     LISTNODE* RULES = addRules(grammarFile);
     // printRules(129,RULES);
@@ -799,11 +824,6 @@ TREENODE parser(char* grammarFile,char* inputFile, int size,int toPrint){
         return NULL;
     }
     fclose(TB->fp);
-    if(toPrint == 1){
-        inorderTraversal(root,0);
-    }
-
-
     free(RULES);
     cleanTwinBuffer(TB);
     return root;

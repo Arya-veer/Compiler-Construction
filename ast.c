@@ -11,7 +11,7 @@
 #include "astDef.h"
 #include "ast.h"
 
-
+int AST_NODES = 0;
 /*PRINTS AST NODE*/
 void printASTNODE(TREENODE node){
     if(node == NULL) printf("NODE IS NULL\n\n");
@@ -71,7 +71,7 @@ void applyRule(TREENODE parent){
             finalProgram_node->addr = program_node->addr;
             TREENODE eof_node = getChildTerminal(EOF_TOKEN,finalProgram_node);
             free(eof_node);
-            
+            AST_NODES += 1;
             return;
         }
         case 1:{
@@ -115,6 +115,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,moduleDeclaration_node));
             free(getChildTerminal(MODULE_KEYWORD,moduleDeclaration_node));
             free(getChildTerminal(DECLARE_KEYWORD,moduleDeclaration_node));
+            AST_NODES += 3;
             break;
         }
         case 5:{
@@ -132,6 +133,7 @@ void applyRule(TREENODE parent){
             otherModules_node->list_addr_syn = NULL;
             otherModules_node->addr = NULL;
             free(otherModules_node->child);
+            AST_NODES += 1;
             break;
         }
         case 7:{
@@ -145,7 +147,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(DRIVERENDDEF_OPERATOR,driverModule_node));
             free(getChildTerminal(PROGRAM_KEYWORD,driverModule_node));
             free(getChildTerminal(DRIVERDEF_OPERATOR,driverModule_node));
-            // printf("7 HO GYA\n");
+            AST_NODES += 3;
             break;
         }
         case 8:{
@@ -168,6 +170,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(ENDDEF_OPERATOR,module_node));
             free(getChildTerminal(MODULE_KEYWORD,module_node));
             free(getChildTerminal(DEF_OPERATOR,module_node));
+            AST_NODES += 7;
             break;
         }
         case 9:{
@@ -179,12 +182,14 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SQBC_TOKEN,ret_node));
             free(getChildTerminal(SQBO_TOKEN,ret_node));
             free(getChildTerminal(RETURNS_KEYWORD,ret_node));
+            AST_NODES += 4;
             break;
         }
         case 10:{
             TREENODE ret_node = parent;
             ret_node->addr = NULL;
             free(ret_node->child);
+            AST_NODES += 1;
             break;
         }
         case 11:{
@@ -197,6 +202,9 @@ void applyRule(TREENODE parent){
             applyRule(leftFactored_input_plist_node);
             free(getChildTerminal(COLON_OPERATOR,input_plist_node));
             input_plist_node->list_addr_syn = insertAtBegin(input_plist_node->addr,leftFactored_input_plist_node->list_addr_syn);
+            // free(dataType_node);
+            // free(leftFactored_input_plist_node);
+            AST_NODES += 2;
             break;
         }
         case 12:{
@@ -210,12 +218,14 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(COLON_OPERATOR,leftFactored_input_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_input_plist_node));
             leftFactored_input_plist_node->list_addr_syn = insertAtBegin(leftFactored_input_plist_node->addr,leftFactored_input_plist_node1->list_addr_syn);
+            AST_NODES += 2;
             break;
         }
         case 13:{
             TREENODE leftFactored_input_plist_node = parent;
             leftFactored_input_plist_node -> list_addr_syn = NULL;
             free(leftFactored_input_plist_node->child);
+            AST_NODES += 1;
             break;
         }
         case 14:{
@@ -228,6 +238,7 @@ void applyRule(TREENODE parent){
             output_plist_node->addr = makeNode(ID,type_node->addr,NULL);
             free(getChildTerminal(COLON_OPERATOR,output_plist_node));
             output_plist_node->list_addr_syn = insertAtBegin(output_plist_node->addr,leftFactored_output_plist_node->list_addr_syn);
+            AST_NODES += 1;
             break;
         }
         case 15:{
@@ -241,6 +252,7 @@ void applyRule(TREENODE parent){
             leftFactored_output_plist_node->list_addr_syn = insertAtBegin(leftFactored_output_plist_node->addr,leftFactored_output_plist_node1->list_addr_syn);
             free(getChildTerminal(COLON_OPERATOR,leftFactored_output_plist_node));
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_output_plist_node));
+            AST_NODES += 2;
             break;
         }
         case 16:{
@@ -248,6 +260,7 @@ void applyRule(TREENODE parent){
             leftFactored_output_plist_node ->addr = NULL;
             leftFactored_output_plist_node -> list_addr_syn = NULL;
             free(leftFactored_output_plist_node->child);
+            AST_NODES += 1;
             break;
         }
         case 17:{
@@ -279,6 +292,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(OF_KEYWORD,dataType_node));
             free(getChildTerminal(SQBC_TOKEN,dataType_node));
             free(getChildTerminal(SQBO_TOKEN,dataType_node));
+            AST_NODES += 3;
             break;
         }
         case 21:{
@@ -330,6 +344,7 @@ void applyRule(TREENODE parent){
             TREENODE sign_node = parent;
             sign_node->addr = NULL;
             free(sign_node->child);
+            AST_NODES += 2;
             break;
         }
         case 27:{
@@ -361,6 +376,7 @@ void applyRule(TREENODE parent){
             // printf("BAMCHE SE LEKE AA GYA\n");
             free(getChildTerminal(END_KEYWORD,moduleDef_node));
             free(getChildTerminal(START_KEYWORD,moduleDef_node));
+            AST_NODES += 2;
             // printf("SAHI HO GYA\n");
             break;
         }
@@ -381,6 +397,7 @@ void applyRule(TREENODE parent){
             statements_node->addr = NULL;
             // printf("FREE KR RHA HU\n");
             free(statements_node->child);
+            AST_NODES += 1;
             // printf("FREE HO GYA\n");
             break;
         }
@@ -427,6 +444,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,ioStmt_node));
             free(getChildTerminal(BC_TOKEN,ioStmt_node));
             free(getChildTerminal(BO_TOKEN,ioStmt_node));
+            AST_NODES += 3;
             break;
         }
         case 39:{
@@ -436,6 +454,8 @@ void applyRule(TREENODE parent){
             TREENODE PRINT = getChildTerminal(PRINT_FUNCTION,ioStmt_node);
             ioStmt_node->addr = makeNode(PRINT,leftFactored_ioStmt_node->addr,NULL);
             free(getChildTerminal(BO_TOKEN,ioStmt_node));
+            AST_NODES += 1;
+            
             break;
         }
         case 40:{
@@ -445,6 +465,7 @@ void applyRule(TREENODE parent){
             leftFactored_ioStmt_node->addr = var_node->addr;
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
+            AST_NODES += 2;
             break;
         }
         case 41:{
@@ -454,6 +475,7 @@ void applyRule(TREENODE parent){
             leftFactored_ioStmt_node->addr = boolValues_node->addr;
             free(getChildTerminal(SEMICOL_OPERATOR,leftFactored_ioStmt_node));
             free(getChildTerminal(BC_TOKEN,leftFactored_ioStmt_node));
+            AST_NODES += 2;
             break;
         }
         case 42:{
@@ -498,6 +520,7 @@ void applyRule(TREENODE parent){
             applyRule(sign_node);
             whichId_node->addr_syn = sign_node->addr;
             free(getChildTerminal(SQBO_TOKEN,whichId_node));
+            AST_NODES += 1;
             break;
         }
         case 48:{
@@ -505,6 +528,7 @@ void applyRule(TREENODE parent){
             whichId_node->addr = NULL;
             whichId_node->addr_syn = NULL;
             free(whichId_node->child);
+            AST_NODES += 1;
             break;
         }
         case 49:{
@@ -512,6 +536,7 @@ void applyRule(TREENODE parent){
             TREENODE ID = getChildTerminal(IDENTIFIER_TOKEN,parent);
             leftFactored_whichId_node->addr = ID;
             free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId_node));
+            AST_NODES += 1;
             break;
         }
         case 50:{
@@ -519,6 +544,7 @@ void applyRule(TREENODE parent){
             TREENODE NUM = getChildTerminal(NUM_TOKEN,parent);
             leftFactored_whichId_node->addr = NUM;
             free(getChildTerminal(SQBC_TOKEN,leftFactored_whichId_node));
+            AST_NODES += 1;
             break;
         }
         case 51:{
@@ -568,6 +594,7 @@ void applyRule(TREENODE parent){
             TREENODE ASSIGNOP = getChildTerminal(ASSIGNOP_OPERATOR,parent);
             lvalueIDStmt_node->addr = makeNode(ASSIGNOP,lvalueIDStmt_node->addr_inh,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueIDStmt_node));
+            AST_NODES += 1;
             break;
         }
         case 57:{
@@ -582,6 +609,7 @@ void applyRule(TREENODE parent){
             lvalueARRStmt_node->addr = makeNode(ASSIGNOP,temp,expression_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,lvalueARRStmt_node));
             free(getChildTerminal(SQBC_TOKEN,lvalueARRStmt_node));
+            AST_NODES += 1;
             break;
         }
         case 58:{
@@ -597,6 +625,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(WITH_KEYWORD,moduleReuseStmt_node));
             free(getChildTerminal(MODULE_KEYWORD,moduleReuseStmt_node));
             free(getChildTerminal(USE_KEYWORD,moduleReuseStmt_node));
+            AST_NODES += 5;
             break;
         }
         case 59:{
@@ -627,12 +656,14 @@ void applyRule(TREENODE parent){
             arrID_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(SQBC_TOKEN,arrID_node));
             free(getChildTerminal(SQBO_TOKEN,arrID_node));
+            AST_NODES += 2;
             break;
         }
         case 62:{
             TREENODE arrID_node = parent;
             arrID_node->addr = NULL;
             free(arrID_node->child);
+            AST_NODES += 1;
             break;
         }
         case 63:{
@@ -672,6 +703,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_paramList_node1 = getChildNonTerminal(leftFactored_paramList,parent);
             applyRule(leftFactored_paramList_node1);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_paramList_node));
+            AST_NODES += 1;
             leftFactored_paramList_node->list_addr_syn = insertAtBegin(param_node->addr,leftFactored_paramList_node1->list_addr_syn);
             break;
         }
@@ -679,6 +711,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_paramList_node = parent;
             leftFactored_paramList_node->list_addr_syn = NULL;
             free(leftFactored_paramList_node->child);
+            AST_NODES += 1;
             break;
         }
         case 69:{
@@ -689,12 +722,14 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(ASSIGNOP_OPERATOR,optional_node));
             free(getChildTerminal(SQBC_TOKEN,optional_node));
             free(getChildTerminal(SQBO_TOKEN,optional_node));
+            AST_NODES += 3;
             break;
         }
         case 70:{
             TREENODE optional_node = parent;
             optional_node->addr = NULL;
             free(optional_node->child);
+            AST_NODES += 1;
             break;
         }
         case 71:{
@@ -712,6 +747,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_idList_node1 = getChildNonTerminal(leftFactored_idList,parent);
             applyRule(leftFactored_idList_node1);
             free(getChildTerminal(COMMA_OPERATOR,leftFactored_idList_node));
+            AST_NODES += 1;
             leftFactored_idList_node->list_addr_syn = insertAtBegin(ID,leftFactored_idList_node1->list_addr_syn);
             break;
         }
@@ -719,6 +755,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_idList_node = parent;
             leftFactored_idList_node->list_addr_syn = NULL;
             free(leftFactored_idList_node->child);
+            AST_NODES += 1;
             break;
         }
         case 74:{
@@ -756,6 +793,7 @@ void applyRule(TREENODE parent){
             arithmeticFactor_node->addr = arithmeticExpr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,arithmeticFactor_node));
             free(getChildTerminal(BO_TOKEN,arithmeticFactor_node));
+            AST_NODES += 2;
             // printf("HO GYA 77\n");
             break;
         }
@@ -806,6 +844,7 @@ void applyRule(TREENODE parent){
             // printf("100\n");
             logicalTerm_node->addr_syn = logicalTerm_node->addr_inh;
             free(logicalTerm_node->child);
+            AST_NODES += 2;
             // printf("FREE TO HO GYA HAI\n");
             break;
         }
@@ -833,6 +872,7 @@ void applyRule(TREENODE parent){
             TREENODE relationalTerm_node = parent;
             relationalTerm_node->addr = relationalTerm_node->addr_inh;
             free(relationalTerm_node->child);
+            AST_NODES += 1;
             break;
         }
         case 87:{
@@ -863,6 +903,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_arithmeticExpr_node = parent;
             leftFactored_arithmeticExpr_node->addr_syn = leftFactored_arithmeticExpr_node->addr_inh;
             free(leftFactored_arithmeticExpr_node->child);
+            AST_NODES += 1;
             break;
         }
         case 90:{
@@ -922,12 +963,14 @@ void applyRule(TREENODE parent){
             leftFactored_term_node->addr_syn = leftFactored_term_node1->addr_syn;
             free(factor_node);
             free(md_node);
+            AST_NODES += 2;
             break;
         }
         case 96:{
             TREENODE leftFactored_term_node = parent;
             leftFactored_term_node->addr_syn = leftFactored_term_node->addr_inh;
             free(leftFactored_term_node->child);
+            AST_NODES += 1;
             break;
         }
         case 97:{
@@ -937,6 +980,7 @@ void applyRule(TREENODE parent){
             factor_node->addr = arithmeticBooleanExpr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,factor_node));
             free(getChildTerminal(BO_TOKEN,factor_node));
+            AST_NODES += 2;
             break;
         }
         case 98:{
@@ -974,6 +1018,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_arithmeticExprWArr_node = parent;
             leftFactored_arithmeticExprWArr_node->addr_syn = leftFactored_arithmeticExprWArr_node->addr_inh;
             free(leftFactored_arithmeticExprWArr_node->child);
+            AST_NODES += 1;
             break;
         }
         case 102:{
@@ -1004,6 +1049,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_termWArr_node = parent;
             leftFactored_termWArr_node->addr_syn = leftFactored_termWArr_node->addr_inh;            
             free(leftFactored_termWArr_node->child);
+            AST_NODES += 1;
             break;
         }
         case 105:{
@@ -1022,6 +1068,7 @@ void applyRule(TREENODE parent){
             factorWArr_node->addr = arithmeticExprWArr_node->addr_syn;
             free(getChildTerminal(BC_TOKEN,factorWArr_node));
             free(getChildTerminal(BO_TOKEN,factorWArr_node));
+            AST_NODES += 2;
             break;
         }
         case 107:{
@@ -1100,6 +1147,7 @@ void applyRule(TREENODE parent){
             declareStmt_node->addr = makeNode(DECLARE,idList_node->addr,dataType_node->addr);
             free(getChildTerminal(SEMICOL_OPERATOR,declareStmt_node));
             free(getChildTerminal(COLON_OPERATOR,declareStmt_node));
+            AST_NODES += 2;
             break;
         }
         case 119:{
@@ -1117,6 +1165,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(BC_TOKEN,conditionalStmt_node));
             free(getChildTerminal(BO_TOKEN,conditionalStmt_node));
             free(getChildTerminal(SWITCH_KEYWORD,conditionalStmt_node));
+            AST_NODES += 5;
             break;
         }
         case 120:{
@@ -1132,6 +1181,7 @@ void applyRule(TREENODE parent){
             // free(getChildTerminal(BREAK_KEYWORD,caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,caseStmt_node));
+            AST_NODES += 3;
             caseStmt_node->list_addr_syn = insertAtBegin(caseStmt_node->addr,leftFactored_caseStmt_node->list_addr_syn);
             break;
         }
@@ -1148,6 +1198,7 @@ void applyRule(TREENODE parent){
             // free(getChildTerminal(BREAK_KEYWORD,leftFactored_caseStmt_node));
             free(getChildTerminal(COLON_OPERATOR,leftFactored_caseStmt_node));
             free(getChildTerminal(CASE_KEYWORD,leftFactored_caseStmt_node));
+            AST_NODES += 3;
             leftFactored_caseStmt_node->list_addr_syn = insertAtBegin(leftFactored_caseStmt_node->addr,leftFactored_caseStmt_node1->list_addr_syn);
             break;
         }
@@ -1155,6 +1206,7 @@ void applyRule(TREENODE parent){
             TREENODE leftFactored_caseStmt_node = parent;
             leftFactored_caseStmt_node->list_addr_syn = NULL;
             free(leftFactored_caseStmt_node->child);
+            AST_NODES += 1;
             break;
         }
         case 123:{
@@ -1180,12 +1232,14 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(SEMICOL_OPERATOR,dfault_node));
             free(getChildTerminal(BREAK_KEYWORD,dfault_node));
             free(getChildTerminal(COLON_OPERATOR,dfault_node));
+            AST_NODES += 3;
             break;
         }
         case 126:{
             TREENODE dfault_node = parent;
             dfault_node->addr = NULL;
             free(dfault_node->child);
+            AST_NODES += 1;
             break;
         }
         case 127:{
@@ -1214,6 +1268,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(RANGEOP_OPERATOR,iterativeStmt_node));
             free(getChildTerminal(IN_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BO_TOKEN,iterativeStmt_node));
+            AST_NODES += 6;
             break;
         }
         case 128:{
@@ -1230,6 +1285,7 @@ void applyRule(TREENODE parent){
             free(getChildTerminal(START_KEYWORD,iterativeStmt_node));
             free(getChildTerminal(BC_TOKEN,iterativeStmt_node));
             free(getChildTerminal(BO_TOKEN,iterativeStmt_node));
+            AST_NODES += 4;
             break;
         }
     }
@@ -1846,6 +1902,16 @@ void printAST(TREENODE root){
     printAST(root->list_addr_syn);
 }
 
+int countAstNodes(TREENODE root){
+    if(root == NULL){
+        return 0;
+    }
+    return 1 + countAstNodes(root->left_child) + countAstNodes(root->right_child) + countAstNodes(root->list_addr_syn);
+}
+
+int getSizeAST(){
+    return AST_NODES;
+}
 
 /*FIRST TIME TRAVERSAL*/
 void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
