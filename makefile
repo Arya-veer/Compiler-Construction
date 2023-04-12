@@ -26,7 +26,7 @@ all: driver.c
 	gcc -c ast.c -o build/ast.o
 
 		#INTERMEDIATE CODE part
-	# gcc -c intermediateCodeGen.c -o build/intermediateCodeGen.o
+	gcc -c intermediateCodeGen.c -o build/intermediateCodeGen.o
 
 		#CODE GENERATION PART
 	gcc -c Codegen.c -o build/Codegen.o

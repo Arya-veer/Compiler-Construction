@@ -91,6 +91,7 @@ char* extractLexeme(TwinBuffer *TB){
         ReturnLexeme[i] = moveLexemeBegin(TB);
     }
     ReturnLexeme[i] = '\0';
+    // printf("lexeme ------> %s\n", ReturnLexeme);
     return ReturnLexeme;
     
 }
@@ -345,6 +346,7 @@ LEXEME* simulateDFA(TwinBuffer *TB,short toPrint){
                 break;
             case 19:
                 incrementForward(TB);
+                printf("%d\n\n",lineCount);
                 skipComment(TB,toPrint);
                 state=0;
                 break;

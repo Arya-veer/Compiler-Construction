@@ -125,11 +125,6 @@ void addOutputParams(TREENODE output_node,SYMBOLTABLEROW func,SYMBOLTABLE ST){
 
 TREENODE expressionGenerator(TREENODE expression_node,SYMBOLTABLEROW func,SYMBOLTABLE ST){
     if(expression_node == NULL) return NULL;
-    printf("*****************\n");
-    printASTNODE(expression_node);
-    printASTNODE(expression_node->left_child);
-    printASTNODE(expression_node->right_child);
-    printf("_________________\n");
     TREENODE left = expressionGenerator(expression_node->left_child,func,ST);
     TREENODE right = expressionGenerator(expression_node->right_child,func,ST);
 
