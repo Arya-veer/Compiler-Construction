@@ -369,7 +369,6 @@ SYMBOLTABLEROW StoreCaseIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE CASE){
         while(str->next != NULL) str = str->next;
         str->next= row;
     }
-
     return row;
 }
 

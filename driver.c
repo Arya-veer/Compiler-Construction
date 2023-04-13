@@ -47,7 +47,7 @@ int main(int argc, char* argv[]){
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
     int SIZE = 1024;
-
+    printf("\t\t\tLEVEL 4:Symbol Table modules work/Type Checking modules work/Semantic Rules modules work/Handled static and dynamic array type checking/Partial Code Generation\n\n");
     while(option){
         printf("Enter your option: ");
         scanf("%d", &option);

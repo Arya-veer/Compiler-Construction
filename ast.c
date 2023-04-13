@@ -2117,6 +2117,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         int t = x->type;
         if(x->isDynamic != -1){
             printf("LINE %d, ARRAY VARIABLE CAN NOT BE PART OF SWITCH STMT",node->TREENODEDATA->terminal->lineNo);
+            traversal(node->list_addr_syn,SYMBOL_TABLE);
+            return;
         }
         if(t == TYPE_REAL){
             printf("LINE %d: SWITCH CASE CAN NOT HAVE REAL TYPE VARIABLE\n\n",node->TREENODEDATA->terminal->lineNo);
@@ -2147,9 +2149,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,node->right_child);
             case_node->SYMBOLTABLE = initializeSymbolTable("default",node->TREENODEDATA->terminal->lineNo,node->isArray);
             case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
-            case_node->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
+            case_node->SYMBOLTABLE->first = node->right_child->TREENODEDATA->terminal->lineNo;
             case_node->SYMBOLTABLE->last = node->right_child->right_child->TREENODEDATA->terminal->lineNo;
-            traversal(node->right_child->left_child,row->SYMBOLTABLE);
+            traversal(node->right_child->left_child,case_node->SYMBOLTABLE);
         }
         else if(t == TYPE_BOOLEAN && node->right_child != NULL){
             printf("LINE %d: NO DEFAULT STATEMENT IN CASE OF BOOLEAN EXPRESSION\n\n",node->right_child->TREENODEDATA->terminal->lineNo);

@@ -1,0 +1,21 @@
+<<<driver program>>>
+start
+    declare a,b:integer;
+    declare A:array [a..-b] of real;
+    declare B:array [-a..-b] of real;
+    declare C:array [a..b] of real;
+    declare D:array [-a..b] of real;
+    declare E:array [-2..-b] of real;
+    declare F:array [12..-a] of real;
+    declare G:array [b..-8] of real;
+    declare H:array [-b..8] of real;
+
+    for(i in 1..10)
+    start
+        for(i in 1..10)
+        start
+            print(i);
+        end
+    end
+
+end
