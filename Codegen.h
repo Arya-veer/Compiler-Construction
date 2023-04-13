@@ -10,6 +10,6 @@
 #include "intermediateCodeGen.h"
 #include "symbolTable.h"
 
-void CodeGeneration();
+void CodeGeneration(char* fname);
 
 #endif

@@ -35,7 +35,7 @@ all: driver.c
 		# Note: Please specify all the object files generated before 'driver.c'
 
 	#RUN USING ./compiler <testcase> <asmFile>
-
+						      																										   
 	gcc build/*.o driver.c -o compiler
 
 clean:

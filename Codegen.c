@@ -10,9 +10,11 @@
 
 #include "Codegen.h"
 
-void CodeGeneration()
+int bool_count = 0;
+
+void CodeGeneration(char* fname)
 {
-    FILE *file = fopen("finalCode.asm", "w");
+    FILE *file = fopen(fname, "w");
     if (file == NULL)
     {
         printf("CAN NOT OPEN FILE\n\n");
@@ -48,7 +50,6 @@ void CodeGeneration()
         {
         case 0: // MODULE_DECLARATION,
         {
-            printf("-----------> case 0\n");
             TREENODE name = qr->left;
             fprintf(file, "extern %s", GetFuncFromSymbolTable(GST, name)->id->lexemedata->data);
             break;
@@ -57,44 +58,12 @@ void CodeGeneration()
         case 1: // DRIVER_MODULE,
         {
 
-            printf("-----------> case 1\n");
-            fprintf(file, "_flip:\n");
-            fprintf(file, "xor r9, r9\n");
-            fprintf(file, "xor r10, r10\n");
-            fprintf(file, "xor rax, rax\n");
-            fprintf(file, "mov r9, r8\n");
-            fprintf(file, "flip_loop:\n");
-            fprintf(file, "mov rax, r10\n");
-            fprintf(file, "mul rbx\n");
-            fprintf(file, "mov r10, rax\n");
-            fprintf(file, "mov rax, r9\n");
-            fprintf(file, "div rbx\n");
-            fprintf(file, "add r10, rdx\n");
-            fprintf(file, "mov r9, rax\n");
-            fprintf(file, "inc r11\n");
-            fprintf(file, "test rax, rax\n");
-            fprintf(file, "jnz flip_loop\n");
-            fprintf(file, "ret\n\n");
-
-            fprintf(file, "_stringify:\n");
-            fprintf(file, "xor rdx, rdx   \n");
-            fprintf(file, "div rbx   \n");
-            fprintf(file, "add rdx, '0'  \n");
-            fprintf(file, "mov [rdi], rdx    \n");
-            fprintf(file, "inc rdi   \n");
-            fprintf(file, "inc rcx   \n");
-            fprintf(file, "dec r11   \n");
-            fprintf(file, "test r11, r11   \n");
-            fprintf(file, "jnz _stringify    \n");
-            fprintf(file, "ret\n\n");
-
             fprintf(file, "_start : \n");
             break;
         }
 
         case 2: // MODULE_DEFINITION,
         {
-            printf("-----------> case 2\n");
             TREENODE name = qr->left;
             printASTNODE(name);
             fprintf(file, "%s : ", GetFuncFromSymbolTable(GST, name)->id->lexemedata->data);
@@ -107,11 +76,9 @@ void CodeGeneration()
         {
             SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
 
-            printf("-----------> case 3\n");
             if (ip->isDynamic == -1)
             {
                 int size = getWidth(ip, 1);
-                printf("%d\n\n", size);
                 if (size == 4)
                 {
                     fprintf(file, "POP EAX\n");
@@ -138,7 +105,6 @@ void CodeGeneration()
 
         case 4: // FORMAL_OUTPUT_PARAMS,
         {
-            printf("-----------> case 4\n");
             SYMBOLTABLEROW op = GetVarFromSymbolTable(table, qr->left);
             int size = getWidth(op, 0);
             if (size == 4)
@@ -154,7 +120,6 @@ void CodeGeneration()
 
         case 5: // MODULE_REUSE,
         {
-            printf("-----------> case 5\n");
 
             fprintf(file, "CALL %s\n", GetFuncFromSymbolTable(table, qr->left)->id->lexemedata->data);
             break;
@@ -162,7 +127,6 @@ void CodeGeneration()
 
         case 6: // MODULE_END,
         {
-            printf("-----------> case 6\n");
             fprintf(file, "MOV rsp, rbp\n");
             fprintf(file, "POP rbp\n");
             fprintf(file, "ret\n");
@@ -171,7 +135,6 @@ void CodeGeneration()
 
         case 7:
         { // declare variable
-            printf("-----------> case 7\n");
             SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
             if (ip->isDynamic == -1)
             {
@@ -186,7 +149,6 @@ void CodeGeneration()
                     fprintf(file, "MOV AX,0\n");
                     fprintf(file, "MOV [origin + %d], AX\n", ip->offset);
                 }
-                printf("%d\n", ip->offset);
                 if (size == 1)
                 {
                     fprintf(file, "MOV AL,0\n");
@@ -203,19 +165,23 @@ void CodeGeneration()
 
         case 8:
         { // getr_value
-            printf("-----------> case 8\n");
                 SYMBOLTABLEROW ip = GetVarFromSymbolTable(table,qr->left);
                 if(ip->isDynamic == -1){
                     fprintf(file, "mov ebx,1\n");
                     fprintf(file, "mov ecx,scan_msg\n");
-                    fprintf(file, "mov edx,13\n");
-                    fprintf(file, "mov eax,3\n");
-                    fprintf(file, " int0x80\n");
+                    fprintf(file, "mov edx,19\n");
+                    fprintf(file, "mov eax,4\n");
+                    fprintf(file, "int 0x80\n");
+                   
                     fprintf(file, "mov rbx, 0\n");
                     fprintf(file, "mov rcx, origin + %d\n", ip->offset);
                     fprintf(file, "mov rdx, %d\n", getWidth(ip,0));
                     fprintf(file, "mov rax, 3\n");
-                    fprintf(file, "int 0x80");
+                    fprintf(file, "int 0x80\n\n");
+
+                    fprintf(file, "mov ax, [origin + %d]\n",ip->offset);
+                    fprintf(file,"sub ax,'0'\n");
+                    fprintf(file, "mov [origin + %d],ax \n",ip->offset);
             }
 
             break;
@@ -223,30 +189,23 @@ void CodeGeneration()
 
         case 9: // print
         {
-            printf("-----------> case 9\n");
             SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
             if (ip->isDynamic == -1)
             {
-
-                fprintf(file, "mov r8, [origin + %d]\n", ip->offset);
-                fprintf(file, "mov rbx, 10\n ");
-                fprintf(file, "xor rcx, rcx\n ");
-                fprintf(file, "mov rdi, buffer\n ");
-                fprintf(file, "call _flip\n");
-                fprintf(file, "mov rax, r10\n");
-                fprintf(file, "call _stringify\n");
-                fprintf(file, "mov rdx, rcx\n ");
-                fprintf(file, "mov cx, buffer\n ");
-                fprintf(file, "mov rax, 4\n ");
-                fprintf(file, "mov rbx, 1\n ");
-                fprintf(file, "int 0x80\n ");
-
+                fprintf(file, "MOV AX, [origin + %d]\n",ip->offset );
+                fprintf(file, "ADD AX , '0'\n");
+                fprintf(file, "MOV [origin + %d] , AX\n",ip->offset);
+                fprintf(file, "mov ebx,1\n");
+                
+                fprintf(file, "mov ecx, origin + %d\n",ip->offset);
+                fprintf(file, "mov edx,2\n");
+                fprintf(file, "mov eax,4\n");
+                fprintf(file, "int 0x80\n");
                 break;
             }
 
         case 10: // pass_param
         {
-            printf("-----------> case 10\n");
             SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
             if (ip->isDynamic == -1)
             {
@@ -274,13 +233,11 @@ void CodeGeneration()
 
         case 11:
         { // get_return
-            printf("-----------> case 11\n");
             break;
         }
 
         case 12: // for_start
         {
-            printf("-----------> case 12\n");
             int for_count = qr->data;
 
             int lowRange = qr->op1->TREENODEDATA->terminal->lexemedata->intData;
@@ -310,7 +267,6 @@ void CodeGeneration()
 
         case 13: // for_end
         {
-            printf("-----------> case 13\n");
             int for_count = qr->data;
             fprintf(file, "MOV CX,[for_count_value]\n");
             fprintf(file, "CMP CX, 0\n");
@@ -320,7 +276,6 @@ void CodeGeneration()
 
         case 14: // swtich_start
         {
-            printf("-----------> case 14\n");
             SYMBOLTABLEROW i = GetVarFromSymbolTable(qr->ST, qr->left);
             fprintf(file, "MOV [origin + %d],AX\n", i->offset);
             if (i->type == TYPE_BOOLEAN)
@@ -332,7 +287,6 @@ void CodeGeneration()
 
         case 15: // switch_end
         {   
-            printf("-----------> case 15\n");
             int switch_label = qr->data;
             fprintf(file, "SWITCH_END_%d:\n", switch_label);
             break;
@@ -340,7 +294,6 @@ void CodeGeneration()
 
         case 16: // case_start
         {
-            printf("-----------> case 16\n");
             fprintf(file, "CASE_LABEL_%d: ", case_label);
             fprintf(file, "CMP AX, %d\n", qr->left->TREENODEDATA->terminal->lexemedata->intData);
             fprintf(file, "JNE CASE_LABEL_%d\n", ++case_label);
@@ -349,21 +302,18 @@ void CodeGeneration()
 
         case 17: // case_break
         {
-            printf("-----------> case 17\n");
             fprintf(file, "JUMP SWITCH_END_%d\n", switch_label);
             break;
         }
 
         case 18:
         { // default_start
-            printf("-----------> case 18\n");
             fprintf(file, "CASE_LABEL_%d:\n", case_label);
             break;
         }
 
         case 19:
         { // while_start
-            printf("-----------> case 19\n");
             int while_count = qr->data;
             SYMBOLTABLEROW ip = GetVarFromSymbolTable(table, qr->left);
             fprintf(file, "MOV EAX, [origin + %d]\n", ip->offset);
@@ -375,7 +325,6 @@ void CodeGeneration()
 
         case 20:
         { // while_end
-            printf("-----------> case 20\n");
             int while_count = qr->data;
             fprintf(file, "JUMP WHILE_LABEL_%d", while_count);
             fprintf(file, "WHILE_LABEL_END%d:\n", while_count++);
@@ -384,7 +333,6 @@ void CodeGeneration()
 
         case 21:
         { // assign
-            printf("-----------> case 21\n");
             SYMBOLTABLEROW a = GetVarFromSymbolTable(qr->ST, qr->left);
             if (a->isDynamic == -1)
             {
@@ -441,11 +389,9 @@ void CodeGeneration()
 
         case 22:
         { // addition
-            printf("-----------> case 22\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
-            printf("%d\n", C->offset);
 
             if (C->type == TYPE_REAL)
             {
@@ -464,7 +410,6 @@ void CodeGeneration()
 
         case 23:
         { // subtraction
-            printf("-----------> case 23\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
@@ -487,8 +432,6 @@ void CodeGeneration()
 
         case 24:
         { // multiply
-            printQuadRupleRow(qr);
-            printf("-----------> case 24\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             if(qr->op1->TREENODEDATA->terminal->token == NUM_TOKEN){
                 fprintf(file, "MOV AX,%d\n", qr->op1->TREENODEDATA->terminal->lexemedata->intData);
@@ -501,7 +444,7 @@ void CodeGeneration()
                 fprintf(file, "MOV AX,[origin + %d]\n", A->offset);
             }
             if(qr->op2->TREENODEDATA->terminal->token == NUM_TOKEN){
-                fprintf(file, "MOV AX,%d\n", qr->op2->TREENODEDATA->terminal->lexemedata->intData);
+                fprintf(file, "MOV BX,%d\n", qr->op2->TREENODEDATA->terminal->lexemedata->intData);
             }
             else if(qr->op1->TREENODEDATA->terminal->token == RNUM_TOKEN){
                 printf("NOT IMPLEMENTED\n\n");
@@ -525,7 +468,6 @@ void CodeGeneration()
 
         case 25:
         { // division
-            printf("-----------> case 25\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
@@ -547,19 +489,16 @@ void CodeGeneration()
 
         case 26: // unary_minus
         {
-            printf("-----------> case 26\n");
             break;
         }
 
         case 27: // array_access
         {
-            printf("-----------> case 27\n");
             break;
         }
 
         case 28: // array_assignment
         {
-            printf("-----------> case 28\n");
             // SYMBOLTABLEROW a = GetVarFromSymbolTable(qr->ST,qr->left);
             // // fprintf(file, "Label%d , mov ecx , %d", case_label, numberofelementsinarray);
             // fprintf(file, " DEC ECX ");
@@ -623,7 +562,6 @@ void CodeGeneration()
 
         case 29: // driver module end
         {
-            printf("-----------> case 29\n");
             fprintf(file, "MOV EAX, 1\nXOR EBX, EBX\nINT 0x80\n");
             // fprintf(file, "section .data\n");
             // fprintf(file, "\t\tinteger_printf_format: db \"%%d\" ,10,0\n");
@@ -633,7 +571,6 @@ void CodeGeneration()
 
         case 30: // lessthan
         {
-            printf("-----------> case 30\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -681,7 +618,6 @@ void CodeGeneration()
 
         case 31: // lessthanequalto
         {
-            printf("-----------> case 31\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -729,7 +665,6 @@ void CodeGeneration()
 
         case 32: // greaterthan
         {
-            printf("-----------> case 32\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -777,7 +712,6 @@ void CodeGeneration()
 
         case 33: // greaterthanequal
         {
-            printf("-----------> case 33\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -825,7 +759,6 @@ void CodeGeneration()
 
         case 34: // equal
         {
-            printf("-----------> case 34\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -873,7 +806,6 @@ void CodeGeneration()
 
         case 35: // notequal
         {
-            printf("-----------> case 35\n");
             SYMBOLTABLEROW c = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW a = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW b = GetVarFromSymbolTable(table, qr->op2);
@@ -921,7 +853,6 @@ void CodeGeneration()
 
         case 36: // and
         {
-            printf("-----------> case 36\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
@@ -934,7 +865,6 @@ void CodeGeneration()
 
         case 37: // or
         {
-            printf("-----------> case 37\n");
             SYMBOLTABLEROW C = GetVarFromSymbolTable(table, qr->left);
             SYMBOLTABLEROW A = GetVarFromSymbolTable(table, qr->op1);
             SYMBOLTABLEROW B = GetVarFromSymbolTable(table, qr->op2);
