@@ -27,12 +27,7 @@ int getWidth(SYMBOLTABLEROW str,int isParam){
     width = OFFSETS[str->type];
     if(isParam == 1 && str->isDynamic != -1) return 1 + 2*OFFSETS[str->type];
     if(str->isDynamic == 0){
-        if(str->range->leftSign!=NULL && strcmp(str->range->leftSign,"-") == 0){
-            width = width*(str->range->right->TREENODEDATA->terminal->lexemedata->intData + str->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
-        }
-        else{
-            width = width*(str->range->right->TREENODEDATA->terminal->lexemedata->intData - str->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
-        }
+        width = width*(str->range->rightVal - str->range->leftVal + 1) + 1;
     }
     else if(str->isDynamic == 1) return 1;
     // printf("WIDTH OF %s is %d\n\n",str->id->lexemedata->data,width);
@@ -153,7 +148,20 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
         }
         else{
             row->offset = OFFSET;
-            OFFSET += OFFSETS[var->type]*(row->range->right->TREENODEDATA->terminal->lexemedata->intData-row->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
+            if(range->left_child->left_child == NULL || range->left_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
+                row->range->leftVal = range->left_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            else{
+                row->range->leftVal = -1*range->left_child->TREENODEDATA->terminal->lexemedata->intData;
+
+            }
+            if(range->right_child->left_child == NULL || range->right_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
+                row->range->rightVal = range->right_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            else{
+                row->range->rightVal = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            OFFSET += OFFSETS[var->type]*(row->range->rightVal-row->range->leftVal + 1) + 1;
         }
         if(range->left_child->left_child != NULL){
             row->range->leftSign = range->left_child->left_child->TREENODEDATA->terminal->lexemedata->data;
@@ -229,7 +237,7 @@ SYMBOLTABLEROW StoreFuncIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE func){
         }
         else{
             if(str->isDynamic == 0){
-                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n\n",str->id->lineNo);
+                printf("LINE %d: FUNCTION IS DECLARED AND DEFINED BEFORE IT IS CALLED\n\n",func->TREENODEDATA->terminal->lineNo);
             }
 
         }
@@ -461,6 +469,18 @@ SYMBOLTABLEROW StoreVarAsInputParam(SYMBOLTABLEROW IP,TREENODE var){
             IP->isDynamic = 1;
         }
         else{
+            if(range->left_child->left_child == NULL || range->left_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
+                IP->range->leftVal = range->left_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            else{
+                IP->range->leftVal = -1*range->left_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            if(range->right_child->left_child == NULL || range->right_child->left_child->TREENODEDATA->terminal->token  == PLUS_OPERATOR){
+                IP->range->rightVal = range->right_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
+            else{
+                IP->range->rightVal = -1*range->right_child->TREENODEDATA->terminal->lexemedata->intData;
+            }
             IP->isDynamic = 0;
         }
         IP->offset = OFFSET;
@@ -529,14 +549,8 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
         printf("yes\t\t");
         printf("static\t\t");
         printf("[");
-        if(row->range->leftSign != NULL){
-            printf("%s",row->range->leftSign);
-        }
-        printf("%d,",row->range->left->TREENODEDATA->terminal->lexemedata->intData);
-        if(row->range->rightSign != NULL){
-            printf("%s",row->range->rightSign);
-        }
-        printf("%d]\t\t",row->range->right->TREENODEDATA->terminal->lexemedata->intData);
+        printf("%d,",row->range->leftVal);
+        printf("%d]\t\t",row->range->rightVal);
         // printf("%d\t\t",1 + OFFSETS[row->type]*(1 + row->range->right->TREENODEDATA->terminal->lexemedata->intData-row->range->left->TREENODEDATA->terminal->lexemedata->intData));
     }
     else{
@@ -551,8 +565,8 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
         if(row->range->rightSign != NULL){
             printf("%s",row->range->rightSign);
         }
-        if(row->range->left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d]\t\t",row->range->left->TREENODEDATA->terminal->lexemedata->intData);
-        else if(row->range->left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s]\t\t",row->range->left->TREENODEDATA->terminal->lexemedata->data);
+        if(row->range->right->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d]\t\t",row->range->right->TREENODEDATA->terminal->lexemedata->intData);
+        else if(row->range->right->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s]\t\t",row->range->right->TREENODEDATA->terminal->lexemedata->data);
         // printf("1\t\t");
     }
     if(level == 0)printf("%d\t\t",getWidth(row,1));
@@ -695,14 +709,8 @@ void printArraySymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOL
     if(row->isDynamic == 0){
         printf("static\t\t");
         printf("[");
-        if(row->range->leftSign != NULL){
-            printf("%s",row->range->leftSign);
-        }
-        printf("%d,",row->range->left->TREENODEDATA->terminal->lexemedata->intData);
-        if(row->range->rightSign != NULL){
-            printf("%s",row->range->rightSign);
-        }
-        printf("%d]\t\t",row->range->right->TREENODEDATA->terminal->lexemedata->intData);
+        printf("%d,",row->range->leftVal);
+        printf("%d]\t\t",row->range->rightVal);
     }
     else if(row->isDynamic == 1){
         printf("dynamic\t\t");

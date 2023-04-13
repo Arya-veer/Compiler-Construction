@@ -19,6 +19,8 @@ struct arrRange{
     TREENODE right;
     char* leftSign;
     char* rightSign;
+    int leftVal;
+    int rightVal;
 };
 
 

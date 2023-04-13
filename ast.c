@@ -1391,7 +1391,15 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
                     typeExtractionExpr(node->right_child,SYMBOL_TABLE);
                     if(node->right_child->type != TYPE_INTEGER)printf("LINE %d: ARRAY INDEX SHOULD BE AN INTEGER\n",node->TREENODEDATA->terminal->lineNo);
                     else{
-                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)&&(row->range->left->TREENODEDATA->terminal->lexemedata->intData > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right->TREENODEDATA->terminal->lexemedata->intData < node->right_child->TREENODEDATA->terminal->lexemedata->intData))printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                        
+                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)){
+                            if(node->right_child->left_child == NULL || node->right_child->left_child->TREENODEDATA->terminal->token == PLUS_OPERATOR){
+                                if(row->range->leftVal > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->rightVal < node->right_child->TREENODEDATA->terminal->lexemedata->intData)printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                            }
+                            else{
+                                if(row->range->leftVal > -1*node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->rightVal < -1*node->right_child->TREENODEDATA->terminal->lexemedata->intData)printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                            }
+                        }
                     }
                 }
             }
@@ -1414,6 +1422,7 @@ int getTypeAST(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         return node->type;
     }
 }
+
 
 
 
@@ -1452,7 +1461,7 @@ void outputParamCheck(TREENODE node,SYMBOLTABLEROW function){
     SYMBOLTABLEROW outputNode = function->OUTPUTPARAMSHEAD;
     while(outputNode!=NULL){
         if(outputNode->OUTPUTPARAMSHEAD == NULL){
-            printf("LINE %d,OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",function->SYMBOLTABLE->last,outputNode->id->lexemedata->data);
+            printf("LINE [%d-%d],OUTPUT PARAM %s IS NOT ASSIGNED ANY VALUE\n\n",function->SYMBOLTABLE->first,function->SYMBOLTABLE->last,outputNode->id->lexemedata->data);
         }
         outputNode = outputNode->next;
     }
@@ -1518,12 +1527,16 @@ void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         count++;
         actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
         if(actualParam->type != formalParam->type){
-            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
+            if(actualParam->TREENODEDATA->terminal->token == NUM_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %d\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->intData);
+            else if(actualParam->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %f\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->floatData);
+            else if(actualParam->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
+            
         }
+        
         else if(actualParam->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW str1 = GetVarFromSymbolTable(SYMBOL_TABLE,actualParam);
             if(str1->isDynamic == 0 && formalParam->isDynamic == 0){
-                if((str1->range->right->TREENODEDATA->terminal->lexemedata->intData - str1->range->left->TREENODEDATA->terminal->lexemedata->intData) != (formalParam->range->right->TREENODEDATA->terminal->lexemedata->intData - formalParam->range->left->TREENODEDATA->terminal->lexemedata->intData)){
+                if((str1->range->rightVal - str1->range->leftVal) != (formalParam->range->rightVal - formalParam->range->leftVal)){
                     printf("LINE %d: TYPE DID NOT MATCH FOR ARRAY PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
                 }
             }
@@ -1556,7 +1569,9 @@ void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         count++;
         actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
         if(actualParam->type != formalParam->type){
-            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM '%s'\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
+            if(actualParam->TREENODEDATA->terminal->token == NUM_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %d\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->intData);
+            else if(actualParam->TREENODEDATA->terminal->token == RNUM_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %f\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->floatData);
+            else if(actualParam->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
         }
         else{
             outputParamAssignment(actualParam,row);
@@ -1684,7 +1699,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
         if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->left_child);
             if(leftRow != NULL && leftRow->isDynamic != -1 && expression_node->left_child->right_child == NULL){
-                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->TREENODEDATA->terminal->lexemedata->data);
+                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR %s OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,leftRow->id->lexemedata->data,expression_node->TREENODEDATA->terminal->lexemedata->data);
                 leftType = TYPE_ERROR;
             }
             else if(leftRow == NULL){
@@ -1700,7 +1715,7 @@ TYPE typeExtractionExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE){
         if(expression_node->right_child != NULL && expression_node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW rightRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->right_child);
             if(rightRow != NULL && rightRow->isDynamic != -1 && expression_node->right_child->right_child == NULL){
-                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->TREENODEDATA->terminal->lexemedata->data);
+                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR %s OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,rightRow->id->lexemedata->data,expression_node->TREENODEDATA->terminal->lexemedata->data);
                 rightType = TYPE_ERROR;
             }
             else if(rightRow == NULL){
@@ -1813,7 +1828,14 @@ int getTypeASTWhile(TREENODE node,SYMBOLTABLE SYMBOL_TABLE,SYMBOLTABLEROW while_
                     typeExtractionExpr(node->right_child,SYMBOL_TABLE);
                     if(node->right_child->type != TYPE_INTEGER)printf("LINE %d: ARRAY INDEX SHOULD BE AN INTEGER\n",node->TREENODEDATA->terminal->lineNo);
                     else{
-                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)&&(row->range->left->TREENODEDATA->terminal->lexemedata->intData > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->right->TREENODEDATA->terminal->lexemedata->intData < node->right_child->TREENODEDATA->terminal->lexemedata->intData))printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                        if((node->right_child->TREENODEDATA->terminal->token == NUM_TOKEN && row->isDynamic == 0)){
+                            if(node->right_child->left_child == NULL || node->right_child->left_child->TREENODEDATA->terminal->token == PLUS_OPERATOR){
+                                if(row->range->leftVal > node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->rightVal < node->right_child->TREENODEDATA->terminal->lexemedata->intData)printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                            }
+                            else{
+                                if(row->range->leftVal > -1*node->right_child->TREENODEDATA->terminal->lexemedata->intData || row->range->rightVal < -1*node->right_child->TREENODEDATA->terminal->lexemedata->intData)printf("LINE %d: ARRAY INDEX OUT OF BOUNDS \n\n",node->TREENODEDATA->terminal->lineNo);
+                            }
+                        }
                     }
                 }
             }
@@ -1855,7 +1877,7 @@ TYPE typeExtractionWhileExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE,S
         if(expression_node->left_child != NULL && expression_node->left_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW leftRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->left_child);
             if(leftRow != NULL && leftRow->isDynamic != -1 && expression_node->left_child->right_child == NULL){
-                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->TREENODEDATA->terminal->lexemedata->data);
+                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR %s OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->left_child->TREENODEDATA->terminal->lexemedata->data,expression_node->TREENODEDATA->terminal->lexemedata->data);
                 leftType = TYPE_ERROR;
             }
             else if(leftRow == NULL){
@@ -1871,7 +1893,7 @@ TYPE typeExtractionWhileExpr(TREENODE expression_node,SYMBOLTABLE SYMBOL_TABLE,S
         if(expression_node->right_child != NULL && expression_node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW rightRow = GetVarFromSymbolTable(SYMBOL_TABLE,expression_node->right_child);
             if(rightRow != NULL && rightRow->isDynamic != -1 && expression_node->right_child->right_child == NULL){
-                printf("LINE %d: ARRAY VARIABLE %s CAN NOT BE USED FOR THIS OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->TREENODEDATA->terminal->lexemedata->data);
+                printf("LINE %d: ARRAY VARIABLE  CAN NOT BE USED FOR %s OPERATOR\n\n",expression_node->TREENODEDATA->terminal->lineNo,expression_node->TREENODEDATA->terminal->lexemedata->data);
                 rightType = TYPE_ERROR;
             }
             else if(rightRow == NULL){
@@ -2055,6 +2077,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         row->SYMBOLTABLE->last = node->isArray;
         row->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
         // getStartEnd(node,row->SYMBOLTABLE);
+        checkForLoop(node->left_child,SYMBOL_TABLE);
         SYMBOLTABLEROW FORID = StoreVarIntoSymbolTable(row->SYMBOLTABLE,node->left_child,NULL);
         row->SYMBOLTABLE->TABLE[64] = FORID;
         traversal(node->right_child,row->SYMBOLTABLE);
@@ -2081,7 +2104,9 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         return;
     }
 
-    /*CONDITIONAL STMT*/
+    /* 
+    *CONDITIONAL STMT
+    */
     else if(node->parent!=NULL && node->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && node->parent->TREENODEDATA->nonterminal == conditionalStmt){
         SYMBOLTABLEROW row = StoreSwitchIntoSymbolTable(SYMBOL_TABLE,node);
         row->SYMBOLTABLE = initializeSymbolTable("switch",node->TREENODEDATA->terminal->lineNo,node->isArray);
@@ -2104,6 +2129,8 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             caseVal->type = getTypeAST(caseVal,SYMBOL_TABLE);
             if(t != TYPE_REAL && caseVal->type != t){
                 printf("LINE %d: CASE STATEMENT MUST HAVE TYPE SAME AS SWITCH VAR\n",caseVal->TREENODEDATA->terminal->lineNo);
+                caseVal = caseVal->list_addr_syn;
+                continue;
             }
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
             case_node->SYMBOLTABLE = initializeSymbolTable("case",node->TREENODEDATA->terminal->lineNo,node->isArray);
@@ -2114,7 +2141,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             caseVal = caseVal->list_addr_syn;
         }
         if(t == TYPE_INTEGER && node->right_child == NULL){
-            printf("LINE %d: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",node->TREENODEDATA->terminal->lineNo);
+            printf("LINE [%d-%d]: DEFAULT STATEMENT MUST BE THERE IN CASE OF INTEGER\n",row->SYMBOLTABLE->first,row->SYMBOLTABLE->last);
         }
         else if(t == TYPE_INTEGER && node->right_child != NULL){
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,node->right_child);
@@ -2183,14 +2210,13 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
                     }
                     if(node->right_child->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN && rightRow != NULL && rightRow->isDynamic != -1){
                         if(leftRow->isDynamic == 0 && rightRow->isDynamic == 0){
-                            if((leftRow->range->left->TREENODEDATA->terminal->lexemedata->intData == rightRow->range->left->TREENODEDATA->terminal->lexemedata->intData) 
-                            && (leftRow->range->right->TREENODEDATA->terminal->lexemedata->intData == rightRow->range->right->TREENODEDATA->terminal->lexemedata->intData))
+                            if(leftRow->range->rightVal - leftRow->range->leftVal == rightRow->range->rightVal - rightRow->range->leftVal)
                             printf("\n");
                             else printf("LINE %d: ARRAY CAN NOT BE ASSIGNED DUE TO RANGE MISMATCH\n\n",node->right_child->TREENODEDATA->terminal->lineNo);
                         }
                     }
                     else{
-                        printf("LINE %d: CAN NOT ASSIGN VALUE TO AN ARRAY\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
+                        printf("LINE %d: TYPE MISMATCH ERROR\n\n",node->left_child->TREENODEDATA->terminal->lineNo);
                     }
                 }
                 else{
@@ -2306,7 +2332,10 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
         }
         while(caseVal!=NULL){
             SYMBOLTABLEROW case_node = GetCaseFromSymbolTable(row->SYMBOLTABLE,caseVal);
-            if(case_node == NULL) break;
+            if(case_node == NULL){
+                caseVal = caseVal->list_addr_syn;
+                continue;
+            }
             traversalForDeclaredFuncs(caseVal->left_child,case_node->SYMBOLTABLE);
             caseVal = caseVal->list_addr_syn;
         }
@@ -2319,15 +2348,14 @@ void traversalForDeclaredFuncs(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
     else if(node->parent!=NULL && node->parent->TREENODEDATA->nonterminal == moduleReuseStmt){
         SYMBOLTABLEROW row = GetFuncFromSymbolTable(GST,node);
         if(row == NULL){
-            printf("LINE %d: FUNCTION WAS NEVER DECLARED\n\n",node->TREENODEDATA->terminal->lineNo);
+            // printf("LINE %d: FUNCTION WAS NEVER DECLARED\n\n",node->TREENODEDATA->terminal->lineNo);
             traversalForDeclaredFuncs(node->list_addr_syn,SYMBOL_TABLE);
             return;
         }
         if(row->INPUTPARAMSHEAD == NULL && row->id->token != DRIVER_KEYWORD){
-            printf("LINE %d: FUNCTION %s WAS ONLY DECLARED, NEVER DEFINED\n\n",row->id->lineNo,row->id->lexemedata->data);
+            // printf("LINE %d: FUNCTION %s WAS ONLY DECLARED, NEVER DEFINED\n\n",row->id->lineNo,row->id->lexemedata->data);
         }
         else{
-            // printASTNODE(node);
 
             checkInputList(node, row, SYMBOL_TABLE);
             checkOutputList(node, row, SYMBOL_TABLE);

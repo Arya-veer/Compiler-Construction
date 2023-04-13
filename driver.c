@@ -81,6 +81,9 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                if(root == NULL){
+                    break;
+                }
                 setSizePT();
                 applyRule(root);
                 setSizeAST();
@@ -92,6 +95,9 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                if(root == NULL){
+                    break;
+                }
                 int pt = countParseTreeNodes(root,0);
                 int pt_size = getSizePT();
                 setSizePT();
@@ -160,7 +166,7 @@ int main(int argc, char* argv[]){
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
                 traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
-                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING ACTIVATION RECORD SIZES \n\n\n\n");
+                printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING ARRAY RECORD SIZES \n\n\n\n");
                 printArrayTable(GST);
                 break;
             }
