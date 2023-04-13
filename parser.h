@@ -19,4 +19,5 @@ TREENODE* getDualTerminal(int nt,TREENODE tn);
 void inorderTraversal(TREENODE root,short goNext);
 int countParseTreeNodes(TREENODE tn, short goNext);
 int getSizePT();
+void setSizePT();
 #endif

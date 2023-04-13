@@ -17,6 +17,7 @@ void printASTNODE(TREENODE node);
 void printAST(TREENODE root);
 int countAstNodes(TREENODE root);
 int getSizeAST();
+void setSizeAST();
 SYMBOLTABLE GST;
 SYMBOLTABLEROW currFunc;
 #endif

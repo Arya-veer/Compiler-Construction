@@ -1,0 +1,4305 @@
+Enter your option: 2
+Skipped Comment
+Skipped Comment
+LINE NO: 5         LEXEME: <<         TOKEN: DEF
+LINE NO: 5         LEXEME: module         TOKEN: MODULE
+LINE NO: 5         LEXEME: var_demo_array         TOKEN: ID
+LINE NO: 5         LEXEME: >>         TOKEN: ENDDEF
+LINE NO: 6         LEXEME: takes         TOKEN: TAKES
+LINE NO: 6         LEXEME: input         TOKEN: INPUT
+LINE NO: 6         LEXEME: [         TOKEN: SQBO
+LINE NO: 6         LEXEME: x         TOKEN: ID
+LINE NO: 6         LEXEME: :         TOKEN: COLON
+LINE NO: 6         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 6         LEXEME: ,         TOKEN: COMMA
+LINE NO: 6         LEXEME: m         TOKEN: ID
+LINE NO: 6         LEXEME: :         TOKEN: COLON
+LINE NO: 6         LEXEME: array         TOKEN: ARRAY
+LINE NO: 6         LEXEME: [         TOKEN: SQBO
+LINE NO: 6         LEXEME: 2         TOKEN: NUM
+LINE NO: 6         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 6         LEXEME: 20         TOKEN: NUM
+LINE NO: 6         LEXEME: ]         TOKEN: SQBC
+LINE NO: 6         LEXEME: of         TOKEN: OF
+LINE NO: 6         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 6         LEXEME: ,         TOKEN: COMMA
+LINE NO: 6         LEXEME: p         TOKEN: ID
+LINE NO: 6         LEXEME: :         TOKEN: COLON
+LINE NO: 6         LEXEME: real         TOKEN: REAL
+LINE NO: 6         LEXEME: ]         TOKEN: SQBC
+LINE NO: 6         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 7         LEXEME: returns         TOKEN: RETURNS
+LINE NO: 7         LEXEME: [         TOKEN: SQBO
+LINE NO: 7         LEXEME: n         TOKEN: ID
+LINE NO: 7         LEXEME: :         TOKEN: COLON
+LINE NO: 7         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 7         LEXEME: ,         TOKEN: COMMA
+LINE NO: 7         LEXEME: k         TOKEN: ID
+LINE NO: 7         LEXEME: :         TOKEN: COLON
+LINE NO: 7         LEXEME: boolean         TOKEN: BOOLEAN
+LINE NO: 7         LEXEME: ]         TOKEN: SQBC
+LINE NO: 7         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 8         LEXEME: start         TOKEN: START
+LINE NO: 9         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 9         LEXEME: a         TOKEN: ID
+LINE NO: 9         LEXEME: ,         TOKEN: COMMA
+LINE NO: 9         LEXEME: b         TOKEN: ID
+LINE NO: 9         LEXEME: :         TOKEN: COLON
+LINE NO: 9         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 9         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 10         LEXEME: get_value         TOKEN: GET_VALUE
+LINE NO: 10         LEXEME: (         TOKEN: BO
+LINE NO: 10         LEXEME: b         TOKEN: ID
+LINE NO: 10         LEXEME: )         TOKEN: BC
+LINE NO: 10         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 11         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 11         LEXEME: p         TOKEN: ID
+LINE NO: 11         LEXEME: :         TOKEN: COLON
+LINE NO: 11         LEXEME: array         TOKEN: ARRAY
+LINE NO: 11         LEXEME: [         TOKEN: SQBO
+LINE NO: 11         LEXEME: 2         TOKEN: NUM
+LINE NO: 11         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 11         LEXEME: 20         TOKEN: NUM
+LINE NO: 11         LEXEME: ]         TOKEN: SQBC
+LINE NO: 11         LEXEME: of         TOKEN: OF
+LINE NO: 11         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 11         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 12         LEXEME: a         TOKEN: ID
+LINE NO: 12         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 12         LEXEME: m         TOKEN: ID
+LINE NO: 12         LEXEME: [         TOKEN: SQBO
+LINE NO: 12         LEXEME: 5         TOKEN: NUM
+LINE NO: 12         LEXEME: ]         TOKEN: SQBC
+LINE NO: 12         LEXEME: +         TOKEN: PLUS
+LINE NO: 12         LEXEME: 3         TOKEN: NUM
+LINE NO: 12         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 13         LEXEME: p         TOKEN: ID
+LINE NO: 13         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 13         LEXEME: m         TOKEN: ID
+LINE NO: 13         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 14         LEXEME: p         TOKEN: ID
+LINE NO: 14         LEXEME: [         TOKEN: SQBO
+LINE NO: 14         LEXEME: 10         TOKEN: NUM
+LINE NO: 14         LEXEME: ]         TOKEN: SQBC
+LINE NO: 14         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 14         LEXEME: a         TOKEN: ID
+LINE NO: 14         LEXEME: *         TOKEN: MUL
+LINE NO: 14         LEXEME: b         TOKEN: ID
+LINE NO: 14         LEXEME: -         TOKEN: MINUS
+LINE NO: 14         LEXEME: 20         TOKEN: NUM
+LINE NO: 14         LEXEME: *         TOKEN: MUL
+LINE NO: 14         LEXEME: h         TOKEN: ID
+LINE NO: 14         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 15         LEXEME: n         TOKEN: ID
+LINE NO: 15         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 15         LEXEME: a         TOKEN: ID
+LINE NO: 15         LEXEME: -         TOKEN: MINUS
+LINE NO: 15         LEXEME: b         TOKEN: ID
+LINE NO: 15         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 16         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 16         LEXEME: b         TOKEN: ID
+LINE NO: 16         LEXEME: :         TOKEN: COLON
+LINE NO: 16         LEXEME: real         TOKEN: REAL
+LINE NO: 16         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 17         LEXEME: b         TOKEN: ID
+LINE NO: 17         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 17         LEXEME: b         TOKEN: ID
+LINE NO: 17         LEXEME: +         TOKEN: PLUS
+LINE NO: 17         LEXEME: 3         TOKEN: NUM
+LINE NO: 17         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 18         LEXEME: k         TOKEN: ID
+LINE NO: 18         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 18         LEXEME: a         TOKEN: ID
+LINE NO: 18         LEXEME: >         TOKEN: GT
+LINE NO: 18         LEXEME: b         TOKEN: ID
+LINE NO: 18         LEXEME: OR         TOKEN: OR
+LINE NO: 18         LEXEME: b         TOKEN: ID
+LINE NO: 18         LEXEME: >         TOKEN: GT
+LINE NO: 18         LEXEME: 100         TOKEN: NUM
+LINE NO: 18         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 19         LEXEME: print         TOKEN: PRINT
+LINE NO: 19         LEXEME: (         TOKEN: BO
+LINE NO: 19         LEXEME: k         TOKEN: ID
+LINE NO: 19         LEXEME: )         TOKEN: BC
+LINE NO: 19         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 20         LEXEME: end         TOKEN: END
+LINE NO: 23         LEXEME: <<         TOKEN: DEF
+LINE NO: 23         LEXEME: module         TOKEN: MODULE
+LINE NO: 23         LEXEME: f1         TOKEN: ID
+LINE NO: 23         LEXEME: >>         TOKEN: ENDDEF
+LINE NO: 24         LEXEME: takes         TOKEN: TAKES
+LINE NO: 24         LEXEME: input         TOKEN: INPUT
+LINE NO: 24         LEXEME: [         TOKEN: SQBO
+LINE NO: 24         LEXEME: a         TOKEN: ID
+LINE NO: 24         LEXEME: :         TOKEN: COLON
+LINE NO: 24         LEXEME: array         TOKEN: ARRAY
+LINE NO: 24         LEXEME: [         TOKEN: SQBO
+LINE NO: 24         LEXEME: 10         TOKEN: NUM
+LINE NO: 24         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 24         LEXEME: 30         TOKEN: NUM
+LINE NO: 24         LEXEME: ]         TOKEN: SQBC
+LINE NO: 24         LEXEME: of         TOKEN: OF
+LINE NO: 24         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 24         LEXEME: ,         TOKEN: COMMA
+LINE NO: 24         LEXEME: b         TOKEN: ID
+LINE NO: 24         LEXEME: :         TOKEN: COLON
+LINE NO: 24         LEXEME: array         TOKEN: ARRAY
+LINE NO: 24         LEXEME: [         TOKEN: SQBO
+LINE NO: 24         LEXEME: 10         TOKEN: NUM
+LINE NO: 24         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 24         LEXEME: 30         TOKEN: NUM
+LINE NO: 24         LEXEME: ]         TOKEN: SQBC
+LINE NO: 24         LEXEME: of         TOKEN: OF
+LINE NO: 24         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 24         LEXEME: ,         TOKEN: COMMA
+LINE NO: 24         LEXEME: c         TOKEN: ID
+LINE NO: 24         LEXEME: :         TOKEN: COLON
+LINE NO: 24         LEXEME: real         TOKEN: REAL
+LINE NO: 24         LEXEME: ]         TOKEN: SQBC
+LINE NO: 24         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 25         LEXEME: returns         TOKEN: RETURNS
+LINE NO: 25         LEXEME: [         TOKEN: SQBO
+LINE NO: 25         LEXEME: m         TOKEN: ID
+LINE NO: 25         LEXEME: :         TOKEN: COLON
+LINE NO: 25         LEXEME: boolean         TOKEN: BOOLEAN
+LINE NO: 25         LEXEME: ,         TOKEN: COMMA
+LINE NO: 25         LEXEME: n         TOKEN: ID
+LINE NO: 25         LEXEME: :         TOKEN: COLON
+LINE NO: 25         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 25         LEXEME: ]         TOKEN: SQBC
+LINE NO: 25         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 26         LEXEME: start         TOKEN: START
+LINE NO: 27         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 27         LEXEME: x         TOKEN: ID
+LINE NO: 27         LEXEME: ,         TOKEN: COMMA
+LINE NO: 27         LEXEME: y         TOKEN: ID
+LINE NO: 27         LEXEME: :         TOKEN: COLON
+LINE NO: 27         LEXEME: real         TOKEN: REAL
+LINE NO: 27         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 28         LEXEME: get_value         TOKEN: GET_VALUE
+LINE NO: 28         LEXEME: (         TOKEN: BO
+LINE NO: 28         LEXEME: y         TOKEN: ID
+LINE NO: 28         LEXEME: )         TOKEN: BC
+LINE NO: 28         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 29         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 29         LEXEME: A         TOKEN: ID
+LINE NO: 29         LEXEME: ,         TOKEN: COMMA
+LINE NO: 29         LEXEME: B         TOKEN: ID
+LINE NO: 29         LEXEME: :         TOKEN: COLON
+LINE NO: 29         LEXEME: array         TOKEN: ARRAY
+LINE NO: 29         LEXEME: [         TOKEN: SQBO
+LINE NO: 29         LEXEME: 4         TOKEN: NUM
+LINE NO: 29         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 29         LEXEME: 10         TOKEN: NUM
+LINE NO: 29         LEXEME: ]         TOKEN: SQBC
+LINE NO: 29         LEXEME: of         TOKEN: OF
+LINE NO: 29         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 29         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 30         LEXEME: get_value         TOKEN: GET_VALUE
+LINE NO: 30         LEXEME: (         TOKEN: BO
+LINE NO: 30         LEXEME: B         TOKEN: ID
+LINE NO: 30         LEXEME: )         TOKEN: BC
+LINE NO: 30         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 31         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 31         LEXEME: C         TOKEN: ID
+LINE NO: 31         LEXEME: :         TOKEN: COLON
+LINE NO: 31         LEXEME: array         TOKEN: ARRAY
+LINE NO: 31         LEXEME: [         TOKEN: SQBO
+LINE NO: 31         LEXEME: 10         TOKEN: NUM
+LINE NO: 31         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 31         LEXEME: 30         TOKEN: NUM
+LINE NO: 31         LEXEME: ]         TOKEN: SQBC
+LINE NO: 31         LEXEME: of         TOKEN: OF
+LINE NO: 31         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 31         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 32         LEXEME: A         TOKEN: ID
+LINE NO: 32         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 32         LEXEME: B         TOKEN: ID
+LINE NO: 32         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 33         LEXEME: C         TOKEN: ID
+LINE NO: 33         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 33         LEXEME: a         TOKEN: ID
+LINE NO: 33         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 34         LEXEME: D         TOKEN: ID
+LINE NO: 34         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 34         LEXEME: C         TOKEN: ID
+LINE NO: 34         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 35         LEXEME: x         TOKEN: ID
+LINE NO: 35         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 35         LEXEME: c         TOKEN: ID
+LINE NO: 35         LEXEME: +         TOKEN: PLUS
+LINE NO: 35         LEXEME: y         TOKEN: ID
+LINE NO: 35         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 36         LEXEME: C         TOKEN: ID
+LINE NO: 36         LEXEME: [         TOKEN: SQBO
+LINE NO: 36         LEXEME: 18         TOKEN: NUM
+LINE NO: 36         LEXEME: ]         TOKEN: SQBC
+LINE NO: 36         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 36         LEXEME: a         TOKEN: ID
+LINE NO: 36         LEXEME: [         TOKEN: SQBO
+LINE NO: 36         LEXEME: 18         TOKEN: NUM
+LINE NO: 36         LEXEME: ]         TOKEN: SQBC
+LINE NO: 36         LEXEME: +         TOKEN: PLUS
+LINE NO: 36         LEXEME: b         TOKEN: ID
+LINE NO: 36         LEXEME: [         TOKEN: SQBO
+LINE NO: 36         LEXEME: 18         TOKEN: NUM
+LINE NO: 36         LEXEME: ]         TOKEN: SQBC
+LINE NO: 36         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 37         LEXEME: A         TOKEN: ID
+LINE NO: 37         LEXEME: [         TOKEN: SQBO
+LINE NO: 37         LEXEME: 5         TOKEN: NUM
+LINE NO: 37         LEXEME: ]         TOKEN: SQBC
+LINE NO: 37         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 37         LEXEME: B         TOKEN: ID
+LINE NO: 37         LEXEME: [         TOKEN: SQBO
+LINE NO: 37         LEXEME: 6         TOKEN: NUM
+LINE NO: 37         LEXEME: ]         TOKEN: SQBC
+LINE NO: 37         LEXEME: -         TOKEN: MINUS
+LINE NO: 37         LEXEME: 10         TOKEN: NUM
+LINE NO: 37         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 38         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 38         LEXEME: A         TOKEN: ID
+LINE NO: 38         LEXEME: :         TOKEN: COLON
+LINE NO: 38         LEXEME: array         TOKEN: ARRAY
+LINE NO: 38         LEXEME: [         TOKEN: SQBO
+LINE NO: 38         LEXEME: 10         TOKEN: NUM
+LINE NO: 38         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 38         LEXEME: 70         TOKEN: NUM
+LINE NO: 38         LEXEME: ]         TOKEN: SQBC
+LINE NO: 38         LEXEME: of         TOKEN: OF
+LINE NO: 38         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 38         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 39         LEXEME: m         TOKEN: ID
+LINE NO: 39         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 39         LEXEME: A         TOKEN: ID
+LINE NO: 39         LEXEME: [         TOKEN: SQBO
+LINE NO: 39         LEXEME: 5         TOKEN: NUM
+LINE NO: 39         LEXEME: ]         TOKEN: SQBC
+LINE NO: 39         LEXEME: <         TOKEN: LT
+LINE NO: 39         LEXEME: C         TOKEN: ID
+LINE NO: 39         LEXEME: [         TOKEN: SQBO
+LINE NO: 39         LEXEME: 18         TOKEN: NUM
+LINE NO: 39         LEXEME: ]         TOKEN: SQBC
+LINE NO: 39         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 40         LEXEME: m         TOKEN: ID
+LINE NO: 40         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 40         LEXEME: c         TOKEN: ID
+LINE NO: 40         LEXEME: >=         TOKEN: GE
+LINE NO: 40         LEXEME: x         TOKEN: ID
+LINE NO: 40         LEXEME: AND         TOKEN: AND
+LINE NO: 40         LEXEME: E         TOKEN: ID
+LINE NO: 40         LEXEME: [         TOKEN: SQBO
+LINE NO: 40         LEXEME: 10         TOKEN: NUM
+LINE NO: 40         LEXEME: ]         TOKEN: SQBC
+LINE NO: 40         LEXEME: >=         TOKEN: GE
+LINE NO: 40         LEXEME: y         TOKEN: ID
+LINE NO: 40         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 41         LEXEME: n         TOKEN: ID
+LINE NO: 41         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 41         LEXEME: 20         TOKEN: NUM
+LINE NO: 41         LEXEME: *         TOKEN: MUL
+LINE NO: 41         LEXEME: 8         TOKEN: NUM
+LINE NO: 41         LEXEME: -         TOKEN: MINUS
+LINE NO: 41         LEXEME: 5         TOKEN: NUM
+LINE NO: 41         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 42         LEXEME: end         TOKEN: END
+LINE NO: 46         LEXEME: <<<         TOKEN: DRIVERDEF
+LINE NO: 46         LEXEME: driver         TOKEN: DRIVER
+LINE NO: 46         LEXEME: program         TOKEN: PROGRAM
+LINE NO: 46         LEXEME: >>>         TOKEN: DRIVERENDDEF
+LINE NO: 47         LEXEME: start         TOKEN: START
+LINE NO: 48         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 48         LEXEME: v_1_2_3         TOKEN: ID
+LINE NO: 48         LEXEME: ,         TOKEN: COMMA
+LINE NO: 48         LEXEME: A         TOKEN: ID
+LINE NO: 48         LEXEME: :         TOKEN: COLON
+LINE NO: 48         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 48         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 49         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 49         LEXEME: u1         TOKEN: ID
+LINE NO: 49         LEXEME: :         TOKEN: COLON
+LINE NO: 49         LEXEME: boolean         TOKEN: BOOLEAN
+LINE NO: 49         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 50         LEXEME: A         TOKEN: ID
+LINE NO: 50         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 50         LEXEME: 12         TOKEN: NUM
+LINE NO: 50         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 51         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 51         LEXEME: p         TOKEN: ID
+LINE NO: 51         LEXEME: :         TOKEN: COLON
+LINE NO: 51         LEXEME: real         TOKEN: REAL
+LINE NO: 51         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 52         LEXEME: p         TOKEN: ID
+LINE NO: 52         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 52         LEXEME: 23.560000         TOKEN: RNUM
+LINE NO: 52         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 53         LEXEME: get_value         TOKEN: GET_VALUE
+LINE NO: 53         LEXEME: (         TOKEN: BO
+LINE NO: 53         LEXEME: v_1_2_43         TOKEN: ID
+LINE NO: 53         LEXEME: )         TOKEN: BC
+LINE NO: 53         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 54         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 54         LEXEME: B         TOKEN: ID
+LINE NO: 54         LEXEME: ,         TOKEN: COMMA
+LINE NO: 54         LEXEME: C         TOKEN: ID
+LINE NO: 54         LEXEME: :         TOKEN: COLON
+LINE NO: 54         LEXEME: array         TOKEN: ARRAY
+LINE NO: 54         LEXEME: [         TOKEN: SQBO
+LINE NO: 54         LEXEME: 2         TOKEN: NUM
+LINE NO: 54         LEXEME: ..         TOKEN: RANGEOP
+LINE NO: 54         LEXEME: 20         TOKEN: NUM
+LINE NO: 54         LEXEME: ]         TOKEN: SQBC
+LINE NO: 54         LEXEME: of         TOKEN: OF
+LINE NO: 54         LEXEME: integer         TOKEN: INTEGER
+LINE NO: 54         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 55         LEXEME: [         TOKEN: SQBO
+LINE NO: 55         LEXEME: v_1_2_3         TOKEN: ID
+LINE NO: 55         LEXEME: ,         TOKEN: COMMA
+LINE NO: 55         LEXEME: u1         TOKEN: ID
+LINE NO: 55         LEXEME: ]         TOKEN: SQBC
+LINE NO: 55         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 55         LEXEME: use         TOKEN: USE
+LINE NO: 55         LEXEME: module         TOKEN: MODULE
+LINE NO: 55         LEXEME: var_demo_array         TOKEN: ID
+LINE NO: 55         LEXEME: with         TOKEN: WITH
+LINE NO: 55         LEXEME: parameters         TOKEN: PARAMETERS
+LINE NO: 55         LEXEME: A         TOKEN: ID
+LINE NO: 55         LEXEME: ,         TOKEN: COMMA
+LINE NO: 55         LEXEME: B         TOKEN: ID
+LINE NO: 55         LEXEME: ,         TOKEN: COMMA
+LINE NO: 55         LEXEME: p         TOKEN: ID
+LINE NO: 55         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 56         LEXEME: [         TOKEN: SQBO
+LINE NO: 56         LEXEME: v_1_2_3         TOKEN: ID
+LINE NO: 56         LEXEME: ,         TOKEN: COMMA
+LINE NO: 56         LEXEME: k         TOKEN: ID
+LINE NO: 56         LEXEME: ]         TOKEN: SQBC
+LINE NO: 56         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 56         LEXEME: use         TOKEN: USE
+LINE NO: 56         LEXEME: module         TOKEN: MODULE
+LINE NO: 56         LEXEME: var_demo_array         TOKEN: ID
+LINE NO: 56         LEXEME: with         TOKEN: WITH
+LINE NO: 56         LEXEME: parameters         TOKEN: PARAMETERS
+LINE NO: 56         LEXEME: A         TOKEN: ID
+LINE NO: 56         LEXEME: ,         TOKEN: COMMA
+LINE NO: 56         LEXEME: B         TOKEN: ID
+LINE NO: 56         LEXEME: ,         TOKEN: COMMA
+LINE NO: 56         LEXEME: p         TOKEN: ID
+LINE NO: 56         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 57         LEXEME: B         TOKEN: ID
+LINE NO: 57         LEXEME: :=         TOKEN: ASSIGNOP
+LINE NO: 57         LEXEME: C         TOKEN: ID
+LINE NO: 57         LEXEME: ;         TOKEN: SEMICOL
+LINE NO: 58         LEXEME: declare         TOKEN: DECLARE
+LINE NO: 58         LEXEME: B         TOKEN: ID
+LINE NO: 58         LEXEME: :         TOKEN: COLON
+LINE NO: 58         LEXEME: real         TOKEN: REAL
+LINE NO: 58         LEXEME: ;         TOKEN: SEMICOL
+Skipped Comment
+LINE NO: 59         LEXEME: end         TOKEN: END
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+       epsilon     epsilon        moduleDeclarations      YES
+
+       ----------            moduleDeclarations             program      NO
+
+       ----------            program             finalProgram      NO
+
+<<         5            DEF     module      YES
+
+       ----------            module             otherModules      NO
+
+module         5            MODULE     module      YES
+
+var_demo_array         5            ID     module      YES
+
+>>         5            ENDDEF     module      YES
+
+takes         6            TAKES     module      YES
+
+input         6            INPUT     module      YES
+
+[         6            SQBO     module      YES
+
+x         6            ID     input_plist      YES
+
+       ----------            input_plist             module      NO
+
+:         6            COLON     input_plist      YES
+
+integer         6            INTEGER     dataType      YES
+
+       ----------            dataType             input_plist      NO
+
+,         6            COMMA     leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             input_plist      NO
+
+m         6            ID     leftFactored_input_plist      YES
+
+:         6            COLON     leftFactored_input_plist      YES
+
+array         6            ARRAY     dataType      YES
+
+       ----------            dataType             leftFactored_input_plist      NO
+
+[         6            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+2         6            NUM            2     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         6            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+20         6            NUM            20     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         6            SQBC     dataType      YES
+
+of         6            OF     dataType      YES
+
+integer         6            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+,         6            COMMA     leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             leftFactored_input_plist      NO
+
+p         6            ID     leftFactored_input_plist      YES
+
+:         6            COLON     leftFactored_input_plist      YES
+
+real         6            REAL     dataType      YES
+
+       ----------            dataType             leftFactored_input_plist      NO
+
+       epsilon     epsilon        leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             leftFactored_input_plist      NO
+
+]         6            SQBC     module      YES
+
+;         6            SEMICOL     module      YES
+
+returns         7            RETURNS     ret      YES
+
+       ----------            ret             module      NO
+
+[         7            SQBO     ret      YES
+
+n         7            ID     output_plist      YES
+
+       ----------            output_plist             ret      NO
+
+:         7            COLON     output_plist      YES
+
+integer         7            INTEGER     type      YES
+
+       ----------            type             output_plist      NO
+
+,         7            COMMA     leftFactored_output_plist      YES
+
+       ----------            leftFactored_output_plist             output_plist      NO
+
+k         7            ID     leftFactored_output_plist      YES
+
+:         7            COLON     leftFactored_output_plist      YES
+
+boolean         7            BOOLEAN     type      YES
+
+       ----------            type             leftFactored_output_plist      NO
+
+       epsilon     epsilon        leftFactored_output_plist      YES
+
+       ----------            leftFactored_output_plist             leftFactored_output_plist      NO
+
+]         7            SQBC     ret      YES
+
+;         7            SEMICOL     ret      YES
+
+start         8            START     moduleDef      YES
+
+       ----------            moduleDef             module      NO
+
+declare         9            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+a         9            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+,         9            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+b         9            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+:         9            COLON     declareStmt      YES
+
+integer         9            INTEGER     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         9            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             moduleDef      NO
+
+get_value         10            GET_VALUE     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+(         10            BO     ioStmt      YES
+
+b         10            ID     ioStmt      YES
+
+)         10            BC     ioStmt      YES
+
+;         10            SEMICOL     ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         11            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+p         11            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         11            COLON     declareStmt      YES
+
+array         11            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+[         11            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+2         11            NUM            2     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         11            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+20         11            NUM            20     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         11            SQBC     dataType      YES
+
+of         11            OF     dataType      YES
+
+integer         11            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+;         11            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+a         12            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         12            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+m         12            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         12            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+5         12            NUM            5     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         12            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
++         12            PLUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+3         12            NUM            3     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         12            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+p         13            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         13            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+m         13            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         13            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+p         14            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+[         14            SQBO     lvalueARRStmt      YES
+
+       ----------            lvalueARRStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+10         14            NUM            10     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             lvalueARRStmt      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         14            SQBC     lvalueARRStmt      YES
+
+:=         14            ASSIGNOP     lvalueARRStmt      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+a         14            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+*         14            MUL     md      YES
+
+       ----------            md             leftFactored_term      NO
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         14            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             leftFactored_term      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             leftFactored_term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+-         14            MINUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+20         14            NUM            20     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+*         14            MUL     md      YES
+
+       ----------            md             leftFactored_term      NO
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+h         14            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             leftFactored_term      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             leftFactored_term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueARRStmt      NO
+
+;         14            SEMICOL     lvalueARRStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+n         15            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         15            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+a         15            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+-         15            MINUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         15            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         15            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         16            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+b         16            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         16            COLON     declareStmt      YES
+
+real         16            REAL     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         16            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+b         17            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         17            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         17            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
++         17            PLUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+3         17            NUM            3     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         17            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+k         18            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         18            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+a         18            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+>         18            GT     relationalOp      YES
+
+       ----------            relationalOp             relationalTerm      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         18            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             relationalTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+OR         18            OR     logicalOp      YES
+
+       ----------            logicalOp             logicalTerm      NO
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         18            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             logicalTerm      NO
+
+>         18            GT     relationalOp      YES
+
+       ----------            relationalOp             relationalTerm      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+100         18            NUM            100     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             relationalTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             logicalTerm      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         18            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+print         19            PRINT     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+(         19            BO     ioStmt      YES
+
+k         19            ID     var      YES
+
+       ----------            var             leftFactored_ioStmt      NO
+
+       epsilon     epsilon        whichId      YES
+
+       ----------            whichId             var      NO
+
+       ----------            leftFactored_ioStmt             ioStmt      NO
+
+)         19            BC     leftFactored_ioStmt      YES
+
+;         19            SEMICOL     leftFactored_ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+end         20            END     moduleDef      YES
+
+       ----------            otherModules             program      NO
+
+<<         23            DEF     module      YES
+
+       ----------            module             otherModules      NO
+
+module         23            MODULE     module      YES
+
+f1         23            ID     module      YES
+
+>>         23            ENDDEF     module      YES
+
+takes         24            TAKES     module      YES
+
+input         24            INPUT     module      YES
+
+[         24            SQBO     module      YES
+
+a         24            ID     input_plist      YES
+
+       ----------            input_plist             module      NO
+
+:         24            COLON     input_plist      YES
+
+array         24            ARRAY     dataType      YES
+
+       ----------            dataType             input_plist      NO
+
+[         24            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+10         24            NUM            10     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         24            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+30         24            NUM            30     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         24            SQBC     dataType      YES
+
+of         24            OF     dataType      YES
+
+integer         24            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+,         24            COMMA     leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             input_plist      NO
+
+b         24            ID     leftFactored_input_plist      YES
+
+:         24            COLON     leftFactored_input_plist      YES
+
+array         24            ARRAY     dataType      YES
+
+       ----------            dataType             leftFactored_input_plist      NO
+
+[         24            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+10         24            NUM            10     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         24            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+30         24            NUM            30     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         24            SQBC     dataType      YES
+
+of         24            OF     dataType      YES
+
+integer         24            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+,         24            COMMA     leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             leftFactored_input_plist      NO
+
+c         24            ID     leftFactored_input_plist      YES
+
+:         24            COLON     leftFactored_input_plist      YES
+
+real         24            REAL     dataType      YES
+
+       ----------            dataType             leftFactored_input_plist      NO
+
+       epsilon     epsilon        leftFactored_input_plist      YES
+
+       ----------            leftFactored_input_plist             leftFactored_input_plist      NO
+
+]         24            SQBC     module      YES
+
+;         24            SEMICOL     module      YES
+
+returns         25            RETURNS     ret      YES
+
+       ----------            ret             module      NO
+
+[         25            SQBO     ret      YES
+
+m         25            ID     output_plist      YES
+
+       ----------            output_plist             ret      NO
+
+:         25            COLON     output_plist      YES
+
+boolean         25            BOOLEAN     type      YES
+
+       ----------            type             output_plist      NO
+
+,         25            COMMA     leftFactored_output_plist      YES
+
+       ----------            leftFactored_output_plist             output_plist      NO
+
+n         25            ID     leftFactored_output_plist      YES
+
+:         25            COLON     leftFactored_output_plist      YES
+
+integer         25            INTEGER     type      YES
+
+       ----------            type             leftFactored_output_plist      NO
+
+       epsilon     epsilon        leftFactored_output_plist      YES
+
+       ----------            leftFactored_output_plist             leftFactored_output_plist      NO
+
+]         25            SQBC     ret      YES
+
+;         25            SEMICOL     ret      YES
+
+start         26            START     moduleDef      YES
+
+       ----------            moduleDef             module      NO
+
+declare         27            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+x         27            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+,         27            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+y         27            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+:         27            COLON     declareStmt      YES
+
+real         27            REAL     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         27            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             moduleDef      NO
+
+get_value         28            GET_VALUE     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+(         28            BO     ioStmt      YES
+
+y         28            ID     ioStmt      YES
+
+)         28            BC     ioStmt      YES
+
+;         28            SEMICOL     ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         29            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+A         29            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+,         29            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+B         29            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+:         29            COLON     declareStmt      YES
+
+array         29            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+[         29            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+4         29            NUM            4     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         29            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+10         29            NUM            10     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         29            SQBC     dataType      YES
+
+of         29            OF     dataType      YES
+
+integer         29            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+;         29            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+get_value         30            GET_VALUE     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+(         30            BO     ioStmt      YES
+
+B         30            ID     ioStmt      YES
+
+)         30            BC     ioStmt      YES
+
+;         30            SEMICOL     ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         31            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+C         31            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         31            COLON     declareStmt      YES
+
+array         31            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+[         31            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+10         31            NUM            10     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         31            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+30         31            NUM            30     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         31            SQBC     dataType      YES
+
+of         31            OF     dataType      YES
+
+integer         31            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+;         31            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+A         32            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         32            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+B         32            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         32            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+C         33            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         33            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+a         33            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         33            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+D         34            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         34            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+C         34            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         34            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+x         35            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         35            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+c         35            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
++         35            PLUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+y         35            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         35            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+C         36            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+[         36            SQBO     lvalueARRStmt      YES
+
+       ----------            lvalueARRStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+18         36            NUM            18     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             lvalueARRStmt      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         36            SQBC     lvalueARRStmt      YES
+
+:=         36            ASSIGNOP     lvalueARRStmt      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+a         36            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         36            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+18         36            NUM            18     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         36            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
++         36            PLUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+b         36            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         36            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+18         36            NUM            18     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         36            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueARRStmt      NO
+
+;         36            SEMICOL     lvalueARRStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+A         37            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+[         37            SQBO     lvalueARRStmt      YES
+
+       ----------            lvalueARRStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+5         37            NUM            5     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             lvalueARRStmt      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         37            SQBC     lvalueARRStmt      YES
+
+:=         37            ASSIGNOP     lvalueARRStmt      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+B         37            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         37            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+6         37            NUM            6     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         37            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+-         37            MINUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+10         37            NUM            10     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueARRStmt      NO
+
+;         37            SEMICOL     lvalueARRStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         38            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+A         38            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         38            COLON     declareStmt      YES
+
+array         38            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+[         38            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+10         38            NUM            10     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         38            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+70         38            NUM            70     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         38            SQBC     dataType      YES
+
+of         38            OF     dataType      YES
+
+integer         38            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+;         38            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+m         39            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         39            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+A         39            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         39            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+5         39            NUM            5     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         39            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+<         39            LT     relationalOp      YES
+
+       ----------            relationalOp             relationalTerm      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+C         39            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         39            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+18         39            NUM            18     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         39            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             relationalTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         39            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+m         40            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         40            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+c         40            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+>=         40            GE     relationalOp      YES
+
+       ----------            relationalOp             relationalTerm      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+x         40            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             relationalTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+AND         40            AND     logicalOp      YES
+
+       ----------            logicalOp             logicalTerm      NO
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+E         40            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+[         40            SQBO     arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             signedFactorWArr      NO
+
+       ----------            signedFactorWArr             termWArr      NO
+
+10         40            NUM            10     factorWArr      YES
+
+       ----------            factorWArr             signedFactorWArr      NO
+
+       ----------            termWArr             arithmeticExprWArr      NO
+
+       epsilon     epsilon        leftFactored_termWArr      YES
+
+       ----------            leftFactored_termWArr             termWArr      NO
+
+       ----------            arithmeticExprWArr             arrID      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExprWArr      YES
+
+       ----------            leftFactored_arithmeticExprWArr             arithmeticExprWArr      NO
+
+]         40            SQBC     arrID      YES
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             logicalTerm      NO
+
+>=         40            GE     relationalOp      YES
+
+       ----------            relationalOp             relationalTerm      NO
+
+       ----------            relationalTerm             anyTerm      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+y         40            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             relationalTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             logicalTerm      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         40            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+n         41            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         41            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+20         41            NUM            20     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+*         41            MUL     md      YES
+
+       ----------            md             leftFactored_term      NO
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+8         41            NUM            8     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             leftFactored_term      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             leftFactored_term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+-         41            MINUS     pm      YES
+
+       ----------            pm             leftFactored_arithmeticExpr      NO
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+5         41            NUM            5     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             leftFactored_arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             leftFactored_arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         41            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+end         42            END     moduleDef      YES
+
+       ----------            otherModules             otherModules      NO
+
+       epsilon     epsilon        otherModules      YES
+
+       ----------            otherModules             otherModules      NO
+
+<<<         46            DRIVERDEF     driverModule      YES
+
+       ----------            driverModule             program      NO
+
+driver         46            DRIVER     driverModule      YES
+
+program         46            PROGRAM     driverModule      YES
+
+>>>         46            DRIVERENDDEF     driverModule      YES
+
+start         47            START     moduleDef      YES
+
+       ----------            moduleDef             driverModule      NO
+
+declare         48            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+v_1_2_3         48            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+,         48            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+A         48            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+:         48            COLON     declareStmt      YES
+
+integer         48            INTEGER     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         48            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             moduleDef      NO
+
+declare         49            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+u1         49            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         49            COLON     declareStmt      YES
+
+boolean         49            BOOLEAN     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         49            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+A         50            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         50            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+12         50            NUM            12     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         50            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         51            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+p         51            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         51            COLON     declareStmt      YES
+
+real         51            REAL     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         51            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+p         52            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         52            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+23.560000         52            RNUM            23.560000     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         52            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+get_value         53            GET_VALUE     ioStmt      YES
+
+       ----------            ioStmt             statement      NO
+
+(         53            BO     ioStmt      YES
+
+v_1_2_43         53            ID     ioStmt      YES
+
+)         53            BC     ioStmt      YES
+
+;         53            SEMICOL     ioStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         54            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+B         54            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+,         54            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+C         54            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+:         54            COLON     declareStmt      YES
+
+array         54            ARRAY     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+[         54            SQBO     dataType      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             arrRange      NO
+
+       ----------            arrRange             dataType      NO
+
+2         54            NUM            2     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+       ----------            leftFactored_arrRange             arrRange      NO
+
+..         54            RANGEOP     leftFactored_arrRange      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             leftFactored_arrRange      NO
+
+20         54            NUM            20     idNum      YES
+
+       ----------            idNum             leftFactored_arrRange      NO
+
+]         54            SQBC     dataType      YES
+
+of         54            OF     dataType      YES
+
+integer         54            INTEGER     type      YES
+
+       ----------            type             dataType      NO
+
+;         54            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+[         55            SQBO     optional      YES
+
+       ----------            optional             moduleReuseStmt      NO
+
+v_1_2_3         55            ID     idList      YES
+
+       ----------            idList             optional      NO
+
+,         55            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+u1         55            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+]         55            SQBC     optional      YES
+
+:=         55            ASSIGNOP     optional      YES
+
+       ----------            moduleReuseStmt             simpleStmt      NO
+
+use         55            USE     moduleReuseStmt      YES
+
+module         55            MODULE     moduleReuseStmt      YES
+
+var_demo_array         55            ID     moduleReuseStmt      YES
+
+with         55            WITH     moduleReuseStmt      YES
+
+parameters         55            PARAMETERS     moduleReuseStmt      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             paramList      NO
+
+A         55            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            paramList             moduleReuseStmt      NO
+
+,         55            COMMA     leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             paramList      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             leftFactored_paramList      NO
+
+B         55            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+,         55            COMMA     leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             leftFactored_paramList      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             leftFactored_paramList      NO
+
+p         55            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             leftFactored_paramList      NO
+
+;         55            SEMICOL     moduleReuseStmt      YES
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+[         56            SQBO     optional      YES
+
+       ----------            optional             moduleReuseStmt      NO
+
+v_1_2_3         56            ID     idList      YES
+
+       ----------            idList             optional      NO
+
+,         56            COMMA     leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+k         56            ID     leftFactored_idList      YES
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             leftFactored_idList      NO
+
+]         56            SQBC     optional      YES
+
+:=         56            ASSIGNOP     optional      YES
+
+       ----------            moduleReuseStmt             simpleStmt      NO
+
+use         56            USE     moduleReuseStmt      YES
+
+module         56            MODULE     moduleReuseStmt      YES
+
+var_demo_array         56            ID     moduleReuseStmt      YES
+
+with         56            WITH     moduleReuseStmt      YES
+
+parameters         56            PARAMETERS     moduleReuseStmt      YES
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             paramList      NO
+
+A         56            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            paramList             moduleReuseStmt      NO
+
+,         56            COMMA     leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             paramList      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             leftFactored_paramList      NO
+
+B         56            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+,         56            COMMA     leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             leftFactored_paramList      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             leftFactored_paramList      NO
+
+p         56            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       epsilon     epsilon        leftFactored_paramList      YES
+
+       ----------            leftFactored_paramList             leftFactored_paramList      NO
+
+;         56            SEMICOL     moduleReuseStmt      YES
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+B         57            ID     assignmentStmt      YES
+
+       ----------            assignmentStmt             simpleStmt      NO
+
+:=         57            ASSIGNOP     lvalueIDStmt      YES
+
+       ----------            lvalueIDStmt             whichStmt      NO
+
+       epsilon     epsilon        sign      YES
+
+       ----------            sign             param      NO
+
+       ----------            param             factor      NO
+
+C         57            ID     signedParam      YES
+
+       ----------            signedParam             param      NO
+
+       epsilon     epsilon        arrID      YES
+
+       ----------            arrID             signedParam      NO
+
+       ----------            factor             term      NO
+
+       ----------            term             arithmeticExpr      NO
+
+       epsilon     epsilon        leftFactored_term      YES
+
+       ----------            leftFactored_term             term      NO
+
+       ----------            arithmeticExpr             anyTerm      NO
+
+       epsilon     epsilon        leftFactored_arithmeticExpr      YES
+
+       ----------            leftFactored_arithmeticExpr             arithmeticExpr      NO
+
+       ----------            anyTerm             arithmeticBooleanExpr      NO
+
+       epsilon     epsilon        relationalTerm      YES
+
+       ----------            relationalTerm             anyTerm      NO
+
+       ----------            arithmeticBooleanExpr             expression      NO
+
+       epsilon     epsilon        logicalTerm      YES
+
+       ----------            logicalTerm             arithmeticBooleanExpr      NO
+
+       ----------            expression             lvalueIDStmt      NO
+
+;         57            SEMICOL     lvalueIDStmt      YES
+
+       ----------            whichStmt             assignmentStmt      NO
+
+       ----------            simpleStmt             statement      NO
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+declare         58            DECLARE     declareStmt      YES
+
+       ----------            declareStmt             statement      NO
+
+B         58            ID     idList      YES
+
+       ----------            idList             declareStmt      NO
+
+       epsilon     epsilon        leftFactored_idList      YES
+
+       ----------            leftFactored_idList             idList      NO
+
+:         58            COLON     declareStmt      YES
+
+real         58            REAL     dataType      YES
+
+       ----------            dataType             declareStmt      NO
+
+;         58            SEMICOL     declareStmt      YES
+
+       ----------            statement             statements      NO
+
+       ----------            statements             statements      NO
+
+       epsilon     epsilon        statements      YES
+
+       ----------            statements             statements      NO
+
+end         59            END     moduleDef      YES
+
+       epsilon     epsilon        otherModules      YES
+
+       ----------            otherModules             program      NO
+
+       ----------            finalProgram           ROOT	      NO
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+
+
+
+
+
+					PRINTING AST IN LEFT TO RIGHT & PREORDER 
+
+
+
+var_demo_array
+
+
+takes
+
+
+x
+
+
+integer
+
+
+m
+
+
+array
+
+
+integer
+
+
+..
+
+
+2
+
+
+20
+
+
+p
+
+
+real
+
+
+n
+
+
+integer
+
+
+k
+
+
+boolean
+
+
+declare
+
+
+a
+
+
+b
+
+
+integer
+
+
+get_value
+
+
+b
+
+
+declare
+
+
+p
+
+
+array
+
+
+integer
+
+
+..
+
+
+2
+
+
+20
+
+
+:=
+
+
+a
+
+
++
+
+
+m
+
+
+5
+
+
+3
+
+
+:=
+
+
+p
+
+
+m
+
+
+:=
+
+
+p
+
+
+10
+
+
+-
+
+
+*
+
+
+a
+
+
+b
+
+
+*
+
+
+20
+
+
+h
+
+
+:=
+
+
+n
+
+
+-
+
+
+a
+
+
+b
+
+
+declare
+
+
+b
+
+
+real
+
+
+:=
+
+
+b
+
+
++
+
+
+b
+
+
+3
+
+
+:=
+
+
+k
+
+
+OR
+
+
+>
+
+
+a
+
+
+b
+
+
+>
+
+
+b
+
+
+100
+
+
+print
+
+
+k
+
+
+f1
+
+
+takes
+
+
+a
+
+
+array
+
+
+integer
+
+
+..
+
+
+10
+
+
+30
+
+
+b
+
+
+array
+
+
+integer
+
+
+..
+
+
+10
+
+
+30
+
+
+c
+
+
+real
+
+
+m
+
+
+boolean
+
+
+n
+
+
+integer
+
+
+declare
+
+
+x
+
+
+y
+
+
+real
+
+
+get_value
+
+
+y
+
+
+declare
+
+
+A
+
+
+B
+
+
+array
+
+
+integer
+
+
+..
+
+
+4
+
+
+10
+
+
+get_value
+
+
+B
+
+
+declare
+
+
+C
+
+
+array
+
+
+integer
+
+
+..
+
+
+10
+
+
+30
+
+
+:=
+
+
+A
+
+
+B
+
+
+:=
+
+
+C
+
+
+a
+
+
+:=
+
+
+D
+
+
+C
+
+
+:=
+
+
+x
+
+
++
+
+
+c
+
+
+y
+
+
+:=
+
+
+C
+
+
+18
+
+
++
+
+
+a
+
+
+18
+
+
+b
+
+
+18
+
+
+:=
+
+
+A
+
+
+5
+
+
+-
+
+
+B
+
+
+6
+
+
+10
+
+
+declare
+
+
+A
+
+
+array
+
+
+integer
+
+
+..
+
+
+10
+
+
+70
+
+
+:=
+
+
+m
+
+
+<
+
+
+A
+
+
+5
+
+
+C
+
+
+18
+
+
+:=
+
+
+m
+
+
+AND
+
+
+>=
+
+
+c
+
+
+x
+
+
+>=
+
+
+E
+
+
+10
+
+
+y
+
+
+:=
+
+
+n
+
+
+-
+
+
+*
+
+
+20
+
+
+8
+
+
+5
+
+
+driver
+
+
+declare
+
+
+v_1_2_3
+
+
+A
+
+
+integer
+
+
+declare
+
+
+u1
+
+
+boolean
+
+
+:=
+
+
+A
+
+
+12
+
+
+declare
+
+
+p
+
+
+real
+
+
+:=
+
+
+p
+
+
+23.560000
+
+
+get_value
+
+
+v_1_2_43
+
+
+declare
+
+
+B
+
+
+C
+
+
+array
+
+
+integer
+
+
+..
+
+
+2
+
+
+20
+
+
+var_demo_array
+
+
+v_1_2_3
+
+
+u1
+
+
+A
+
+
+B
+
+
+p
+
+
+var_demo_array
+
+
+v_1_2_3
+
+
+k
+
+
+A
+
+
+B
+
+
+p
+
+
+:=
+
+
+B
+
+
+C
+
+
+declare
+
+
+B
+
+
+real
+
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+NUMBER OF PARSE TREE NODES ARE: 1457		 AND TOTAL MEMORY ALLOCATED IS 0 BYTES
+
+NUMBER OF AST NODES ARE: 460		 AND TOTAL MEMORY ALLOCATED IS 0 BYTES
+
+COMPRESSION PERCENTAGE = 68 %
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+LINE 14: VARIABLE h NOT DECLARED IN SCOPE
+
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 16: VARIABLE 'b' ALREADY DECLARED 
+
+
+LINE 34: VARIABLE D NOT DECLARED IN SCOPE
+
+LINE 34: VARIABLE ON LEFT 'D' IS NOT DEFINED
+
+LINE 38: VARIABLE 'A' ALREADY DECLARED 
+LINE 40: VARIABLE E NOT DECLARED IN SCOPE
+
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+LINE 53: VARIABLE 'v_1_2_43' NOT DECLARED
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+LINE 58: VARIABLE 'B' ALREADY DECLARED 
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+
+					TRAVERSAL 2 ENDED 
+
+
+
+a		f1		[23-42]		integer		yes		static		[10,30]		43		0		0		
+
+b		f1		[23-42]		integer		yes		static		[10,30]		43		5		0		
+
+c		f1		[23-42]		real		no		**		**		4		10		0		
+
+m		f1		[23-42]		boolean		no		**		**		1		14		0		
+
+n		f1		[23-42]		integer		no		**		**		2		15		0		
+
+x		f1		[23-42]		real		no		**		**		4		17		1		
+
+y		f1		[23-42]		real		no		**		**		4		21		1		
+
+A		f1		[23-42]		integer		yes		static		[4,10]		15		25		1		
+
+B		f1		[23-42]		integer		yes		static		[4,10]		15		40		1		
+
+C		f1		[23-42]		integer		yes		static		[10,30]		43		55		1		
+
+x		var_demo_array		[5-20]		integer		no		**		**		2		0		0		
+
+m		var_demo_array		[5-20]		integer		yes		static		[2,20]		39		2		0		
+
+p		var_demo_array		[5-20]		real		no		**		**		4		7		0		
+
+n		var_demo_array		[5-20]		integer		no		**		**		2		11		0		
+
+k		var_demo_array		[5-20]		boolean		no		**		**		1		13		0		
+
+a		var_demo_array		[5-20]		integer		no		**		**		2		14		1		
+
+b		var_demo_array		[5-20]		integer		no		**		**		2		16		1		
+
+p		var_demo_array		[5-20]		integer		yes		static		[2,20]		39		18		1		
+
+A		driver		[46-59]		integer		no		**		**		2		2		1		
+
+B		driver		[46-59]		integer		yes		static		[2,20]		39		9		1		
+
+C		driver		[46-59]		integer		yes		static		[2,20]		39		48		1		
+
+v_1_2_3		driver		[46-59]		integer		no		**		**		2		0		1		
+
+u1		driver		[46-59]		boolean		no		**		**		1		4		1		
+
+p		driver		[46-59]		real		no		**		**		4		5		1		
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+LINE 14: VARIABLE h NOT DECLARED IN SCOPE
+
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 16: VARIABLE 'b' ALREADY DECLARED 
+
+
+LINE 34: VARIABLE D NOT DECLARED IN SCOPE
+
+LINE 34: VARIABLE ON LEFT 'D' IS NOT DEFINED
+
+LINE 38: VARIABLE 'A' ALREADY DECLARED 
+LINE 40: VARIABLE E NOT DECLARED IN SCOPE
+
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+LINE 53: VARIABLE 'v_1_2_43' NOT DECLARED
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+LINE 58: VARIABLE 'B' ALREADY DECLARED 
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+
+					TRAVERSAL 2 ENDED 
+
+
+
+
+
+
+
+
+
+					PRINTING ACTIVATION RECORD SIZES 
+
+
+
+		f1					98
+
+
+		var_demo_array					57
+
+
+		driver					87
+
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+LINE 14: VARIABLE h NOT DECLARED IN SCOPE
+
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 16: VARIABLE 'b' ALREADY DECLARED 
+
+
+LINE 34: VARIABLE D NOT DECLARED IN SCOPE
+
+LINE 34: VARIABLE ON LEFT 'D' IS NOT DEFINED
+
+LINE 38: VARIABLE 'A' ALREADY DECLARED 
+LINE 40: VARIABLE E NOT DECLARED IN SCOPE
+
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+LINE 53: VARIABLE 'v_1_2_43' NOT DECLARED
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+LINE 58: VARIABLE 'B' ALREADY DECLARED 
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+
+					TRAVERSAL 2 ENDED 
+
+
+
+
+
+
+
+
+
+					PRINTING ACTIVATION RECORD SIZES 
+
+
+
+f1		[23-42]		a		static		[10,30]		integer		
+
+f1		[23-42]		b		static		[10,30]		integer		
+
+f1		[23-42]		A		static		[4,10]		integer		
+
+f1		[23-42]		B		static		[4,10]		integer		
+
+f1		[23-42]		C		static		[10,30]		integer		
+
+var_demo_array		[5-20]		m		static		[2,20]		integer		
+
+var_demo_array		[5-20]		p		static		[2,20]		integer		
+
+driver		[46-59]		B		static		[2,20]		integer		
+
+driver		[46-59]		C		static		[2,20]		integer		
+
+Enter your option: RUNNING PARSER
+
+                      [32m FIRST AND FOLLOW AUTOMATED [0m
+
+GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
+
+
+
+LINE 14: VARIABLE h NOT DECLARED IN SCOPE
+
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 14: TYPE MISMATCH ERROR OCCURED
+LINE 16: VARIABLE 'b' ALREADY DECLARED 
+
+
+LINE 34: VARIABLE D NOT DECLARED IN SCOPE
+
+LINE 34: VARIABLE ON LEFT 'D' IS NOT DEFINED
+
+LINE 38: VARIABLE 'A' ALREADY DECLARED 
+LINE 40: VARIABLE E NOT DECLARED IN SCOPE
+
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: TYPE MISMATCH ERROR OCCURED
+LINE 40: ERROR OCCURED WHILE ASSIGNMENT, LEFT AND RIGHT TYPES DID NOT MATCH
+
+LINE 53: VARIABLE 'v_1_2_43' NOT DECLARED
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+LINE 58: VARIABLE 'B' ALREADY DECLARED 
+
+
+					TRAVERSAL 1 ENDED 
+
+
+
+LINE 56: VARIABLE k NOT DECLARED IN SCOPE
+
+LINE 56: TYPE DID NOT MATCH FOR PARAM var_demo_array
+
+
+					TRAVERSAL 2 ENDED 
+
+
+
+Enter your option: 

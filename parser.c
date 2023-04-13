@@ -743,6 +743,10 @@ int getSizePT(){
     return PT_SIZE;
 }
 
+void setSizePT(){
+    PT_SIZE = 0;
+}
+
 
 /*PARSER CODE*/
 

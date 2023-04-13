@@ -70,6 +70,7 @@ int main(int argc, char* argv[]){
                 outputFile = argv[2];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 inorderTraversal(root,0);
                 break;
             }
@@ -77,7 +78,9 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 applyRule(root);
+                setSizeAST();
                 printf("\n\n\n\n\n\n\t\t\t\t\tPRINTING AST IN LEFT TO RIGHT & PREORDER \n\n\n\n");
                 printAST(root->addr);
                 break;
@@ -86,11 +89,13 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 int pt = countParseTreeNodes(root,0);
                 int pt_size = getSizePT();
                 printf("NUMBER OF PARSE TREE NODES ARE: %d\t\t AND TOTAL MEMORY ALLOCATED IS %d BYTES\n\n",pt,pt_size);
                 applyRule(root);
                 int ast = pt - getSizeAST();
+                setSizeAST();
                 int ast_size = pt_size*ast/pt;
 
                 printf("NUMBER OF AST NODES ARE: %d\t\t AND TOTAL MEMORY ALLOCATED IS %d BYTES\n\n",ast,ast_size);
@@ -101,10 +106,12 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 if(root == NULL){
                     break;
                 }
                 applyRule(root);
+                setSizeAST();
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);
@@ -118,10 +125,12 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 if(root == NULL){
                     break;
                 }
                 applyRule(root);
+                setSizeAST();
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);
@@ -136,10 +145,12 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 if(root == NULL){
                     break;
                 }
                 applyRule(root);
+                setSizeAST();
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);
@@ -154,10 +165,12 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
+                setSizePT();
                 if(root == NULL){
                     break;
                 }
                 applyRule(root);
+                setSizeAST();
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);
@@ -172,6 +185,7 @@ int main(int argc, char* argv[]){
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
                 applyRule(root);
+                setSizeAST();
                 SYMBOLTABLE GLOBAL_SYMBOL_TABLE = initializeSymbolTable("module",0,10000);
                 GST = GLOBAL_SYMBOL_TABLE;
                 traversal(root->addr,GLOBAL_SYMBOL_TABLE);

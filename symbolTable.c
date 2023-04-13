@@ -121,7 +121,7 @@ SYMBOLTABLEROW StoreVarIntoSymbolTable(SYMBOLTABLE SYMBOL_TABLE,TREENODE var,TRE
     SYMBOLTABLEROW str = SYMBOL_TABLE->TABLE[index];
     while(str!=NULL){
         if(strcmp(str->id->lexemedata->data,var->TREENODEDATA->terminal->lexemedata->data) == 0){
-            printf("LINE %d: VARIABLE '%s' ALREADY DEFINED \n",var->TREENODEDATA->terminal->lineNo, var->TREENODEDATA->terminal->lexemedata->data);
+            printf("LINE %d: VARIABLE '%s' ALREADY DECLARED \n",var->TREENODEDATA->terminal->lineNo, var->TREENODEDATA->terminal->lexemedata->data);
             return NULL;
         }
         str = str->next;
