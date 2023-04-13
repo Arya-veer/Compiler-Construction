@@ -1497,7 +1497,7 @@ void outputParamWhileAssignment(SYMBOLTABLE ST,TREENODE node){
 }
 
 
-/*CHECKS INPUT PARAM LIST IN CUNTION CALL*/
+/*CHECKS INPUT PARAM LIST IN FUNCTION CALL*/
 void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
 
     SYMBOLTABLEROW formalParam = row->INPUTPARAMSHEAD;
@@ -1518,13 +1518,13 @@ void checkInputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         count++;
         actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
         if(actualParam->type != formalParam->type){
-            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, node->TREENODEDATA->terminal->lexemedata->data);
+            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
         }
         else if(actualParam->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN){
             SYMBOLTABLEROW str1 = GetVarFromSymbolTable(SYMBOL_TABLE,actualParam);
             if(str1->isDynamic == 0 && formalParam->isDynamic == 0){
                 if((str1->range->right->TREENODEDATA->terminal->lexemedata->intData - str1->range->left->TREENODEDATA->terminal->lexemedata->intData) != (formalParam->range->right->TREENODEDATA->terminal->lexemedata->intData - formalParam->range->left->TREENODEDATA->terminal->lexemedata->intData)){
-                    printf("LINE %d: TYPE DID NOT MATCH FOR ARRAY PARAM %s\n",node->TREENODEDATA->terminal->lineNo, node->TREENODEDATA->terminal->lexemedata->data);
+                    printf("LINE %d: TYPE DID NOT MATCH FOR ARRAY PARAM %s\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
                 }
             }
 
@@ -1556,7 +1556,7 @@ void checkOutputList(TREENODE node,SYMBOLTABLEROW row,SYMBOLTABLE SYMBOL_TABLE){
         count++;
         actualParam->type = getTypeAST(actualParam,SYMBOL_TABLE);
         if(actualParam->type != formalParam->type){
-            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM %s\n",node->TREENODEDATA->terminal->lineNo, node->TREENODEDATA->terminal->lexemedata->data);
+            printf("LINE %d: TYPE DID NOT MATCH FOR PARAM '%s'\n",node->TREENODEDATA->terminal->lineNo, actualParam->TREENODEDATA->terminal->lexemedata->data);
         }
         else{
             outputParamAssignment(actualParam,row);
@@ -2108,7 +2108,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,caseVal);
             case_node->SYMBOLTABLE = initializeSymbolTable("case",node->TREENODEDATA->terminal->lineNo,node->isArray);
             case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
-            
+            case_node->SYMBOLTABLE->first = caseVal->TREENODEDATA->terminal->lineNo;
             case_node->SYMBOLTABLE->last = caseVal->right_child->TREENODEDATA->terminal->lineNo;
             traversal(caseVal->left_child,case_node->SYMBOLTABLE);
             caseVal = caseVal->list_addr_syn;
@@ -2120,6 +2120,7 @@ void traversal(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             SYMBOLTABLEROW case_node = StoreCaseIntoSymbolTable(row->SYMBOLTABLE,node->right_child);
             case_node->SYMBOLTABLE = initializeSymbolTable("default",node->TREENODEDATA->terminal->lineNo,node->isArray);
             case_node->SYMBOLTABLE->parent = row->SYMBOLTABLE;
+            case_node->SYMBOLTABLE->first = node->TREENODEDATA->terminal->lineNo;
             case_node->SYMBOLTABLE->last = node->right_child->right_child->TREENODEDATA->terminal->lineNo;
             traversal(node->right_child->left_child,row->SYMBOLTABLE);
         }

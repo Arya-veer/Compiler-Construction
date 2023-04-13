@@ -390,6 +390,12 @@ LINE NO: 58         LEXEME: real         TOKEN: REAL
 LINE NO: 58         LEXEME: ;         TOKEN: SEMICOL
 Skipped Comment
 LINE NO: 59         LEXEME: end         TOKEN: END
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -3609,6 +3615,12 @@ end         59            END     moduleDef      YES
 
        ----------            finalProgram           ROOT	      NO
 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -4307,6 +4319,12 @@ u1
 real
 
 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -4314,11 +4332,17 @@ Enter your option: RUNNING PARSER
 GIVEN SOURCE CODE IS SYNTACTICALLY CORRECT
 
 
-NUMBER OF PARSE TREE NODES ARE: 1607		 AND TOTAL MEMORY ALLOCATED IS 0 BYTES
+NUMBER OF PARSE TREE NODES ARE: 1607		 AND TOTAL MEMORY ALLOCATED IS 182704 BYTES
 
-NUMBER OF AST NODES ARE: 535		 AND TOTAL MEMORY ALLOCATED IS 0 BYTES
+NUMBER OF AST NODES ARE: 535		 AND TOTAL MEMORY ALLOCATED IS 60825 BYTES
 
 COMPRESSION PERCENTAGE = 66 %
+
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
 
 Enter your option: RUNNING PARSER
 
@@ -4449,6 +4473,12 @@ new		compute		[28-47]		boolean		no		**		**		1		17		1
 
 s		compute		[28-47]		integer		no		**		**		2		22		1		
 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -4535,6 +4565,12 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM compute
 		compute					26
 
 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -4612,6 +4648,12 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM compute
 
 
 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+
 Enter your option: RUNNING PARSER
 
                       [32m FIRST AND FOLLOW AUTOMATED [0m
@@ -4679,4 +4721,9 @@ LINE 56: TYPE DID NOT MATCH FOR PARAM compute
 
 
 
-Enter your option: 
+
+
+
+		ACTION SUCCESSFUL, EXITING THE CODE
+
+

@@ -47,7 +47,10 @@ int main(int argc, char* argv[]){
     clock_t start_time = 0, end_time = 0;
     double total_CPU_time = 0, total_CPU_time_in_seconds = 0;
     int SIZE = 1024;
+
     while(option){
+        printf("Enter your option: ");
+        scanf("%d", &option);
         switch (option)
         {
             case 0:
@@ -89,9 +92,9 @@ int main(int argc, char* argv[]){
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
-                setSizePT();
                 int pt = countParseTreeNodes(root,0);
                 int pt_size = getSizePT();
+                setSizePT();
                 printf("NUMBER OF PARSE TREE NODES ARE: %d\t\t AND TOTAL MEMORY ALLOCATED IS %d BYTES\n\n",pt,pt_size);
                 applyRule(root);
                 int ast = pt - getSizeAST();
@@ -162,6 +165,7 @@ int main(int argc, char* argv[]){
                 break;
             }
             case 8:{
+                start_time = clock();
                 inputFile = argv[1];
                 printf("RUNNING PARSER\n");
                 TREENODE root = parser(grammarFile,inputFile,SIZE);
@@ -177,6 +181,11 @@ int main(int argc, char* argv[]){
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
                 traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
+                end_time = clock();
+                total_CPU_time = (end_time - start_time);
+                printf("Clock Ticks = %lf\n",total_CPU_time);
+                total_CPU_time_in_seconds = (double) total_CPU_time / CLOCKS_PER_SEC;
+                printf("The code took %lf seconds.\n\n", total_CPU_time_in_seconds);
                 break;
             }
             case 100:{
@@ -249,7 +258,7 @@ int main(int argc, char* argv[]){
             default:
                 break;
         }
-        printf("Enter your option: ");
-        scanf("%d", &option);
+        printf("\n\n\n\t\tACTION SUCCESSFUL, EXITING THE CODE\n\n\n");
+        return 0;
     }
 }

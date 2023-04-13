@@ -27,8 +27,12 @@ int getWidth(SYMBOLTABLEROW str,int isParam){
     width = OFFSETS[str->type];
     if(isParam == 1 && str->isDynamic != -1) return 1 + 2*OFFSETS[str->type];
     if(str->isDynamic == 0){
-        
-        width = width*(str->range->right->TREENODEDATA->terminal->lexemedata->intData - str->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
+        if(str->range->leftSign!=NULL && strcmp(str->range->leftSign,"-") == 0){
+            width = width*(str->range->right->TREENODEDATA->terminal->lexemedata->intData + str->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
+        }
+        else{
+            width = width*(str->range->right->TREENODEDATA->terminal->lexemedata->intData - str->range->left->TREENODEDATA->terminal->lexemedata->intData + 1) + 1;
+        }
     }
     else if(str->isDynamic == 1) return 1;
     // printf("WIDTH OF %s is %d\n\n",str->id->lexemedata->data,width);
@@ -518,7 +522,7 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
         printf("no\t\t");
         printf("**\t\t");
         printf("**\t\t");
-        printf("%d\t\t",OFFSETS[row->type]);
+        // printf("%d\t\t",OFFSETS[row->type]);
 
     }
     else if(row->isDynamic == 0){
@@ -533,7 +537,7 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
             printf("%s",row->range->rightSign);
         }
         printf("%d]\t\t",row->range->right->TREENODEDATA->terminal->lexemedata->intData);
-        printf("%d\t\t",1 + OFFSETS[row->type]*(1 + row->range->right->TREENODEDATA->terminal->lexemedata->intData-row->range->left->TREENODEDATA->terminal->lexemedata->intData));
+        // printf("%d\t\t",1 + OFFSETS[row->type]*(1 + row->range->right->TREENODEDATA->terminal->lexemedata->intData-row->range->left->TREENODEDATA->terminal->lexemedata->intData));
     }
     else{
         printf("yes\t\t");
@@ -549,8 +553,10 @@ void printRowSymbolTable(SYMBOLTABLEROW function,SYMBOLTABLE scopeTable,SYMBOLTA
         }
         if(row->range->left->TREENODEDATA->terminal->token == NUM_TOKEN) printf("%d]\t\t",row->range->left->TREENODEDATA->terminal->lexemedata->intData);
         else if(row->range->left->TREENODEDATA->terminal->token == IDENTIFIER_TOKEN) printf("%s]\t\t",row->range->left->TREENODEDATA->terminal->lexemedata->data);
-        printf("1\t\t");
+        // printf("1\t\t");
     }
+    if(level == 0)printf("%d\t\t",getWidth(row,1));
+    else printf("%d\t\t",getWidth(row,0));
     printf("%d\t\t",row->offset - function->SYMBOLTABLE->currOffset);
     printf("%d\t\t",level);
     printf("\n\n");
