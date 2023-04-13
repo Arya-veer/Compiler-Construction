@@ -225,17 +225,18 @@ int main(int argc, char* argv[]){
                 printf("\n\n\t\t\t\t\tTRAVERSAL 1 ENDED \n\n\n\n");
                 traversalForDeclaredFuncs(root->addr,GLOBAL_SYMBOL_TABLE);
                 printf("\n\n\t\t\t\t\tTRAVERSAL 2 ENDED \n\n\n\n");
-                // QR = initializeQuadruple();
+                QR = initializeQuadruple();
                 
-                // printf("STARTING INTERMEDIATE CODE GENERATION\n\n");
-                // traversalForCodeGeneration(root->addr,GLOBAL_SYMBOL_TABLE);
-                // printf("PRINTING QUADRUPLE\n\n");
-                // printQuadRuple();
-                // printf("PRINTING QUADRUPLE\n\n");
+                printf("STARTING INTERMEDIATE CODE GENERATION\n\n");
+                traversalForCodeGeneration(root->addr,GLOBAL_SYMBOL_TABLE);
+                printf("PRINTING QUADRUPLE\n\n");
+                printQuadRuple();
+                printf("PRINTING QUADRUPLE\n\n");
 
-                // printQuadRuple();
-                // printf("STARTING CODE GENERATION\n\n");
-                // CodeGeneration();
+                printQuadRuple();
+                printf("STARTING CODE GENERATION\n\n");
+                printFullTable(GST);
+                CodeGeneration();
                 break;
             }
             case 400:{

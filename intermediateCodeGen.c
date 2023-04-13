@@ -24,10 +24,10 @@ TREENODE getTemp(TREENODE node){
     temp->TREENODEDATA->terminal = (LEXEME*) malloc(sizeof(LEXEME));
     temp->TREENODEDATA->terminal->lexemedata = (union lexemeData*) malloc(sizeof(union lexemeData));
     char name[5];
-
     sprintf(name,"t%d",TEMP_NUM++);
     temp->TREENODEDATA->terminal->lexemedata->data = (char*) malloc(sizeof(char)*5);
     strcpy(temp->TREENODEDATA->terminal->lexemedata->data,name);
+    temp->type = node->type;
     temp->TREENODEDATA->terminal->token = IDENTIFIER_TOKEN;
     return temp;
 }
@@ -314,7 +314,7 @@ void traversalForCodeGeneration(TREENODE node,SYMBOLTABLE SYMBOL_TABLE){
             node->left_child->right_child->TREENODEDATA->terminal->lexemedata->intData*=-1;
         }
         int for_label = FOR_COUNT++;
-        insertRow(FOR_LOOP,node->left_child,NULL,NULL, currFunc,row->SYMBOLTABLE,for_label);
+        insertRow(FOR_LOOP,node->left_child,node->left_child->left_child,node->left_child->right_child, currFunc,row->SYMBOLTABLE,for_label);
         traversalForCodeGeneration(node->right_child,row->SYMBOLTABLE);
         insertRow(FOR_LOOP_END,NULL,NULL,NULL, currFunc,SYMBOL_TABLE,for_label);
         traversalForCodeGeneration(node->list_addr_syn,SYMBOL_TABLE);
